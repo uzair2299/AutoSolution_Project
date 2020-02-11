@@ -13,147 +13,147 @@
    });
 
     /* Hero slider active */
-    $('.slider-active').owlCarousel({
-        loop: true,
-        nav: true,
-        dots: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        items: 1,
-    });
+    //$('.slider-active').owlCarousel({
+    //    loop: true,
+    //    nav: true,
+    //    dots: true,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+    //    items: 1,
+    //});
     
     /* Single Product Carousel*/
-    $('.single-product-active').owlCarousel({
-        loop: true,
-        nav: true,
-        dots: true,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        items: 4,
-        margin: 10,
-        responsive:{
-            0:{
-                items:2,
-            }, 
-            480:{
-                items:3,
-            },
-            768:{
-                items:4,
-            }
-        }
-    });
+    //$('.single-product-active').owlCarousel({
+    //    loop: true,
+    //    nav: true,
+    //    dots: true,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+    //    items: 4,
+    //    margin: 10,
+    //    responsive:{
+    //        0:{
+    //            items:2,
+    //        }, 
+    //        480:{
+    //            items:3,
+    //        },
+    //        768:{
+    //            items:4,
+    //        }
+    //    }
+    //});
     
-    //Best Seller prod 
-    $('.best_seller_product_carousel').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        items: 1,
-        responsive:{
-            0:{
-                items:1,
-            }, 
-            768:{
-                items:2,
-            },
-            992:{
-                items:1,
-            },
-            1199:{
-                items:1,
-            }
-        }
-    });
-    //Best Seller prod 
-    $('.carousel_product').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        items: 3,
-        responsive:{
-            0:{
-                items:1,
-            }, 
-            768:{
-                items:2,
-            },
-            992:{
-                items:3,
-            },
-            1199:{
-                items:3,
-            }
-        }
-    });
+    ////Best Seller prod 
+    //$('.best_seller_product_carousel').owlCarousel({
+    //    loop: true,
+    //    nav: false,
+    //    dots: false,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    items: 1,
+    //    responsive:{
+    //        0:{
+    //            items:1,
+    //        }, 
+    //        768:{
+    //            items:2,
+    //        },
+    //        992:{
+    //            items:1,
+    //        },
+    //        1199:{
+    //            items:1,
+    //        }
+    //    }
+    //});
+    ////Best Seller prod 
+    //$('.carousel_product').owlCarousel({
+    //    loop: true,
+    //    nav: false,
+    //    dots: false,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    items: 3,
+    //    responsive:{
+    //        0:{
+    //            items:1,
+    //        }, 
+    //        768:{
+    //            items:2,
+    //        },
+    //        992:{
+    //            items:3,
+    //        },
+    //        1199:{
+    //            items:3,
+    //        }
+    //    }
+    //});
     
-    /* --Related Product Carousel--*/
-    $('.related_product_guttters').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        items: 4,
-        responsive:{
-            0:{
-                items:1,
-            }, 
-            768:{
-                items:2,
-            },
-            992:{
-                items:3,
-            },
-            1199:{
-                items:4,
-            }
-        }
-    });
+    ///* --Related Product Carousel--*/
+    //$('.related_product_guttters').owlCarousel({
+    //    loop: true,
+    //    nav: false,
+    //    dots: false,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    items: 4,
+    //    responsive:{
+    //        0:{
+    //            items:1,
+    //        }, 
+    //        768:{
+    //            items:2,
+    //        },
+    //        992:{
+    //            items:3,
+    //        },
+    //        1199:{
+    //            items:4,
+    //        }
+    //    }
+    //});
    
-    /* --Testimonial Carousel--*/
-    $('.testimonial_list').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        items: 1,
-    });  
+    ///* --Testimonial Carousel--*/
+    //$('.testimonial_list').owlCarousel({
+    //    loop: true,
+    //    nav: false,
+    //    dots: false,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    items: 1,
+    //});  
     
-    /* --Testimonial Carousel--*/
-    $('.brand_carousel_active').owlCarousel({
-        loop: true,
-        nav: false,
-        dots: false,
-        autoplay: false,
-        autoplayTimeout: 5000,
-        items: 5,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-            }, 
-            480:{
-                items:2,
-            },
-            768:{
-                items:3,
-            },
-            992:{
-                items:4,
-            },
-            1199:{
-                items:5,
-            }
-        }
-    });
+    ///* --Testimonial Carousel--*/
+    //$('.brand_carousel_active').owlCarousel({
+    //    loop: true,
+    //    nav: false,
+    //    dots: false,
+    //    autoplay: false,
+    //    autoplayTimeout: 5000,
+    //    items: 5,
+    //    responsiveClass:true,
+    //    responsive:{
+    //        0:{
+    //            items:1,
+    //        }, 
+    //        480:{
+    //            items:2,
+    //        },
+    //        768:{
+    //            items:3,
+    //        },
+    //        992:{
+    //            items:4,
+    //        },
+    //        1199:{
+    //            items:5,
+    //        }
+    //    }
+    //});
    
     
     /*-----
