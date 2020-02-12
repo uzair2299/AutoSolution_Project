@@ -267,7 +267,7 @@ header {
 /*Header middle css here*/
 .category_search {
   display: inline-block;
-  margin-left: 48px;
+  /*margin-left: 48px;*/
 }
 .menu > nav > ul {
 	display: -webkit-box;
