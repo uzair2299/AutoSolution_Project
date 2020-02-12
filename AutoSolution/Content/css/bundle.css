@@ -47,13 +47,13 @@ a,
     -webkit-transition: all 0.3s ease-out 0s;
     transition: all 0.3s ease-out 0s;
 }
-.btn {
+/*.btn {
     border-radius: 0px;
     font-size: 14px;
     padding: 0px 15px;
     height: 30px;
     line-height: 30px;
-}
+}*/
 a:focus,
 .btn:focus,button:focus {
     text-decoration: none;
