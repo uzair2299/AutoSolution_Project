@@ -25,12 +25,13 @@
 /*************************
     General
 *************************/
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,400i');
+/*@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,400i');*/
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    /*font-family: 'Source Sans Pro', sans-serif;*/
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
+    font-display:block;
 	color:#151320 ;
 }
 button,input[type="submit"],select{
@@ -89,7 +90,7 @@ h6 {
     margin-top: 0px;
     font-style: normal;
     font-weight: 400;
-    font-family: "Source Sans Pro",sans-serif;
+    /*font-family: "Source Sans Pro",sans-serif;*/
 }
 h1 a,
 h2 a,
@@ -209,7 +210,7 @@ a.button-small::after {
 .share:hover ul {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
-    -ms-transition: all 0.4s ease-in-out;
+    /*-ms-transition: all 0.4s ease-in-out;*/
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
 }
@@ -261,17 +262,7 @@ textarea {
 /*************************
         Input
 *************************/
-input {
-    background: #eceff8;
-    border: 1px solid #eee;
-    height: 45px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    padding-left: 10px;
-    font-size: 14px;
-    color: #626262;
-    width: 100%;
-}
+
 select {
     width: 100%;
     background: #eceff8;

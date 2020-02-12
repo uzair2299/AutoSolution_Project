@@ -120,6 +120,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -134,6 +135,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bundle.css" />
+    <Content Include="Content\css\Login.css" />
     <Content Include="Content\css\plugin.css" />
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
@@ -180,6 +182,7 @@
     <Content Include="Content\img\fun-bg.jpg" />
     <Content Include="Content\img\icon\cart-2.png" />
     <Content Include="Content\img\icon\cart.png" />
+    <Content Include="Content\img\Login.jpg" />
     <Content Include="Content\img\logo\logo-2.png" />
     <Content Include="Content\img\logo\logo.png" />
     <Content Include="Content\img\map-marker.png" />
@@ -360,6 +363,7 @@
     <Content Include="Content\Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Content\Scripts\umd\popper-utils.js.map" />
     <Content Include="Content\Scripts\popper-utils.min.js.map" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,6 +9,7 @@
     <link href="~/Content/css/bundle.css" rel="stylesheet" />
     <link href="~/Content/css/style.css" rel="stylesheet" />
     <link href="~/Content/css/responsive.css" rel="stylesheet" />
+    <link href="~/Content/css/Login.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -156,7 +157,7 @@
                                                     <li><a href="checkout.html">Checkout</a></li>
                                                     <li><a href="wishlist.html">wishlist</a></li>
                                                     <li><a href="my-account.html">My account</a></li>
-                                                    <li><a href="login.html">login</a></li>
+                                                    <li>@Html.ActionLink("Login", "Index", "login")</li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -329,11 +330,16 @@
                             <div class="addresses_inner">
                                 <div class="single_address">
                                     <p>
-                                        <span> Address: </span> <span>13/M Matador road, South <br> Road USA- 2155</span>
+                                        <i class="fa fa-home mr-3"></i>Lahore,Pakistan
                                     </p>
-
                                     <p>
-                                        <span> Phone: </span> <span>+12  2223 2223 22 <br>  +125 5455 5555 55</span>
+                                        <i class="fa fa-envelope mr-3"></i>AutoSolution@Gmail.com
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-phone mr-3"></i>+923205500003
+                                    </p>
+                                    <p>
+                                        <i class="fa fa-print mr-3"></i>+923366312299
                                     </p>
                                 </div>
                             </div>
@@ -407,7 +413,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright_inner text-center">
-                            <p>Copyright © All Right Reserved </p>
+                            <p class="copyright-text">
+                                Copyright © 2019 All Rights Reserved by
+                                <a href="#">Auto Solution</a>.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -420,6 +429,6 @@
     <script src="~/Content/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Content/Scripts/umd/popper.min.js"></script>
     <script src="~/Content/Scripts/bootstrap.min.js"></script>
-    <script src="~/Content/js/vendor/modernizr-2.8.3.min.js"></script>
+
 </body>
 </html>

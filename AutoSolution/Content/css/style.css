@@ -835,10 +835,10 @@ header {
    color: #151320;
 	opacity: 1;
 }
-.newsletter_form input[type="email"]::-ms-input-placeholder{
+/*.newsletter_form input[type="email"]::-ms-input-placeholder{
     color: #151320;
 	opacity: 1;
-}
+}*/
 .newsletter_form input[type="email"]::-moz-placeholder{
     color: #151320;
 	opacity: 1;
@@ -970,7 +970,7 @@ footer.footer_area {
 .addresses_inner .single_address > p {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    /*display: flex;*/
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
@@ -1016,9 +1016,9 @@ footer.footer_area {
 .single_footer.footer_widget_menu {
   margin-left: 70px;
 }
-.single_footer.widget_description {
+/*.single_footer.widget_description {
   padding-right: 15px;
-}
+}*/
 /*--------
     12. Home 2 css here
 ------------------*/
@@ -1953,7 +1953,7 @@ input.cart-plus-minus-box {
 .post_excerpt blockquote::before {
   color: #001430;
   content: "";
-  font-family: material-design-iconic-font;
+  /*font-family: material-design-iconic-font;*/
   font-size: 188px;
   left: 0;
   line-height: 0.45;
@@ -2330,7 +2330,7 @@ blockquote {
 .testimonial_list::before {
   color: #606060;
   content: "";
-  font-family: material-design-iconic-font;
+  /*font-family: material-design-iconic-font;*/
   font-size: 115px;
   left: 0;
   line-height: 120px;
@@ -2736,7 +2736,7 @@ blockquote {
 	color: #333;
 	content: "\f332";
 	display: inline-block;
-	font-family: Material-Design-Iconic-Font;
+	/*font-family: Material-Design-Iconic-Font;*/
 	font-size: 20px;
 	left: 10px;
 	position: absolute;
@@ -2862,7 +2862,7 @@ p.checkout-coupon input[type="submit"] {
 .country-select::before {
 	content: "\f2f9";
 	display: inline-block;
-	font-family: Material-Design-Iconic-Font;
+	/*font-family: Material-Design-Iconic-Font;*/
 	font-size: 26px;
 	position: absolute;
 	right: 20px;
