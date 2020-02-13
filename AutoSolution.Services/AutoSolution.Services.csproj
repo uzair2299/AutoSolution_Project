@@ -43,5 +43,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">
+      <Project>{abf72798-ae29-4de1-be40-c05d64cb367d}</Project>
+      <Name>AutoSolution.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoSolution.Entities\AutoSolution.Entities.csproj">
+      <Project>{d3fa842d-b46c-4bc6-8f1d-10b27a42781e}</Project>
+      <Name>AutoSolution.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
