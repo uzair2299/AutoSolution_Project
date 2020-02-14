@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
+    <Compile Include="Migrations\202002142041234_initializated.cs" />
+    <Compile Include="Migrations\202002142041234_initializated.designer.cs">
+      <DependentUpon>202002142041234_initializated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +68,11 @@
       <Project>{d3fa842d-b46c-4bc6-8f1d-10b27a42781e}</Project>
       <Name>AutoSolution.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002142041234_initializated.resx">
+      <DependentUpon>202002142041234_initializated.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
