@@ -121,7 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
@@ -5908,7 +5908,6 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-multiselectsplitter\LICENCE" />
     <Content Include="assets\vendors\custom\vendors\flaticon2\font\Flaticon2.eot" />
     <Content Include="assets\vendors\custom\vendors\flaticon2\font\Flaticon2.ttf" />
@@ -6739,6 +6738,7 @@
     <Content Include="assets\vendors\general\wnumb\bower.json" />
     <Content Include="assets\vendors\general\wnumb\package.json" />
     <Content Include="assets\vendors\general\wnumb\README.md" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.min.js" />

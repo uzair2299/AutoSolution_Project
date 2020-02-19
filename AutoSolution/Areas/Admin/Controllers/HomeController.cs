@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Areas.Admin.Controllers
 {
-    public class AdminController : Controller
+    public class HomeController : Controller
     {
-        // GET: Admin/Admin
+        // GET: Admin/Home
         public ActionResult Index()
         {
             return View();
