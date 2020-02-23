@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -6838,8 +6839,8 @@
     <Content Include="Content\Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Content\Scripts\umd\popper-utils.js.map" />
     <Content Include="Content\Scripts\popper-utils.min.js.map" />
-    <Content Include="Views\Shared\_UserRegistrationLayout.cshtml" />
     <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
