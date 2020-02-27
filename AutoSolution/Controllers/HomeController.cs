@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoSolution.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +14,7 @@ namespace AutoSolution.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(City city)
         {
             ViewBag.Message = "Your application description page.";
 

@@ -1,0 +1,101 @@
+﻿@model AutoSolution.Entities.City
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="kt-subheader  kt-grid__item" id="kt_subheader">
+    <div class="kt-container  kt-container--fluid ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Manage Provinces</h3>
+            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            <button type="button" data-toggle="modal" data-target="#kt_modal_6" class="btn btn-dark"><i class="flaticon-plus"></i>Add New Province</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Province</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddProvince", "Province", FormMethod.Post, htmlAttributes: new { @class = "kt-form kt-form--label-right" }))
+                {
+                    <div class="kt-portlet__body">
+                        <div class="form-group ">
+                            <label>Province Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fa fa-location-arrow kt-font-dark"></i></span></div>
+                                @Html.EditorFor(model => model.CityName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.CityName, "")</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark">Save changes</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- begin:: Content -->
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Bordered Table
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <!--begin::Section-->
+        <div class="kt-section">
+            <div class="kt-section__content">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Province Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Punjab</td>
+                                <td class="kt-align-center">
+                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                        <i class="la la-edit kt-font-dark"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                                        <i class="la la-trash kt-font-dark"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Sindh</td>
+                                <td class="kt-align-center">
+                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                        <i class="la la-edit kt-font-dark"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                                        <i class="la la-trash kt-font-dark"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--end::Section-->
+    </div>
+    <!--end::Form-->
+</div>
+<!-- end:: Content -->
