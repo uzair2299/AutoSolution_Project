@@ -16,6 +16,7 @@ namespace AutoSolution.Database.DataBaseContext
         public DbSet<User> User { get; set; } 
         public DbSet<City> Cities { get; set; }
         public DbSet <Province> Province { get; set; }
+        public DbSet<ServiceCategory> ServiceCategories { get; set; }
         
 
     }

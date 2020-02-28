@@ -7,13 +7,13 @@ namespace AutoSolution.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class _in : IMigrationMetadata
+    public sealed partial class addcategory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_in));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addcategory));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002260850209_in"; }
+            get { return "202002280843024_addcategory"; }
         }
         
         string IMigrationMetadata.Source
