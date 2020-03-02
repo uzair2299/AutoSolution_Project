@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace AutoSolution.Entities
 {
@@ -15,6 +16,9 @@ namespace AutoSolution.Entities
 
         public int ProvinceId { get; set; }
         public virtual Province Province { get; set; }
+        
+        public virtual ICollection<User> Users { get; set; }
+        
 
     }
 }

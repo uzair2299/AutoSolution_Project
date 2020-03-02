@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoSolutionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">

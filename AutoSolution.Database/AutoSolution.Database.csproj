@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202002280843024_addcategory.cs" />
-    <Compile Include="Migrations\202002280843024_addcategory.designer.cs">
-      <DependentUpon>202002280843024_addcategory.cs</DependentUpon>
+    <Compile Include="Migrations\202003010502284_new.cs" />
+    <Compile Include="Migrations\202003010502284_new.designer.cs">
+      <DependentUpon>202003010502284_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002280843024_addcategory.resx">
-      <DependentUpon>202002280843024_addcategory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003010502284_new.resx">
+      <DependentUpon>202003010502284_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

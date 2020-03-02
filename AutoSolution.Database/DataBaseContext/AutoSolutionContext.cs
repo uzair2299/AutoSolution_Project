@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoSolution.Entities;
+using AutoSolution.Entities.BaseEntities;
 
 namespace AutoSolution.Database.DataBaseContext
 {
-    class AutoSolutionContext: DbContext
+   public class AutoSolutionContext: DbContext
     {
         public AutoSolutionContext() : base("name = AutoSolutionContext") { }
-
+      
 
         public DbSet<User> User { get; set; } 
         public DbSet<City> Cities { get; set; }
