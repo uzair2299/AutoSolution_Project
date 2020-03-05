@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-   public class Province
+   public class Province:BaseEntity
     {
-        public int ProvinceId { get; set; }
+        
         public string ProvinceName { get; set; }
-        public string ProvinceCode { get; set; }
+        //public string ProvinceCode { get; set; }
         public virtual ICollection<City> Cities { get; set; }
 
     }

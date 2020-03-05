@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-    public class User
+    public class User:BaseEntity
     {
-        public int UserId { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Email { get; set; }
@@ -33,8 +32,7 @@ namespace AutoSolution.Entities
 
         public virtual ICollection<ServiceCategory> ServiceCategories { get; set; }
 
-        public int CityId { get; set; }
-        public virtual City City { get; set; }
+        
 
     }
 }

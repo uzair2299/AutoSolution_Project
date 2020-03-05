@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202003010502284_new.cs" />
-    <Compile Include="Migrations\202003010502284_new.designer.cs">
-      <DependentUpon>202003010502284_new.cs</DependentUpon>
+    <Compile Include="Migrations\202003031759396_change.cs" />
+    <Compile Include="Migrations\202003031759396_change.designer.cs">
+      <DependentUpon>202003031759396_change.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003010502284_new.resx">
-      <DependentUpon>202003010502284_new.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003031759396_change.resx">
+      <DependentUpon>202003031759396_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

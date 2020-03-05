@@ -124,6 +124,7 @@
     <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProvinceController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
@@ -6743,7 +6744,6 @@
     <Content Include="assets\vendors\general\wnumb\README.md" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Province\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Province\addNew.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
     <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Content\Scripts\jquery-3.4.1.js" />
@@ -6845,6 +6845,7 @@
     <Content Include="Content\Scripts\popper-utils.min.js.map" />
     <Content Include="Views\Registration\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6874,6 +6875,10 @@
     <ProjectReference Include="..\AutoSolution.Entities\AutoSolution.Entities.csproj">
       <Project>{d3fa842d-b46c-4bc6-8f1d-10b27a42781e}</Project>
       <Name>AutoSolution.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoSolution.Services\AutoSolution.Services.csproj">
+      <Project>{0e64f2e2-797b-4702-9a27-22caeefb1824}</Project>
+      <Name>AutoSolution.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

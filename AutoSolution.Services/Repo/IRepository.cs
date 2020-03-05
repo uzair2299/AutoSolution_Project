@@ -8,6 +8,11 @@ namespace AutoSolution.Services.Repo
 {
    public interface IRepository<T> where T:class
     {
-
+        IEnumerable<T> GetAll();
+        T GetByID(int ModelId);
+        void Add(T obj);
+        void  Update(T obj);
+        void Delete(int ModelId);
+        void Save();
     }
 }
