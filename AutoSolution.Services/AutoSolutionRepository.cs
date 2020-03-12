@@ -35,7 +35,7 @@ namespace AutoSolution.Services
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return DbEntity.ToList();
         }
 
         public T GetByID(int ModelId)

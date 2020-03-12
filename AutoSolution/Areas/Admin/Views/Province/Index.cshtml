@@ -1,6 +1,7 @@
-﻿@model AutoSolution.Entities.City
+﻿@model IEnumerable<AutoSolution.Entities.Province>
 @{
     ViewBag.Title = "Index";
+    var counter = 0;
 }
 
 <div class="kt-subheader  kt-grid__item" id="kt_subheader">
@@ -25,12 +26,12 @@
                 {
                     <div class="kt-portlet__body">
                         <div class="form-group ">
-                            <label>Province Name</label>
+                            <label>@Html.DisplayNameFor(model => model.ProvinceName)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fa fa-location-arrow kt-font-dark"></i></span></div>
-                                @Html.EditorFor(model => model.CityName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.ProvinceName), new { htmlAttributes = new { @class = "form-control" } })
                             </div>
-                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.CityName, "")</span>
+                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => "")</span>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -43,59 +44,71 @@
     </div>
 </div>
 <!-- begin:: Content -->
-<div class="kt-portlet">
-    <div class="kt-portlet__head">
-        <div class="kt-portlet__head-label">
-            <h3 class="kt-portlet__head-title">
-                Provinces
-            </h3>
-        </div>
-    </div>
-    <div class="kt-portlet__body">
-        <!--begin::Section-->
-        <div class="kt-section">
-            <div class="kt-section__content">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Province Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Punjab</td>
-                                <td class="kt-align-center">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
-                                        <i class="la la-edit kt-font-dark"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
-                                        <i class="la la-trash kt-font-dark"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Sindh</td>
-                                <td class="kt-align-center">
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
-                                        <i class="la la-edit kt-font-dark"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
-                                        <i class="la la-trash kt-font-dark"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+    <div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="kt-font-dark flaticon2-map"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">
+                    Provinces
+                </h3>
             </div>
         </div>
-        <!--end::Section-->
+        <div class="kt-portlet__body">
+            <!--begin: Search Form -->
+            <!--begin: Datatable -->
+            <div id="kt_table_1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer" id="kt_table_1" aria-describedby="kt_table_1_info" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    
+                                    <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Record ID: activate to sort column descending" style="width: 46.25px;">#</th>
+                                    <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 53.25px;">@Html.DisplayNameFor(model => model.ProvinceName)</th>
+                                    <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 68.5px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <tr role="row" class="even">
+                                                <td class="sorting_1">@(++counter)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.ProvinceName)</td>
+                                                <td class="kt-align-center">
+                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                        <i class="la la-edit kt-font-dark"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                                                        <i class="la la-trash kt-font-dark"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <tr role="row" class="even">
+                                            <td colspan="3" class="kt-align-center">
+                                                No Data Found
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--end: Datatable -->
+        </div>
     </div>
-    <!--end::Form-->
 </div>
 <!-- end:: Content -->

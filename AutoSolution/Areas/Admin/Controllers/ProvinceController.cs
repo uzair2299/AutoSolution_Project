@@ -19,7 +19,15 @@ namespace AutoSolution.Areas.Admin.Controllers
         // GET: Admin/Province
         public ActionResult Index()
         {
-            return View();
+            //Province model = null;
+            var model = Repository.GetAll();
+            return View(model);
+        }
+
+        public ActionResult ViewProvinces()
+        {
+            var model = Repository.GetAll();
+            return View(model);
         }
         
 

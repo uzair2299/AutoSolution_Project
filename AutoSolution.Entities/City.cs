@@ -13,6 +13,7 @@ namespace AutoSolution.Entities
         public string CityName { get; set; }
         public string CityCode { get; set; }
         public virtual Province Province { get; set; }
+        public virtual ICollection<Location> Location { get; set; }
         
         
 
