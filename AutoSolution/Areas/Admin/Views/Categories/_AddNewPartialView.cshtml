@@ -1,0 +1,43 @@
+﻿@model AutoSolution.Entities.ServiceCategory
+<div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add New Category</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body">
+            @using (Html.BeginForm("AddServiceCategory", "Categories", FormMethod.Post, htmlAttributes: new { @class = "kt-form kt-form--label-right" }))
+            {
+            <div class="kt-portlet__body">
+                <div class="form-group ">
+                    <label>Service Category Name</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="flaticon-car kt-font-dark"></i></span></div>
+                        @Html.EditorFor(model => model.ServiceCategoryName, new { htmlAttributes = new { placeholder = "Enter Service Category Name Here", @class = "form-control" } })
+                    </div>
+                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.ServiceCategoryName, "")</span>
+                    <div class="form-group ">
+                        <label>Service Category Code</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="la la-qrcode kt-font-dark"></i></span></div>
+                            @Html.EditorFor(model => model.ServiceCategoryCode, new { htmlAttributes = new { placeholder = "Enter Service Category Code Here" , @class = "form-control" } })
+                        </div>
+                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.ServiceCategoryCode, "")</span>
+                    </div>
+                    <div class="form-group ">
+                        <label>Service Category Description</label>
+                        <div class="input-group">
+                            @Html.TextAreaFor(model => model.Description, 5,80, new { htmlAttributes = new { @class = "form-control rounded"}})
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-dark">Save changes</button>
+                </div>
+        </div>
+            }
+    </div>
+</div>
+</div>

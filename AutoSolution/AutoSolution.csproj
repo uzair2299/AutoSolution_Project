@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -48,6 +49,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -5779,137 +5786,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\bundle.css" />
-    <Content Include="Content\css\Login.css" />
-    <Content Include="Content\css\plugin.css" />
-    <Content Include="Content\css\responsive.css" />
-    <Content Include="Content\css\style.css" />
-    <Content Include="Content\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\fonts\ionicons.svg" />
-    <Content Include="Content\fonts\Material-Design-Iconic-Font.svg" />
-    <Content Include="Content\img\banner\1.jpg" />
-    <Content Include="Content\img\banner\2.jpg" />
-    <Content Include="Content\img\banner\3.jpg" />
-    <Content Include="Content\img\banner\4.jpg" />
-    <Content Include="Content\img\banner\5.jpg" />
-    <Content Include="Content\img\banner\6.jpg" />
-    <Content Include="Content\img\banner\7.jpg" />
-    <Content Include="Content\img\banner\8.jpg" />
-    <Content Include="Content\img\banner\banner_tab_1.png" />
-    <Content Include="Content\img\banner\banner_tab_2.png" />
-    <Content Include="Content\img\banner\home2\1.jpg" />
-    <Content Include="Content\img\banner\home2\2.jpg" />
-    <Content Include="Content\img\banner\home2\3.jpg" />
-    <Content Include="Content\img\banner\home2\4.jpg" />
-    <Content Include="Content\img\banner\home2\5.jpg" />
-    <Content Include="Content\img\banner\newsletter.jpg" />
-    <Content Include="Content\img\blog\1.jpg" />
-    <Content Include="Content\img\blog\2.jpg" />
-    <Content Include="Content\img\blog\3.jpg" />
-    <Content Include="Content\img\blog\4.jpg" />
-    <Content Include="Content\img\blog\5.jpg" />
-    <Content Include="Content\img\blog\6.jpg" />
-    <Content Include="Content\img\blog\author.png" />
-    <Content Include="Content\img\blog\blog__4.jpg" />
-    <Content Include="Content\img\blog\blog__5.jpg" />
-    <Content Include="Content\img\blog\blog__6.jpg" />
-    <Content Include="Content\img\blog\gallery_1.jpg" />
-    <Content Include="Content\img\blog\large_1.jpg" />
-    <Content Include="Content\img\blog\latest_1.jpg" />
-    <Content Include="Content\img\blog\latest_2.jpg" />
-    <Content Include="Content\img\blog\latest_3.jpg" />
-    <Content Include="Content\img\brand\b1.jpg" />
-    <Content Include="Content\img\brand\b2.jpg" />
-    <Content Include="Content\img\brand\b3.jpg" />
-    <Content Include="Content\img\brand\b4.jpg" />
-    <Content Include="Content\img\brand\b5.jpg" />
-    <Content Include="Content\img\favicon.png" />
-    <Content Include="Content\img\fun-bg.jpg" />
-    <Content Include="Content\img\icon\cart-2.png" />
-    <Content Include="Content\img\icon\cart.png" />
-    <Content Include="Content\img\Login.jpg" />
-    <Content Include="Content\img\logo\logo-2.png" />
-    <Content Include="Content\img\logo\logo.png" />
-    <Content Include="Content\img\map-marker.png" />
-    <Content Include="Content\img\product\1.png" />
-    <Content Include="Content\img\product\2.png" />
-    <Content Include="Content\img\product\3.png" />
-    <Content Include="Content\img\product\4.png" />
-    <Content Include="Content\img\product\5.png" />
-    <Content Include="Content\img\product\6.png" />
-    <Content Include="Content\img\product\home2\1.png" />
-    <Content Include="Content\img\product\home2\2.png" />
-    <Content Include="Content\img\product\home2\3.png" />
-    <Content Include="Content\img\product\home2\4.png" />
-    <Content Include="Content\img\product\home2\5.png" />
-    <Content Include="Content\img\product\home2\6.png" />
-    <Content Include="Content\img\product\home2\7.png" />
-    <Content Include="Content\img\product\home2\8.png" />
-    <Content Include="Content\img\product\home2\9.png" />
-    <Content Include="Content\img\product\home2\prod_sm_1.png" />
-    <Content Include="Content\img\product\home2\prod_sm_2.png" />
-    <Content Include="Content\img\product\home2\prod_sm_3.png" />
-    <Content Include="Content\img\product\home2\prod_sm_4.png" />
-    <Content Include="Content\img\product\home2\prod_sm_5.png" />
-    <Content Include="Content\img\product\home2\prod_sm_6.png" />
-    <Content Include="Content\img\product\pro_details\big-2.jpg" />
-    <Content Include="Content\img\product\pro_details\big-3.jpg" />
-    <Content Include="Content\img\product\pro_details\big-4.jpg" />
-    <Content Include="Content\img\product\pro_details\bl1.jpg" />
-    <Content Include="Content\img\product\pro_details\l1.jpg" />
-    <Content Include="Content\img\product\pro_details\pro_sm_1.jpg" />
-    <Content Include="Content\img\product\pro_details\pro_sm_2.jpg" />
-    <Content Include="Content\img\product\pro_details\pro_sm_3.jpg" />
-    <Content Include="Content\img\product\pro_details\pro_sm_4.jpg" />
-    <Content Include="Content\img\product\pro_details\z-1.jpg" />
-    <Content Include="Content\img\product\pro_sm_1.png" />
-    <Content Include="Content\img\product\pro_sm_2.png" />
-    <Content Include="Content\img\product\pro_sm_3.png" />
-    <Content Include="Content\img\slide\1.jpg" />
-    <Content Include="Content\img\slide\2.jpg" />
-    <Content Include="Content\img\slide\layer_img_1.png" />
-    <Content Include="Content\img\slide\layer_img_2.png" />
-    <Content Include="Content\img\team\1.jpg" />
-    <Content Include="Content\img\team\2.jpg" />
-    <Content Include="Content\img\team\4.jpg" />
-    <Content Include="Content\img\testimonial-bg.jpg" />
-    <Content Include="Content\js\ajax-mail.js" />
-    <Content Include="Content\js\bootstrap.min.js" />
-    <Content Include="Content\js\main.js" />
-    <Content Include="Content\js\map.js" />
-    <Content Include="Content\js\plugins.js" />
-    <Content Include="Content\js\popper.js" />
-    <Content Include="Content\js\vendor\jquery-1.12.0.min.js" />
-    <Content Include="Content\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Content\Scripts\bootstrap.bundle.js" />
-    <Content Include="Content\Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Content\Scripts\bootstrap.js" />
-    <Content Include="Content\Scripts\bootstrap.min.js" />
-    <Content Include="Content\Scripts\esm\popper-utils.js" />
-    <Content Include="Content\Scripts\esm\popper-utils.min.js" />
-    <Content Include="Content\Scripts\esm\popper.js" />
-    <Content Include="Content\Scripts\esm\popper.min.js" />
-    <Content Include="Content\Scripts\index.js.flow" />
-    <Content Include="Content\Scripts\esm\popper.min.js.map" />
-    <Content Include="Content\Scripts\esm\popper.js.map" />
-    <Content Include="Content\Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Content\Scripts\esm\popper-utils.js.map" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\ionicons.eot" />
-    <Content Include="Content\fonts\ionicons.ttf" />
-    <Content Include="Content\fonts\ionicons.woff" />
-    <Content Include="Content\fonts\Material-Design-Iconic-Font.eot" />
-    <Content Include="Content\fonts\Material-Design-Iconic-Font.ttf" />
-    <Content Include="Content\fonts\Material-Design-Iconic-Font.woff" />
-    <Content Include="Content\fonts\Material-Design-Iconic-Font.woff2" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
@@ -6747,86 +6625,107 @@
     <Content Include="Areas\Admin\Views\Province\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Province\ViewProvinces.cshtml" />
-    <None Include="Content\Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Content\Scripts\jquery-3.4.1.js" />
-    <Content Include="Content\Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Content\Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Content\Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Content\Scripts\jquery.validate.js" />
-    <Content Include="Content\Scripts\jquery.validate.min.js" />
-    <Content Include="Content\Scripts\popper-utils.js" />
-    <Content Include="Content\Scripts\popper-utils.min.js" />
-    <Content Include="Content\Scripts\popper.js" />
-    <Content Include="Content\Scripts\popper.min.js" />
-    <Content Include="Content\Scripts\src\index.js" />
-    <Content Include="Content\Scripts\src\methods\defaults.js" />
-    <Content Include="Content\Scripts\src\methods\destroy.js" />
-    <Content Include="Content\Scripts\src\methods\disableEventListeners.js" />
-    <Content Include="Content\Scripts\src\methods\enableEventListeners.js" />
-    <Content Include="Content\Scripts\src\methods\placements.js" />
-    <Content Include="Content\Scripts\src\methods\update.js" />
-    <Content Include="Content\Scripts\src\modifiers\applyStyle.js" />
-    <Content Include="Content\Scripts\src\modifiers\arrow.js" />
-    <Content Include="Content\Scripts\src\modifiers\computeStyle.js" />
-    <Content Include="Content\Scripts\src\modifiers\flip.js" />
-    <Content Include="Content\Scripts\src\modifiers\hide.js" />
-    <Content Include="Content\Scripts\src\modifiers\index.js" />
-    <Content Include="Content\Scripts\src\modifiers\inner.js" />
-    <Content Include="Content\Scripts\src\modifiers\keepTogether.js" />
-    <Content Include="Content\Scripts\src\modifiers\offset.js" />
-    <Content Include="Content\Scripts\src\modifiers\preventOverflow.js" />
-    <Content Include="Content\Scripts\src\modifiers\shift.js" />
-    <Content Include="Content\Scripts\src\utils\clockwise.js" />
-    <Content Include="Content\Scripts\src\utils\computeAutoPlacement.js" />
-    <Content Include="Content\Scripts\src\utils\debounce.js" />
-    <Content Include="Content\Scripts\src\utils\find.js" />
-    <Content Include="Content\Scripts\src\utils\findCommonOffsetParent.js" />
-    <Content Include="Content\Scripts\src\utils\findIndex.js" />
-    <Content Include="Content\Scripts\src\utils\getBordersSize.js" />
-    <Content Include="Content\Scripts\src\utils\getBoundaries.js" />
-    <Content Include="Content\Scripts\src\utils\getBoundingClientRect.js" />
-    <Content Include="Content\Scripts\src\utils\getClientRect.js" />
-    <Content Include="Content\Scripts\src\utils\getFixedPositionOffsetParent.js" />
-    <Content Include="Content\Scripts\src\utils\getOffsetParent.js" />
-    <Content Include="Content\Scripts\src\utils\getOffsetRect.js" />
-    <Content Include="Content\Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
-    <Content Include="Content\Scripts\src\utils\getOppositePlacement.js" />
-    <Content Include="Content\Scripts\src\utils\getOppositeVariation.js" />
-    <Content Include="Content\Scripts\src\utils\getOuterSizes.js" />
-    <Content Include="Content\Scripts\src\utils\getParentNode.js" />
-    <Content Include="Content\Scripts\src\utils\getPopperOffsets.js" />
-    <Content Include="Content\Scripts\src\utils\getReferenceNode.js" />
-    <Content Include="Content\Scripts\src\utils\getReferenceOffsets.js" />
-    <Content Include="Content\Scripts\src\utils\getRoot.js" />
-    <Content Include="Content\Scripts\src\utils\getRoundedOffsets.js" />
-    <Content Include="Content\Scripts\src\utils\getScroll.js" />
-    <Content Include="Content\Scripts\src\utils\getScrollParent.js" />
-    <Content Include="Content\Scripts\src\utils\getStyleComputedProperty.js" />
-    <Content Include="Content\Scripts\src\utils\getSupportedPropertyName.js" />
-    <Content Include="Content\Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
-    <Content Include="Content\Scripts\src\utils\getWindow.js" />
-    <Content Include="Content\Scripts\src\utils\getWindowSizes.js" />
-    <Content Include="Content\Scripts\src\utils\includeScroll.js" />
-    <Content Include="Content\Scripts\src\utils\index.js" />
-    <Content Include="Content\Scripts\src\utils\isBrowser.js" />
-    <Content Include="Content\Scripts\src\utils\isFixed.js" />
-    <Content Include="Content\Scripts\src\utils\isFunction.js" />
-    <Content Include="Content\Scripts\src\utils\isIE.js" />
-    <Content Include="Content\Scripts\src\utils\isModifierEnabled.js" />
-    <Content Include="Content\Scripts\src\utils\isModifierRequired.js" />
-    <Content Include="Content\Scripts\src\utils\isNumeric.js" />
-    <Content Include="Content\Scripts\src\utils\isOffsetContainer.js" />
-    <Content Include="Content\Scripts\src\utils\removeEventListeners.js" />
-    <Content Include="Content\Scripts\src\utils\runModifiers.js" />
-    <Content Include="Content\Scripts\src\utils\setAttributes.js" />
-    <Content Include="Content\Scripts\src\utils\setStyles.js" />
-    <Content Include="Content\Scripts\src\utils\setupEventListeners.js" />
-    <Content Include="Content\Scripts\umd\popper-utils.js" />
-    <Content Include="Content\Scripts\umd\popper-utils.min.js" />
-    <Content Include="Content\Scripts\umd\popper.js" />
-    <Content Include="Content\Scripts\umd\popper.min.js" />
+    <Content Include="Areas\Admin\Views\Cities\ViewCities.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\_AddNewPartialView.cshtml" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -6840,15 +6739,19 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Content\Scripts\umd\popper.min.js.map" />
-    <Content Include="Content\Scripts\umd\popper.js.map" />
-    <Content Include="Content\Scripts\umd\popper.js.flow" />
-    <Content Include="Content\Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Content\Scripts\umd\popper-utils.js.map" />
-    <Content Include="Content\Scripts\popper-utils.min.js.map" />
     <Content Include="Views\Registration\Index.cshtml" />
     <Content Include="Views\FAQ\Index.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6861,6 +6764,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\vendors\general\handlebars\lib\handlebars.d.ts" />
@@ -6869,12 +6774,16 @@
     <TypeScriptCompile Include="assets\vendors\general\popper.js\index.d.ts" />
     <TypeScriptCompile Include="assets\vendors\general\sweetalert2\sweetalert2.d.ts" />
     <TypeScriptCompile Include="assets\vendors\general\tooltip.js\index.d.ts" />
-    <TypeScriptCompile Include="Content\Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">
+      <Project>{ABF72798-AE29-4DE1-BE40-C05D64CB367D}</Project>
+      <Name>AutoSolution.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AutoSolution.Entities\AutoSolution.Entities.csproj">
       <Project>{d3fa842d-b46c-4bc6-8f1d-10b27a42781e}</Project>
       <Name>AutoSolution.Entities</Name>
@@ -6918,10 +6827,13 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.targets'))" />
   </Target>
-  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.7.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.8.3\build\Microsoft.TypeScript.MSBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,4 +1,5 @@
-﻿using AutoSolution.Entities;
+﻿using AutoSolution.Database.DataBaseContext;
+using AutoSolution.Entities;
 using AutoSolution.Services;
 using AutoSolution.Services.Repo;
 using System;
@@ -11,24 +12,16 @@ namespace AutoSolution.Areas.Admin.Controllers
 {
     public class ProvinceController : Controller
     {
-        private IRepository<Province> Repository;
-        public ProvinceController()
-        {
-            this.Repository = new AutoSolutionRepository <Province>();
-        }
+        private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
+
         // GET: Admin/Province
         public ActionResult Index()
         {
-            //Province model = null;
-            var model = Repository.GetAll();
+            var model = _unitOfWork.Province.GetAll();
             return View(model);
         }
 
-        public ActionResult ViewProvinces()
-        {
-            var model = Repository.GetAll();
-            return View(model);
-        }
+        
         
 
        

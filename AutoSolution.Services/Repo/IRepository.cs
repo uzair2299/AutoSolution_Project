@@ -12,7 +12,6 @@ namespace AutoSolution.Services.Repo
         T GetByID(int ModelId);
         void Add(T obj);
         void  Update(T obj);
-        void Delete(int ModelId);
-        void Save();
+        void Remove(T entity);
     }
 }

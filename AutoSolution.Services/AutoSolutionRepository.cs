@@ -6,46 +6,39 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoSolution.Database.DataBaseContext;
 using System.Data.Entity;
+using System.Collections;
 
 namespace AutoSolution.Services
 {
-    public class AutoSolutionRepository<T>:IRepository<T> where T:class
+    public class AutoSolutionRepository<T> : IRepository<T> where T : class
     {
-        protected readonly AutoSolutionContext _autoSolutionContext = null;
-        protected DbSet<T> DbEntity = null;
 
-        public AutoSolutionRepository()
+
+        protected readonly DbContext Context;
+
+        public AutoSolutionRepository(DbContext context)
         {
-            this._autoSolutionContext = new AutoSolutionContext();
-            DbEntity = _autoSolutionContext.Set<T>();
+            Context = context;
         }
 
-        
-
-        public void Add(T obj)
+        public void Add(T entity)
         {
-            DbEntity.Add(obj);
-            _autoSolutionContext.SaveChanges();
+            Context.Set<T>().Add(entity);
         }
 
-        public void Delete(int ModelId)
+        public void Remove(T entity)
         {
-            throw new NotImplementedException();
+            Context.Set<T>().Remove(entity);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return DbEntity.ToList();
+            return Context.Set<T>().ToList();
         }
 
-        public T GetByID(int ModelId)
+        public T GetByID(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            _autoSolutionContext.SaveChanges();
+            return Context.Set<T>().Find(id);
         }
 
         public void Update(T obj)

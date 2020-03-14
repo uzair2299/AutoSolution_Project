@@ -30,7 +30,7 @@ namespace AutoSolution.Entities
         public int PasswordCount { get; set; }
         public DateTime RegistrationDate { get; set; }
         public bool IsActive { get; set; }
-
+        public bool IsDelete { get; set; }
         public virtual ICollection<ServiceCategory> ServiceCategories { get; set; }
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
