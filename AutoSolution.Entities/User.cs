@@ -1,5 +1,4 @@
-﻿using AutoSolution.Entities.BaseEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-    public class User:BaseEntity
+    public class User
     {
+        public int UserId { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Email { get; set; }
@@ -21,7 +21,6 @@ namespace AutoSolution.Entities
         public int MobileNumber { get; set; }
         public string WebSiteLink { get; set; }
         public string FacebookPageLink { get; set; }
-        //province
         //image
         //servicesDescription
         //rating
@@ -31,14 +30,16 @@ namespace AutoSolution.Entities
         public DateTime RegistrationDate { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public virtual ICollection<ServiceCategory> ServiceCategories { get; set; }
+        public bool IsTermAndConditionAccepted { get; set; }
+        public bool RememberMe { get; set; }
+
+        
+        public ICollection<ServiceCategory> serviceCategories { get; set; }
         public int LocationId { get; set; }
         public virtual Location Location { get; set; }
 
-
-
-
-
+        public int UserRoleId { get; set; }
+        public virtual UserRole UserRole { get; set; }
     }
 }
 

@@ -3,6 +3,7 @@ using AutoSolution.Entities;
 using AutoSolution.Services;
 using AutoSolution.Services.IUnitOfWork;
 using AutoSolution.Services.Repo;
+using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +17,13 @@ namespace AutoSolution.Areas.Admin.Controllers
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
 
         // GET: Admin/Cities
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Index(int? page)
         {
             var model = _unitOfWork.City.GetAll();
-               return View(model);
-            
+            return View(model);
         }
 
-        public ActionResult ViewCities()
-        {
-            
-            return View();
-        }
+       
     }
 }

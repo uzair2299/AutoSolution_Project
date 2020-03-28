@@ -12,6 +12,6 @@ namespace AutoSolution.Services.Repo
         T GetByID(int ModelId);
         void Add(T obj);
         void  Update(T obj);
-        void Remove(T entity);
+        void Remove(int Id);
     }
 }

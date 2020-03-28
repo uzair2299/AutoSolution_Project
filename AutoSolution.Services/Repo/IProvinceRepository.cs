@@ -9,5 +9,6 @@ namespace AutoSolution.Services.Repo
 {
    public interface IProvinceRepository:IRepository<Province>
     {
+
     }
 }

@@ -1,0 +1,21 @@
+﻿@model AutoSolution.Entities.City
+
+@{
+    ViewBag.Title = "dropProvince";
+}
+
+@Html.DropDownListFor(model => model.Province.ProvinceId,ViewBag.proList as SelectList, "--Select Province--", new { @class = "form-control" })
+@Html.DropDownListFor(model => model.CityId, new SelectList(" "), "--Select Province--", new { @class = "form-control" })
+<h2>dropProvince</h2>
+<script>
+    $(document).ready(function () {
+        $("#Province_ProvinceId").change(function () {
+            $.get("/Province/getCity", { provinceId: $("#Province_ProvinceId").val() }, function (data) {
+                $("#CityId").empty();
+                $.each(data, function (index, row) {
+                    $("#CityId").append("<option value='" + row.CityId + "'>" + row.CityName + "</option>")
+                });
+            });
+        });
+    });
+</script>

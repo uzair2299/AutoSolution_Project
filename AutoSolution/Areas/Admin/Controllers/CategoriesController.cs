@@ -28,5 +28,15 @@ namespace AutoSolution.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public JsonResult DeleteCategory(int Id)
+        {
+
+            _unitOfWork.ServiceCategory.Remove(Id);
+            bool result = false;
+            
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }

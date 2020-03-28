@@ -26,8 +26,9 @@ namespace AutoSolution.Services
             Context.Set<T>().Add(entity);
         }
 
-        public void Remove(T entity)
+        public void Remove(int id)
         {
+           T entity=  GetByID(id);
             Context.Set<T>().Remove(entity);
         }
 

@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Services.ViewModel
 {
-   public class CityProvinceVM
+    public class CityProvinceVM
     {
-        public int Id { get; set; }
-        public string CityName { get; set; }
-        public string provinceName { get; set; } 
+        public List<City> cities { get; set; }
+        public List<Province> provinces { get; set; }
     }
 }

@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202003140345550_neww.cs" />
-    <Compile Include="Migrations\202003140345550_neww.designer.cs">
-      <DependentUpon>202003140345550_neww.cs</DependentUpon>
+    <Compile Include="Migrations\202003281507133_newsetting.cs" />
+    <Compile Include="Migrations\202003281507133_newsetting.designer.cs">
+      <DependentUpon>202003281507133_newsetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003140345550_neww.resx">
-      <DependentUpon>202003140345550_neww.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003281507133_newsetting.resx">
+      <DependentUpon>202003281507133_newsetting.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

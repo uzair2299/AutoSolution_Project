@@ -1,5 +1,4 @@
-﻿using AutoSolution.Entities.BaseEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-    public class ServiceCategory:BaseEntity
+    public class ServiceCategory
     {
+        public int ServiceCategoryId { get; set; }
+
         [DisplayName("Service Category Name")]
         public string ServiceCategoryName { get; set; }
         [DisplayName("Service Category Code")]

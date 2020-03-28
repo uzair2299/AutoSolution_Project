@@ -13,7 +13,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="ConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,6 +27,9 @@
                     <div class="alert-text">
                         Are you sure you want to delete this record?
                     </div>
+                </div>
+                <div class="col-sm" style="margin-top:3.25rem;margin-bottom:5.25rem">
+                    <div class="kt-spinner kt-spinner--v2 kt-spinner--lg kt-spinner--dark" style="margin:0 auto;width:50px"></div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -116,24 +119,23 @@
                                     {
                                         foreach (var item in Model)
                                         {
-                                                                <tr role="row" class="even">
-                                                                    <td class="sorting_1">@(++counter)</td>
-                                                                    <td>@Html.DisplayFor(modelItem => item.ServiceCategoryName)</td>
-                                                                    <td>@Html.DisplayFor(modelItem => item.ServiceCategoryCode)</td>
-                                                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                                                                    <td class="kt-align-center">
-                                                                        <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
-                                                                            <i class="la la-eye kt-font-dark"></i>
-                                                                        </a>
-                                                                        <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
-                                                                            <i class="la la-edit kt-font-dark"></i>
-                                                                        </a>
+                                            <tr role="row" class="even"  id="row_@item.Id">
+                                                <td class="sorting_1">@(++counter)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.ServiceCategoryName)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.ServiceCategoryCode)</td>
+                                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                                <td class="kt-align-center">
+                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
+                                                        <i class="la la-eye kt-font-dark"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                        <i class="la la-edit kt-font-dark"></i>
+                                                    </a>
+                                                    <button class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete" onclick="ConfirmDelete(@item.Id)"><i class="la la-trash kt-font-dark"></i></button>
 
-                                                                        <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete" onclick="ConfirmDelete(@item.Id)">
-                                                                            <i class="la la-trash kt-font-dark"></i>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
+
+                                                </td>
+                                            </tr>
                                         }
 
                                     }
@@ -145,10 +147,10 @@
                                             </td>
                                         </tr>
                                     }
-                                                        }
-                                                    </tbody>
+                                }
+                            </tbody>
                         </table>
-                        <input  type="hidden" id="HiddenId"/>
+                        <input type="hidden" id="HiddenId" />
                     </div>
                 </div>
                 <div class="row">
@@ -175,15 +177,27 @@
     </div>
 </div>
 <!-- end:: Content -->
+
 <script>
-    $(document).ready(function () {
 
-        var ConfirmDelete = function (Id) {
-            $("#HiddenId").val(Id);
-            $("#ConfirmDelete").modal('show');
-        }
- 
-});
+    var ConfirmDelete = function (Id) {
 
+        $("#HiddenId").val(Id);
+        $("#ConfirmDeleteModal").modal('show');
+    }
 
-</script>
+    var DeleteCategory = function () {
+
+        $("#loaderDiv").show();
+        var Id = $("#HiddenId").val();
+        $.ajax({
+            type: "POST",
+            url: "/Categories/DeleteCategory",
+            data: { Id: Id },
+            success: function (result) {
+                $("#loaderDiv").hide();
+                $("#ConfirmDeleteModal").modal("hide");
+                $("row_" + Id).remove();
+            }})
+    }
+    </script>

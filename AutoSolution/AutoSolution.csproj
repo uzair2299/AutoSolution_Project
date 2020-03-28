@@ -132,6 +132,7 @@
     <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProvinceController.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -870,6 +871,7 @@
     <Content Include="assets\media\bg\bg-9.jpg" />
     <Content Include="assets\media\bg\demo4-bg-footer.jpg" />
     <Content Include="assets\media\bg\home-2-bg.svg" />
+    <Content Include="assets\media\bg\HotOffers.jpg" />
     <Content Include="assets\media\bg\sc-home1-bg.png" />
     <Content Include="assets\media\blog\blog1.jpg" />
     <Content Include="assets\media\blog\blog2.jpg" />
@@ -6625,7 +6627,6 @@
     <Content Include="Areas\Admin\Views\Province\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Cities\ViewCities.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\_AddNewPartialView.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -6650,6 +6651,8 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Areas\Admin\Views\Province\dropProvince.cshtml" />
+    <Content Include="Areas\Security\Views\web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6756,11 +6759,15 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Security\Controllers\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Security\Views\Shared\" />
     <Folder Include="assets\vendors\general\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\" />
     <Folder Include="assets\vendors\general\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\" />
     <Folder Include="assets\vendors\general\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\" />
     <Folder Include="assets\vendors\general\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -6775,6 +6782,7 @@
     <TypeScriptCompile Include="assets\vendors\general\sweetalert2\sweetalert2.d.ts" />
     <TypeScriptCompile Include="assets\vendors\general\tooltip.js\index.d.ts" />
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

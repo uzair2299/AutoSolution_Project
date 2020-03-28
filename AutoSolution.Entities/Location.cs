@@ -1,5 +1,4 @@
-﻿using AutoSolution.Entities.BaseEntities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,6 +13,7 @@ namespace AutoSolution.Entities
         [Key]
         public int LocationId { get; set; }
         public virtual ICollection<User> User { get; set; }
+
         public virtual City Cities { get; set; }
         public virtual Province Provinces { get; set; }
 

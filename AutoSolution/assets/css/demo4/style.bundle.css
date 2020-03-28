@@ -8675,7 +8675,7 @@ a.text-dark:hover, a.text-dark:focus {
   align-items: center; }
   .btn [class^="la-"],
   .btn [class*=" la-"] {
-    font-size: 1.5rem; }
+    font-size: 2.5rem; } /**add by uzair original 1.5**/
   .btn [class^="fa-"],
   .btn [class*=" fa-"] {
     font-size: 1.2rem; }
@@ -19498,10 +19498,10 @@ strong {
     right: auto;
     left: 1rem; }
   .kt-spinner.kt-spinner--v2:before {
-    -webkit-animation: kt-spinner .5s linear infinite;
-    animation: kt-spinner .5s linear infinite; }
+    -webkit-animation: kt-spinner 1s linear infinite;
+    animation: kt-spinner 1s linear infinite; } /*added by uzair original .5s*/
   .kt-spinner.kt-spinner--v2.kt-spinner--brand:before {
-    border: 2px solid #c6d6fc;
+    border: 3px solid #c6d6fc;/*added by uzair original 2px*/
     border-top-color: #2861f2; }
   .kt-spinner.kt-spinner--v2.kt-spinner--light:before {
     border: 2px solid white;
@@ -27693,7 +27693,7 @@ body.swal2-height-auto {
       z-index: 1;
       color: #ffffff; }
       .kt-widget27 .kt-widget27__visual .kt-widget27__title > span {
-        font-size: 4.5rem; }
+        font-size: 3.5rem; }/**added by uzair 4.5 original**/
         .kt-widget27 .kt-widget27__visual .kt-widget27__title > span > span {
           font-size: 2.5rem;
           padding-right: 0.4rem; }
@@ -27726,7 +27726,7 @@ body.swal2-height-auto {
           font-weight: 600;
           padding: 0.8rem 0 0.8rem 0;
           color: #74788d;
-          border: 1px solid #f7f8fa; }
+          /*border: 1px solid #f7f8fa;*/ }/* commented by uzair*/
           .kt-widget27 .kt-widget27__container .nav .nav-item > a.active {
             background-color: #366cf3;
             border-color: #366cf3 !important;

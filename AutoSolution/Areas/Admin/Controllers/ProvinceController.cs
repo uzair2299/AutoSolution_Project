@@ -21,6 +21,23 @@ namespace AutoSolution.Areas.Admin.Controllers
             return View(model);
         }
 
+        public ActionResult dropProvince()
+
+
+        {
+            var model = _unitOfWork.Province.GetAll();
+            ViewBag.Prolist = new SelectList(model, "ProvinceId", "ProvinceName");
+            return View();
+        }
+
+        public JsonResult getCity(int provinceId)
+        {
+            
+            var CitiesList = _unitOfWork.City.GetCityWithRespectToProvince(provinceId);
+            return Json(CitiesList, JsonRequestBehavior.AllowGet);
+
+        }
+
         
         
 
