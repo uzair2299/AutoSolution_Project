@@ -14,13 +14,14 @@ namespace AutoSolution.Services
         public UnitOfWork(AutoSolutionContext context)
         {
             _context = context;
+            User = new UserRepository(_context);
             City = new CityRepository(_context);
             Province = new ProvinceRepository(_context);
             ServiceCategory = new ServiceCategoryRepository(_context);
 
 
         }
-
+        public IUserRepository User { get; private set; }
         public ICityRepository City { get; private set; }
         public IProvinceRepository Province { get; private set; }
         public IServiceCategoryRepository ServiceCategory { get; private set; }

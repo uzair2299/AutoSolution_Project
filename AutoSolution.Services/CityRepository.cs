@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace AutoSolution.Services
 {
@@ -22,6 +23,22 @@ namespace AutoSolution.Services
             Context.Configuration.ProxyCreationEnabled = false;
             var CityList = Context.Set<City>().Where(x => x.Province.ProvinceId == Id).ToList();
             return CityList;
+        }
+
+        public IEnumerable<SelectListItem> GetCities()
+        {
+            List<SelectListItem> items = Context.Set<City>().OrderBy(n=>n.CityName).Select(n => new SelectListItem {
+                Value = n.CityId.ToString(),
+                Text=n.CityName
+            }).ToList();
+
+            var CityTip = new SelectListItem()
+            {
+                Value = null,
+                Text = "--- select country ---"
+            };
+            items.Insert(0, CityTip);
+            return new SelectList(items, "value", "Text");
         }
     }
 }

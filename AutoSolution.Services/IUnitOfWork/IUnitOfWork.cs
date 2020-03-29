@@ -10,6 +10,7 @@ namespace AutoSolution.Services.IUnitOfWork
 {
     public interface IUnitOfWork: IDisposable
     {
+        IUserRepository User { get; }
         ICityRepository City { get; }
         IProvinceRepository Province { get; }
         IServiceCategoryRepository ServiceCategory { get; }
