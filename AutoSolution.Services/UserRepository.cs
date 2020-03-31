@@ -18,17 +18,26 @@ namespace AutoSolution.Services
         {
         }
 
-        public UserViewModel CreateCustomer()
+        public ConsumerViewModel CreateConsumer()
         {
-            //var uni = new UnitOfWork(new AutoSolutionContext());
-            //uni.Province.GetAll();
             var province = new ProvinceRepository(new AutoSolutionContext());
             var city = new CityRepository(new AutoSolutionContext());
-            var customer = new UserViewModel()
+            var consumer = new ConsumerViewModel()
             {
                 CitiesList = city.GetCities(),
-                ProvincesList = province.GetProvinces()
+                ProvincesList = province.GetProvinces(),
+            };
+            return consumer;
+        }
 
+        public ServiceProviderViewModel CreateServiceProvider()
+        {
+            var province = new ProvinceRepository(new AutoSolutionContext());
+            var city = new CityRepository(new AutoSolutionContext());
+            var customer = new ServiceProviderViewModel()
+            {
+                CitiesList = city.GetCities(),
+                ProvincesList = province.GetProvinces(),
         };
             return customer;
         }

@@ -26583,9 +26583,10 @@ body.swal2-height-auto {
   height: 23px;
   width: 23px; }
   .kt-svg-icon g [fill] {
-    fill: #366cf3; }
-  .kt-svg-icon.kt-svg-icon--brand g [fill] {
-    fill: #366cf3 !important; }
+    fill: #48465b; } /*original added by uzair #366cf3;*/
+.kt-svg-icon.kt-svg-icon--brand g [fill] {
+    fill: #366cf3 !important;
+}
   .kt-svg-icon.kt-svg-icon--light g [fill] {
     fill: #ffffff !important; }
   .kt-svg-icon.kt-svg-icon--dark g [fill] {

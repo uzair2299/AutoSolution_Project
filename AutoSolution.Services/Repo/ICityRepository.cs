@@ -14,5 +14,6 @@ namespace AutoSolution.Services.Repo
         List<City> GetCityWithRespectToProvince(int Id);
 
         IEnumerable<SelectListItem> GetCities();
+        IEnumerable<SelectListItem> GetCities(string Id);
     }
 }

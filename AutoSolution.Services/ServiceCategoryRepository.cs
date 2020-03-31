@@ -15,5 +15,6 @@ namespace AutoSolution.Services
            : base(context)
         {
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model AutoSolution.Services.ViewModel.ServiceProviderViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -7,12 +7,11 @@
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container ">
         <div class="kt-subheader__main" style="margin: 0 auto">
-            <h2 class="kt-subheader__title kt-align-center">Registration</h2>
+            <h2 class="kt-subheader__title kt-align-center">Registrated Yourself As a Service Provider</h2>
         </div>
     </div>
 </div>
 <!-- end:: Subheader -->
-
 <!--begin: Content -->
 <div class="kt-body kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-grid--stretch" id="kt_body">
     <div class="kt-content kt-content--fit-top  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
@@ -23,65 +22,47 @@
                     <!--begin::Form-->
                     <form class="kt-form" action="" novalidate="novalidate">
                         <div class="kt-portlet" style="max-width: 1000px; margin:auto; padding: 10px 25px 25px;">
-                            <div class="kt-login__title  text-center mt-3">
+                            @Html.Partial("_SignUpAlert")
+                            <div class="kt-login__title  text-center mt-3 kt-mb-15">
                                 <h4>Personal Information</h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">First Name</label>
+                                        @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            <input type="text" class="form-control" value="Uzair" aria-describedby="basic-addon1">
+                                            @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Last Name</label>
+                                        @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            <input type="text" class="form-control" value="Anwar" aria-describedby="basic-addon1">
+                                            @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Primary Email</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
-                                            <input type="text" class="form-control" value="uzairanwar2299@gmail.com" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Secondary Email</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
-                                            <input type="text" class="form-control" value="uzairanwar1991@yahoo.com" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Phone #</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
-                                            <input type="tel" class="form-control" value="+923366312299" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Mobile #</label>
+                                        @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile-alt"></i></span></div>
-                                            <input type="tel" class="form-control" value="+923205500003" aria-describedby="basic-addon1">
+                                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
+                                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
@@ -89,19 +70,28 @@
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Password</label>
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
-                                            <input type="password" class="form-control" value="123456789" aria-describedby="basic-addon1">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
+                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Confirm Password</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
-                                            <input type="password" class="form-control" value="123456789" aria-describedby="basic-addon1">
+                                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "col-form-label" })
+
+                                        <div class="kt-radio-inline">
+                                            <label class="kt-radio">
+                                                @Html.RadioButtonFor(model => model.Gender, "Male", new { @name = "Gender" })
+                                                Male
+                                                <span></span>
+                                            </label>
+                                            <label class=" kt-ml-40 kt-radio">
+                                                @Html.RadioButtonFor(model => model.Gender, "Female", new { @name = "Gender" })
+                                                Female
+                                                <span></span>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -109,64 +99,45 @@
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">User Type</label>
+                                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-th-large"></i></span></div>
-                                            <select class="form-control">
-                                                <option>Select Catogory</option>
-                                                <option>User</option>
-                                                <option>Service Provider</option>
-                                            </select>                                        </div>
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ConfrimPassword, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                            @Html.EditorFor(model => model.ConfrimPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         <div class="kt-portlet" style="max-width: 1000px; margin:auto; padding: 10px 25px 25px; margin-top: 20px;">
-                            <div class="kt-login__title text-center mt-3">
+                            <div class="kt-login__title text-center mt-5 kt-mb-15">
                                 <h4>Business Information</h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
-                                        <label class="col-form-label">Province</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-signs"></i></span></div>
-                                            <input type="text" class="form-control" value="" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">City</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-pin"></i></span></div>
-                                            <input type="text" class="form-control" value="" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-xl-12">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Address</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                            <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-xl-6">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Business Category</label>
+                                        @Html.LabelFor(model => model.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-th-large"></i></span></div>
-                                            <select class="form-control">
-                                                <option>Select Catogory</option>
-                                                <option>Car Care</option>
-                                                <option>Work Shop</option>
-                                            </select>
+                                            @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvincesList as SelectList, htmlAttributes: new { @class = "form-control"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-th-large"></i></span></div>
+                                            @Html.DropDownListFor(x => Model.SelectedCity, Model.CitiesList as SelectList, htmlAttributes: new { @class = "form-control"})
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +191,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Business Description</label>
                                         <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text"><<i class="fa fa-expand-arrows-alt"></i></span></div>
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-expand-arrows-alt"></i></span></div>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                                         </div>
                                     </div>
@@ -233,7 +204,7 @@
                                 <span>
                                     Already have an account <a href="/Login">Login</a>
                                 </span>
-                                <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up</button>
+                                <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up As a Service Provider</button>
                             </div>
                             <!--end::Action-->
                         </div>
@@ -244,3 +215,30 @@
     </div>
 </div>
 <!--end content-->
+<script>
+    $(document).ready(function () {
+            $('#SelectedProvince').change(function () {
+                var selectedProvince = $("#SelectedProvince").val();
+                var selectedCity = $('#SelectedCity');
+                selectedCity.empty();
+                if (selectedProvince != null && selectedProvince != '') {
+                    $.getJSON('@Url.Action("GetCities")', { ProvinceId: selectedProvince }, function (cities) {
+                        if (cities != null && !jQuery.isEmptyObject(cities))
+                        {
+                            //selectedCity.append($('<option/>', {
+                            //    value: -1,
+                            //    text: "----- Select City -----"
+                            //}));
+                            $.each(cities, function (index, city) {
+                                selectedCity.append($('<option/>', {
+                                    value: city.Value,
+                                    text: city.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+        });
+</script>
+}

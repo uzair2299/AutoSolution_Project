@@ -12,15 +12,28 @@ namespace AutoSolution.Controllers
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
         // GET: Registration
-        public ActionResult Index()
+        public ActionResult ServiceProvider()
+
         {
-            return View();
+            var model = _unitOfWork.User.CreateServiceProvider();
+            return View(model);
+        }
+        public ActionResult Consumer()
+        {
+            var model = _unitOfWork.User.CreateConsumer();
+            return View(model);
         }
 
-        public ActionResult create()
+        [HttpGet]
+        public ActionResult GetCities(string ProvinceId)
         {
-            var model = _unitOfWork.User.CreateCustomer();
-            return View();
+            if (!string.IsNullOrWhiteSpace(ProvinceId))
+            {                
+                IEnumerable<SelectListItem> cities = _unitOfWork.City.GetCities(ProvinceId);
+                return Json(cities, JsonRequestBehavior.AllowGet);
+            }
+            return null;
         }
+
     }
 }

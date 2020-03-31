@@ -83,12 +83,15 @@
     <Compile Include="Repo\IRepository.cs" />
     <Compile Include="Repo\IServiceCategoryRepository.cs" />
     <Compile Include="Repo\IUserRepository.cs" />
+    <Compile Include="Repo\IUserRoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="IUnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UserRepository.cs" />
+    <Compile Include="UserRoleRepository.cs" />
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
-    <Compile Include="ViewModel\UserViewModel.cs" />
+    <Compile Include="ViewModel\ConsumerViewModel.cs" />
+    <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">

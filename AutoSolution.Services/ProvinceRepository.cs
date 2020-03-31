@@ -12,10 +12,7 @@ namespace AutoSolution.Services
 {
     class ProvinceRepository:AutoSolutionRepository<Province>,IProvinceRepository
     {
-        public ProvinceRepository(AutoSolutionContext context)
-          : base(context)
-        {
-        }
+        public ProvinceRepository(AutoSolutionContext context): base(context){ }
 
         public IEnumerable<SelectListItem> GetProvinces()
         {
@@ -28,7 +25,7 @@ namespace AutoSolution.Services
             var CityTip = new SelectListItem()
             {
                 Value = null,
-                Text = "--- select country ---"
+                Text = "-------------------- Select Province ---------------------"
             };
             items.Insert(0, CityTip);
             return new SelectList(items, "value", "Text");
