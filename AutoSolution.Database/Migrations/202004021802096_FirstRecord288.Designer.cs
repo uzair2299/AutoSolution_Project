@@ -7,13 +7,13 @@ namespace AutoSolution.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class newsettingagain : IMigrationMetadata
+    public sealed partial class FirstRecord288 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newsettingagain));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstRecord288));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003290818112_newsettingagain"; }
+            get { return "202004021802096_FirstRecord288"; }
         }
         
         string IMigrationMetadata.Source

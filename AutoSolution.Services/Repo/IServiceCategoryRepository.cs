@@ -1,4 +1,5 @@
 ﻿using AutoSolution.Entities;
+using AutoSolution.Services.CommonServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace AutoSolution.Services.Repo
 {
    public interface IServiceCategoryRepository:IRepository<ServiceCategory>
     {
+        IEnumerable<ServiceCategoryUtility> GetServiceCategories();
     }
 }

@@ -24,7 +24,7 @@ namespace AutoSolution.Services
 
             var CityTip = new SelectListItem()
             {
-                Value = null,
+                Value = (-1).ToString(),
                 Text = "-------------------- Select Province ---------------------"
             };
             items.Insert(0, CityTip);

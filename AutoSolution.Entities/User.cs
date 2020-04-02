@@ -10,6 +10,10 @@ namespace AutoSolution.Entities
 {
     public class User
     {
+        //public User()
+        //{
+        //    this.Cities = new City();
+        //}
         public int UserId { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -40,11 +44,14 @@ namespace AutoSolution.Entities
 
         
         public ICollection<ServiceCategory> serviceCategories { get; set; }
-        public int LocationId { get; set; }
-        public virtual Location Location { get; set; }
+        //public int LocationId { get; set; }
+        //public virtual Location Location { get; set; }
 
         public int UserRoleId { get; set; }
         public virtual UserRole UserRole { get; set; }
+
+        public int CityId { get; set; }
+        public virtual City Cities { get; set; }
     }
 }
 

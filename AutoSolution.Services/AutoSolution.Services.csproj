@@ -75,10 +75,13 @@
   <ItemGroup>
     <Compile Include="AutoSolutionRepository.cs" />
     <Compile Include="CityRepository.cs" />
+    <Compile Include="CommonServices\ServiceCategoryUtility.cs" />
+    <Compile Include="LocationRepository.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinceRepository.cs" />
     <Compile Include="Repo\ICityRepository.cs" />
+    <Compile Include="Repo\ILocationRepository.cs" />
     <Compile Include="Repo\IProvinceRepository.cs" />
     <Compile Include="Repo\IRepository.cs" />
     <Compile Include="Repo\IServiceCategoryRepository.cs" />
@@ -107,6 +110,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

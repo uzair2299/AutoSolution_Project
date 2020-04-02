@@ -52,13 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202003281507133_newsetting.cs" />
-    <Compile Include="Migrations\202003281507133_newsetting.designer.cs">
-      <DependentUpon>202003281507133_newsetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003290818112_newsettingagain.cs" />
-    <Compile Include="Migrations\202003290818112_newsettingagain.designer.cs">
-      <DependentUpon>202003290818112_newsettingagain.cs</DependentUpon>
+    <Compile Include="Migrations\202004021802096_FirstRecord288.cs" />
+    <Compile Include="Migrations\202004021802096_FirstRecord288.designer.cs">
+      <DependentUpon>202004021802096_FirstRecord288.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003281507133_newsetting.resx">
-      <DependentUpon>202003281507133_newsetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003290818112_newsettingagain.resx">
-      <DependentUpon>202003290818112_newsettingagain.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004021802096_FirstRecord288.resx">
+      <DependentUpon>202004021802096_FirstRecord288.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

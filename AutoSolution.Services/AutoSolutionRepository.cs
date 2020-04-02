@@ -21,9 +21,9 @@ namespace AutoSolution.Services
             Context = context;
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
-            Context.Set<T>().Add(entity);
+            return Context.Set<T>().Add(entity);
         }
 
         public void Remove(int id)
@@ -32,7 +32,7 @@ namespace AutoSolution.Services
             Context.Set<T>().Remove(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public List<T> GetAll()
         {
             return Context.Set<T>().ToList();
         }

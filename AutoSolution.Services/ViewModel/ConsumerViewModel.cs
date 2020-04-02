@@ -11,6 +11,10 @@ namespace AutoSolution.Services.ViewModel
 {
     public class ConsumerViewModel
     {
+        public ConsumerViewModel()
+        {
+           
+        }
         [Display(Name = "First Name")]
         [StringLength(50)]
         public string First_Name { get; set; }
