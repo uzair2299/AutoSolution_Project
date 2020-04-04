@@ -11,6 +11,6 @@ namespace AutoSolution.Services.Repo
 {
    public interface IServiceCategoryRepository:IRepository<ServiceCategory>
     {
-        IEnumerable<ServiceCategoryUtility> GetServiceCategories();
+        List<ServiceCategoryUtility> GetServiceCategories();
     }
 }

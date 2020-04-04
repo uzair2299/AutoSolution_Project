@@ -36,9 +36,9 @@ namespace AutoSolution.Services
         public User CreateConsumer(ConsumerViewModel consumerViewModel)
         {
             User user = new User();
-            user.First_Name = consumerViewModel.First_Name;
-            user.Last_Name = consumerViewModel.Last_Name;
-            user.Password = SHA_256Password(consumerViewModel.Password);
+            user.FirstName = consumerViewModel.First_Name;
+            user.LastName = consumerViewModel.Last_Name;
+            user.Password = consumerViewModel.Password;
             user.Email = consumerViewModel.Email;
             user.MobileNumber = consumerViewModel.MobileNumber;
             user.PhoneNumber = consumerViewModel.PhoneNumber;
@@ -48,12 +48,11 @@ namespace AutoSolution.Services
             user.IsTermAndConditionAccepted = consumerViewModel.IsTermAndConditionAccepted;
             user.IsDelete = false;
             user.DateOfBirth = DateTime.Now;
-            user.UpdateDate = DateTime.Now;
+            user.LastUpdateDate = DateTime.Now;
             user.RegistrationDate = DateTime.Now;
-            user.FacebookPageLink = "";
             user.Address = "-";            
             user.PasswordCount = 0;
-            user.UserRoleId = 4;
+            user.UserTypeId = 4;
             user.RememberMe = false;
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
             return user;
@@ -64,12 +63,12 @@ namespace AutoSolution.Services
         {
         var province = new ProvinceRepository(new AutoSolutionContext());
         var city = new CityRepository(new AutoSolutionContext());
-        var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
+            //var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
             var serviceProvider = new ServiceProviderViewModel()
             {
                 ProvincesList = province.GetProvinces(),
                 CitiesList = city.GetCities(),
-                ServiceCategoriesList = serviceCategories.GetServiceCategories()
+                //ServiceCategoriesList = serviceCategories.GetServiceCategories()
         };
             return serviceProvider;
         }

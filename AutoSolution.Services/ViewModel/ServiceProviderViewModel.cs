@@ -14,8 +14,8 @@ namespace AutoSolution.Services.ViewModel
     {
         public ServiceProviderViewModel()
         {
-            SelectedServiceCategories = new List<ServiceCategoryUtility>();
-        }
+            ServiceCategoriesList = new List<ServiceCategoryUtility>();
+       }
         [Display(Name = "First Name")]
         public string First_Name { get; set; }
 
@@ -46,8 +46,8 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Business Description")]
         public string BusinessDescription { get; set; }
 
-        public List<ServiceCategoryUtility> SelectedServiceCategories { get; set; }
-        public IEnumerable<ServiceCategoryUtility> ServiceCategoriesList { get; set; }
+        //public List<ServiceCategoryUtility> SelectedServiceCategories { get; set; }
+        public List<ServiceCategoryUtility> ServiceCategoriesList { get; set; }
 
         /// <summary>
         /// selected province id  holds the unique key for entity.The unique key of the selected value will be the same as one of the elements of the SelectListItem.

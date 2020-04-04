@@ -9,14 +9,8 @@ namespace AutoSolution.Services.CommonServices
 {
    public  class ServiceCategoryUtility
     {
-        public int serviceCategoryId { get; set; }
-
-        [DisplayName("Service Category Name")]
-        public string serviceCategoryName { get; set; }
-
-        [DisplayName("Service Category Code")]
-        public string serviceCategoryCode { get; set; }
-
+        public int ServiceCategoryUtilityId { get; set; }
+        public string ServiceCategoryUtilityName { get; set; }
         public bool IsChecked { get; set; }
     }
 }

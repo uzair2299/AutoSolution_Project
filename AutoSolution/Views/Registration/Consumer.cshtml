@@ -20,8 +20,7 @@
                 <!--Begin:: App Content-->
                 <div class="kt-grid__item kt-grid__item--fluid">
                     <!--begin::Form-->
-                    @using (Html.BeginForm("Consumer", "Registration", FormMethod.Post))
-                    {
+                    <form id="CosumerRegistration" >
                         <div class="kt-portlet" style="max-width: 1000px; margin:auto; padding: 10px 25px 25px;">
                             @Html.Partial("_SignUpAlert")
                             <div class="kt-login__title  text-center mt-3 kt-mb-15">
@@ -155,18 +154,38 @@
                                 <span>
                                     Already have an account <a href="/Login" class="kt-link kt-font-bolder" style="color:#646c9a" target="blank">Login</a>
                                 </span>
-                                <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up As a Consumer</button>
+                                <button id="kt_login_signin_submit"  type ="button" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up As a Consumer</button>
                             </div>
                             <!--end::Action-->
                         </div>
-                    }
-                    </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!--end content-->
 <script>
+
+
+    $("#kt_login_signin_submit").click(function () {
+			$.ajax({
+				type: 'POST',
+				url: '@Url.Action("Consumer", "Registration")',
+				data: $("#CosumerRegistration").serialize()
+			})
+                .done(function (response) {
+                    $("#RegisterNotification").show();
+                    $('html, body').animate({ scrollTop: $('#RegisterNotification').offset().top }, 'slow');
+			})
+			.fail(function (XMLHttpRequest, textStatus, errorThrown) {
+				alert("FAIL");
+		});
+
+    });
+
+
+
     $(document).ready(function () {
             $('#SelectedProvince').change(function () {
                 var selectedProvince = $("#SelectedProvince").val();
@@ -176,10 +195,6 @@
                     $.getJSON('@Url.Action("GetCities")', { ProvinceId: selectedProvince }, function (cities) {
                         if (cities != null && !jQuery.isEmptyObject(cities))
                         {
-                            //selectedCity.append($('<option/>', {
-                            //    value: -1,
-                            //    text: "----- Select City -----"
-                            //}));
                             $.each(cities, function (index, city) {
                                 selectedCity.append($('<option/>', {
                                     value: city.Value,
@@ -190,5 +205,6 @@
                     });
                 }
             });
-        });
+    });
+
 </script>

@@ -28812,7 +28812,7 @@ body {
     margin-left: 30px; }
   .kt-subheader .kt-subheader__main {
     flex-direction: column;
-    align-items: flex-start;
+    /*align-items: flex-start; commented by uzair*/
     justify-content: center; }
     .kt-subheader--transparent .kt-subheader .kt-subheader__main .kt-subheader__title {
       font-size: 1.8rem;

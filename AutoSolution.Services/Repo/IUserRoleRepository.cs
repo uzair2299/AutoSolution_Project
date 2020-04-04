@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Services.Repo
 {
-    public interface IUserRoleRepository : IRepository<UserRole>
+    public interface IUserRoleRepository : IRepository<UserType>
     {
         IEnumerable<SelectListItem> GetUserRoles();
     }

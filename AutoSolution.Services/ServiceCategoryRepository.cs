@@ -19,7 +19,7 @@ namespace AutoSolution.Services
         {
         }
 
-        public IEnumerable<ServiceCategoryUtility> GetServiceCategories()
+        public List<ServiceCategoryUtility> GetServiceCategories()
         {
             //var ii = _unitOfWork.ServiceCategory.GetAll();
             //List<ServiceCategoryUtility> ites = new List<ServiceCategoryUtility>();
@@ -35,9 +35,8 @@ namespace AutoSolution.Services
         List<ServiceCategoryUtility> items = Context.Set<ServiceCategory>().OrderBy(n => n.ServiceCategoryName).Select(n => new ServiceCategoryUtility
            {
 
-                serviceCategoryId = n.ServiceCategoryId,
-                serviceCategoryName =n.ServiceCategoryName,
-                serviceCategoryCode=n.ServiceCategoryCode
+                ServiceCategoryUtilityId = n.ServiceCategoryId,
+                ServiceCategoryUtilityName =n.ServiceCategoryName,
             }) .ToList();
             return items;
         }

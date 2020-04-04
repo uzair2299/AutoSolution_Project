@@ -5,6 +5,7 @@ using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,24 +17,28 @@ namespace AutoSolution.Controllers
         // GET: Registration
         public ActionResult ServiceProvider()
         {
-            var model = _unitOfWork.User.CreateServiceProvider();
-            //var ii = _unitOfWork.ServiceCategory.GetAll();
+            ServiceProviderViewModel model = _unitOfWork.User.CreateServiceProvider();
+            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
+            var ServiceCategories = autoSolutionContext.ServiceCategories.ToList();
+            List<ServiceCategoryUtility> ServiceCategoryUtilities = new List<ServiceCategoryUtility>();
+            foreach (var item in ServiceCategories)
+            {
+                ServiceCategoryUtility serviceCategoryUtility = new ServiceCategoryUtility();
+                serviceCategoryUtility.ServiceCategoryUtilityId = item.ServiceCategoryId;
+                serviceCategoryUtility.ServiceCategoryUtilityName = item.ServiceCategoryName;
+                serviceCategoryUtility.IsChecked = false;
+                ServiceCategoryUtilities.Add(serviceCategoryUtility);
+            }
+
+            model.ServiceCategoriesList = ServiceCategoryUtilities;
 
 
-            //foreach(var i in ii)
-            //{
-            //    ServiceCategoryUtility newobj = new ServiceCategoryUtility();
-            //    newobj.serviceCategoryId = i.ServiceCategoryId;
-            //    newobj.serviceCategoryName = i.ServiceCategoryName;
-            //    model.SelectedServiceCategories.Add(newobj);
-            //}
             return View(model);
         }
         [HttpPost]
         public ActionResult ServiceProvider(ServiceProviderViewModel serviceProviderViewModel)
         {
-
-
+            var model = _unitOfWork.User.CreateServiceProvider();
             return View();
         }
 
@@ -51,9 +56,6 @@ namespace AutoSolution.Controllers
             if (ModelState.IsValid)
             {
                 UserRepository userRepository = new UserRepository( new AutoSolutionContext());
-
-
-                //var consumer = _unitOfWork.User.CreateConsumer(consumerViewModel);
                 var consumer = userRepository.CreateConsumer(consumerViewModel);
                 var cb = _unitOfWork.User.Add(consumer);
                int i = _unitOfWork.Complete();
@@ -72,5 +74,38 @@ namespace AutoSolution.Controllers
             return null;
         }
 
+
+        public ActionResult chkboc()
+        {
+            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
+            var service = autoSolutionContext.ServiceCategories.ToList();
+            ChkMV chkMV = new ChkMV();
+            List<ServiceCategoryUtility> scu = new List<ServiceCategoryUtility>();
+            foreach (var item in service)
+            {
+                ServiceCategoryUtility serviceCategoryUtility = new ServiceCategoryUtility();
+                serviceCategoryUtility.ServiceCategoryUtilityId = item.ServiceCategoryId;
+                serviceCategoryUtility.ServiceCategoryUtilityName = item.ServiceCategoryName;
+                serviceCategoryUtility.IsChecked = false;
+                scu.Add(serviceCategoryUtility);
+            }
+
+            chkMV.ServiceCategoriesList = scu;
+            return View(chkMV);
+        }
+
+        [HttpPost]
+        public ActionResult chkboc(ChkMV chkMV)
+        {
+            var selectedFeatureIds = new List<int>();
+            foreach (var option in chkMV.ServiceCategoriesList)
+            {
+                if (option.IsChecked)
+                {
+                    selectedFeatureIds.Add(option.ServiceCategoryUtilityId);
+                }
+            }
+            return View();
+        }
     }
 }

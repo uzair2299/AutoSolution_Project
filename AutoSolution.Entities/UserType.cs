@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-    public class UserRole
+    public class UserType
     {
-        public int UserRoleId { get; set; }
-        public string RoleName { get; set; }
+        public int UserTypeId { get; set; }
+        public string UserTypeName { get; set; }
 
+        public string UserTypeCode { get; set; }
+        public string UserTypeDescription { get; set; }
         public virtual ICollection<User> User { get; set; }
-
-
     }
 }

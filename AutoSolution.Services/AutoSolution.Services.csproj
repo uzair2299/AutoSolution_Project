@@ -92,6 +92,7 @@
     <Compile Include="IUnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="UserRoleRepository.cs" />
+    <Compile Include="ViewModel\ChkMV.cs" />
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />

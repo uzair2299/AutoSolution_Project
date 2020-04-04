@@ -10,17 +10,17 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Services
 {
-    public class UserRoleRepository: AutoSolutionRepository<UserRole>, IUserRoleRepository
+    public class UserRoleRepository: AutoSolutionRepository<UserType>, IUserRoleRepository
     {
         public UserRoleRepository( AutoSolutionContext context) : base(context) { }
 
         public IEnumerable<SelectListItem> GetUserRoles()
         {
             
-                List<SelectListItem> items = Context.Set<UserRole>().Where(n=>n.RoleName== "Service Provider"   || n.RoleName=="Client") .Select(n => new SelectListItem
+                List<SelectListItem> items = Context.Set<UserType>().Where(n=>n.UserTypeName == "Service Provider"   || n.UserTypeName== "Client") .Select(n => new SelectListItem
                 {
-                    Value = n.UserRoleId.ToString(),
-                    Text = n.RoleName
+                    Value = n.UserTypeId.ToString(),
+                    Text = n.UserTypeName
                 }).ToList();
 
                 var CityTip = new SelectListItem()

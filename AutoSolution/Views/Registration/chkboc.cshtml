@@ -1,0 +1,23 @@
+﻿@model AutoSolution.Services.ViewModel.ChkMV
+
+@{
+    ViewBag.Title = "chkboc";
+}
+
+<h2>chkboc</h2>
+@using (Html.BeginForm("chkboc", "Registration", FormMethod.Post))
+{
+    for (var i = 0; i < Model.ServiceCategoriesList.Count; i++)
+    {
+        <label>@Model.ServiceCategoriesList[i].ServiceCategoryUtilityName</label>
+        @Html.CheckBoxFor(m => m.ServiceCategoriesList[i].IsChecked)
+        @Html.HiddenFor(m => m.ServiceCategoriesList[i].ServiceCategoryUtilityId)
+        @Html.HiddenFor(m => m.ServiceCategoriesList[i].ServiceCategoryUtilityName)
+        <br />
+
+    }
+
+    <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up As a Service Provider</button>
+
+}
+
