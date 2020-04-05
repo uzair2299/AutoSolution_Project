@@ -37,7 +37,7 @@ namespace AutoSolution.Entities
         public bool RememberMe { get; set; }
 
         
-
+        public virtual  ICollection<UserServiceCatogory> UserServiceCatogories { get; set; }
 
         public int UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }

@@ -21,7 +21,7 @@ namespace AutoSolution.Entities
         public int ServiceCategoryId { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public DateTime IsDeleteTime { get; set; }
+        public DateTime? IsDeleteTime { get; set; }
         public DateTime ServiceAddedDate { get; set; }
         public virtual User User { get; set; }
         public  virtual ServiceCategory ServiceCategory { get; set; }

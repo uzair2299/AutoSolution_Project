@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _char : DbMigration
+    public partial class charliiiiii : DbMigration
     {
         public override void Up()
         {
@@ -42,6 +42,23 @@
                         IsDelete = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ServiceCategoryId);
+            
+            CreateTable(
+                "dbo.UserServiceCatogories",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false),
+                        ServiceCategoryId = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDelete = c.Boolean(nullable: false),
+                        IsDeleteTime = c.DateTime(),
+                        ServiceAddedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.ServiceCategoryId })
+                .ForeignKey("dbo.ServiceCategories", t => t.ServiceCategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.ServiceCategoryId);
             
             CreateTable(
                 "dbo.Users",
@@ -92,40 +109,23 @@
                     })
                 .PrimaryKey(t => t.UserTypeId);
             
-            CreateTable(
-                "dbo.UserServiceCatogories",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false),
-                        ServiceCategoryId = c.Int(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        IsDelete = c.Boolean(nullable: false),
-                        IsDeleteTime = c.DateTime(nullable: false),
-                        ServiceAddedDate = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.ServiceCategoryId })
-                .ForeignKey("dbo.ServiceCategories", t => t.ServiceCategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.ServiceCategoryId);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.UserServiceCatogories", "UserId", "dbo.Users");
-            DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
             DropForeignKey("dbo.Users", "UserTypeId", "dbo.UserTypes");
             DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
+            DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
             DropForeignKey("dbo.Cities", "ProvinceId", "dbo.Provinces");
-            DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
-            DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
             DropIndex("dbo.Users", new[] { "CityId" });
             DropIndex("dbo.Users", new[] { "UserTypeId" });
+            DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
+            DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
             DropIndex("dbo.Cities", new[] { "ProvinceId" });
-            DropTable("dbo.UserServiceCatogories");
             DropTable("dbo.UserTypes");
             DropTable("dbo.Users");
+            DropTable("dbo.UserServiceCatogories");
             DropTable("dbo.ServiceCategories");
             DropTable("dbo.Provinces");
             DropTable("dbo.Cities");

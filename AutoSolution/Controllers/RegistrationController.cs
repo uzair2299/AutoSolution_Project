@@ -23,7 +23,7 @@ namespace AutoSolution.Controllers
         [HttpPost]
         public ActionResult ServiceProvider(ServiceProviderViewModel serviceProviderViewModel)
         {
-            ServiceProviderViewModel model = _unitOfWork.User.CreateServiceProvider()
+            ServiceProviderViewModel model = _unitOfWork.User.CreateServiceProvider();
             if (ModelState.IsValid)
             {
                 UserRepository userRepository = new UserRepository(new AutoSolutionContext());

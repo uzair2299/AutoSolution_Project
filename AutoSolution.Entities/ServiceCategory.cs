@@ -18,5 +18,7 @@ namespace AutoSolution.Entities
         public string ServiceCategoryCode { get; set; }
         public string  Description { get; set; }
         public bool IsDelete { get; set; }
+
+        public virtual ICollection<UserServiceCatogory> UserServiceCatogories { get; set; }
     }
 }

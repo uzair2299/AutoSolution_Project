@@ -18,11 +18,13 @@ namespace AutoSolution.Services
             City = new CityRepository(_context);
             Province = new ProvinceRepository(_context);
             ServiceCategory = new ServiceCategoryRepository(_context);
+            UserServiceCatogory = new UserServiceCatogoryRepository(_context);
         }
         public IUserRepository User { get; private set; }
         public ICityRepository City { get; private set; }
         public IProvinceRepository Province { get; private set; }
         public IServiceCategoryRepository ServiceCategory { get; private set; }
+        public IUserServiceCatogoryRepository UserServiceCatogory { get; private set; }
 
         public int Complete()
         {

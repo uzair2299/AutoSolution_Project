@@ -15,6 +15,7 @@ namespace AutoSolution.Services
 {
    public class UserRepository : AutoSolutionRepository<User>, IUserRepository
     {
+       //private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
         public UserRepository(AutoSolutionContext context)
            : base(context)
         {
@@ -76,6 +77,7 @@ namespace AutoSolution.Services
 
         {
             User user = new User();
+            UserServiceCatogoryRepository userServiceCatogoryRepository = new UserServiceCatogoryRepository(new AutoSolutionContext());
             user.FirstName = serviceProviderViewModel.First_Name;
             user.LastName = serviceProviderViewModel.Last_Name;
             user.Password = serviceProviderViewModel.Password;
@@ -92,9 +94,30 @@ namespace AutoSolution.Services
             user.RegistrationDate = DateTime.Now;
             user.Address = "-";
             user.PasswordCount = 0;
-            user.UserTypeId = 1;
-            user.RememberMe = false;
+            user.UserTypeId = 2;
+            user.RememberMe = false; 
             user.CityId = Convert.ToInt32(serviceProviderViewModel.SelectedCity);
+            user.UserServiceCatogories = userServiceCatogoryRepository.SelectedServiceCategories(serviceProviderViewModel.ServiceCategoriesList);
+            //var AddedUser =  Add(user);
+            //int o = _unitOfWork.Complete();
+            //var SelectedServiceCategories = new List<int>();
+            //foreach (var option in serviceProviderViewModel.ServiceCategoriesList)
+            //{
+            //    if (option.IsChecked)
+            //    {
+            //        SelectedServiceCategories.Add(option.ServiceCategoryUtilityId);
+            //    }
+            //}
+
+            //foreach(var item in SelectedServiceCategories)
+            //{
+            //    UserServiceCatogory userServiceCatogory = new UserServiceCatogory();
+            //    userServiceCatogory.ServiceCategoryId = o;
+            //    userServiceCatogory.ServiceCategoryId = item;
+            //    _unitOfWork.UserServiceCatogory.Add(userServiceCatogory);
+            //   int n=  _unitOfWork.Complete();
+            //}
+
             return user;
         }
 

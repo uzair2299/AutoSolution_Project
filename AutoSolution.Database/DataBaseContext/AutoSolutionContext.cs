@@ -12,8 +12,6 @@ namespace AutoSolution.Database.DataBaseContext
     {
         public AutoSolutionContext() : base("name = AutoSolutionContext") { }
 
-
-
         public DbSet<User> User { get; set; }
         public DbSet<UserType> UserRoles { get; set; }
         public DbSet<City> Cities { get; set; }
