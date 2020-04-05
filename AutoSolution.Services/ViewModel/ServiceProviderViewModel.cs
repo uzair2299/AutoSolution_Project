@@ -46,7 +46,6 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Business Description")]
         public string BusinessDescription { get; set; }
 
-        //public List<ServiceCategoryUtility> SelectedServiceCategories { get; set; }
         public List<ServiceCategoryUtility> ServiceCategoriesList { get; set; }
 
         /// <summary>

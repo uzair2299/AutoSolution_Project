@@ -18,28 +18,20 @@ namespace AutoSolution.Controllers
         public ActionResult ServiceProvider()
         {
             ServiceProviderViewModel model = _unitOfWork.User.CreateServiceProvider();
-            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
-            var ServiceCategories = autoSolutionContext.ServiceCategories.ToList();
-            List<ServiceCategoryUtility> ServiceCategoryUtilities = new List<ServiceCategoryUtility>();
-            foreach (var item in ServiceCategories)
-            {
-                ServiceCategoryUtility serviceCategoryUtility = new ServiceCategoryUtility();
-                serviceCategoryUtility.ServiceCategoryUtilityId = item.ServiceCategoryId;
-                serviceCategoryUtility.ServiceCategoryUtilityName = item.ServiceCategoryName;
-                serviceCategoryUtility.IsChecked = false;
-                ServiceCategoryUtilities.Add(serviceCategoryUtility);
-            }
-
-            model.ServiceCategoriesList = ServiceCategoryUtilities;
-
-
             return View(model);
         }
         [HttpPost]
         public ActionResult ServiceProvider(ServiceProviderViewModel serviceProviderViewModel)
         {
-            var model = _unitOfWork.User.CreateServiceProvider();
-            return View();
+            ServiceProviderViewModel model = _unitOfWork.User.CreateServiceProvider()
+            if (ModelState.IsValid)
+            {
+                UserRepository userRepository = new UserRepository(new AutoSolutionContext());
+                var serviceProvider = userRepository.CreateServiceProvider(serviceProviderViewModel);
+                var cb = _unitOfWork.User.Add(serviceProvider);
+                int i = _unitOfWork.Complete();
+            }
+            return View(model);
         }
 
         public ActionResult Consumer()
@@ -52,7 +44,13 @@ namespace AutoSolution.Controllers
         public ActionResult Consumer(ConsumerViewModel consumerViewModel)
         {
             var model = _unitOfWork.User.CreateConsumer();
-
+            //CityRepository cityRepository = new CityRepository(new AutoSolutionContext());
+            //ProvinceRepository provinceRepository = new ProvinceRepository(new AutoSolutionContext());
+            //var cities = cityRepository.GetCities();
+            //var provinces = provinceRepository.GetProvinces();
+            //CityProvinceCategoryViewModel cityProvinceCategoryViewModel = new CityProvinceCategoryViewModel();
+            //cityProvinceCategoryViewModel.CitiesList = cities;
+            //cityProvinceCategoryViewModel.ProvincesList = provinces;
             if (ModelState.IsValid)
             {
                 UserRepository userRepository = new UserRepository( new AutoSolutionContext());
@@ -72,40 +70,6 @@ namespace AutoSolution.Controllers
                 return Json(cities, JsonRequestBehavior.AllowGet);
             }
             return null;
-        }
-
-
-        public ActionResult chkboc()
-        {
-            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
-            var service = autoSolutionContext.ServiceCategories.ToList();
-            ChkMV chkMV = new ChkMV();
-            List<ServiceCategoryUtility> scu = new List<ServiceCategoryUtility>();
-            foreach (var item in service)
-            {
-                ServiceCategoryUtility serviceCategoryUtility = new ServiceCategoryUtility();
-                serviceCategoryUtility.ServiceCategoryUtilityId = item.ServiceCategoryId;
-                serviceCategoryUtility.ServiceCategoryUtilityName = item.ServiceCategoryName;
-                serviceCategoryUtility.IsChecked = false;
-                scu.Add(serviceCategoryUtility);
-            }
-
-            chkMV.ServiceCategoriesList = scu;
-            return View(chkMV);
-        }
-
-        [HttpPost]
-        public ActionResult chkboc(ChkMV chkMV)
-        {
-            var selectedFeatureIds = new List<int>();
-            foreach (var option in chkMV.ServiceCategoriesList)
-            {
-                if (option.IsChecked)
-                {
-                    selectedFeatureIds.Add(option.ServiceCategoryUtilityId);
-                }
-            }
-            return View();
         }
     }
 }

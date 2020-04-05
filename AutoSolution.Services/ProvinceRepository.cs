@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Services
 {
-    class ProvinceRepository:AutoSolutionRepository<Province>,IProvinceRepository
+   public  class ProvinceRepository:AutoSolutionRepository<Province>,IProvinceRepository
     {
         public ProvinceRepository(AutoSolutionContext context): base(context){ }
 

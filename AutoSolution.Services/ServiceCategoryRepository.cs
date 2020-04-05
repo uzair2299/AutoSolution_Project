@@ -32,12 +32,13 @@ namespace AutoSolution.Services
             //    ites.Add(newww);
             //}
 
-        List<ServiceCategoryUtility> items = Context.Set<ServiceCategory>().OrderBy(n => n.ServiceCategoryName).Select(n => new ServiceCategoryUtility
-           {
+            List<ServiceCategoryUtility> items = Context.Set<ServiceCategory>().OrderBy(n => n.ServiceCategoryName).Select(n => new ServiceCategoryUtility
+            {
 
                 ServiceCategoryUtilityId = n.ServiceCategoryId,
-                ServiceCategoryUtilityName =n.ServiceCategoryName,
-            }) .ToList();
+                ServiceCategoryUtilityName = n.ServiceCategoryName,
+                IsChecked = false
+            }).ToList();
             return items;
         }
     }

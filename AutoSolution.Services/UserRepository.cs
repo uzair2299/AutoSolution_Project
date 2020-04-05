@@ -52,7 +52,7 @@ namespace AutoSolution.Services
             user.RegistrationDate = DateTime.Now;
             user.Address = "-";            
             user.PasswordCount = 0;
-            user.UserTypeId = 4;
+            user.UserTypeId = 1;
             user.RememberMe = false;
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
             return user;
@@ -63,15 +63,41 @@ namespace AutoSolution.Services
         {
         var province = new ProvinceRepository(new AutoSolutionContext());
         var city = new CityRepository(new AutoSolutionContext());
-            //var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
+        var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
             var serviceProvider = new ServiceProviderViewModel()
             {
                 ProvincesList = province.GetProvinces(),
                 CitiesList = city.GetCities(),
-                //ServiceCategoriesList = serviceCategories.GetServiceCategories()
+                ServiceCategoriesList = serviceCategories.GetServiceCategories()
         };
             return serviceProvider;
         }
+        public User CreateServiceProvider(ServiceProviderViewModel serviceProviderViewModel)
+
+        {
+            User user = new User();
+            user.FirstName = serviceProviderViewModel.First_Name;
+            user.LastName = serviceProviderViewModel.Last_Name;
+            user.Password = serviceProviderViewModel.Password;
+            user.Email = serviceProviderViewModel.Email;
+            user.MobileNumber = serviceProviderViewModel.MobileNumber;
+            user.PhoneNumber = serviceProviderViewModel.PhoneNumber;
+            user.Gender = serviceProviderViewModel.Gender;
+            user.IsConfrimEmail = false;
+            user.IsActive = false;
+            user.IsTermAndConditionAccepted = serviceProviderViewModel.IsTermAndConditionAccepted;
+            user.IsDelete = false;
+            user.DateOfBirth = DateTime.Now;
+            user.LastUpdateDate = DateTime.Now;
+            user.RegistrationDate = DateTime.Now;
+            user.Address = "-";
+            user.PasswordCount = 0;
+            user.UserTypeId = 1;
+            user.RememberMe = false;
+            user.CityId = Convert.ToInt32(serviceProviderViewModel.SelectedCity);
+            return user;
+        }
+
 
         public string SHA_256Password(string password)
         {

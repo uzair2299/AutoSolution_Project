@@ -6759,8 +6759,6 @@
     <Content Include="Views\Registration\_SignUpAlert.cshtml" />
     <Content Include="Views\TermsAndConditions\Index.cshtml" />
     <Content Include="Views\Registration\Consumer.cshtml" />
-    <Content Include="Views\Registration\chk.cshtml" />
-    <Content Include="Views\Registration\chkboc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
