@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="AutoSolutionRepository.cs" />
     <Compile Include="CityRepository.cs" />
+    <Compile Include="CommonServices\EncryptPassword.cs" />
     <Compile Include="CommonServices\ServiceCategoryUtility.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

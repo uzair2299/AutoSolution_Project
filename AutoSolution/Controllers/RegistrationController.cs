@@ -44,32 +44,32 @@ namespace AutoSolution.Controllers
         public ActionResult Consumer(ConsumerViewModel consumerViewModel)
         {
             var model = _unitOfWork.User.CreateConsumer();
-            //CityRepository cityRepository = new CityRepository(new AutoSolutionContext());
-            //ProvinceRepository provinceRepository = new ProvinceRepository(new AutoSolutionContext());
-            //var cities = cityRepository.GetCities();
-            //var provinces = provinceRepository.GetProvinces();
-            //CityProvinceCategoryViewModel cityProvinceCategoryViewModel = new CityProvinceCategoryViewModel();
-            //cityProvinceCategoryViewModel.CitiesList = cities;
-            //cityProvinceCategoryViewModel.ProvincesList = provinces;
             if (ModelState.IsValid)
             {
-                UserRepository userRepository = new UserRepository( new AutoSolutionContext());
+                UserRepository userRepository = new UserRepository(new AutoSolutionContext());
                 var consumer = userRepository.CreateConsumer(consumerViewModel);
                 var cb = _unitOfWork.User.Add(consumer);
-               int i = _unitOfWork.Complete();
+                int i = _unitOfWork.Complete();
+                return View(consumerViewModel);
             }
-                return View(model);
+            return View(model);
+
         }
 
         [HttpGet]
         public ActionResult GetCities(string ProvinceId)
         {
             if (!string.IsNullOrWhiteSpace(ProvinceId))
-            {                
+            {
                 IEnumerable<SelectListItem> cities = _unitOfWork.City.GetCities(ProvinceId);
                 return Json(cities, JsonRequestBehavior.AllowGet);
             }
             return null;
+        }
+
+        public ActionResult newww(){
+            var model = _unitOfWork.User.CreateConsumer();
+            return View(model);
         }
     }
 }

@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202004051603122_charliiiiii.designer.cs">
       <DependentUpon>202004051603122_charliiiiii.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004052033374_uzair.cs" />
+    <Compile Include="Migrations\202004052033374_uzair.designer.cs">
+      <DependentUpon>202004052033374_uzair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004051603122_charliiiiii.resx">
       <DependentUpon>202004051603122_charliiiiii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004052033374_uzair.resx">
+      <DependentUpon>202004052033374_uzair.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

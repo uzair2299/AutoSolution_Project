@@ -15,7 +15,6 @@ namespace AutoSolution.Services
 {
    public class UserRepository : AutoSolutionRepository<User>, IUserRepository
     {
-       //private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
         public UserRepository(AutoSolutionContext context)
            : base(context)
         {
@@ -39,11 +38,14 @@ namespace AutoSolution.Services
             User user = new User();
             user.FirstName = consumerViewModel.First_Name;
             user.LastName = consumerViewModel.Last_Name;
-            user.Password = consumerViewModel.Password;
+            user.Password = EncryptPassword.PasswordToEncrypt(consumerViewModel.Password);
+            //user.Password = consumerViewModel.Password;
             user.Email = consumerViewModel.Email;
             user.MobileNumber = consumerViewModel.MobileNumber;
             user.PhoneNumber = consumerViewModel.PhoneNumber;
             user.Gender = consumerViewModel.Gender;
+
+            //email not verified on registration time
             user.IsConfrimEmail = false;
             user.IsActive = false;
             user.IsTermAndConditionAccepted = consumerViewModel.IsTermAndConditionAccepted;
@@ -55,6 +57,7 @@ namespace AutoSolution.Services
             user.PasswordCount = 0;
             user.UserTypeId = 1;
             user.RememberMe = false;
+            user.ActivetionCode = new Guid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
             return user;
         }
@@ -98,41 +101,9 @@ namespace AutoSolution.Services
             user.RememberMe = false; 
             user.CityId = Convert.ToInt32(serviceProviderViewModel.SelectedCity);
             user.UserServiceCatogories = userServiceCatogoryRepository.SelectedServiceCategories(serviceProviderViewModel.ServiceCategoriesList);
-            //var AddedUser =  Add(user);
-            //int o = _unitOfWork.Complete();
-            //var SelectedServiceCategories = new List<int>();
-            //foreach (var option in serviceProviderViewModel.ServiceCategoriesList)
-            //{
-            //    if (option.IsChecked)
-            //    {
-            //        SelectedServiceCategories.Add(option.ServiceCategoryUtilityId);
-            //    }
-            //}
-
-            //foreach(var item in SelectedServiceCategories)
-            //{
-            //    UserServiceCatogory userServiceCatogory = new UserServiceCatogory();
-            //    userServiceCatogory.ServiceCategoryId = o;
-            //    userServiceCatogory.ServiceCategoryId = item;
-            //    _unitOfWork.UserServiceCatogory.Add(userServiceCatogory);
-            //   int n=  _unitOfWork.Complete();
-            //}
-
             return user;
         }
 
-
-        public string SHA_256Password(string password)
-        {
-            SHA256 my256hash = SHA256.Create();
-            byte[] hashPassword = my256hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-            StringBuilder mybuilder = new StringBuilder();
-            for (int i = 0; i < hashPassword.Length; i++)
-            {
-                mybuilder.Append(hashPassword[i].ToString("x2"));
-            }
-            return mybuilder.ToString();
-        }
     }
 
 }

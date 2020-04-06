@@ -11,21 +11,26 @@ namespace AutoSolution.Services.ViewModel
 {
     public class ConsumerViewModel
     {
-        public ConsumerViewModel()
-        {
+        //public ConsumerViewModel()
+        //{
            
-        }
+        //}
         [Display(Name = "First Name")]
         [StringLength(50)]
+        [Required(ErrorMessage = "First Name is requierd")]
         public string First_Name { get; set; }
 
         [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "Second Name is requierd")]
         [StringLength(75)]
         public string Last_Name { get; set; }
 
+
+        //[DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
         public int PhoneNumber { get; set; }
 
+        //[DataType(DataType.PhoneNumber)]
         [Display(Name = "Mobile Number")]
         public int MobileNumber { get; set; }
         public String Gender { get; set; }
@@ -41,7 +46,7 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
 
-
+        public Nullable<System.Guid> ActivetionCode { get; set; }
         /// <summary>
         /// selected province id  holds the unique key for entity.The unique key of the selected value will be the same as one of the elements of the SelectListItem.
         /// </summary>

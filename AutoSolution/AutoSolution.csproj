@@ -6659,6 +6659,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -6759,6 +6764,7 @@
     <Content Include="Views\Registration\_SignUpAlert.cshtml" />
     <Content Include="Views\TermsAndConditions\Index.cshtml" />
     <Content Include="Views\Registration\Consumer.cshtml" />
+    <Content Include="Views\Registration\newww.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

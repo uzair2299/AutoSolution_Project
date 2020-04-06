@@ -19,6 +19,8 @@ namespace AutoSolution.Entities
         public int PhoneNumber { get; set; }
         public int MobileNumber { get; set; }
         public int MobileNumber1 { get; set; }
+
+
         public string Email { get; set; }
         public string EmailSecondary { get; set; } 
         public bool IsConfrimEmail { get; set; }
@@ -35,8 +37,9 @@ namespace AutoSolution.Entities
         public bool IsDelete { get; set; }
         public bool IsTermAndConditionAccepted { get; set; }
         public bool RememberMe { get; set; }
+        public Nullable<System.Guid> ActivetionCode { get; set; }
+        public string OTP { get; set; }
 
-        
         public virtual  ICollection<UserServiceCatogory> UserServiceCatogories { get; set; }
 
         public int UserTypeId { get; set; }

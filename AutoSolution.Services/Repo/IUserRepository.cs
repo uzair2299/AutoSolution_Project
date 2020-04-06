@@ -13,6 +13,5 @@ namespace AutoSolution.Services.Repo
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();
         User CreateConsumer(ConsumerViewModel consumerViewModel);
-        string SHA_256Password(string password);
     }
 }
