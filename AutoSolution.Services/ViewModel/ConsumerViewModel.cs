@@ -11,36 +11,49 @@ namespace AutoSolution.Services.ViewModel
 {
     public class ConsumerViewModel
     {
-        //public ConsumerViewModel()
-        //{
-           
-        //}
+        public ConsumerViewModel()
+        {
+
+        }
+        
         [Display(Name = "First Name")]
         [StringLength(50)]
-        [Required(ErrorMessage = "First Name is requierd")]
+        [Required(ErrorMessage = "*First Name is Requierd")]
         public string First_Name { get; set; }
 
         [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "Second Name is requierd")]
-        [StringLength(75)]
+        [Required(ErrorMessage = "*Second Name is Requierd")]
+        [StringLength(50)]
         public string Last_Name { get; set; }
 
 
-        //[DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
         public int PhoneNumber { get; set; }
 
-        //[DataType(DataType.PhoneNumber)]
+
         [Display(Name = "Mobile Number")]
         public int MobileNumber { get; set; }
+
+        [Required(ErrorMessage = "*Please select Gender Type")]
         public String Gender { get; set; }
 
         [Display(Name = "E-mail")]
+
+        [Required(ErrorMessage = "*Email is Requierd")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Required]
         [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The Password and Confirm Password do not match.")]
         public string ConfrimPassword { get; set; }
+        [Required(ErrorMessage = "*Please Accept the Terms and Conditions before register")]
+        
         public bool IsTermAndConditionAccepted { get; set; }
 
         [Display(Name = "Remember Me")]
@@ -53,6 +66,7 @@ namespace AutoSolution.Services.ViewModel
         /// 
         [Display(Name = "Select Province")]
         public string SelectedProvince { get; set; }
+
         public IEnumerable<SelectListItem> ProvincesList { get; set; }
 
 

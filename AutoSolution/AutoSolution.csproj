@@ -1713,6 +1713,8 @@
     <Content Include="assets\media\users\user4.jpg" />
     <Content Include="assets\media\users\user5.jpg" />
     <Content Include="assets\media\vendors\jstree\32px.png" />
+    <Content Include="assets\Uzair\bg2.jpg" />
+    <Content Include="assets\Uzair\gallery_bg.jpg" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.css" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.js" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.min.css" />
@@ -6764,7 +6766,8 @@
     <Content Include="Views\Registration\_SignUpAlert.cshtml" />
     <Content Include="Views\TermsAndConditions\Index.cshtml" />
     <Content Include="Views\Registration\Consumer.cshtml" />
-    <Content Include="Views\Registration\newww.cshtml" />
+    <Content Include="Views\Registration\UserVerification.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

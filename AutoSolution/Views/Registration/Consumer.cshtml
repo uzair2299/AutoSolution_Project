@@ -34,8 +34,8 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                                             @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -44,10 +44,9 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
                                             @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })</span>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
@@ -58,6 +57,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile-alt"></i></span></div>
                                             @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -67,6 +67,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
                                             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                             </div>
@@ -78,6 +79,9 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
                                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span>
+                                        <span class="form-text text-muted">@Html.ValidationMessage("EmailExists", new { @class = "text-danger" })</span>
+                                        <span class="form-text text-danger" id="ErrorMessage"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -96,6 +100,7 @@
                                                 <span></span>
                                             </label>
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                             </div>
@@ -107,6 +112,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -116,6 +122,7 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                                             @Html.EditorFor(model => model.ConfrimPassword, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.ConfrimPassword, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +154,9 @@
                                             <a href="/TermsAndConditions/index" class="kt-link kt-font-bolder" style="color:#646c9a">I have read and agree to the Terms and Conditions</a>
                                             <span></span>
                                         </label>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.IsTermAndConditionAccepted, "", new { @class = "text-danger" })</span>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -169,6 +178,52 @@
 </div>
 <!--end content-->
 <script>
+
+    $("#Email").change(function () {
+        var Email = $("#Email").val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("IsAlreadySigned", "Registration")',
+            data: '{Email: "' + Email + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var ErrorDiv = $("#ErrorMessage");
+                if (response) {
+                    ErrorDiv.html("Email is Available");
+                }
+                else {
+                    ErrorDiv.css("color", "red");
+                    ErrorDiv.html("*This Email is  Already Exist");
+                }
+            }
+        });
+    });
+
+
+ 
+
+
+    $(document).ready(function () {
+            $('#SelectedProvince').change(function () {
+                var selectedProvince = $("#SelectedProvince").val();
+                var selectedCity = $('#SelectedCity');
+                selectedCity.empty();
+                if (selectedProvince != null && selectedProvince != '') {
+                    $.getJSON('@Url.Action("GetCities")', { ProvinceId: selectedProvince }, function (cities) {
+                        if (cities != null && !jQuery.isEmptyObject(cities))
+                        {
+                            $.each(cities, function (index, city) {
+                                selectedCity.append($('<option/>', {
+                                    value: city.Value,
+                                    text: city.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+    });
     //$("#CosumerRegistration").validate({
     //    rules: {
     //        First_Name: {
@@ -203,32 +258,12 @@
 
         }
         else {
-            alert("message");s
+            alert("message");
             console.write("fail");
         }
     });
 
 
 
-    $(document).ready(function () {
-            $('#SelectedProvince').change(function () {
-                var selectedProvince = $("#SelectedProvince").val();
-                var selectedCity = $('#SelectedCity');
-                selectedCity.empty();
-                if (selectedProvince != null && selectedProvince != '') {
-                    $.getJSON('@Url.Action("GetCities")', { ProvinceId: selectedProvince }, function (cities) {
-                        if (cities != null && !jQuery.isEmptyObject(cities))
-                        {
-                            $.each(cities, function (index, city) {
-                                selectedCity.append($('<option/>', {
-                                    value: city.Value,
-                                    text: city.Text
-                                }));
-                            });
-                        }
-                    });
-                }
-            });
-    });
 
 </script>

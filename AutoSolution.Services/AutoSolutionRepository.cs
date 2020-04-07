@@ -15,10 +15,13 @@ namespace AutoSolution.Services
 
 
         protected readonly DbContext Context;
+        //protected DbSet<T> dbSet;
+
 
         public AutoSolutionRepository(DbContext context)
         {
-            Context = context;
+            this.Context = context;
+            //this.dbSet = context.Set<T>();
         }
 
         public T Add(T entity)
