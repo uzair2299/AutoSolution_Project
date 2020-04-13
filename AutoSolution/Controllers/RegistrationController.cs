@@ -62,7 +62,7 @@ namespace AutoSolution.Controllers
                 var AddedComsumer = _unitOfWork.User.Add(consumer);
                 int i = _unitOfWork.Complete();
                 var activationCode = AddedComsumer.ActivetionCode;
-                var VerificationLink = "/Register/UserVerification/" + activationCode;
+                var VerificationLink = "/Registration/UserVerification/" + activationCode;
                 var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, VerificationLink);
                 UserEmailUtility.SendEmailToUser(AddedComsumer.Email, link);
                 return View(model);
@@ -71,7 +71,7 @@ namespace AutoSolution.Controllers
             {
                 return View(model);
             }
-            
+
 
         }
 
@@ -79,22 +79,20 @@ namespace AutoSolution.Controllers
 
         public ActionResult UserVerification(string id)
         {
+            var IsVerify = _unitOfWork.User.Get(u => u.ActivetionCode == new Guid(id)).FirstOrDefault();
+            if (IsVerify != null)
+            {
+                IsVerify.IsConfrimEmail = true;
 
-            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
-            autoSolutionContext.Configuration.ValidateOnSaveEnabled = false; // Ignor to password confirmation   
-            //var IsVerify = autoSolutionContext.User.Where(u => u.ActivetionCode == new Guid(id)).FirstOrDefault();
-
-            //if (IsVerify != null)
-            //{
-            //    IsVerify.IsConfrimEmail = true;
-            //    autoSolutionContext.SaveChanges();
-              ViewBag.Message = "Email Verification completed";
-            ViewBag.body = "Please Click Here To";
-            //}
-            //else
-            //{
-            //    ViewBag.Message = "Invalid Request...Email not verify";
-            //}
+                IsVerify.IsActive = true;
+                _unitOfWork.Complete();
+                ViewBag.Message = "Email Verification completed";
+                ViewBag.body = "Please Click Here To";
+            }
+            else
+            {
+                ViewBag.Message = "Invalid Request...Email not verify";
+            }
 
             return View();
         }
@@ -133,12 +131,14 @@ namespace AutoSolution.Controllers
 
         public bool IsEmailExists(string eMail)
         {
-            
-            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
-            var IsCheck = autoSolutionContext.User.Where(email => email.Email == eMail).FirstOrDefault();
+
+
+            var IsCheck = _unitOfWork.User.Get(email => email.Email == eMail).FirstOrDefault();
             return IsCheck != null;
         }
 
+
+
     }
-    
+
 }

@@ -1,4 +1,5 @@
 ﻿using AutoSolution.Database.DataBaseContext;
+using AutoSolution.Entities;
 using AutoSolution.Services.Repo;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,16 @@ namespace AutoSolution.Services
             Province = new ProvinceRepository(_context);
             ServiceCategory = new ServiceCategoryRepository(_context);
             UserServiceCatogory = new UserServiceCatogoryRepository(_context);
+            VehicleManufacturer = new VehicleManufacturerRepository(_context);
         }
+
         public IUserRepository User { get; private set; }
         public ICityRepository City { get; private set; }
         public IProvinceRepository Province { get; private set; }
         public IServiceCategoryRepository ServiceCategory { get; private set; }
         public IUserServiceCatogoryRepository UserServiceCatogory { get; private set; }
 
+        public IVehicleManufacturerRepository VehicleManufacturer { get; private set; }
         public int Complete()
         {
             return _context.SaveChanges();

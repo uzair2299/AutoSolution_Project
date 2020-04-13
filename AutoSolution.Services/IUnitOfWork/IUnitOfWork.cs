@@ -15,6 +15,8 @@ namespace AutoSolution.Services.IUnitOfWork
         IProvinceRepository Province { get; }
         IServiceCategoryRepository ServiceCategory { get; }
         IUserServiceCatogoryRepository UserServiceCatogory { get; }
+
+        IVehicleManufacturerRepository VehicleManufacturer { get; }
         int Complete();
     }
 }

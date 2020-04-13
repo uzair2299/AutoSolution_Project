@@ -45,6 +45,8 @@ namespace AutoSolution.Services.ViewModel
 
         [Required]
         [DataType(DataType.Password)]
+        [MinLength(8, ErrorMessage = "Minimum 8 characters are required")]
+        [RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Only Alphabets and Numbers allowed.")]
         public string Password { get; set; }
 
         [Required]
@@ -55,9 +57,6 @@ namespace AutoSolution.Services.ViewModel
         [Required(ErrorMessage = "*Please Accept the Terms and Conditions before register")]
         
         public bool IsTermAndConditionAccepted { get; set; }
-
-        [Display(Name = "Remember Me")]
-        public bool RememberMe { get; set; }
 
         public Nullable<System.Guid> ActivetionCode { get; set; }
         /// <summary>

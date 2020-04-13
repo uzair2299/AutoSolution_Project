@@ -1,341 +1,343 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-    
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container ">
-            <div class="kt-subheader__main" style="margin: 0 auto;color:white">
-                <h3 class="kt-subheader__title" style="font-size:3.5rem">Welcome To Auto Solution</h3>
-                <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+            <h3 class="kt-subheader__title" style="font-size:3.5rem">Welcome To Auto Solution</h3>
+            <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+        </div>
+    </div>
+</div>
+@ViewBag.Message
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Select Your Interest
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <ul class="nav nav-tabs nav-fill" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1">Find Your Auto </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2">Find Your Mechanic</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
+                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                    <div class="kt-portlet kt-portlet--mobile">
+                        <div class="kt-portlet__body">
+                            <!--begin: Search Form -->
+                            <form class="kt-form kt-form--fit kt-margin-b-20">
+                                <div class="row kt-margin-b-20">
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>RecordID:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>OrderID:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Country:</label>
+                                        <select class="form-control kt-input" data-col-index="2">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Agent:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-b-20">
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Ship Date:</label>
+                                        <div class="input-daterange input-group" id="kt_datepicker">
+                                            <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Status:</label>
+                                        <select class="form-control kt-input" data-col-index="6">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Type:</label>
+                                        <select class="form-control kt-input" data-col-index="7">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-primary btn-brand--icon" id="kt_search">
+                                            <span>
+                                                <i class="la la-search"></i>
+                                                <span>Search</span>
+                                            </span>
+                                        </button>
+                                        &nbsp;&nbsp;
+                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                            <span>
+                                                <i class="la la-close"></i>
+                                                <span>Reset</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!--begin: Datatable -->
+                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
+
+
+                            <!--end: Datatable -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
+                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                    <div class="kt-portlet kt-portlet--mobile">
+                        <div class="kt-portlet__body">
+                            <!--begin: Search Form -->
+                            <form class="kt-form kt-form--fit kt-margin-b-20">
+                                <div class="row kt-margin-b-20">
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>RecordID:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>OrderID:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Country:</label>
+                                        <select class="form-control kt-input" data-col-index="2">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Agent:</label>
+                                        <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
+                                    </div>
+                                </div>
+                                <div class="row kt-margin-b-20">
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Ship Date:</label>
+                                        <div class="input-daterange input-group" id="kt_datepicker">
+                                            <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Status:</label>
+                                        <select class="form-control kt-input" data-col-index="6">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                        <label>Type:</label>
+                                        <select class="form-control kt-input" data-col-index="7">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button class="btn btn-primary btn-brand--icon" id="kt_search">
+                                            <span>
+                                                <i class="la la-search"></i>
+                                                <span>Search</span>
+                                            </span>
+                                        </button>
+                                        &nbsp;&nbsp;
+                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                            <span>
+                                                <i class="la la-close"></i>
+                                                <span>Reset</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--begin: Datatable -->
+                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
+                            <!--end: Datatable -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="kt-portlet">
-        <div class="kt-portlet__head">
-            <div class="kt-portlet__head-label">
-                <h3 class="kt-portlet__head-title">
-                    Select Your Interest
-                </h3>
-            </div>
+</div>
+<div class="kt-portlet kt-portlet--skin-solid kt-portlet--solid-warning kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
+    <div class="kt-portlet__head kt-portlet__head--noborder">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title kt-font-light">
+                Packages
+            </h3>
         </div>
-            <div class="kt-portlet__body">
-            <ul class="nav nav-tabs nav-fill" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1">Find Your Auto </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2">Find Your Mechanic</a>
-                </li>
-           </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
-                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                        <div class="kt-portlet kt-portlet--mobile">
-                            <div class="kt-portlet__body">
-                                <!--begin: Search Form -->
-                                <form class="kt-form kt-form--fit kt-margin-b-20">
-                                    <div class="row kt-margin-b-20">
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>RecordID:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>OrderID:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Country:</label>
-                                            <select class="form-control kt-input" data-col-index="2">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Agent:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
-                                        </div>
-                                    </div>
-                                    <div class="row kt-margin-b-20">
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Ship Date:</label>
-                                            <div class="input-daterange input-group" id="kt_datepicker">
-                                                <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Status:</label>
-                                            <select class="form-control kt-input" data-col-index="6">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Type:</label>
-                                            <select class="form-control kt-input" data-col-index="7">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <button class="btn btn-primary btn-brand--icon" id="kt_search">
-                                                <span>
-                                                    <i class="la la-search"></i>
-                                                    <span>Search</span>
-                                                </span>
-                                            </button>
-                                            &nbsp;&nbsp;
-                                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                                <span>
-                                                    <i class="la la-close"></i>
-                                                    <span>Reset</span>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-
-                                <!--begin: Datatable -->
-                                <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
-                                
-
-                                <!--end: Datatable -->
-                            </div>
-                        </div>
-                    </div>                </div>
-                <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
-                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                        <div class="kt-portlet kt-portlet--mobile">
-                            <div class="kt-portlet__body">
-                                <!--begin: Search Form -->
-                                <form class="kt-form kt-form--fit kt-margin-b-20">
-                                    <div class="row kt-margin-b-20">
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>RecordID:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>OrderID:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Country:</label>
-                                            <select class="form-control kt-input" data-col-index="2">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Agent:</label>
-                                            <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
-                                        </div>
-                                    </div>
-                                    <div class="row kt-margin-b-20">
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Ship Date:</label>
-                                            <div class="input-daterange input-group" id="kt_datepicker">
-                                                <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                                </div>
-                                                <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Status:</label>
-                                            <select class="form-control kt-input" data-col-index="6">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                            <label>Type:</label>
-                                            <select class="form-control kt-input" data-col-index="7">
-                                                <option value="">Select</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <button class="btn btn-primary btn-brand--icon" id="kt_search">
-                                                <span>
-                                                    <i class="la la-search"></i>
-                                                    <span>Search</span>
-                                                </span>
-                                            </button>
-                                            &nbsp;&nbsp;
-                                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                                <span>
-                                                    <i class="la la-close"></i>
-                                                    <span>Reset</span>
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <!--begin: Datatable -->
-                                <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
-                                <!--end: Datatable -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="kt-portlet__head-toolbar">
+            <a href="#" class="btn btn-outline-light btn-sm btn-hover-light btn-bold dropdown-toggle" data-toggle="dropdown">
+                2019
+            </a>
+            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
+                <ul class="kt-nav">
+                    <li class="kt-nav__item">
+                        <a href="#" class="kt-nav__link">
+                            <i class="kt-nav__link-icon flaticon2-line-chart"></i>
+                            <span class="kt-nav__link-text">Reports</span>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a href="#" class="kt-nav__link">
+                            <i class="kt-nav__link-icon flaticon2-send"></i>
+                            <span class="kt-nav__link-text">Messages</span>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a href="#" class="kt-nav__link">
+                            <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
+                            <span class="kt-nav__link-text">Charts</span>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a href="#" class="kt-nav__link">
+                            <i class="kt-nav__link-icon flaticon2-avatar"></i>
+                            <span class="kt-nav__link-text">Members</span>
+                        </a>
+                    </li>
+                    <li class="kt-nav__item">
+                        <a href="#" class="kt-nav__link">
+                            <i class="kt-nav__link-icon flaticon2-settings"></i>
+                            <span class="kt-nav__link-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
-        </div>
-    <div class="kt-portlet kt-portlet--skin-solid kt-portlet--solid-warning kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
-        <div class="kt-portlet__head kt-portlet__head--noborder">
-            <div class="kt-portlet__head-label">
-                <h3 class="kt-portlet__head-title kt-font-light">
-                    Packages
-                </h3>
-            </div>
-            <div class="kt-portlet__head-toolbar">
-                <a href="#" class="btn btn-outline-light btn-sm btn-hover-light btn-bold dropdown-toggle" data-toggle="dropdown">
-                    2019
-                </a>
-                <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
-                    <ul class="kt-nav">
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-                                <span class="kt-nav__link-text">Reports</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-send"></i>
-                                <span class="kt-nav__link-text">Messages</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
-                                <span class="kt-nav__link-text">Charts</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-avatar"></i>
-                                <span class="kt-nav__link-text">Members</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-settings"></i>
-                                <span class="kt-nav__link-text">Settings</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kt-portlet__body kt-margin-t-0 kt-padding-t-0">
-
-            <!--begin::Widget 29-->
-            <div class="kt-widget29">
-                <div class="kt-widget29__content">
-                    <h3 class="kt-widget29__title">Monthly Income</h3>
-                    <div class="kt-widget29__item">
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Total</span>
-                            <span class="kt-widget29__stats kt-font-success">$680</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Change</span>
-                            <span class="kt-widget29__stats kt-font-brand">+15%</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Licenses</span>
-                            <span class="kt-widget29__stats kt-font-danger">29</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="kt-widget29__content">
-                    <h3 class="kt-widget29__title">Taxes info</h3>
-                    <div class="kt-widget29__item">
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Total</span>
-                            <span class="kt-widget29__stats kt-font-success">22.50</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Change</span>
-                            <span class="kt-widget29__stats kt-font-brand">+15%</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Count</span>
-                            <span class="kt-widget29__stats kt-font-danger">701</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="kt-widget29__content">
-                    <h3 class="kt-widget29__title">Partners Sale</h3>
-                    <div class="kt-widget29__item">
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Total</span>
-                            <span class="kt-widget29__stats kt-font-success">$680</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Change</span>
-                            <span class="kt-widget29__stats kt-font-brand">+15%</span>
-                        </div>
-                        <div class="kt-widget29__info">
-                            <span class="kt-widget29__subtitle">Licenses</span>
-                            <span class="kt-widget29__stats kt-font-danger">29</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="kt-widget29__actions kt-align-right">
-                    <a href="#" class="btn btn-brand">View all packages</a>
-                </div>
-            </div>
-
-            <!--end::Widget 29-->
         </div>
     </div>
-    
+    <div class="kt-portlet__body kt-margin-t-0 kt-padding-t-0">
 
-
-    <div class="kt-portlet kt-portlet--fit kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
-        <div class="kt-portlet__head kt-portlet__space-x">
-            <div class="kt-portlet__head-label">
-                <h3 class="kt-portlet__head-title kt-font-light" style="font-size:3.5rem">
-                    Find Your Mechanic
-                </h3>
+        <!--begin::Widget 29-->
+        <div class="kt-widget29">
+            <div class="kt-widget29__content">
+                <h3 class="kt-widget29__title">Monthly Income</h3>
+                <div class="kt-widget29__item">
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Total</span>
+                        <span class="kt-widget29__stats kt-font-success">$680</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Change</span>
+                        <span class="kt-widget29__stats kt-font-brand">+15%</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Licenses</span>
+                        <span class="kt-widget29__stats kt-font-danger">29</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-widget29__content">
+                <h3 class="kt-widget29__title">Taxes info</h3>
+                <div class="kt-widget29__item">
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Total</span>
+                        <span class="kt-widget29__stats kt-font-success">22.50</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Change</span>
+                        <span class="kt-widget29__stats kt-font-brand">+15%</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Count</span>
+                        <span class="kt-widget29__stats kt-font-danger">701</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-widget29__content">
+                <h3 class="kt-widget29__title">Partners Sale</h3>
+                <div class="kt-widget29__item">
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Total</span>
+                        <span class="kt-widget29__stats kt-font-success">$680</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Change</span>
+                        <span class="kt-widget29__stats kt-font-brand">+15%</span>
+                    </div>
+                    <div class="kt-widget29__info">
+                        <span class="kt-widget29__subtitle">Licenses</span>
+                        <span class="kt-widget29__stats kt-font-danger">29</span>
+                    </div>
+                </div>
+            </div>
+            <div class="kt-widget29__actions kt-align-right">
+                <a href="#" class="btn btn-brand">View all packages</a>
             </div>
         </div>
-        <div class="kt-portlet__body">
-            <div class="kt-widget28">
-                <div class="kt-widget28__visual" style="background-image: url(/assets/media//bg/bg-5.jpg);height:500px"></div>
-                <div class="kt-widget28__wrapper kt-portlet__space-x">
-                    <!-- begin::Nav pills -->
-                    <ul class="nav nav-pills nav-fill kt-portlet__space-x" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#menu11"><span><i class="fa flaticon-pie-chart"></i></span><span>GMI Taxes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu21"><span><i class="fa flaticon-file-1"></i></span><span>IMT Invoice</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu31"><span><i class="fa flaticon-clipboard"></i></span><span>Main Notes</span></a>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills nav-fill kt-portlet__space-x" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#menu1"><span><i class="fa flaticon-pie-chart"></i></span><span>GMI Taxes</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu2"><span><i class="fa flaticon-file-1"></i></span><span>IMT Invoice</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#menu3"><span><i class="fa flaticon-clipboard"></i></span><span>Main Notes</span></a>
-                        </li>
-                    </ul>
-                    <!-- end::Nav pills -->
-                    <!-- begin::Tab Content -->
-                    @*<div class="tab-content">
+
+        <!--end::Widget 29-->
+    </div>
+</div>
+
+
+
+<div class="kt-portlet kt-portlet--fit kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
+    <div class="kt-portlet__head kt-portlet__space-x">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title kt-font-light" style="font-size:3.5rem">
+                Find Your Mechanic
+            </h3>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-widget28">
+            <div class="kt-widget28__visual" style="background-image: url(/assets/media//bg/bg-5.jpg);height:500px"></div>
+            <div class="kt-widget28__wrapper kt-portlet__space-x">
+                <!-- begin::Nav pills -->
+                <ul class="nav nav-pills nav-fill kt-portlet__space-x" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#menu11"><span><i class="fa flaticon-pie-chart"></i></span><span>GMI Taxes</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu21"><span><i class="fa flaticon-file-1"></i></span><span>IMT Invoice</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu31"><span><i class="fa flaticon-clipboard"></i></span><span>Main Notes</span></a>
+                    </li>
+                </ul>
+                <ul class="nav nav-pills nav-fill kt-portlet__space-x" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#menu1"><span><i class="fa flaticon-pie-chart"></i></span><span>GMI Taxes</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu2"><span><i class="fa flaticon-file-1"></i></span><span>IMT Invoice</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#menu3"><span><i class="fa flaticon-clipboard"></i></span><span>Main Notes</span></a>
+                    </li>
+                </ul>
+                <!-- end::Nav pills -->
+                <!-- begin::Tab Content -->
+                @*<div class="tab-content">
                         <div id="menu11" class="tab-pane active">
                             <div class="kt-widget28__tab-items">
                                 <div class="kt-widget28__tab-item">
@@ -397,118 +399,127 @@
                             </div>
                         </div>
                     </div>*@
-                    <!-- end::Tab Content -->
+                <!-- end::Tab Content -->
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="kt-portlet kt-portlet--fit kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
+
+    <div class="kt-portlet__body">
+        <div class="kt-widget27">
+            <div class="kt-widget27__visual">
+                <img src="~/assets/media/bg/demo4-bg-footer.jpg" alt="">
+                <h3 class="kt-widget27__title">
+                    <span>Hot Offers By Auto Solution</span>
+                </h3>
+                <div class="kt-widget27__btn">
+                    <a href="#" class="btn btn-pill btn-light btn-elevate btn-bold"> <i class="la la-4x la-bullhorn"></i> Available Offers</a>
+                </div>
+            </div>
+            <div class="kt-widget27__container kt-portlet__space-x">
+                <ul class="nav nav-pills nav-fill" role="tablist">
+                    <li class="nav-item bg-dark">
+                        <a class="nav-link bg-dark active" data-toggle="pill" href="#kt_personal_income_quater_1">Daily Base Offers</a>
+                    </li>
+                    <li class="nav-item bg-dark">
+                        <a class="nav-link bg-dark" data-toggle="pill" href="#kt_personal_income_quater_2">Weekly Base Offers</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="kt_personal_income_quater_1" class="tab-pane active">
+                        <div class="kt-widget11">
+                            <div class="table-responsive">
+
+                                <!--begin::Table-->
+                                <table class="table">
+
+                                    <!--begin::Thead-->
+                                    <thead>
+                                        <tr>
+                                            <td>Application</td>
+                                            <td>Status</td>
+                                            <td class="kt-align-right">Total</td>
+                                        </tr>
+                                    </thead>
+
+                                    <!--end::Thead-->
+                                    <!--begin::Tbody-->
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="kt-widget11__title">Vertex 2.0</a>
+                                                <span class="kt-widget11__sub">Vertex To By Again</span>
+                                            </td>
+                                            <td><span class="kt-badge kt-badge--success kt-badge--inline">pending</span></td>
+                                            <td class="kt-align-right kt-font-brand kt-font-bold">$14,740</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="kt-widget11__title">Metronic</a>
+                                                <span class="kt-widget11__sub">Powerful Admin Theme</span>
+                                            </td>
+                                            <td><span class="kt-badge kt-badge--brand kt-badge--inline">new</span></td>
+                                            <td class="kt-align-right kt-font-brand kt-font-bold">$16,010</td>
+                                        </tr>
+                                    </tbody>
+                                    <!--end::Tbody-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="kt_personal_income_quater_2" class="tab-pane fade">
+                        <div class="kt-widget11">
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table">
+                                    <!--begin::Thead-->
+                                    <thead>
+                                        <tr>
+                                            <td>Application</td>
+                                            <td>Status</td>
+                                            <td class="kt-align-right">Total</td>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Thead-->
+                                    <!--begin::Tbody-->
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="kt-widget11__title">Vertex 2.0</a>
+                                                <span class="kt-widget11__sub">Vertex To By Again</span>
+                                            </td>
+                                            <td><span class="kt-badge kt-badge--success kt-badge--inline">pending</span></td>
+                                            <td class="kt-align-right kt-font-brand kt-font-bold">$14,740</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="kt-widget11__title">Apex</a>
+                                                <span class="kt-widget11__sub">The Best Selling App</span>
+                                            </td>
+                                            <td><span class="kt-badge kt-badge--warning kt-badge--inline">in process</span></td>
+                                            <td class="kt-align-right kt-font-brand kt-font-bold">$37,200</td>
+                                        </tr>
+                                    </tbody>
+                                    <!--end::Tbody-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <div class="kt-portlet kt-portlet--fit kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
-        
-        <div class="kt-portlet__body">
-            <div class="kt-widget27">
-                <div class="kt-widget27__visual">
-                    <img src="~/assets/media/bg/demo4-bg-footer.jpg" alt="">
-                    <h3 class="kt-widget27__title">
-                        <span>Hot Offers By Auto Solution</span>
-                    </h3>
-                    <div class="kt-widget27__btn">
-                        <a href="#" class="btn btn-pill btn-light btn-elevate btn-bold"> <i class="la la-4x la-bullhorn"></i> Available Offers</a>
-                    </div>
-                </div>
-                <div class="kt-widget27__container kt-portlet__space-x">
-                    <ul class="nav nav-pills nav-fill" role="tablist">
-                        <li class="nav-item bg-dark">
-                            <a class="nav-link bg-dark active" data-toggle="pill" href="#kt_personal_income_quater_1">Daily Base Offers</a>
-                        </li>
-                        <li class="nav-item bg-dark">
-                            <a class="nav-link bg-dark" data-toggle="pill" href="#kt_personal_income_quater_2">Weekly Base Offers</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="kt_personal_income_quater_1" class="tab-pane active">
-                            <div class="kt-widget11">
-                                <div class="table-responsive">
-
-                                    <!--begin::Table-->
-                                    <table class="table">
-
-                                        <!--begin::Thead-->
-                                        <thead>
-                                            <tr>
-                                                <td>Application</td>
-                                                <td>Status</td>
-                                                <td class="kt-align-right">Total</td>
-                                            </tr>
-                                        </thead>
-
-                                        <!--end::Thead-->
-                                        <!--begin::Tbody-->
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="kt-widget11__title">Vertex 2.0</a>
-                                                    <span class="kt-widget11__sub">Vertex To By Again</span>
-                                                </td>
-                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">pending</span></td>
-                                                <td class="kt-align-right kt-font-brand kt-font-bold">$14,740</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="kt-widget11__title">Metronic</a>
-                                                    <span class="kt-widget11__sub">Powerful Admin Theme</span>
-                                                </td>
-                                                <td><span class="kt-badge kt-badge--brand kt-badge--inline">new</span></td>
-                                                <td class="kt-align-right kt-font-brand kt-font-bold">$16,010</td>
-                                            </tr>
-                                        </tbody>
-                                        <!--end::Tbody-->
-                                    </table>
-                                    <!--end::Table-->
-                                </div>
-                            </div>
-                        </div>
-                        <div id="kt_personal_income_quater_2" class="tab-pane fade">
-                            <div class="kt-widget11">
-                                <div class="table-responsive">
-                                    <!--begin::Table-->
-                                    <table class="table">
-                                        <!--begin::Thead-->
-                                        <thead>
-                                            <tr>
-                                                <td>Application</td>
-                                                <td>Status</td>
-                                                <td class="kt-align-right">Total</td>
-                                            </tr>
-                                        </thead>
-                                        <!--end::Thead-->
-                                        <!--begin::Tbody-->
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="kt-widget11__title">Vertex 2.0</a>
-                                                    <span class="kt-widget11__sub">Vertex To By Again</span>
-                                                </td>
-                                                <td><span class="kt-badge kt-badge--success kt-badge--inline">pending</span></td>
-                                                <td class="kt-align-right kt-font-brand kt-font-bold">$14,740</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="#" class="kt-widget11__title">Apex</a>
-                                                    <span class="kt-widget11__sub">The Best Selling App</span>
-                                                </td>
-                                                <td><span class="kt-badge kt-badge--warning kt-badge--inline">in process</span></td>
-                                                <td class="kt-align-right kt-font-brand kt-font-bold">$37,200</td>
-                                            </tr>
-                                        </tbody>
-                                        <!--end::Tbody-->
-                                    </table>
-                                    <!--end::Table-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>

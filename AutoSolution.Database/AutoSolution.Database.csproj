@@ -60,6 +60,30 @@
     <Compile Include="Migrations\202004052033374_uzair.designer.cs">
       <DependentUpon>202004052033374_uzair.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004102146229_estore.cs" />
+    <Compile Include="Migrations\202004102146229_estore.designer.cs">
+      <DependentUpon>202004102146229_estore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110545441_Supplier.cs" />
+    <Compile Include="Migrations\202004110545441_Supplier.designer.cs">
+      <DependentUpon>202004110545441_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110640475_finaalllestore.cs" />
+    <Compile Include="Migrations\202004110640475_finaalllestore.designer.cs">
+      <DependentUpon>202004110640475_finaalllestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004110858595_f.cs" />
+    <Compile Include="Migrations\202004110858595_f.designer.cs">
+      <DependentUpon>202004110858595_f.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004111037011_fi.cs" />
+    <Compile Include="Migrations\202004111037011_fi.designer.cs">
+      <DependentUpon>202004111037011_fi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004121755215_car.cs" />
+    <Compile Include="Migrations\202004121755215_car.designer.cs">
+      <DependentUpon>202004121755215_car.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +103,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004052033374_uzair.resx">
       <DependentUpon>202004052033374_uzair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004102146229_estore.resx">
+      <DependentUpon>202004102146229_estore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110545441_Supplier.resx">
+      <DependentUpon>202004110545441_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110640475_finaalllestore.resx">
+      <DependentUpon>202004110640475_finaalllestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004110858595_f.resx">
+      <DependentUpon>202004110858595_f.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004111037011_fi.resx">
+      <DependentUpon>202004111037011_fi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004121755215_car.resx">
+      <DependentUpon>202004121755215_car.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

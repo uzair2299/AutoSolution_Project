@@ -76,6 +76,8 @@
     <Compile Include="AutoSolutionRepository.cs" />
     <Compile Include="CityRepository.cs" />
     <Compile Include="CommonServices\EncryptPassword.cs" />
+    <Compile Include="CommonServices\ForgotPassword.cs" />
+    <Compile Include="CommonServices\Pager.cs" />
     <Compile Include="CommonServices\ServiceCategoryUtility.cs" />
     <Compile Include="CommonServices\UserEmailUtility.cs" />
     <Compile Include="Pager.cs" />
@@ -88,15 +90,21 @@
     <Compile Include="Repo\IUserRepository.cs" />
     <Compile Include="Repo\IUserRoleRepository.cs" />
     <Compile Include="Repo\IUserServiceCatogoryRepository.cs" />
+    <Compile Include="Repo\IVehicleManufacturerRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="IUnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="UserRoleRepository.cs" />
     <Compile Include="UserServiceCatogoryRepository.cs" />
+    <Compile Include="VehicleManufacturerRepository.cs" />
+    <Compile Include="ViewModel\ChangePassword.cs" />
+    <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceCategoryViewModel.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
+    <Compile Include="ViewModel\SignInViewModel.cs" />
+    <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">

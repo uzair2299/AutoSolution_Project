@@ -15,6 +15,7 @@ namespace AutoSolution.Services
 {
    public class UserRepository : AutoSolutionRepository<User>, IUserRepository
     {
+        
         public UserRepository(AutoSolutionContext context)
            : base(context)
         {
@@ -57,7 +58,7 @@ namespace AutoSolution.Services
             user.PasswordCount = 0;
             user.UserTypeId = 1;
             user.RememberMe = false;
-            user.ActivetionCode = new Guid();
+            user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
             return user;
         }
@@ -104,6 +105,24 @@ namespace AutoSolution.Services
             return user;
         }
 
+        public SignInViewModel GetSignInViewModel()
+        {
+            return new SignInViewModel();
+        }
+
+
+        
+        //public AutoSolutionContext AutoSolutionContext
+        //{
+        //    get { return Context as AutoSolutionContext; }
+        //}
     }
 
 }
+/*  1-- CreateConsumer
+ *  2-- CreateServiceProvider
+ *  3-- GetSignInViewModel
+ *  4-- IsEmailExist
+ * 
+ * 
+ */

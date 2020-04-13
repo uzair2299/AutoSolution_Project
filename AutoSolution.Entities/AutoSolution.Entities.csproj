@@ -45,14 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BodyType.cs" />
+    <Compile Include="VehicleManufacturer.cs" />
+    <Compile Include="CarModel.cs" />
+    <Compile Include="CarVersions.cs" />
+    <Compile Include="CarYearOfManufacture.cs" />
     <Compile Include="City.cs" />
+    <Compile Include="EngineType.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="PartsProduct.cs" />
+    <Compile Include="PartsProductCategory.cs" />
+    <Compile Include="PartsProductManufacturer.cs" />
+    <Compile Include="PartsProductSupplier.cs" />
     <Compile Include="Province.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceCategory.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="TransmissionType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserServiceCatogory.cs" />
     <Compile Include="UserType.cs" />
+    <Compile Include="Version_Year_PartsProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

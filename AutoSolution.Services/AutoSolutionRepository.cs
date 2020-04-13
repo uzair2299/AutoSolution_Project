@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoSolution.Database.DataBaseContext;
 using System.Data.Entity;
 using System.Collections;
+using System.Linq.Expressions;
 
 namespace AutoSolution.Services
 {
@@ -45,9 +46,49 @@ namespace AutoSolution.Services
             return Context.Set<T>().Find(id);
         }
 
-        public void Update(T obj)
+        public bool Update(T entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+            {
+                return false;
+            }
+            else
+            {
+                Context.Entry(entity).State = EntityState.Modified;
+                return true;
+            }
+            
+            
+        }
+
+        public IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "")
+        {
+            IQueryable<T> query = Context.Set<T>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
+            else
+            {
+                return query.ToList();
+            }
+        }
+
+        public int Count()
+        {
+            return Context.Set<T>().Count();
         }
     }
 }

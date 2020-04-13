@@ -14,7 +14,6 @@ namespace AutoSolution.Entities
         public string ProvinceName { get; set; }
         public string ProvinceCode { get; set; }
         public virtual ICollection<City> Cities { get; set; }
-        //public virtual ICollection<Location> Location { get; set; }
     }
 
 }

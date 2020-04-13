@@ -1,0 +1,46 @@
+﻿@model AutoSolution.Services.ViewModel.SignInViewModel
+
+
+@using (Html.BeginForm("UserSignIn", "SignIn", FormMethod.Post, new { @class = "kt-form kt-form--label-right" }))
+{
+    <div class="kt-portlet__body">
+        <div class="kt-login__account kt-align-right">
+            <span class="kt-login__account-msg" style="color:#646c9a">
+                Don't have an account yet ?
+            </span>
+            <a href="#" id="kt_login_signup" class="kt-link kt-font-bolder" style="color:#646c9a">Login</a>
+        </div>
+        <div class="form-group" style="color:#646c9a">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span>
+        </div>
+        <div class="form-group" style="color:#646c9a">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label" })
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</span>
+        </div>
+        <div class="row kt-login__extra">
+            <div class="col kt-align-left">
+                <label class="kt-checkbox  kt-checkbox--solid kt-checkbox--brand" style="color:#646c9a">
+                    <input type="checkbox" name="remember"> Remember me
+                    <span></span>
+                </label>
+            </div>
+            <div class="col kt-align-right">
+                <a href="/ForgotPassword/Index" id="kt_login_signup" class="kt-link kt-font-bolder" style="color:#646c9a">Forgot Password</a>
+            </div>
+        </div>
+        @ViewBag.Message
+        <div class="kt-form__actions kt-margin-t-10">
+            <button type="submit" class="btn btn-dark btn-wide btn-block">Sign In</button>
+        </div>
+    </div>
+
+}

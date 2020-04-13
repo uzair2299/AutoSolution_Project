@@ -57,5 +57,15 @@ namespace AutoSolution.Services
             };
             return new SelectList(items, "value", "Text");
         }
+
+        public List<City> GetCitiesWRTProvince(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        //public List<City> GetCities()
+        //{
+
+        //}
     }
 }

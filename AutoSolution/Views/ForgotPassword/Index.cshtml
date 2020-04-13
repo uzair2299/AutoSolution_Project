@@ -1,0 +1,90 @@
+﻿@model AutoSolution.Services.CommonServices.ForgotPassword
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/assets/css/demo1/pages/support-center/home-1.css" rel="stylesheet" />
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main" style="margin: 0 auto">
+            <h2 class="kt-subheader__title kt-align-center">Forgot Your Password?</h2>
+        </div>
+    </div>
+</div>
+<!-- end:: Subheader -->
+<div class="kt-container ">
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label" style="margin: 0 auto">
+                <h3 class="kt-portlet__head-title">
+                    FORGOT/RESET PASSWORD INSTRUCTIONS
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body mt-3">
+            <!--begin::Section-->
+            <div class="kt-section">
+                <div class="kt-section__content" style="line-height:30px; font-size:1.2rem">
+
+                    <div class="alert alert-solid-dark alert-bold" role="alert">
+                        <div class="alert-icon"><i class="flaticon-information fa-3x"></i></div>
+                        <div class="alert-text">
+                            <p>
+                                IN THE EVENT YOU FORGOT YOUR PASSWORD PLEASE FOLLOW THESE SIMPLE INSTRUCTIONS TO REQUEST A NEW PASSWORD.IF YOU DON'T KNOW THE USERNAME OR YOUR EMAIL ADDRESS, PLEASE CONTACT US FOR <a href="#" class="kt-link kt-font-bolder" style="color:#282a3c" target="blank">FURTHER ASSISTANCE.</a>
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="fa-ul" style="color:#48465b">
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Click forgot password the above the sign in button at the bottom of the page/sign-in toggler at main navigational bar.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span> Make sure the email you enter is the email you used to create the account. If any other email is used, an email will not be sent and you will be unable to reset the password.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Check your email. After you enter your email or username, an email will be sent to your AutoSolution associated email address</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>AutoSolution will send a verification code to that email.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>you’ll have a message in your inbox with the subject “Reset your AutoSolution account Password.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Open the email > click the Reset Password button.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Create a new password. </li>
+                        <li>
+                            <span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>If you’re having trouble with the password reset email, try these tips to help you complete the process:
+                            <ul>
+                                <li>– Check your junk mail folder, because AutoSolution’s emails are occasionally sorted out by spam filters.</li>
+                                <li>– Double-check that the email address you entered into the password reset field is the same email used to access your AutoSolution account.</li>
+                            </ul>
+                        </li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Open the email > click the Reset Password button/Link.</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span>Create a new password</li>
+                        <li><span class="fa-li"><i class="fa fa-arrow-alt-circle-right mr-3"></i></span> Once you successfully verify your new password your Browser will display the following message:</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="kt-section">
+                <div class="kt-sc" style="background-image: url('/assets/media/bg/bg-9.jpg')">
+                    <div class="kt-container ">
+
+                        <div class="kt-sc__bottom">
+                            <h3 class="kt-sc__heading kt-heading kt-heading--center kt-heading--xxl kt-heading--medium">
+                                Enter Your Email Here
+                            </h3>
+                            @*<form class="kt-sc__form">*@
+                            @using (Html.BeginForm("Index", "ForgotPassword", FormMethod.Post, new { @class = "kt-sc__form" }))
+                            {
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
+                                    @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })</span>
+                                <div class="kt-login__actions align-content-end mt-4" style="color:#646c9a">
+                                    <button id="kt_login_signin_submit"  class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Submit Request For Password Reset</button>
+                                </div>
+                            }
+
+                            @*</form>*@
+                            <div class="alert alert-dark alert-bold" role="alert">
+                                <div class="alert-text">Please check your inbox for an email we just sent you with instructions for how to reset your password.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Section-->
+        </div>
+    </div>
+</div>

@@ -21,16 +21,7 @@ namespace AutoSolution.Services
 
         public List<ServiceCategoryUtility> GetServiceCategories()
         {
-            //var ii = _unitOfWork.ServiceCategory.GetAll();
-            //List<ServiceCategoryUtility> ites = new List<ServiceCategoryUtility>();
-            //foreach(var i in ii)
-            //{
-            //    ServiceCategoryUtility newww = new ServiceCategoryUtility();
-            //    newww.serviceCategoryId = i.ServiceCategoryId;
-            //    newww.serviceCategoryName = i.ServiceCategoryName;
-            //    newww.serviceCategoryCode = i.ServiceCategoryCode;
-            //    ites.Add(newww);
-            //}
+            
 
             List<ServiceCategoryUtility> items = Context.Set<ServiceCategory>().OrderBy(n => n.ServiceCategoryName).Select(n => new ServiceCategoryUtility
             {

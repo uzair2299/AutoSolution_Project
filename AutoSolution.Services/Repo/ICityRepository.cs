@@ -15,5 +15,6 @@ namespace AutoSolution.Services.Repo
 
         IEnumerable<SelectListItem> GetCities();
         IEnumerable<SelectListItem> GetCities(string Id);
+        List<City> GetCitiesWRTProvince(int id);
     }
 }

@@ -12,5 +12,13 @@ namespace AutoSolution.Services.CommonServices
         {
             return Convert.ToBase64String(System.Security.Cryptography.SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(paasWord)));
         }
+
+        public static string OPTPassword()
+        {
+            Random rnd = new Random();
+            string OTP = rnd.Next(100000, 999999).ToString();
+            return OTP;
+        }
+
     }
 }
