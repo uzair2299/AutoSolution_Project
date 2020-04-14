@@ -84,6 +84,14 @@
     <Compile Include="Migrations\202004121755215_car.designer.cs">
       <DependentUpon>202004121755215_car.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004141052012_tough.cs" />
+    <Compile Include="Migrations\202004141052012_tough.designer.cs">
+      <DependentUpon>202004141052012_tough.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004141150443_change.cs" />
+    <Compile Include="Migrations\202004141150443_change.designer.cs">
+      <DependentUpon>202004141150443_change.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -121,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004121755215_car.resx">
       <DependentUpon>202004121755215_car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004141052012_tough.resx">
+      <DependentUpon>202004141052012_tough.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004141150443_change.resx">
+      <DependentUpon>202004141150443_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,7 +11,7 @@ namespace AutoSolution.Services.ViewModel
     public class VehicleManufacturerViewModel
     {
         public string SearchTerm { get; set; }
-        //[Display("Vehicle Manufacturer Name")]
+        [Display(Name ="Vehicle Manufacturer Name")]
         public string VehicleManufacturer { get; set; } 
         public List<VehicleManufacturer> VehicleManufacturersList { get; set; }
         public Pager Pager { get; set; }

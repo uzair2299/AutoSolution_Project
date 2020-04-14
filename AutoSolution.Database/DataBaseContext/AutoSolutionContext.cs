@@ -18,9 +18,9 @@ namespace AutoSolution.Database.DataBaseContext
         public DbSet <Province> Province { get; set; }
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         public DbSet<UserServiceCatogory> UserServiceCatogories { get; set; }
-        public DbSet<VehicleManufacturer> CarManufacturers { get; set; }
+        public DbSet<VehicleManufacturer> VehicleManufacturers { get; set; }
 
-        public DbSet<CarModel> CarModels { get; set; }
+        public DbSet<VehicleModel> VehicleModels { get; set; }
         public DbSet<BodyType> BodyTypes { get; set; }
         public DbSet<TransmissionType> TransmissionTypes { get; set; }
         public DbSet<EngineType> EngineTypes { get; set; }

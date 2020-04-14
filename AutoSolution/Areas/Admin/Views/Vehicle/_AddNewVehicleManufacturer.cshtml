@@ -1,0 +1,80 @@
+﻿@model AutoSolution.Services.ViewModel.VehicleManufacturerViewModel
+<div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Vehicle Manufacturers</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AddNew", "Vehicle", FormMethod.Post, htmlAttributes: new { @class = "kt-form kt-form--label-right", id = "AddNew" }))
+                {
+                    <div class="kt-portlet__body">
+                        <div class="form-group ">
+                            <label>@Html.DisplayNameFor(model => model.VehicleManufacturer)</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fa fa-car-alt"></i></span></div>
+                                @Html.EditorFor(model => model.VehicleManufacturer, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.VehicleManufacturer)</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark" id="SaveBtn">Save changes</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<script>
+        $(function () {
+        var name = $("#VehicleManufacturer").val();
+
+        $("#SaveBtn").click(function () {
+            $.ajax({
+                type: "POST",
+                url:@Url.Action("AddNew","Vehicle"),
+                data:$("#AddNew").serialize(),
+                success: function () {
+                    alert("hide");
+                    $("#kt_modal_6").modal("hide");
+                }
+            })
+        });
+    });
+
+
+
+</script>*@
+
+<script>
+
+$("#SaveBtn").click(function () {
+            var name = $("#VehicleManufacturer").val();
+            $.ajax({
+            type: "POST",
+                url: '@Url.Action("AddNew", "Vehicle")',
+                data: {
+                    Name:name,
+                }
+            })
+                .done(function (response) {
+                    $("#kt_modal_6").modal("hide");
+                    $("#AddNew").trigger("reset");
+                        })
+
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+        });
+
+    </script>
+
+
+
+

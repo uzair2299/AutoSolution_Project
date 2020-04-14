@@ -22,8 +22,6 @@ namespace AutoSolution.Areas.Admin.Controllers
         }
 
         public ActionResult dropProvince()
-
-
         {
             var model = _unitOfWork.Province.GetAll();
             ViewBag.Prolist = new SelectList(model, "ProvinceId", "ProvinceName");

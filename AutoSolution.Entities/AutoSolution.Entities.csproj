@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodyType.cs" />
+    <Compile Include="Roles.cs" />
+    <Compile Include="UserRoles.cs" />
     <Compile Include="VehicleManufacturer.cs" />
-    <Compile Include="CarModel.cs" />
+    <Compile Include="VehicleModel.cs" />
     <Compile Include="CarVersions.cs" />
     <Compile Include="CarYearOfManufacture.cs" />
     <Compile Include="City.cs" />

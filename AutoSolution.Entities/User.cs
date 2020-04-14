@@ -41,6 +41,7 @@ namespace AutoSolution.Entities
         public string OTP { get; set; }
 
         public virtual  ICollection<UserServiceCatogory> UserServiceCatogories { get; set; }
+        public virtual ICollection<UserRoles> UserRoles { get; set; }
 
         public int UserTypeId { get; set; }
         public virtual UserType UserType { get; set; }

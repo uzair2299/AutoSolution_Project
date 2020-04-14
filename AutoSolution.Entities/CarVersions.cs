@@ -14,7 +14,7 @@ namespace AutoSolution.Entities
         public bool IsDeleted { get; set; }
 
         public int CarModelId { get; set; }
-        public virtual CarModel CarModel { get; set; }
+        public virtual VehicleModel CarModel { get; set; }
 
         
         public int EngineTypeId { get; set; }

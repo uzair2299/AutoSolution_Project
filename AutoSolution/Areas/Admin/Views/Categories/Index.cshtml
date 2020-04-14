@@ -119,7 +119,7 @@
                                     {
                                         foreach (var item in Model)
                                         {
-                                            <tr role="row" class="even"  id="row_@item.Id">
+                                            <tr role="row" class="even"  id="row_@item.ServiceCategoryId">
                                                 <td class="sorting_1">@(++counter)</td>
                                                 <td>@Html.DisplayFor(modelItem => item.ServiceCategoryName)</td>
                                                 <td>@Html.DisplayFor(modelItem => item.ServiceCategoryCode)</td>

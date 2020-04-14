@@ -90,5 +90,10 @@ namespace AutoSolution.Services
         {
             return Context.Set<T>().Count();
         }
+
+        public bool CheckIfExists<t>(Expression<Func<T, bool>> expr)
+        {
+                return Context.Set<T>().Any(expr);   
+        }
     }
 }
