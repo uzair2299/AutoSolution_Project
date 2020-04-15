@@ -3,9 +3,7 @@
     var counter = 0;
 }
 <!-- begin:: Content -->
-    <div id="myModal">
 
-    </div>
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head kt-portlet__head--lg">
@@ -100,13 +98,12 @@
                                                         <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Detail">
                                                             <i class="la la-eye kt-font-dark"></i>
                                                         </a>
-                                                        <a href="@Url.Action("Edit","Vehicle",new { id=item.VehicleManufacturerId})" class="btn Edit_Vehicle btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                        <a href="#" class="btn Edit_Vehicle btn-sm btn-clean btn-icon btn-icon-md" data-url="@Url.Action("Edit","Vehicle",new { id=item.VehicleManufacturerId})"title="Edit">
                                                             <i class="la la-edit kt-font-dark"></i>
                                                         </a>
                                                         <a href="@Url.Action("Edit","Vehicle",new {area="Admin"})" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
                                                             <i class="la la-trash kt-font-dark"></i>
                                                         </a>
-                                                        @Html.ActionLink("Edit", "Edit", new { id = item.VehicleManufacturerId }) |
                                                         @*@Html.ActionLink(" ", "Controller", new { id = item.VehicleManufacturerId }, new { @class = "btn btn-sm btn-clean btn-icon btn-icon-md la la-trash kt-font-dark", title = "Confirm" })*@
                                                     </td>
                                                 </tr>
@@ -193,14 +190,14 @@
 <!-- end:: Content -->
     <script>
         $(".Edit_Vehicle").click(function () {
-            var SearchTerm = $("#SearchTerm").val();
 		$.ajax({
-            url: this.href,
+            url: $(this).data('url'),
             type:'GET',
 		})
-        .done(function (response) {
-            $('#myModal').html(result).find('.modal').modal({
-                show: true
+            .done(function (response) {
+                alert(response);
+                $("#kt_modal_1").modal('show');
+                $('#myModal').html(response);
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
         	alert("FAIL");

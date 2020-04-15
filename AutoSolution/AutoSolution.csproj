@@ -6666,6 +6666,7 @@
     <Content Include="Areas\Admin\Views\Vehicle\_VehicleManufacturer.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\_AddNewVehicleManufacturer.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\_EditPartialView.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\_AddNew.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

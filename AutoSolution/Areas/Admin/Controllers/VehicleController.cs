@@ -24,11 +24,11 @@ namespace AutoSolution.Areas.Admin.Controllers
         public ActionResult AddNew()
         {
             VehicleManufacturerViewModel vehicleManufacturerView = new VehicleManufacturerViewModel();
-            return PartialView("_AddNewVehicleManufacturer");
+            return PartialView("_AddNew");
         }
 
         [HttpPost]
-        public ActionResult AddNew(string Name)
+        public ActionResult AddNew(VehicleManufacturerViewModel vehicleManufacturerViewModel)
         {
             if(ModelState.IsValid)
             {
@@ -36,21 +36,21 @@ namespace AutoSolution.Areas.Admin.Controllers
                 {
                     AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
 
-                    var isExist = autoSolutionContext.VehicleManufacturers.FirstOrDefault(x => x.VehicleManufacturerName.ToLower() == Name.ToLower());
+                    var isExist = autoSolutionContext.VehicleManufacturers.FirstOrDefault(x => x.VehicleManufacturerName.ToLower() ==vehicleManufacturerViewModel.VehicleManufacturer.ToLower());
                     if(isExist!=null)
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("GetVehicleManufacturer");
                     }
                     else
                     {
-                        VehicleManufacturer vehicleManufacturer = new VehicleManufacturer();
-                        vehicleManufacturer.AddedDate = DateTime.Now;
-                        vehicleManufacturer.IsActive = true;
-                        vehicleManufacturer.UpdateDate = DateTime.Now;
-                        vehicleManufacturer.VehicleManufacturerName = Name;
-                        autoSolutionContext.VehicleManufacturers.Add(vehicleManufacturer);
+                        VehicleManufacturer vehicle = new VehicleManufacturer();
+                        vehicle.AddedDate = DateTime.Now;
+                        vehicle.IsActive = true;
+                        vehicle.UpdateDate = DateTime.Now;
+                        vehicle.VehicleManufacturerName = vehicleManufacturerViewModel.VehicleManufacturer;
+                        autoSolutionContext.VehicleManufacturers.Add(vehicle);
                         autoSolutionContext.SaveChanges();
-                        return RedirectToAction("Index");
+                        return RedirectToAction("GetVehicleManufacturer");
                     }
                 }
                 catch (Exception)
@@ -103,18 +103,21 @@ namespace AutoSolution.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Edit(int?  id)
+        public ActionResult Edit(string  id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
+            VehicleManufacturer vehicleManufacturer = new VehicleManufacturer();
 
-
-            return PartialView("_EditPartialView");
+            vehicleManufacturer = autoSolutionContext.VehicleManufacturers.Find(Convert.ToInt32(id));
+            if (vehicleManufacturer != null) {
+                return PartialView("_EditPartialView", vehicleManufacturer);
+            }
+            return RedirectToAction("Index");
+            
         }
-
-
-
     }
 }

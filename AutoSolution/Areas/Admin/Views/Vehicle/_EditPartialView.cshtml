@@ -1,20 +1,36 @@
-﻿@model AutoSolution.Services.ViewModel.VehicleManufacturerViewModel
+﻿@model AutoSolution.Entities.VehicleManufacturer
 
     <div class="modal fade" id="kt_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit/Update Vehicle Manufacturer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                @using (Html.BeginForm(new { id = "EditVehicle" }))
+                {
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6">
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.VehicleManufacturerName, htmlAttributes: new { @class = "col-form-label" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-alt"></i></span></div>
+                                        @Html.EditorFor(model => model.VehicleManufacturerName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.HiddenFor(model => model.VehicleManufacturerId)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save Changes</button>
+                    </div>
+                }
             </div>
         </div>
     </div>
