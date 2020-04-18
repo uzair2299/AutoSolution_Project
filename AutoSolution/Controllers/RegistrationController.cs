@@ -65,11 +65,11 @@ namespace AutoSolution.Controllers
                 var VerificationLink = "/Registration/UserVerification/" + activationCode;
                 var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, VerificationLink);
                 UserEmailUtility.SendEmailToUser(AddedComsumer.Email, link);
-                return View(model);
+                return RedirectToAction("Consumer");
             }
             else
             {
-                return View(model);
+                return RedirectToAction("Consumer");
             }
 
 

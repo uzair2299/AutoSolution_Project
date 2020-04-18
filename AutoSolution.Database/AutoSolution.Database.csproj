@@ -92,6 +92,18 @@
     <Compile Include="Migrations\202004141150443_change.designer.cs">
       <DependentUpon>202004141150443_change.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004161846061_roles.cs" />
+    <Compile Include="Migrations\202004161846061_roles.designer.cs">
+      <DependentUpon>202004161846061_roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004171859047_nnnnn.cs" />
+    <Compile Include="Migrations\202004171859047_nnnnn.designer.cs">
+      <DependentUpon>202004171859047_nnnnn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004171904494_nnn.cs" />
+    <Compile Include="Migrations\202004171904494_nnn.designer.cs">
+      <DependentUpon>202004171904494_nnn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +147,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004141150443_change.resx">
       <DependentUpon>202004141150443_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004161846061_roles.resx">
+      <DependentUpon>202004161846061_roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004171859047_nnnnn.resx">
+      <DependentUpon>202004171859047_nnnnn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004171904494_nnn.resx">
+      <DependentUpon>202004171904494_nnn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

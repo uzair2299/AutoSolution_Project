@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace AutoSolution.Services.Repo
 {
-    public interface IVehicleManufacturerRepository:IRepository<VehicleManufacturer>
+   public  interface IRoleRepository: IRepository<Roles>
     {
-        IEnumerable<SelectListItem> GetVehicleManufacturerDropDown();
+        string[] GetAllAutoSoltuinRoles();
     }
-
 }

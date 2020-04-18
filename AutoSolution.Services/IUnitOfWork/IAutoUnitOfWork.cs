@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Services.IUnitOfWork
 {
-    public interface IUnitOfWork: IDisposable
+    public interface IAutoUnitOfWork: IDisposable
     {
         IUserRepository User { get; }
         ICityRepository City { get; }
@@ -17,6 +17,7 @@ namespace AutoSolution.Services.IUnitOfWork
         IUserServiceCatogoryRepository UserServiceCatogory { get; }
 
         IVehicleManufacturerRepository VehicleManufacturer { get; }
+        IRoleRepository RoleRepository { get; }
         int Complete();
     }
 }

@@ -15,7 +15,7 @@ namespace AutoSolution.Services.Repo
         T GetByID(int ModelId);
         T Add(T obj);
         bool  Update(T obj);
-        void Remove(int Id);
+      void Remove(int Id);
 
         int Count();
     }

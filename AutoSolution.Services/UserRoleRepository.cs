@@ -31,5 +31,7 @@ namespace AutoSolution.Services
                 items.Insert(0, CityTip);
                 return new SelectList(items, "value", "Text");
         }
+
+        
     }
 }

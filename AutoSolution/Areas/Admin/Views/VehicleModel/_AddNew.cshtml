@@ -1,13 +1,13 @@
-﻿@model AutoSolution.Services.ViewModel.VehicleManufacturerViewModel
+﻿@model AutoSolution.Services.ViewModel.VehilceModelViewModel
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
     <div class="kt-portlet kt-portlet--mobile">
         <div class="kt-portlet__head kt-portlet__head--lg">
             <div class="kt-portlet__head-label">
                 <span class="kt-portlet__head-icon">
-                    <i class="fa fa-car-alt"></i>
+                    <i class="fa fa-car-side"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    Add New Vehicle Manufacturer
+                    Add New Vehicle Model
                 </h3>
             </div>
         </div>
@@ -17,10 +17,10 @@
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.VehicleManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                            @Html.LabelFor(model => model.VehicleModel, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-alt"></i></span></div>
-                                @Html.EditorFor(model => model.VehicleManufacturer, new { htmlAttributes = new { @class = "form-control" } })
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                @Html.EditorFor(model => model.VehicleModel, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
                     </div>
@@ -49,33 +49,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    var rendered = false;
-    //debugger;
-    $("#kt_search").click(function () {
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("AddNew", "Vehicle")',
-                data: $("#AddNewVehicleManufacturer").serialize()
-            })
-                .done(function (response) {
-                    $('#tableContiner').html(response);
-                    Swal.fire({
-                        text: 'Successfully Added',
-                    })
-                    rendered = true;
-                    //debugger;
-                })
-
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("FAIL");
-                });
-            debugger;
-                $('#AddNewContainer').html("");
-            rendered = false;
-            //debugger;
-        
- });
-
-</script>

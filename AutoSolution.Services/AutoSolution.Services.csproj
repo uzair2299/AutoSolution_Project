@@ -45,8 +45,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -86,14 +88,17 @@
     <Compile Include="Repo\ICityRepository.cs" />
     <Compile Include="Repo\IProvinceRepository.cs" />
     <Compile Include="Repo\IRepository.cs" />
+    <Compile Include="Repo\IRoleRepository.cs" />
     <Compile Include="Repo\IServiceCategoryRepository.cs" />
     <Compile Include="Repo\IUserRepository.cs" />
     <Compile Include="Repo\IUserRoleRepository.cs" />
     <Compile Include="Repo\IUserServiceCatogoryRepository.cs" />
     <Compile Include="Repo\IVehicleManufacturerRepository.cs" />
+    <Compile Include="AutoSolutionRoleProvider.cs" />
+    <Compile Include="RoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
-    <Compile Include="IUnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="IUnitOfWork\IAutoUnitOfWork.cs" />
     <Compile Include="UserRepository.cs" />
     <Compile Include="UserRoleRepository.cs" />
     <Compile Include="UserServiceCatogoryRepository.cs" />
@@ -104,7 +109,9 @@
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
+    <Compile Include="ViewModel\VehicleManufacturerAddEditViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />
+    <Compile Include="ViewModel\VehilceModelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">

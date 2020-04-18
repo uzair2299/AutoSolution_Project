@@ -134,6 +134,7 @@
     <Compile Include="Areas\Admin\Controllers\ProvinceController.cs" />
     <Compile Include="Areas\Admin\Controllers\TermsAndConditionController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VehicleModelController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
@@ -1716,6 +1717,7 @@
     <Content Include="assets\media\users\user4.jpg" />
     <Content Include="assets\media\users\user5.jpg" />
     <Content Include="assets\media\vendors\jstree\32px.png" />
+    <Content Include="assets\Uzair\bg1.jpg" />
     <Content Include="assets\Uzair\bg2.jpg" />
     <Content Include="assets\Uzair\bg4.jpg" />
     <Content Include="assets\Uzair\gallery_bg.jpg" />
@@ -6664,9 +6666,11 @@
     <Content Include="Areas\Admin\Views\Cities\_SearchCities.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\_VehicleManufacturer.cshtml" />
-    <Content Include="Areas\Admin\Views\Vehicle\_AddNewVehicleManufacturer.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\_EditPartialView.cshtml" />
     <Content Include="Areas\Admin\Views\Vehicle\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicle\_VehicleDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleModel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleModel\_AddNew.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6778,10 +6782,8 @@
     <Content Include="Views\TermsAndConditions\Index.cshtml" />
     <Content Include="Views\Registration\Consumer.cshtml" />
     <Content Include="Views\Registration\UserVerification.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\SignIn\_UserSignIn.cshtml" />
     <Content Include="Views\SignIn\index.cshtml" />
-    <Content Include="Views\SignIn\innn.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
     <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
   </ItemGroup>

@@ -11,13 +11,13 @@ namespace AutoSolution.Services.ViewModel
     {
 
         [Display(Name = "E-mail")]
-
         [Required(ErrorMessage = "*Email is Requierd")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required]
+       
         [DataType(DataType.Password)]
+        [Required(ErrorMessage = "*Password is Requierd")]
         public string Password { get; set; }
 
         [Display(Name = "Remember Me")]

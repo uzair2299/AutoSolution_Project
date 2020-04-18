@@ -2,9 +2,17 @@
 
 @{
     ViewBag.Title = "index";
-    Layout = "~/Views/Shared/_Layout - Copy.cshtml";
+
 }
     <link href="~/assets/css/demo1/pages/login/login-1.css" rel="stylesheet" />
+    <div class="kt-subheader   kt-grid__item mb-5" id="kt_subheader">
+        <div class="kt-container ">
+            <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+                <h3 class="kt-subheader__title" style="font-size:3.5rem">Welcome To Auto Solution</h3>
+                <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+            </div>
+        </div>
+    </div>
     <div class="kt-grid kt-grid--ver kt-grid--root">
         <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
             <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
@@ -15,11 +23,10 @@
                 <!--begin::Aside-->
                 <!--begin::Content-->
                 <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
-
                     <!--begin::Head-->
                     <div class="kt-login__head">
-                        <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                        <a href="#" class="kt-link kt-login__signup-link">Sign Up!</a>
+                        <span class="kt-login__signup-label">@*Don't have an account yet?*@</span>&nbsp;&nbsp;
+                        <a href="#" class="kt-link kt-login__signup-link">@*Register!*@</a>
                     </div>
 
                     <!--end::Head-->
@@ -31,26 +38,49 @@
                             <div class="kt-login__title">
                                 <h3>Sign In</h3>
                             </div>
+                            @if (ViewBag.Message != null)
+                            {
+                                <div class="alert alert-solid-dark alert-bold" role="alert">
+                                    <div class="alert-text">@ViewBag.Message</div>
+                                </div>
+                            }
 
                             <!--begin::Form-->
-                            <form class="kt-form" action="" novalidate="novalidate">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="password" placeholder="Password" name="password">
-                                </div>
+                            @using (Html.BeginForm("Index", "SignIn", FormMethod.Post))
+                            {
 
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label" })
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</span>
+                                </div>
+                                <div class="kt-checkbox-inline mt-3">
+                                    <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                        @Html.CheckBoxFor(x => Model.RememberMe)
+                                        @Html.DisplayNameFor(x => x.RememberMe)
+                                        <span></span>
+                                    </label>
+                                </div>
                                 <!--begin::Action-->
                                 <div class="kt-login__actions">
-                                    <a href="#" class="kt-link kt-login__link-forgot">
+                                    <a href="/ForgotPassword/Index" class="kt-link kt-login__link-forgot">
                                         Forgot Password ?
                                     </a>
-                                    <button id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign In</button>
+                                    <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary">Sign In</button>
                                 </div>
+                            }
 
-                                <!--end::Action-->
-                            </form>
+                            <!--end::Action-->
+
                         </div>
 
                         <!--end::Signin-->

@@ -235,6 +235,8 @@
                 .done(function (response) {
                     $("#RegisterNotification").show();
                     $('html, body').animate({ scrollTop: $('#RegisterNotification').offset().top }, 'slow');
+                    $('#CosumerRegistration').trigger("reset");
+
                 })
                 .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("FAIL");

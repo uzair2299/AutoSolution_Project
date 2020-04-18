@@ -23,7 +23,6 @@ namespace AutoSolution.Areas.Admin.Controllers
 
         public ActionResult AddNew()
         {
-            VehicleManufacturerViewModel vehicleManufacturerView = new VehicleManufacturerViewModel();
             return PartialView("_AddNew");
         }
 
@@ -41,6 +40,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                     {
                         return RedirectToAction("GetVehicleManufacturer");
                     }
+
                     else
                     {
                         VehicleManufacturer vehicle = new VehicleManufacturer();
@@ -103,21 +103,122 @@ namespace AutoSolution.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Edit(string  id)
+        public ActionResult Edit(string id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
-            VehicleManufacturer vehicleManufacturer = new VehicleManufacturer();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                
 
-            vehicleManufacturer = autoSolutionContext.VehicleManufacturers.Find(Convert.ToInt32(id));
-            if (vehicleManufacturer != null) {
-                return PartialView("_EditPartialView", vehicleManufacturer);
+                VehicleManufacturer vehicle = _unitOfWork.VehicleManufacturer.GetByID(Convert.ToInt32(id));
+                VehicleManufacturerAddEditViewModel vehicleManufacturerAddEditViewModel = new VehicleManufacturerAddEditViewModel();
+                vehicleManufacturerAddEditViewModel.VehicleManufacturerId = vehicle.VehicleManufacturerId;
+                vehicleManufacturerAddEditViewModel.VehicleManufacturerName = vehicle.VehicleManufacturerName;
+                vehicleManufacturerAddEditViewModel.IsActive = vehicle.IsActive;
+                
+                if (vehicleManufacturerAddEditViewModel != null)
+                {
+                    return PartialView("_EditPartialView", vehicleManufacturerAddEditViewModel);
+                }
+                else
+                    return HttpNotFound();
             }
-            return RedirectToAction("Index");
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
             
         }
+
+
+        [HttpPost]
+        public ActionResult Edit(VehicleManufacturerAddEditViewModel vehicleManufacturerAddEditView)
+        {
+            try
+            {
+                if (vehicleManufacturerAddEditView==null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                VehicleManufacturer vehicleManufacturer = new VehicleManufacturer();
+                vehicleManufacturer = _unitOfWork.VehicleManufacturer.GetByID(vehicleManufacturerAddEditView.VehicleManufacturerId);
+                vehicleManufacturer.VehicleManufacturerId = vehicleManufacturerAddEditView.VehicleManufacturerId;
+                vehicleManufacturer.VehicleManufacturerName = vehicleManufacturerAddEditView.VehicleManufacturerName;
+                vehicleManufacturer.IsActive = vehicleManufacturerAddEditView.IsActive;
+                vehicleManufacturer.UpdateDate = DateTime.Now;
+                _unitOfWork.VehicleManufacturer.Update(vehicleManufacturer);
+                _unitOfWork.Complete();
+                return RedirectToAction("GetVehicleManufacturer");
+
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+            }
+            return RedirectToAction("GetVehicleManufacturer");
+
+        }
+
+        public ActionResult Details(string id)
+        {
+
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                VehicleManufacturer vehicleManufacturer = _unitOfWork.VehicleManufacturer.GetByID(Convert.ToInt32(id));
+                VehicleManufacturerAddEditViewModel vehicleManufacturerAddEditViewModel = new VehicleManufacturerAddEditViewModel();
+                vehicleManufacturerAddEditViewModel.VehicleManufacturerName = vehicleManufacturer.VehicleManufacturerName;
+                vehicleManufacturerAddEditViewModel.AddedDate = vehicleManufacturer.AddedDate;
+                vehicleManufacturerAddEditViewModel.UpdateDate = vehicleManufacturer.UpdateDate;
+                vehicleManufacturerAddEditViewModel.IsActive = vehicleManufacturer.IsActive;
+                if (vehicleManufacturerAddEditViewModel != null)
+                {
+                    return PartialView("_VehicleDetails", vehicleManufacturerAddEditViewModel);
+                }
+                else
+                {
+                    return HttpNotFound();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+                
+        }
+
+        public ActionResult Delete(string id)
+        {
+
+            try
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                 _unitOfWork.VehicleManufacturer.Remove(Convert.ToInt32(id));
+                _unitOfWork.Complete();
+                return RedirectToAction("GetVehicleManufacturer");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 }

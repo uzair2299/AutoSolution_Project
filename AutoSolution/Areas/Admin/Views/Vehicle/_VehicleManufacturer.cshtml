@@ -40,10 +40,10 @@
                                 </span>
                             </button>
                             &nbsp;&nbsp;
-                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset" type="button">
+                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset" type="button" onclick="this.form.reset()">
                                 <span>
                                     <i class="la la-close"></i>
-                                    <span>Reset</span>
+                                    <span>Clear</span>
                                 </span>
                             </button>
                         </div>
@@ -95,20 +95,18 @@
                                                     <td class="sorting_1">@ind</td>
                                                     <td>@Html.DisplayFor(modelItem => item.VehicleManufacturerName)</td>
                                                     <td class="kt-align-center">
-                                                        <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Detail">
+                                                        <button class="btn Detail_Vehicle btn-sm btn-clean btn-icon btn-icon-md" title="Detail" data-id="@item.VehicleManufacturerId"  id="DetailBtn">
                                                             <i class="la la-eye kt-font-dark"></i>
-                                                        </a>
-                                                        <a href="#" class="btn Edit_Vehicle btn-sm btn-clean btn-icon btn-icon-md" data-url="@Url.Action("Edit","Vehicle",new { id=item.VehicleManufacturerId})"title="Edit">
+                                                        </button>
+                                                        <button class="btn Edit_Vehicle btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleManufacturerId" title="Edit">
                                                             <i class="la la-edit kt-font-dark"></i>
-                                                        </a>
-                                                        <a href="@Url.Action("Edit","Vehicle",new {area="Admin"})" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
+                                                        </button>
+                                                        <button class="btn Delete_Vehicle  btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleManufacturerId"  title="Delete">
                                                             <i class="la la-trash kt-font-dark"></i>
-                                                        </a>
-                                                        @*@Html.ActionLink(" ", "Controller", new { id = item.VehicleManufacturerId }, new { @class = "btn btn-sm btn-clean btn-icon btn-icon-md la la-trash kt-font-dark", title = "Confirm" })*@
+                                                        </button>
                                                     </td>
                                                 </tr>
                                             }
-
                                         }
                                         else
                                         {
@@ -190,19 +188,106 @@
 <!-- end:: Content -->
     <script>
         $(".Edit_Vehicle").click(function () {
-		$.ajax({
-            url: $(this).data('url'),
-            type:'GET',
+            $.ajax({
+            url:' @Url.Action("Edit","Vehicle")',
+            type: 'GET',
+            data: {
+                id: $(this).attr("data-id")
+            }
 		})
-            .done(function (response) {
-                alert(response);
+                .done(function (response) {
+                    debugger
+            $('#myModal').html(response);
                 $("#kt_modal_1").modal('show');
-                $('#myModal').html(response);
+
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {
         	alert("FAIL");
         });
         });
+
+
+        $(".Detail_Vehicle").click(function () {
+            $.ajax({
+            url:' @Url.Action("Details","Vehicle")',
+            type: 'GET',
+            data: {
+                id: $(this).attr("data-id")
+            }
+		})
+                .done(function (response) {
+                    //debugger
+                    $('#VehicleManufacturerDetails').html("");
+                    $('#VehicleManufacturerDetails').html(response);
+                    $("#kt_modal_Details").modal('show');
+
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        	alert("FAIL");
+        });
+        });
+
+
+         $(".Delete_Vehicle").click(function () {
+            $.ajax({
+            url:' @Url.Action("Delete","Vehicle")',
+            type: 'POST',
+            data: {
+                id: $(this).attr("data-id")
+            }
+		})
+                .done(function (response) {
+                    //debugger
+                    $('#tableContiner').html("");
+                    $('#tableContiner').html(response);
+                    Swal.fire({
+                        icon: "success",
+                        text: 'Successfully Deleted',
+                    })
+
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        	alert("FAIL");
+        });
+        });
+
+
+
+
+
+
+        @*$(function () {
+            $(".Edit_Vehicle").click(function () {
+                debugger;
+                var $buttonClicked = $(this);
+                var id = $buttonClicked.attr('data-id');
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax({
+                    type: "GET",
+                   url:' @Url.Action("Edit","Vehicle")',
+                    contentType: "application/json; charset=utf-8",
+                    data: { "id": id },
+                    datatype: "json",
+                    success: function (data) {
+                        debugger;
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+
+                    },
+                    error: function () {
+                        alert("Dynamic content load failed.");
+                    }
+                });
+            });
+            //$("#closebtn").on('click',function(){
+            //    $('#myModal').modal('hide');
+
+            $("#closbtn").click(function () {
+                $('#myModal').modal('hide');
+            });
+        });*@
+
 
 
          $(".pageButtons").click(function () {
@@ -214,7 +299,8 @@
                 search: SearchTerm
             }
 		})
-        .done(function (response) {
+            .done(function (response) {
+                $("#tableContiner").html("");
         	$("#tableContiner").html(response);
         })
         .fail(function (XMLHttpRequest, textStatus, errorThrown) {

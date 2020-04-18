@@ -18,49 +18,86 @@ namespace AutoSolution.Controllers
         {
             return View();
         }
-        public ActionResult innn()
-        {
-            return View();
-        }
-        public ActionResult _UserSignIn()
-        {
-            var model = _unitOfWork.User.GetSignInViewModel();
-            return PartialView(model);
-        }
-
-
         [HttpPost]
-        public ActionResult UserSignIn(SignInViewModel signInViewModel)
+        public ActionResult index(SignInViewModel signInViewModel)
         {
             string message = "";
-            if (signInViewModel != null)
+            try
             {
-                var PasswordHash = EncryptPassword.PasswordToEncrypt(signInViewModel.Password);
-                var model = _unitOfWork.User.Get(x => x.Email == signInViewModel.Email && x.Password == PasswordHash).FirstOrDefault();
-                if (model != null)
+                if (signInViewModel != null)
                 {
-                    if (model.IsConfrimEmail != true)
+                    var PasswordHash = EncryptPassword.PasswordToEncrypt(signInViewModel.Password);
+                    var model = _unitOfWork.User.Get(x => x.Email == signInViewModel.Email && x.Password == PasswordHash).FirstOrDefault();
+                    if (model != null)
                     {
-                        message = "Please verify your email first";
-                        return View();
+                        if (model.IsConfrimEmail != true)
+                        {
+                            message = "Please verify your email first";
+                            return View();
+                        }
+                        else
+                        {
+                            int timeout = signInViewModel.RememberMe ? 525600 : 20;
+                            //cookies
+                            return RedirectToAction("Index", "Home");
+                        }
+
                     }
                     else
                     {
-                        int timeout = signInViewModel.RememberMe ? 525600 : 20;
-                        //cookies
-                        return RedirectToAction("Index", "Home");
+                        message = "Please enter a valid email address or password";
                     }
+                    ViewBag.Message = message;
 
                 }
-                else
-                {
-                    message = "Please enter a valid email address or password";
-                }
-                ViewBag.Message = message;
-            
-            }//need some modifications
-            return RedirectToAction("Index", "Home");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
         }
+
+        //public ActionResult _UserSignIn()
+        //{
+        //    var model = _unitOfWork.User.GetSignInViewModel();
+        //    return PartialView(model);
+        //}
+
+
+        //[HttpPost]
+        //public ActionResult UserSignIn(SignInViewModel signInViewModel)
+        //{
+        //    string message = "";
+        //    if (signInViewModel != null)
+        //    {
+        //        var PasswordHash = EncryptPassword.PasswordToEncrypt(signInViewModel.Password);
+        //        var model = _unitOfWork.User.Get(x => x.Email == signInViewModel.Email && x.Password == PasswordHash).FirstOrDefault();
+        //        if (model != null)
+        //        {
+        //            if (model.IsConfrimEmail != true)
+        //            {
+        //                message = "Please verify your email first";
+        //                return View();
+        //            }
+        //            else
+        //            {
+        //                int timeout = signInViewModel.RememberMe ? 525600 : 20;
+        //                //cookies
+        //                return RedirectToAction("Index", "Home");
+        //            }
+
+        //        }
+        //        else
+        //        {
+        //            message = "Please enter a valid email address or password";
+        //        }
+        //        ViewBag.Message = message;
+            
+        //    }//need some modifications
+        //    return RedirectToAction("Index", "Home");
+        //}
 
        
     }

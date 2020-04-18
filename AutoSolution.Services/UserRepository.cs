@@ -37,6 +37,7 @@ namespace AutoSolution.Services
         public User CreateConsumer(ConsumerViewModel consumerViewModel)
         {
             User user = new User();
+            RoleRepository autoSolutionRoleProvider = new RoleRepository(new AutoSolutionContext());
             user.FirstName = consumerViewModel.First_Name;
             user.LastName = consumerViewModel.Last_Name;
             user.Password = EncryptPassword.PasswordToEncrypt(consumerViewModel.Password);
@@ -60,6 +61,8 @@ namespace AutoSolution.Services
             user.RememberMe = false;
             user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
+            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser("User");
+            
             return user;
         }
 

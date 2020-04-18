@@ -1,5 +1,6 @@
 ﻿using AutoSolution.Database.DataBaseContext;
 using AutoSolution.Entities;
+using AutoSolution.Services.IUnitOfWork;
 using AutoSolution.Services.Repo;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Services
 {
-    public class UnitOfWork
+    public class UnitOfWork: IAutoUnitOfWork
     {
         private readonly AutoSolutionContext _context;
         public UnitOfWork(AutoSolutionContext context)
@@ -21,6 +22,7 @@ namespace AutoSolution.Services
             ServiceCategory = new ServiceCategoryRepository(_context);
             UserServiceCatogory = new UserServiceCatogoryRepository(_context);
             VehicleManufacturer = new VehicleManufacturerRepository(_context);
+            RoleRepository = new RoleRepository(_context);
         }
 
         public IUserRepository User { get; private set; }
@@ -30,6 +32,8 @@ namespace AutoSolution.Services
         public IUserServiceCatogoryRepository UserServiceCatogory { get; private set; }
 
         public IVehicleManufacturerRepository VehicleManufacturer { get; private set; }
+        public IRoleRepository RoleRepository { get; private set; }
+
         public int Complete()
         {
             return _context.SaveChanges();

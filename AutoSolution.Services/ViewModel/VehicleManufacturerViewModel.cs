@@ -10,6 +10,7 @@ namespace AutoSolution.Services.ViewModel
 {
     public class VehicleManufacturerViewModel
     {
+        [Display(Name = "Vehicle Manufacturer Name")]
         public string SearchTerm { get; set; }
         [Display(Name ="Vehicle Manufacturer Name")]
         public string VehicleManufacturer { get; set; } 
