@@ -16,12 +16,14 @@ namespace AutoSolution.Controllers
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
         // GET: ForgotPassword
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Index(ForgotPassword forgotPassword)
         {
             var IsExist = IsEmailExist(forgotPassword.EmailId);

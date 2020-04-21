@@ -9,11 +9,12 @@ namespace AutoSolution.Controllers
 {
     public class HomeController : Controller
     {
+     
         public ActionResult Index()
         {
             return View();
         }
-
+      
         public ActionResult About(City city)
         {
             ViewBag.Message = "Your application description page.";
@@ -21,10 +22,17 @@ namespace AutoSolution.Controllers
             return View();
         }
 
+       
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+
+        public ActionResult check()
+        {
             return View();
         }
     }

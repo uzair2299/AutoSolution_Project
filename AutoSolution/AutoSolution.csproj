@@ -128,12 +128,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartsProductsCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ServiceCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProvinceController.cs" />
     <Compile Include="Areas\Admin\Controllers\TermsAndConditionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TransmissionTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VehicleEngineTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleModelController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -428,6 +431,7 @@
     <Content Include="assets\css\demo4\style.bundle.min.css" />
     <Content Include="assets\css\demo4\style.bundle.rtl.css" />
     <Content Include="assets\css\demo4\style.bundle.rtl.min.css" />
+    <Content Include="assets\css\Uzair.css" />
     <Content Include="assets\js\demo1\pages\components\base\dropdown.js" />
     <Content Include="assets\js\demo1\pages\components\base\dropdown.min.js" />
     <Content Include="assets\js\demo1\pages\components\calendar\background-events.js" />
@@ -6635,8 +6639,7 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Province\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Categories\_AddNewPartialView.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategories\Index.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -6660,7 +6663,6 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Areas\Admin\Views\Province\dropProvince.cshtml" />
     <Content Include="Areas\Admin\Views\TermsAndCondition\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\_CitiesTable.cshtml" />
     <Content Include="Areas\Admin\Views\Cities\_SearchCities.cshtml" />
@@ -6671,6 +6673,32 @@
     <Content Include="Areas\Admin\Views\Vehicle\_VehicleDetails.cshtml" />
     <Content Include="Areas\Admin\Views\VehicleModel\Index.cshtml" />
     <Content Include="Areas\Admin\Views\VehicleModel\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleModel\_GetVehicleModel.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleModel\_EditVehicleModel.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleModel\_DetailsVehilceModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\_GetProvince.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\_EditProvince.cshtml" />
+    <Content Include="Areas\Admin\Views\Province\_DetailsProvince.cshtml" />
+    <Content Include="Areas\Admin\Views\TransmissionType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TransmissionType\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\TransmissionType\_GetTransmissionType.cshtml" />
+    <Content Include="Areas\Admin\Views\TransmissionType\_EditTransmissionType.cshtml" />
+    <Content Include="Areas\Admin\Views\TransmissionType\_DetailsTransmissionType.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleEngineType\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleEngineType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleEngineType\_GetVehicleEngineType.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleEngineType\_EditVehicleEngineType.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleEngineType\_DetailsVehicleEngineType.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategories\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategories\_GetServiceCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategories\_EditServiceCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\ServiceCategories\_DetailsServiceCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProductsCategories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProductsCategories\_AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProductsCategories\_GetPartsProductsCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProductsCategories\_EditPartsProductsCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProductsCategories\_DetailsPartsProductsCategory.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6786,6 +6814,8 @@
     <Content Include="Views\SignIn\index.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
     <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\check.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

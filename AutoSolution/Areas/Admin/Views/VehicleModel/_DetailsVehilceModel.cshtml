@@ -1,0 +1,68 @@
+﻿@model AutoSolution.Services.ViewModel.VehilceModelViewModel
+<div class="modal fade" id="kt_modal_Details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vehicle Model Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 col-lg-12 col-xl-4">
+                    <!--begin:: Widgets/Stats2-1 -->
+                    <div class="kt-widget1">
+                        <div class="kt-widget1__item">
+                            <div class="kt-widget1__info">
+                                <h3 class="kt-widget1__title">@Html.DisplayNameFor(model => model.VehicleModel)</h3>
+                                <span class="kt-widget1__desc">@Html.DisplayFor(model => model.VehicleModel)</span>
+                            </div>
+                        </div>
+                        <div class="kt-widget1__item">
+                            <div class="kt-widget1__info">
+                                <h3 class="kt-widget1__title">@Html.DisplayNameFor(model => model.VehicleManufacturerName)</h3>
+                                <span class="kt-widget1__desc">@Html.DisplayFor(model => model.VehicleManufacturerName)</span>
+                            </div>
+                        </div>
+                        @*<div class="kt-widget1__item">
+            <div class="kt-widget1__info">
+                <h3 class="kt-widget1__title">@Html.DisplayNameFor(model => model.AddedDate)</h3>
+                <span class="kt-widget1__desc">@Html.DisplayFor(model => model.AddedDate)</span>
+            </div>
+        </div>*@
+                        @*<div class="kt-widget1__item">
+            <div class="kt-widget1__info">
+                <h3 class="kt-widget1__title">@Html.DisplayNameFor(model => model.UpdateDate)</h3>
+                <span class="kt-widget1__desc">@Html.DisplayFor(model => model.UpdateDate)</span>
+            </div>
+        </div>*@
+                        @*<div class="kt-widget1__item">
+            <div class="kt-widget1__info">
+                @{ string str = null;
+
+                    if (Model.IsActive == true)
+                    {
+                        str = "Active";
+                    }
+                    else
+                    {
+                        str = "Not Active";
+                    }
+                }
+                <h3 class="kt-widget1__title">@Html.DisplayNameFor(model => model.IsActive)</h3>
+                <span class="kt-widget1__desc">@str</span>
+            </div>
+        </div>*@
+                    </div>
+
+                    <!--end:: Widgets/Stats2-1 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

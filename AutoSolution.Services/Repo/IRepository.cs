@@ -10,7 +10,7 @@ namespace AutoSolution.Services.Repo
    public interface IRepository<T> where T:class
     {
         IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "");
-        bool CheckIfExists<t>(Expression<Func<T, bool>> expr);
+        //bool CheckIfExists<t>(Expression<Func<T, bool>> expr);
         List<T> GetAll();
         T GetByID(int ModelId);
         T Add(T obj);

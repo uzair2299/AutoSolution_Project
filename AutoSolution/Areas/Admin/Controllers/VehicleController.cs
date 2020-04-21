@@ -40,7 +40,6 @@ namespace AutoSolution.Areas.Admin.Controllers
                     {
                         return RedirectToAction("GetVehicleManufacturer");
                     }
-
                     else
                     {
                         VehicleManufacturer vehicle = new VehicleManufacturer();
@@ -84,7 +83,6 @@ namespace AutoSolution.Areas.Admin.Controllers
                     int PageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
                     AutoSolutionContext autoSolution = new AutoSolutionContext();
                     var model = autoSolution.VehicleManufacturers.OrderBy(x => x.VehicleManufacturerName).Skip((PageNo - 1) * 10).Take(10).ToList();
-                    // int co = autoSolution.CarManufacturers.Count();
                     int TotalCount = _unitOfWork.VehicleManufacturer.Count();
                     VehicleManufacturerViewModel vehicleManufacturerView = new VehicleManufacturerViewModel();
                     vehicleManufacturerView.VehicleManufacturersList = model;

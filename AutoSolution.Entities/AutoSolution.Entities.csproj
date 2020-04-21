@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodyType.cs" />
+    <Compile Include="PartsProductsSubCategory.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="UserRoles.cs" />
     <Compile Include="VehicleManufacturer.cs" />
@@ -53,10 +54,10 @@
     <Compile Include="CarVersions.cs" />
     <Compile Include="CarYearOfManufacture.cs" />
     <Compile Include="City.cs" />
-    <Compile Include="EngineType.cs" />
+    <Compile Include="VehicleEngineType.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="PartsProduct.cs" />
-    <Compile Include="PartsProductCategory.cs" />
+    <Compile Include="PartsProductsCategory.cs" />
     <Compile Include="PartsProductManufacturer.cs" />
     <Compile Include="PartsProductSupplier.cs" />
     <Compile Include="Province.cs" />

@@ -13,6 +13,6 @@ namespace AutoSolution.Services.Repo
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();
         User CreateConsumer(ConsumerViewModel consumerViewModel);
-        SignInViewModel GetSignInViewModel();
+        //SignInViewModel GetSignInViewModel();
     }
 }

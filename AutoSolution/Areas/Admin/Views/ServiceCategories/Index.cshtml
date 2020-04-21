@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="kt-subheader  kt-grid__item" id="kt_subheader">
+    <div class="kt-container  kt-container--fluid ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Manage Service Categories</h3>
+            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            <button type="button" class="btn btn-dark" id="Add_New"><i class="flaticon-plus"></i>Add New Service Category</button>
+        </div>
+    </div>
+</div>
+<div id="AddNewContainer">
+
+</div>
+<div id="myModal">
+    @*edit*@
+</div>
+
+
+<div id="ServiceCategoryDetails">
+</div>
+<div id="tableContiner">
+    @{Html.RenderAction("GetServiceCategory");}
+</div>
+<script>
+    var rendered = false;
+
+    $("#Add_New").click(function () {
+        if (!rendered) {
+            $.ajax({
+                url: '@Url.Action("AddNew", "ServiceCategories")',
+                type: 'GET',
+            })
+                .done(function (response) {
+                    //debugger;
+                    $('#AddNewContainer').html("");
+                    $('#AddNewContainer').html(response);
+                    rendered = true;
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        } else {
+            $('#AddNewContainer').html("");
+            rendered = false;
+        }
+    });
+</script>

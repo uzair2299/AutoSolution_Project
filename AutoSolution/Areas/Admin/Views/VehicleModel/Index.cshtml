@@ -15,3 +15,48 @@
     <div id="AddNewContainer">
 
     </div>
+    <div id="EditModal">
+        @*edit*@
+    </div>
+
+    <div id="VehicleModelDetails">
+
+
+
+    </div>
+
+    <div id="tableContiner">
+        @{Html.RenderAction("GetVehicleModel");}
+    </div>
+
+
+
+
+
+    <script>
+    var rendered = false;
+
+    $("#Add_New").click(function () {
+        if (!rendered) {
+            $.ajax({
+                url: '@Url.Action("AddNew","VehicleModel")',
+                type: 'GET',
+            })
+                .done(function (response) {
+                    //debugger;
+                    $('#AddNewContainer').html("");
+                    $('#AddNewContainer').html(response);
+                    rendered = true;
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        } else {
+            $('#AddNewContainer').html("");
+            rendered = false;
+        }
+    });
+
+
+
+    </script>

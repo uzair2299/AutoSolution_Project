@@ -18,7 +18,7 @@ namespace AutoSolution.Entities
 
         
         public int EngineTypeId { get; set; }
-        public virtual EngineType EngineType { get; set; }
+        public virtual VehicleEngineType EngineType { get; set; }
 
 
         public int TransmissionTypeId { get; set; }

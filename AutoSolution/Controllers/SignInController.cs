@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace AutoSolution.Controllers
 {
@@ -14,10 +15,12 @@ namespace AutoSolution.Controllers
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
         // GET: SignIn
+        [AllowAnonymous]
         public ActionResult index()
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult index(SignInViewModel signInViewModel)
         {
@@ -37,7 +40,7 @@ namespace AutoSolution.Controllers
                         }
                         else
                         {
-                            int timeout = signInViewModel.RememberMe ? 525600 : 20;
+                            FormsAuthentication.SetAuthCookie(model.Email,false);
                             //cookies
                             return RedirectToAction("Index", "Home");
                         }
@@ -57,6 +60,12 @@ namespace AutoSolution.Controllers
                 throw;
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index","Home");
         }
 
         //public ActionResult _UserSignIn()
@@ -94,11 +103,11 @@ namespace AutoSolution.Controllers
         //            message = "Please enter a valid email address or password";
         //        }
         //        ViewBag.Message = message;
-            
+
         //    }//need some modifications
         //    return RedirectToAction("Index", "Home");
         //}
 
-       
+
     }
 }

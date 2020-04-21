@@ -2,6 +2,7 @@
 using AutoSolution.Entities;
 using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.Repo;
+using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,53 @@ namespace AutoSolution.Services
                 IsChecked = false
             }).ToList();
             return items;
+        }
+
+
+        public bool isExist(string GetServiceCategory)
+        {
+            return AutoSolutionContext.ServiceCategories.Any(x => x.ServiceCategoryName.Trim().ToLower() == GetServiceCategory.Trim().ToLower());
+        }
+
+        public ServiceCategoryViewModel GetServiceCategory(int PageNo, int TotalCount)
+        {
+            var ServiceCategoryViewModel = new ServiceCategoryViewModel()
+                {
+                    ServiceCategoriesList= AutoSolutionContext.ServiceCategories.OrderBy(x => x.ServiceCategoryName).Skip((PageNo - 1) * 10).Take(10).ToList(),
+                    Pager = new Pager(TotalCount, PageNo, 10)
+
+                };
+            return ServiceCategoryViewModel;
+        }
+
+        public ServiceCategoryViewModel GetServiceCategory(int PageNo, int TotalCount, string SearchTerm)
+        {
+            var ServiceCategoryViewModel = new ServiceCategoryViewModel()
+            {
+
+                ServiceCategoriesList = AutoSolutionContext.ServiceCategories.OrderBy(x => x.ServiceCategoryName).Where(x => x.ServiceCategoryName.Contains(SearchTerm)).Skip((PageNo - 1) * 10).Take(10).ToList(),
+                Pager = new Pager(TotalCount, PageNo, 10)
+
+            };
+
+            return ServiceCategoryViewModel;
+
+        }
+
+
+
+        public int GetServiceCategoryCount(string SearchTerm)
+        {
+
+            return AutoSolutionContext.ServiceCategories.OrderBy(x => x.ServiceCategoryName).Where(x => x.ServiceCategoryName.Contains(SearchTerm)).Count();
+        }
+
+
+
+
+        public AutoSolutionContext AutoSolutionContext
+        {
+            get { return Context as AutoSolutionContext; }
         }
     }
 }

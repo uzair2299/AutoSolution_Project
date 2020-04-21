@@ -23,9 +23,13 @@ namespace AutoSolution.Services
             UserServiceCatogory = new UserServiceCatogoryRepository(_context);
             VehicleManufacturer = new VehicleManufacturerRepository(_context);
             RoleRepository = new RoleRepository(_context);
-        }
+            VehicleModel = new VehicleModelRepository(_context);
+            TransmissionType = new TransmissionTypeRepository(_context);
+            VehicleEngineType = new VehicleEngineTypeRepository(_context);
+            PartsProductsCategory = new PartsProductsCategoryRepository(_context);
+}
 
-        public IUserRepository User { get; private set; }
+public IUserRepository User { get; private set; }
         public ICityRepository City { get; private set; }
         public IProvinceRepository Province { get; private set; }
         public IServiceCategoryRepository ServiceCategory { get; private set; }
@@ -33,6 +37,11 @@ namespace AutoSolution.Services
 
         public IVehicleManufacturerRepository VehicleManufacturer { get; private set; }
         public IRoleRepository RoleRepository { get; private set; }
+       public  IVehicleModelRepository VehicleModel { get; private set; }
+       public ITransmissionTypeRepository TransmissionType { get; private set; }
+
+        public IVehicleEngineTypeRepository VehicleEngineType { get; private set; }
+        public IPartsProductsCategoryRepository PartsProductsCategory { get; private set; }
 
         public int Complete()
         {

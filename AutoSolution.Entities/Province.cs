@@ -13,6 +13,8 @@ namespace AutoSolution.Entities
         public int ProvinceId { get; set; }
         public string ProvinceName { get; set; }
         public string ProvinceCode { get; set; }
+        public string AddedBy { get; set; }
+        public  bool IsActive { get; set; }
         public virtual ICollection<City> Cities { get; set; }
     }
 

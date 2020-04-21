@@ -30,5 +30,15 @@ namespace AutoSolution.Services
             items.Insert(0, CityTip);
             return new SelectList(items, "value", "Text");
         }
+
+        public bool isExist(string Province)
+        {
+            return AutoSolutionContext.Province.Any(x => x.ProvinceName.Trim().ToLower() == Province.Trim().ToLower());
+        }
+
+        public AutoSolutionContext AutoSolutionContext
+        {
+            get { return Context as AutoSolutionContext; }
+        }
     }
 }

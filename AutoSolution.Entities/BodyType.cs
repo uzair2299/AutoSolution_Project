@@ -11,8 +11,7 @@ namespace AutoSolution.Entities
         public int BodyTypeId { get; set; }
         public string BodyTypeName { get; set; }
 
-        public ICollection<CarVersion> CarVersions { get; set; }
-
+        public string Description { get; set; }
 
 
     }

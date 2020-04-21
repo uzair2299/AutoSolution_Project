@@ -41,7 +41,8 @@ namespace AutoSolution.Controllers
         }
 
 
-
+        //[Authorize(Roles ="User")]
+        [AllowAnonymous]
         [HttpGet]
         public ActionResult Consumer()
         {
@@ -50,8 +51,10 @@ namespace AutoSolution.Controllers
         }
 
 
-
+        [AllowAnonymous]
         [HttpPost]
+        //[Authorize(Roles = "User")]
+
         public ActionResult Consumer(ConsumerViewModel consumerViewModel)
         {
             var model = _unitOfWork.User.CreateConsumer();

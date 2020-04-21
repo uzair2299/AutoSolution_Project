@@ -1,8 +1,6 @@
-﻿@using AutoSolution.Entities
-@model IEnumerable<AutoSolution.Entities.Province>
-@{
+﻿@{
     ViewBag.Title = "Index";
-    var counter = 0;
+    
 }
 
 <div class="kt-subheader  kt-grid__item" id="kt_subheader">
@@ -10,106 +8,73 @@
         <div class="kt-subheader__main">
             <h3 class="kt-subheader__title">Manage Provinces</h3>
             <span class="kt-subheader__separator kt-subheader__separator--v"></span>
-            <button type="button" data-toggle="modal" data-target="#kt_modal_6" class="btn btn-dark"><i class="flaticon-plus"></i>Add New Province</button>
+            <button type="button" class="btn btn-dark" id="Add_New"><i class="flaticon-plus"></i>Add New Province</button>
         </div>
     </div>
 </div>
-<div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Add New Province</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm("AddProvince", "Province", FormMethod.Post, htmlAttributes: new { @class = "kt-form kt-form--label-right" }))
-                {
-                    <div class="kt-portlet__body">
-                        <div class="form-group ">
-                            <label>@Html.DisplayNameFor(model => model.ProvinceName)</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fa fa-location-arrow kt-font-dark"></i></span></div>
-                                @Html.EditorFor(model => model.ProvinceName), new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => "")</span>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-dark">Save changes</button>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
+<div id="AddNewContainer">
+
 </div>
-<!-- begin:: Content -->
-<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-    <div class="kt-portlet kt-portlet--mobile">
-        <div class="kt-portlet__head kt-portlet__head--lg">
-            <div class="kt-portlet__head-label">
-                <span class="kt-portlet__head-icon">
-                    <i class="kt-font-dark flaticon2-map"></i>
-                </span>
-                <h3 class="kt-portlet__head-title">
-                    Provinces
-                </h3>
-            </div>
-        </div>
-        <div class="kt-portlet__body">
-            <!--begin: Search Form -->
-            <!--begin: Datatable -->
-            <div id="kt_table_1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer" id="kt_table_1" aria-describedby="kt_table_1_info" role="grid">
-                            <thead>
-                                <tr role="row">
-                                    
-                                    <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Record ID: activate to sort column descending" style="width: 46.25px;">#</th>
-                                    <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 53.25px;">@Html.DisplayNameFor(model => model.ProvinceName)</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 68.5px;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{if (Model != null)
-                                    {
-                                        foreach (var item in Model)
-                                        {
-                                            <tr role="row" class="even">
-                                                <td class="sorting_1">@(++counter)</td>
-                                                <td>@Html.DisplayFor(modelItem => item.ProvinceName)</td>
-                                                <td class="kt-align-center">
-                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
-                                                        <i class="la la-edit kt-font-dark"></i>
-                                                    </a>
-                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Delete">
-                                                        <i class="la la-trash kt-font-dark"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        }
-
-                                    }
-                                    else
-                                    {
-                                        <tr role="row" class="even">
-                                            <td colspan="3" class="kt-align-center">
-                                                No Data Found
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!--end: Datatable -->
-        </div>
-    </div>
+<div id="myModal">
+    @*edit*@
 </div>
-<!-- end:: Content -->
+
+
+<div id="ProvinceDetails">
+</div>
+<div id="tableContiner">
+    @{Html.RenderAction("GetProvince");}
+</div>
+<script>
+    var rendered = false;
+
+    $("#Add_New").click(function () {
+        if (!rendered) {
+            $.ajax({
+                url: '@Url.Action("AddNew","Province")',
+                type: 'GET',
+            })
+                .done(function (response) {
+                    //debugger;
+                    $('#AddNewContainer').html("");
+                    $('#AddNewContainer').html(response);
+                    rendered = true;
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        } else {
+            $('#AddNewContainer').html("");
+            rendered = false;
+        }
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

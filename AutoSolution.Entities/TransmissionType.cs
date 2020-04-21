@@ -10,8 +10,13 @@ namespace AutoSolution.Entities
     {
         public int TransmissionTypeId { get; set; }
         public string TransmissionTypeName { get; set; }
+        public string ShortCode { get; set; }
+        public string Description { get; set; }
+        public string AddedBy { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
-        public ICollection<CarVersion> CarVersions { get; set; }
+
 
     }
 }

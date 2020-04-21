@@ -23,7 +23,7 @@ namespace AutoSolution.Services
             var userRoles = (from u in AutoSolutionContext.User
 
                              join ur in AutoSolutionContext.UserRoles
-                             on u.UserId equals ur.RolesId
+                             on u.UserId equals ur.UserId
 
                              join role in AutoSolutionContext.Roles
                                  on ur.RolesId equals role.RolesId
@@ -43,21 +43,21 @@ namespace AutoSolution.Services
         }
 
 
-        public List<UserRoles> AddRolesTOUser(string user)
+        public List<UserRoles> AddRolesTOUser(string user ,string role)
         {
-            if(user == "User")
+            if(role == "User")
             {
                 List<UserRoles> userRoles = new List<UserRoles>();
                 AutoSolutionRoleProvider autoSolutionRoleProvider = new AutoSolutionRoleProvider();
-                bool isExist = autoSolutionRoleProvider.RoleExists("User");
+                bool isExist = autoSolutionRoleProvider.RoleExists(role);
                 if(isExist==true)
                 {
-                   bool IsInRole= autoSolutionRoleProvider.IsUserInRole(user, "User");
+                   bool IsInRole= autoSolutionRoleProvider.IsUserInRole(user, role);
                     if(IsInRole==true)
                     {
                         UserRoles userRoles1 = new UserRoles();
                         Roles roles = new Roles();
-                       var id = AutoSolutionContext.Roles.Where(x => x.RoleName == "User").Select(x=>x.RolesId).FirstOrDefault();
+                       var id = AutoSolutionContext.Roles.Where(x => x.RoleName == role).Select(x=>x.RolesId).FirstOrDefault();
                         userRoles1.RolesId = id;
                         userRoles.Add(userRoles1);
                         return userRoles;

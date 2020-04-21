@@ -52,57 +52,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202004051603122_charliiiiii.cs" />
-    <Compile Include="Migrations\202004051603122_charliiiiii.designer.cs">
-      <DependentUpon>202004051603122_charliiiiii.cs</DependentUpon>
+    <Compile Include="Migrations\202004191311468_uzair.cs" />
+    <Compile Include="Migrations\202004191311468_uzair.designer.cs">
+      <DependentUpon>202004191311468_uzair.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004052033374_uzair.cs" />
-    <Compile Include="Migrations\202004052033374_uzair.designer.cs">
-      <DependentUpon>202004052033374_uzair.cs</DependentUpon>
+    <Compile Include="Migrations\202004200419124_vehicle.cs" />
+    <Compile Include="Migrations\202004200419124_vehicle.designer.cs">
+      <DependentUpon>202004200419124_vehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004102146229_estore.cs" />
-    <Compile Include="Migrations\202004102146229_estore.designer.cs">
-      <DependentUpon>202004102146229_estore.cs</DependentUpon>
+    <Compile Include="Migrations\202004200429378_vehicleupdate.cs" />
+    <Compile Include="Migrations\202004200429378_vehicleupdate.designer.cs">
+      <DependentUpon>202004200429378_vehicleupdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004110545441_Supplier.cs" />
-    <Compile Include="Migrations\202004110545441_Supplier.designer.cs">
-      <DependentUpon>202004110545441_Supplier.cs</DependentUpon>
+    <Compile Include="Migrations\202004200649238_vehicleupd.cs" />
+    <Compile Include="Migrations\202004200649238_vehicleupd.designer.cs">
+      <DependentUpon>202004200649238_vehicleupd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004110640475_finaalllestore.cs" />
-    <Compile Include="Migrations\202004110640475_finaalllestore.designer.cs">
-      <DependentUpon>202004110640475_finaalllestore.cs</DependentUpon>
+    <Compile Include="Migrations\202004200817243_vehicleupd1.cs" />
+    <Compile Include="Migrations\202004200817243_vehicleupd1.designer.cs">
+      <DependentUpon>202004200817243_vehicleupd1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004110858595_f.cs" />
-    <Compile Include="Migrations\202004110858595_f.designer.cs">
-      <DependentUpon>202004110858595_f.cs</DependentUpon>
+    <Compile Include="Migrations\202004211048292_product.cs" />
+    <Compile Include="Migrations\202004211048292_product.designer.cs">
+      <DependentUpon>202004211048292_product.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004111037011_fi.cs" />
-    <Compile Include="Migrations\202004111037011_fi.designer.cs">
-      <DependentUpon>202004111037011_fi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004121755215_car.cs" />
-    <Compile Include="Migrations\202004121755215_car.designer.cs">
-      <DependentUpon>202004121755215_car.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004141052012_tough.cs" />
-    <Compile Include="Migrations\202004141052012_tough.designer.cs">
-      <DependentUpon>202004141052012_tough.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004141150443_change.cs" />
-    <Compile Include="Migrations\202004141150443_change.designer.cs">
-      <DependentUpon>202004141150443_change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004161846061_roles.cs" />
-    <Compile Include="Migrations\202004161846061_roles.designer.cs">
-      <DependentUpon>202004161846061_roles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004171859047_nnnnn.cs" />
-    <Compile Include="Migrations\202004171859047_nnnnn.designer.cs">
-      <DependentUpon>202004171859047_nnnnn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004171904494_nnn.cs" />
-    <Compile Include="Migrations\202004171904494_nnn.designer.cs">
-      <DependentUpon>202004171904494_nnn.cs</DependentUpon>
+    <Compile Include="Migrations\202004211100382_produc.cs" />
+    <Compile Include="Migrations\202004211100382_produc.designer.cs">
+      <DependentUpon>202004211100382_produc.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,44 +94,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004051603122_charliiiiii.resx">
-      <DependentUpon>202004051603122_charliiiiii.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004191311468_uzair.resx">
+      <DependentUpon>202004191311468_uzair.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004052033374_uzair.resx">
-      <DependentUpon>202004052033374_uzair.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004200419124_vehicle.resx">
+      <DependentUpon>202004200419124_vehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004102146229_estore.resx">
-      <DependentUpon>202004102146229_estore.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004200429378_vehicleupdate.resx">
+      <DependentUpon>202004200429378_vehicleupdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004110545441_Supplier.resx">
-      <DependentUpon>202004110545441_Supplier.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004200649238_vehicleupd.resx">
+      <DependentUpon>202004200649238_vehicleupd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004110640475_finaalllestore.resx">
-      <DependentUpon>202004110640475_finaalllestore.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004200817243_vehicleupd1.resx">
+      <DependentUpon>202004200817243_vehicleupd1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004110858595_f.resx">
-      <DependentUpon>202004110858595_f.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004211048292_product.resx">
+      <DependentUpon>202004211048292_product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004111037011_fi.resx">
-      <DependentUpon>202004111037011_fi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004121755215_car.resx">
-      <DependentUpon>202004121755215_car.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004141052012_tough.resx">
-      <DependentUpon>202004141052012_tough.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004141150443_change.resx">
-      <DependentUpon>202004141150443_change.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004161846061_roles.resx">
-      <DependentUpon>202004161846061_roles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004171859047_nnnnn.resx">
-      <DependentUpon>202004171859047_nnnnn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004171904494_nnn.resx">
-      <DependentUpon>202004171904494_nnn.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004211100382_produc.resx">
+      <DependentUpon>202004211100382_produc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

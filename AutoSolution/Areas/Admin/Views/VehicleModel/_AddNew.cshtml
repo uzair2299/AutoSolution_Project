@@ -12,9 +12,18 @@
             </div>
         </div>
         <div class="kt-portlet__body">
-            <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewVehicleManufacturer">
+            <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewVehicleModel">
                 @Html.AntiForgeryToken()
                 <div class="row">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SelectedVehicleManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                @Html.DropDownListFor(x => Model.SelectedVehicleManufacturer, Model.VehicleManufacturersList as SelectList, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
                             @Html.LabelFor(model => model.VehicleModel, htmlAttributes: new { @class = "col-form-label" })
@@ -24,6 +33,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
                 <div class="row">
@@ -49,3 +59,33 @@
         </div>
     </div>
 </div>
+<script>
+    var rendered = false;
+    //debugger;
+    $("#kt_search").click(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddNew", "VehicleModel")',
+                data: $("#AddNewVehicleModel").serialize()
+            })
+                .done(function (response) {
+                    $('#tableContiner').html(response);
+                    Swal.fire({
+                        text: 'Successfully Added',
+                    })
+                    rendered = true;
+                    //debugger;
+                })
+
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+            debugger;
+                $('#AddNewContainer').html("");
+            rendered = false;
+            //debugger;
+
+    });
+
+
+</script>

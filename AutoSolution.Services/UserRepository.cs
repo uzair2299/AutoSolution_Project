@@ -61,7 +61,7 @@ namespace AutoSolution.Services
             user.RememberMe = false;
             user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
-            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser("User");
+            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(consumerViewModel.Email,"User");
             
             return user;
         }
@@ -108,10 +108,10 @@ namespace AutoSolution.Services
             return user;
         }
 
-        public SignInViewModel GetSignInViewModel()
-        {
-            return new SignInViewModel();
-        }
+        //public SignInViewModel GetSignInViewModel()
+        //{
+        //    return new SignInViewModel();
+        //}
 
 
         
@@ -125,7 +125,7 @@ namespace AutoSolution.Services
 /*  1-- CreateConsumer
  *  2-- CreateServiceProvider
  *  3-- GetSignInViewModel
- *  4-- IsEmailExist
+ * 
  * 
  * 
  */

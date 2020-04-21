@@ -1,0 +1,22 @@
+﻿.height, #column {
+    min-height: 100vh;
+}
+
+.inner {
+    overflow: hidden;
+}
+
+    .inner img {
+        transition: all 1.5s ease;
+    }
+
+        .inner img:hover {
+            transform: scale(1.5);
+        }
+.height, #column {
+    min-height: 100vh;
+}
+
+#column {
+    background: #011f4b;
+}
