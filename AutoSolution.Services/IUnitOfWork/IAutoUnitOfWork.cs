@@ -23,6 +23,8 @@ namespace AutoSolution.Services.IUnitOfWork
         IVehicleEngineTypeRepository VehicleEngineType { get; }
 
         IPartsProductsCategoryRepository PartsProductsCategory { get; }
+
+        IPartsSubCategoryRepository PartsSubCategory { get; }
         int Complete();
     }
 }

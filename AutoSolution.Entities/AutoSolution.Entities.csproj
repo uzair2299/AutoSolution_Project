@@ -47,12 +47,12 @@
   <ItemGroup>
     <Compile Include="BodyType.cs" />
     <Compile Include="PartsProductsSubCategory.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="UserRoles.cs" />
     <Compile Include="VehicleManufacturer.cs" />
     <Compile Include="VehicleModel.cs" />
-    <Compile Include="CarVersions.cs" />
-    <Compile Include="CarYearOfManufacture.cs" />
+    <Compile Include="VehicleVersions.cs" />
     <Compile Include="City.cs" />
     <Compile Include="VehicleEngineType.cs" />
     <Compile Include="Location.cs" />
@@ -68,7 +68,6 @@
     <Compile Include="User.cs" />
     <Compile Include="UserServiceCatogory.cs" />
     <Compile Include="UserType.cs" />
-    <Compile Include="Version_Year_PartsProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

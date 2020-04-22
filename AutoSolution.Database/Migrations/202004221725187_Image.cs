@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class vehicleupd : DbMigration
+    public partial class Image : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.TransmissionTypes", "ShortCode", c => c.String());
+            AddColumn("dbo.Images", "ImagePath", c => c.String());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.TransmissionTypes", "ShortCode");
+            DropColumn("dbo.Images", "ImagePath");
         }
     }
 }

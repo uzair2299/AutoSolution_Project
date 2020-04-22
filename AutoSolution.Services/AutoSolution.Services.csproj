@@ -84,9 +84,11 @@
     <Compile Include="CommonServices\UserEmailUtility.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="PartsProductsCategoryRepository.cs" />
+    <Compile Include="PartsSubCategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinceRepository.cs" />
     <Compile Include="Repo\ICityRepository.cs" />
+    <Compile Include="Repo\IPartsSubCategoryRepository.cs" />
     <Compile Include="Repo\IPartsProductsCategoryRepository.cs" />
     <Compile Include="Repo\IProvinceRepository.cs" />
     <Compile Include="Repo\IRepository.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\PartsProductsCategoryViewModel.cs" />
+    <Compile Include="ViewModel\PartsSubCategoryViewModel.cs" />
     <Compile Include="ViewModel\ProvinceViewModel.cs" />
     <Compile Include="ViewModel\ServiceCategoryViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />

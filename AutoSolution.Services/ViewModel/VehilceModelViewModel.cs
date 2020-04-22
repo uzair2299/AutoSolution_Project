@@ -19,7 +19,11 @@ namespace AutoSolution.Services.ViewModel
         public string VehicleManufacturerName { get; set; }
         [Display(Name = "Vehicle Model Name")]
         public string VehicleModel { get; set; }
+
+        [Display(Name = "Year Of Manufacture")]
+        public int YearOfManufacture { get; set; }
         [Display(Name = "Select Vehicle Manufacturer")]
+
         public string SelectedVehicleManufacturer { get; set; }
         public IEnumerable<SelectListItem> VehicleManufacturersList { get; set; }
         public List<VehicleModel> VehicleModelsList { get; set; }

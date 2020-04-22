@@ -83,6 +83,7 @@
 
                                         <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Record ID: activate to sort column descending" style="width: 46.25px;">#</th>
                                         <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 53.25px;">@Html.DisplayNameFor(model => model.VehicleModel)</th>
+                                        <th class="sorting_disabled" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 53.25px;">@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
                                         <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Actions" style="width: 68.5px;">Actions</th>
                                     </tr>
                                 </thead>
@@ -91,28 +92,29 @@
                                         {
                                             foreach (var item in Model.VehicleModelsList)
                                             {
-                                                <tr role="row" class="even">
-                                                    @{
+                                                                        <tr role="row" class="even">
+                                                                            @{
 
-                                                        var PageNo = Model.Pager.CurrentPage;
-                                                        var PageSize = Model.Pager.PageSize;
-                                                        int ind = (((PageNo - 1) * PageSize) + (++counter));
+                                                                                var PageNo = Model.Pager.CurrentPage;
+                                                                                var PageSize = Model.Pager.PageSize;
+                                                                                int ind = (((PageNo - 1) * PageSize) + (++counter));
 
-                                                    }
-                                                    <td class="sorting_1">@ind</td>
-                                                    <td>@Html.DisplayFor(modelItem => item.VehicleModelName)</td>
-                                                    <td class="kt-align-center">
-                                                        <button class="btn Detail_VehicleModel btn-sm btn-clean btn-icon btn-icon-md" title="Detail" data-id="@item.VehicleModelId" id="DetailBtn">
-                                                            <i class="la la-eye kt-font-dark"></i>
-                                                        </button>
-                                                        <button class="btn Edit_VehicleModel btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleModelId" title="Edit">
-                                                            <i class="la la-edit kt-font-dark"></i>
-                                                        </button>
-                                                        <button class="btn Delete_VehicleModel  btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleModelId" title="Delete">
-                                                            <i class="la la-trash kt-font-dark"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
+                                                                            }
+                                                                            <td class="sorting_1">@ind</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.VehicleModelName)</td>
+                                                                            <td>@Html.DisplayFor(modelItem => item.YearOfManufacture)</td>
+                                                                            <td class="kt-align-center">
+                                                                                <button class="btn Detail_VehicleModel btn-sm btn-clean btn-icon btn-icon-md" title="Detail" data-id="@item.VehicleModelId" id="DetailBtn">
+                                                                                    <i class="la la-eye kt-font-dark"></i>
+                                                                                </button>
+                                                                                <button class="btn Edit_VehicleModel btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleModelId" title="Edit">
+                                                                                    <i class="la la-edit kt-font-dark"></i>
+                                                                                </button>
+                                                                                <button class="btn Delete_VehicleModel  btn-sm btn-clean btn-icon btn-icon-md" data-id="@item.VehicleModelId" title="Delete">
+                                                                                    <i class="la la-trash kt-font-dark"></i>
+                                                                                </button>
+                                                                            </td>
+                                                                        </tr>
                                             }
                                         }
                                         else

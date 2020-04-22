@@ -1,4 +1,5 @@
-﻿@model AutoSolution.Services.ViewModel.VehilceModelViewModel
+﻿@model AutoSolution.Services.ViewModel.PartsSubCategoryViewModel
+
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
     <div class="kt-portlet kt-portlet--mobile">
         <div class="kt-portlet__head kt-portlet__head--lg">
@@ -7,52 +8,38 @@
                     <i class="fa fa-car-side"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    Add New Vehicle Model
+                    Add New Parts/Product Sub Category Model
                 </h3>
             </div>
         </div>
         <div class="kt-portlet__body">
-            <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewVehicleModel">
+            <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewPartsProductSubCategory">
                 @Html.AntiForgeryToken()
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.SelectedVehicleManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                            @Html.LabelFor(model => model.SelectedPartsProductsCategory, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
-                                @Html.DropDownListFor(x => Model.SelectedVehicleManufacturer, Model.VehicleManufacturersList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownListFor(x => Model.SelectedPartsProductsCategory, Model.PartsProductsCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.YearOfManufacture, htmlAttributes: new { @class = "col-form-label" })
-                            <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar-alt"></i></span></div>
-                                @Html.EditorFor(model => model.YearOfManufacture, new { htmlAttributes = new { @class = "form-control yearselect" } })
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-xl-6">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.VehicleModel, htmlAttributes: new { @class = "col-form-label" })
+                            @Html.LabelFor(model => model.PartsProductsSubCategoryName, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
-                                @Html.EditorFor(model => model.VehicleModel, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.PartsProductsSubCategoryName, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
                     </div>
-                    
-
 
                 </div>
                 <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <button class="btn btn-dark btn-brand--icon pageButtons" id="AddNew" type="button">
+                        <button class="btn btn-dark btn-brand--icon pageButtons" id="kt_search" type="button">
                             <span>
                                 <i class="la la-plus"></i>
                                 <span>Add New</span>
@@ -74,21 +61,13 @@
     </div>
 </div>
 <script>
-
-    $('.yearselect').yearselect({
-        start: 1940,
-        end: 2020,
-        order: 'desc',
-    });
-
-
     var rendered = false;
     //debugger;
-    $("#AddNew").click(function () {
+    $("#kt_search").click(function () {
             $.ajax({
                 type: "POST",
-                url: '@Url.Action("AddNew", "VehicleModel")',
-                data: $("#AddNewVehicleModel").serialize()
+                url: '@Url.Action("AddNew", "PartsSubCategory")',
+                data: $("#AddNewPartsProductSubCategory").serialize()
             })
                 .done(function (response) {
                     $('#tableContiner').html(response);

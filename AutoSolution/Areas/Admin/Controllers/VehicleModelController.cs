@@ -34,8 +34,11 @@ namespace AutoSolution.Areas.Admin.Controllers
                     bool IsExist = vehicleModelRepository.isExist(vehilceModelViewModel.VehicleModel);
                     if (!IsExist)
                     {
+                        
                         VehicleModel vehicleModel = new VehicleModel();
+                        
                         vehicleModel.VehicleModelName = vehilceModelViewModel.VehicleModel;
+                        vehicleModel.YearOfManufacture = vehilceModelViewModel.YearOfManufacture;
                         vehicleModel.VehicleManufacturerId = Convert.ToInt32(vehilceModelViewModel.SelectedVehicleManufacturer);
                         _unitOfWork.VehicleModel.Add(vehicleModel);
                         _unitOfWork.Complete();
@@ -102,6 +105,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 VehicleModelRepository vehicleModelRepository = new VehicleModelRepository(new AutoSolutionContext());
                 vehilceModelViewModel.VehicleModelId = item.VehicleModelId;
                 vehilceModelViewModel.VehicleModel = item.VehicleModelName;
+                vehilceModelViewModel.YearOfManufacture = item.YearOfManufacture;
                 vehilceModelViewModel.SelectedVehicleManufacturer = item.VehicleManufacturerId.ToString();
                 vehilceModelViewModel.VehicleManufacturersList = vehicleModelRepository.GetVehicleManufacturerDropDown();
                 if (vehilceModelViewModel != null)
@@ -135,6 +139,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 VehicleModel vehicleModel = new VehicleModel();
                 vehicleModel.VehicleModelId = vehilceModelViewModel.VehicleModelId;
                 vehicleModel.VehicleModelName = vehilceModelViewModel.VehicleModel;
+                vehicleModel.YearOfManufacture = Convert.ToInt32(vehilceModelViewModel.YearOfManufacture);
                 vehicleModel.VehicleManufacturerId =Convert.ToInt32(vehilceModelViewModel.SelectedVehicleManufacturer);
                 _unitOfWork.VehicleModel.Update(vehicleModel);
                 _unitOfWork.Complete();
@@ -166,6 +171,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 VehilceModelViewModel vehilceModelViewModel = new VehilceModelViewModel();
                 vehilceModelViewModel.VehicleModelId = vehicleModel.VehicleModelId;
                 vehilceModelViewModel.VehicleModel = vehicleModel.VehicleModelName;
+                vehilceModelViewModel.YearOfManufacture = vehicleModel.YearOfManufacture;
                 vehilceModelViewModel.VehicleManufacturerName = vehicleModel.VehicleManufacturer.VehicleManufacturerName;
                 
 

@@ -1,0 +1,44 @@
+﻿@model List<AutoSolution.Entities.ServiceCategory>
+@{ 
+    var counter = 0;
+}
+    <link href="~/assets/css/Uzair.css" rel="stylesheet" />
+<div id="column">
+    <div class="container ">
+    
+        <h2 class="text-center text-white p-4 m-4">GET YOUR SERVICE</h2>
+                @{
+
+            foreach (var item in Model)
+            {
+
+                if (counter % 5 == 0)
+                {
+                    @:<div class="card-deck my-5">
+                    }
+
+
+
+                    <div class="card">
+                        <div class="inner"><img class="card-img-top rounded" src="~/assets/Uzair/gallery_bg.jpg" alt="Card image cap"></div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@item.ServiceCategoryName</h5>
+                        </div>
+                    </div>
+                    counter = counter + 1;
+                    if (counter % 5 == 0)
+                    {
+                    @:</div>
+                }
+
+
+            }
+
+            <div class="mb-5"></div>
+
+        }
+
+
+
+    </div>
+    </div>

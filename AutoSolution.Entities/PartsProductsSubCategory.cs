@@ -10,7 +10,7 @@ namespace AutoSolution.Entities
     {
         public int PartsProductsSubCategoryId { get; set; }
         public string PartsProductsSubCategoryName { get; set; }
-        public int PartsProductCategoryId { get; set; }
-        public virtual PartsProductsCategory PartsProductCategory { get; set; }
+        public int PartsProductsCategoryId { get; set; }
+        public virtual PartsProductsCategory PartsProductsCategory { get; set; }
     }
 }

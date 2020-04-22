@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductsCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartsSubCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -1776,6 +1777,7 @@
     <Content Include="assets\vendors\custom\js\vendors\datatables.init.js" />
     <Content Include="assets\vendors\custom\js\vendors\jquery-validation.init.js" />
     <Content Include="assets\vendors\custom\js\vendors\sweetalert2.init.js" />
+    <Content Include="assets\vendors\custom\js\vendors\year-select.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-multiselectsplitter\bootstrap-multiselectsplitter.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-multiselectsplitter\bootstrap-multiselectsplitter.min.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-session-timeout\dist\bootstrap-session-timeout.js" />
@@ -6699,6 +6701,11 @@
     <Content Include="Areas\Admin\Views\PartsProductsCategories\_GetPartsProductsCategory.cshtml" />
     <Content Include="Areas\Admin\Views\PartsProductsCategories\_EditPartsProductsCategory.cshtml" />
     <Content Include="Areas\Admin\Views\PartsProductsCategories\_DetailsPartsProductsCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsSubCategory\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsSubCategory\_GetPartsSubCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsSubCategory\_EditPartsSubCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsSubCategory\_DetailsPartsSubCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsSubCategory\_AddNewPartsSubCategory.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -6816,6 +6823,7 @@
     <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\check.cshtml" />
+    <Content Include="Views\Home\_GetServiceCategories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,18 +11,23 @@ namespace AutoSolution.Entities
         public int PartsProductId { get; set; }
         public string PartsProductName { get; set; }
         public DateTime AddedDate { get; set; }
-
+        public int YearOfManufacture { get; set; }
         public int PartsProductsSubCategoryId { get; set; }
         public virtual PartsProductsSubCategory PartsProductsSubCategory { get; set; }
+
+        public int? VehicleModelId { get; set; }
+        public virtual VehicleModel VehicleModel { get; set; }
+
+        public int VehicleVersionId { get; set; }
+        public virtual VehicleVersion VehicleVersion {get;set;}
+
+        public int VehicleManufacturerId { get; set; }
+        public virtual VehicleManufacturer VehicleManufacturer { get; set; }
 
 
         public int PartsProductManufacturerId { get; set; }
         public virtual PartsProductManufacturer PartsProductManufacturer { get; set; }
         public virtual ICollection<PartsProductSupplier> PartsProductSuppliers { get; set; }
-        public virtual ICollection<Version_Year_PartsProduct> Version_Year_PartsProducts { get; set; }
-
-
-
-
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

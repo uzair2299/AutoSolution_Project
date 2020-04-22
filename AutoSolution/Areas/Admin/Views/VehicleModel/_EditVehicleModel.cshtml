@@ -27,6 +27,17 @@
                         <div class="row">
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-group">
+                                    @Html.LabelFor(model => model.YearOfManufacture, htmlAttributes: new { @class = "col-form-label" })
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar-alt"></i></span></div>
+                                        @Html.EditorFor(model => model.YearOfManufacture, new { htmlAttributes = new { @class = "form-control yearselect" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-xl-12">
+                                <div class="form-group">
                                     @Html.LabelFor(model => model.SelectedVehicleManufacturer, htmlAttributes: new { @class = "col-form-label" })
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
@@ -60,6 +71,12 @@
     </div>
 
     <script>
+
+        $('.yearselect').yearselect({
+            start: 1940,
+            end: 2020,
+            order: 'desc',
+        });
 
     $("#SaveBtn").click(function () {
         $('#kt_modal_1').modal('hide');

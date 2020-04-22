@@ -27,6 +27,7 @@ namespace AutoSolution.Services
             TransmissionType = new TransmissionTypeRepository(_context);
             VehicleEngineType = new VehicleEngineTypeRepository(_context);
             PartsProductsCategory = new PartsProductsCategoryRepository(_context);
+            PartsSubCategory = new PartsSubCategoryRepository(_context);
 }
 
 public IUserRepository User { get; private set; }
@@ -42,6 +43,8 @@ public IUserRepository User { get; private set; }
 
         public IVehicleEngineTypeRepository VehicleEngineType { get; private set; }
         public IPartsProductsCategoryRepository PartsProductsCategory { get; private set; }
+
+        public IPartsSubCategoryRepository PartsSubCategory { get; private set; }
 
         public int Complete()
         {

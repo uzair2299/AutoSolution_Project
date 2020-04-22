@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Entities
 {
-    public class CarVersion
+    public class VehicleVersion
     {
-        public int CarVersionId { get; set; }
-        public string CarVersionName { get; set; }
+        public int VehicleVersionId { get; set; }
+        public string VehicleVersionName { get; set; }
         public string EngineCapacity { get; set; }
         public bool IsDeleted { get; set; }
 
-        public int CarModelId { get; set; }
-        public virtual VehicleModel CarModel { get; set; }
+        public int? VehicleModelId { get; set; }
+        public virtual VehicleModel VehicleModel { get; set; }
 
         
         public int EngineTypeId { get; set; }
@@ -27,10 +27,5 @@ namespace AutoSolution.Entities
 
         public int BodyTypeId { get; set; }
         public virtual BodyType BodyType { get; set; }
-
-        public virtual ICollection<Version_Year_PartsProduct> Version_Year_PartsProducts { get; set; }
-
-
-
     }
 }
