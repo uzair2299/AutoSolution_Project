@@ -19,6 +19,7 @@ namespace AutoSolution.Services.IUnitOfWork
         IVehicleManufacturerRepository VehicleManufacturer { get; }
         IRoleRepository RoleRepository { get; }
         IVehicleModelRepository VehicleModel { get; }
+        IVehicleVersionRepository VehicleVersion { get; }
         ITransmissionTypeRepository TransmissionType { get; }
         IVehicleEngineTypeRepository VehicleEngineType { get; }
 

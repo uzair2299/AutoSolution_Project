@@ -11,7 +11,7 @@ namespace AutoSolution.Entities
         public int VehicleModelId { get; set; }
         public string VehicleModelName { get; set; }
         public int VehicleManufacturerId { get; set; }
-        public int YearOfManufacture { get; set; }
+        public int? YearOfManufacture { get; set; }
         public virtual VehicleManufacturer VehicleManufacturer { get; set; }
         public ICollection<VehicleVersion> VehicleVersions { get; set; }
     }

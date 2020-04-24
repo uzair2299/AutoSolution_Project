@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdmSignInController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductsCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsSubCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceCategoriesController.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Areas\Admin\Controllers\VehicleController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleEngineTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleModelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VehicleVersionController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
@@ -1726,6 +1728,8 @@
     <Content Include="assets\Uzair\bg2.jpg" />
     <Content Include="assets\Uzair\bg4.jpg" />
     <Content Include="assets\Uzair\gallery_bg.jpg" />
+    <Content Include="assets\Uzair\left.jpg" />
+    <Content Include="assets\Uzair\login-left.jpg" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.css" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.js" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.min.css" />
@@ -1777,7 +1781,6 @@
     <Content Include="assets\vendors\custom\js\vendors\datatables.init.js" />
     <Content Include="assets\vendors\custom\js\vendors\jquery-validation.init.js" />
     <Content Include="assets\vendors\custom\js\vendors\sweetalert2.init.js" />
-    <Content Include="assets\vendors\custom\js\vendors\year-select.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-multiselectsplitter\bootstrap-multiselectsplitter.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-multiselectsplitter\bootstrap-multiselectsplitter.min.js" />
     <Content Include="assets\vendors\custom\vendors\bootstrap-session-timeout\dist\bootstrap-session-timeout.js" />
@@ -6706,6 +6709,13 @@
     <Content Include="Areas\Admin\Views\PartsSubCategory\_EditPartsSubCategory.cshtml" />
     <Content Include="Areas\Admin\Views\PartsSubCategory\_DetailsPartsSubCategory.cshtml" />
     <Content Include="Areas\Admin\Views\PartsSubCategory\_AddNewPartsSubCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleVersion\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleVersion\_GetVehicleVersion.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleVersion\_EditVehicleVersion.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleVersion\_DetailsVehicleVersion.cshtml" />
+    <Content Include="Areas\Admin\Views\VehicleVersion\_AddNewVehicleVersion.cshtml" />
+    <Content Include="Areas\Admin\Views\AdmSignIn\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

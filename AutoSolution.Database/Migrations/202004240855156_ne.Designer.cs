@@ -7,13 +7,13 @@ namespace AutoSolution.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Image : IMigrationMetadata
+    public sealed partial class ne : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Image));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ne));
         
         string IMigrationMetadata.Id
         {
-            get { return "202004221725187_Image"; }
+            get { return "202004240855156_ne"; }
         }
         
         string IMigrationMetadata.Source

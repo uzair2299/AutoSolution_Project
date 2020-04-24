@@ -105,7 +105,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 VehicleModelRepository vehicleModelRepository = new VehicleModelRepository(new AutoSolutionContext());
                 vehilceModelViewModel.VehicleModelId = item.VehicleModelId;
                 vehilceModelViewModel.VehicleModel = item.VehicleModelName;
-                vehilceModelViewModel.YearOfManufacture = item.YearOfManufacture;
+ //               vehilceModelViewModel.YearOfManufacture = item.YearOfManufacture;
                 vehilceModelViewModel.SelectedVehicleManufacturer = item.VehicleManufacturerId.ToString();
                 vehilceModelViewModel.VehicleManufacturersList = vehicleModelRepository.GetVehicleManufacturerDropDown();
                 if (vehilceModelViewModel != null)
@@ -171,7 +171,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 VehilceModelViewModel vehilceModelViewModel = new VehilceModelViewModel();
                 vehilceModelViewModel.VehicleModelId = vehicleModel.VehicleModelId;
                 vehilceModelViewModel.VehicleModel = vehicleModel.VehicleModelName;
-                vehilceModelViewModel.YearOfManufacture = vehicleModel.YearOfManufacture;
+   //             vehilceModelViewModel.YearOfManufacture = vehicleModel.YearOfManufacture;
                 vehilceModelViewModel.VehicleManufacturerName = vehicleModel.VehicleManufacturer.VehicleManufacturerName;
                 
 
@@ -189,11 +189,6 @@ namespace AutoSolution.Areas.Admin.Controllers
 
                 throw;
             }
-
-
         }
-
-
-
     }
 }

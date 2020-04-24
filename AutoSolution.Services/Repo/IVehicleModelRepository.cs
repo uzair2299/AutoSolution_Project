@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace AutoSolution.Services.Repo
 {
@@ -13,6 +14,10 @@ namespace AutoSolution.Services.Repo
         VehilceModelViewModel AddnewVehicleModel();
         VehilceModelViewModel GetVehicleModel(int PageNo,int TotalCount);
         VehilceModelViewModel GetVehicleModel(int PageNo, int TotalCount, string SearchTerm, string SelectedVehicleManufacturer);
+       
         int GetVehicleModelCount(string SearchTerm, string SelectedVehicleManufacturer);
+        IEnumerable<SelectListItem> GetVehicleManufacturerDropDown();
+        IEnumerable<SelectListItem> GetVehicleModelDropDown();
+        IEnumerable<SelectListItem> GetVehicleModelDropDown(string Id);
     }
 }

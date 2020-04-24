@@ -12,20 +12,26 @@ namespace AutoSolution.Entities
         public string VehicleVersionName { get; set; }
         public string EngineCapacity { get; set; }
         public bool IsDeleted { get; set; }
+        public int? startYear { get; set; }
+        public int? EndYear { get; set; }
+        public DateTime AddedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
+         public string AddedBy { get; set; }
+        public string UpdatedBy { get; set; }
 
         public int? VehicleModelId { get; set; }
         public virtual VehicleModel VehicleModel { get; set; }
 
         
-        public int EngineTypeId { get; set; }
-        public virtual VehicleEngineType EngineType { get; set; }
+        public int VehicleEngineTypeId { get; set; }
+        public virtual VehicleEngineType VehicleEngineType { get; set; }
 
 
         public int TransmissionTypeId { get; set; }
         public virtual TransmissionType TransmissionType { get; set; }
 
 
-        public int BodyTypeId { get; set; }
-        public virtual BodyType BodyType { get; set; }
+        //public int BodyTypeId { get; set; }
+        //public virtual BodyType BodyType { get; set; }
     }
 }

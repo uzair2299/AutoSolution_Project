@@ -1,0 +1,170 @@
+﻿@model AutoSolution.Services.ViewModel.VehicleVersionViewModel
+
+<div class="modal fade" id="kt_modal_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit/Update Vehicle Version</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form class="kt-form kt-form--fit kt-margin-b-20" id="EditVehicelVersion">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VehicleVersionName, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-alt"></i></span></div>
+                                    @Html.EditorFor(model => model.VehicleVersionName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.HiddenFor(model => model.VehicleVersionId)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.EngineCapacity, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar-alt"></i></span></div>
+                                    @Html.EditorFor(model => model.EngineCapacity, new { htmlAttributes = new { @class = "form-control yearselect" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+                            <div class="col-lg-12 col-xl-12">
+                                @Html.LabelFor(model => model.startYear, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group date">
+                                    @Html.EditorFor(model => model.startYear, new { htmlAttributes = new { @class = "form-control datepicker", @readonly = "readonly" } })
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="la la-calendar-check-o"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            @Html.LabelFor(model => model.EndYear, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group date">
+                                @Html.EditorFor(model => model.EndYear, new { htmlAttributes = new { @class = "form-control datepicker", @readonly = "readonly" } })
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SelectedManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    @Html.DropDownListFor(x => Model.SelectedManufacturer, Model.VehicleManufacturerList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SelectedModel, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    @Html.DropDownListFor(x => Model.SelectedModel, Model.VehicleModelList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SelectedEngineType, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    @Html.DropDownListFor(x => Model.SelectedEngineType, Model.EngineTypeList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SelectedTransmissionType, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    @Html.DropDownListFor(x => Model.SelectedTransmissionType, Model.TransmissionTypeList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="row">
+            <div class="col-lg-12 col-xl-12">
+                <div class="kt-checkbox-inline">
+                    <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                        @Html.CheckBoxFor(x => Model.IsActive)
+                        Is Active
+                        <span></span>
+                    </label>
+                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })</span>
+                </div>
+
+            </div>
+        </div>*@
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark" id="SaveBtn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.datepicker').datepicker({
+
+        format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years",
+        startDate: '-80y',
+        autoclose: true,
+        clearBtn: true
+
+        //format: 'mm/dd/yyyy',
+        //startDate: '-3d'
+    });
+
+    $("#SaveBtn").click(function () {
+        $('#kt_modal_1').modal('hide');
+
+            $.ajax({
+            url:' @Url.Action("Edit","VehicleVersion")',
+            type: 'POST',
+                data: $("#EditVehicelVersion").serialize()
+		})
+                .done(function (response) {
+                    debugger
+                    $('#kt_modal_1').modal('hide');
+                    $('#tableContiner').html("");
+                    $('#tableContiner').html(response);
+
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        	alert("FAIL");
+        });
+        });
+
+</script>

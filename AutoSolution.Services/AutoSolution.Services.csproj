@@ -102,6 +102,7 @@
     <Compile Include="Repo\IVehicleManufacturerRepository.cs" />
     <Compile Include="AutoSolutionRoleProvider.cs" />
     <Compile Include="Repo\IVehicleModelRepository.cs" />
+    <Compile Include="Repo\IVehicleVersionRepository.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="TransmissionTypeRepository.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="VehicleEngineTypeRepository.cs" />
     <Compile Include="VehicleManufacturerRepository.cs" />
     <Compile Include="VehicleModelRepository.cs" />
+    <Compile Include="VehicleVersionRepository.cs" />
     <Compile Include="ViewModel\ChangePassword.cs" />
     <Compile Include="ViewModel\CityProvinceCategoryViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="ViewModel\VehicleEngineTypeViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerAddEditViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />
+    <Compile Include="ViewModel\VehicleVersionViewModel.cs" />
     <Compile Include="ViewModel\VehilceModelViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
