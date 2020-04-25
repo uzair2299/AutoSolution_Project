@@ -13,7 +13,7 @@ namespace AutoSolution.Services.Repo
     {
         IEnumerable<SelectListItem> GetPPManufacturerDropDown();
 
-
+        IEnumerable<SelectListItem> GetPPManufacturerDropDownEmpty();
         PartsProductManuVeiwModel GetPartsProductManu(int PageNo, int TotalCount);
 
         PartsProductManuVeiwModel GetPartsProductManu(int PageNo, int TotalCount, string SearchTerm);

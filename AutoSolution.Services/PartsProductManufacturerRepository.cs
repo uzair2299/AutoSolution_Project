@@ -31,6 +31,19 @@ namespace AutoSolution.Services
             return new SelectList(items, "value", "Text");
         }
 
+        public IEnumerable<SelectListItem> GetPPManufacturerDropDownEmpty()
+        {
+            List<SelectListItem> items = new List<SelectListItem>()
+            {
+                new SelectListItem
+                {
+                    Value = null,
+                    Text = "------------- Select Part/Product Manufacturer -------------"
+                }
+            };
+            return new SelectList(items, "value", "Text");
+        }
+
         public bool isExist(string PPPPManufacturer)
         {
             return AutoSolutionContext.PartsProductManufacturers.Any(x => x.PartsProductManufacturerName.Trim().ToLower() == PPPPManufacturer.Trim().ToLower());

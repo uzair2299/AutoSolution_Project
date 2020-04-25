@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\Controllers\AdmSignInController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductManuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductsCategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PartsProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsSubCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ServiceCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
@@ -6722,6 +6723,11 @@
     <Content Include="Areas\Admin\Views\PartsProductManu\_GetPartsProductsManu.cshtml" />
     <Content Include="Areas\Admin\Views\PartsProductManu\_EditPartsProductsManu.cshtml" />
     <Content Include="Areas\Admin\Views\PartsProductManu\_DetailsPartsProductsManu.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProducts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProducts\_AddNewPartsProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProducts\_DetailsPartsProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProducts\_GetPartsProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\PartsProducts\_EditPartsProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

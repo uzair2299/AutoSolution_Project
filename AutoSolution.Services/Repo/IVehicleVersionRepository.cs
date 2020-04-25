@@ -16,6 +16,5 @@ namespace AutoSolution.Services.Repo
         VehicleVersionViewModel GetVehicleVersion(int PageNo, int TotalCount, string SearchTerm, string SelectedVehicleModel);
         int GetVehicleModelCount(string SearchTerm, string SelectedVehicleModel);
         bool isExist(string GetVehicleVersion, string SelectedVehicleModel);
-        
     }
 }

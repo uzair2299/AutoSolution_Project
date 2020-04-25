@@ -23,6 +23,19 @@ namespace AutoSolution.Services
             return AutoSolutionContext.PartsProductsSubCategories.Any(x => x.PartsProductsSubCategoryName.Trim().ToLower() == PartsSubCategory.Trim().ToLower());
         }
 
+        public IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDownEmpty()
+        {
+            List<SelectListItem> items = new List<SelectListItem>()
+            {
+                new SelectListItem
+                {
+                    Value = null,
+                    Text = "-------------- Select Parts/Product Sub Category --------------"
+                }
+            };
+            return new SelectList(items, "value", "Text");
+        }
+
         public IEnumerable<SelectListItem> GetPartsProductCategoryDropDown()
         {
             List<SelectListItem> items = Context.Set<PartsProductsCategory>().OrderBy(n => n.PartsProductsCategoryName).Select(n => new SelectListItem
@@ -34,11 +47,48 @@ namespace AutoSolution.Services
             var Tip = new SelectListItem()
             {
                 Value = null,
-                Text = "----------- Select Parts/Product Category ------------"
+                Text = "-------------- Select Parts/Product Category ---------------"
             };
             items.Insert(0, Tip);
             return new SelectList(items, "value", "Text");
         }
+
+        public IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDown()
+        {
+            List<SelectListItem> items = Context.Set<PartsProductsSubCategory>().OrderBy(n => n.PartsProductsSubCategoryName).Select(n => new SelectListItem
+            {
+                Value = n.PartsProductsSubCategoryId.ToString(),
+                Text = n.PartsProductsSubCategoryName
+            }).ToList();
+
+            var Tip = new SelectListItem()
+            {
+                Value = null,
+                Text = "----------- Select Parts/Product Sub Category ------------"
+            };
+            items.Insert(0, Tip);
+            return new SelectList(items, "value", "Text");
+        }
+
+        public IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDown(string Id)
+        {
+            int ID = Convert.ToInt32(Id);
+
+            List<SelectListItem> items = Context.Set<PartsProductsSubCategory>().OrderBy(n => n.PartsProductsSubCategoryName).Where(x => x.PartsProductsCategory.PartsProductsCategoryId == ID).Select(n => new SelectListItem
+            {
+                Value = n.PartsProductsSubCategoryId.ToString(),
+                Text = n.PartsProductsSubCategoryName
+            }).ToList();
+
+            var CityTip = new SelectListItem()
+            {
+                Value = (-1).ToString(),
+                Text = "----------- Select Parts/Product Sub Category ------------"
+            };
+            items.Insert(0, CityTip);
+            return new SelectList(items, "value", "Text");
+        }
+
 
         public PartsSubCategoryViewModel AddNewPartsSubCategory()
         {

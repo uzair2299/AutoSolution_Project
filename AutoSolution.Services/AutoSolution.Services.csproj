@@ -85,10 +85,12 @@
     <Compile Include="Pager.cs" />
     <Compile Include="PartsProductManufacturerRepository.cs" />
     <Compile Include="PartsProductsCategoryRepository.cs" />
+    <Compile Include="PartsProductsRepository.cs" />
     <Compile Include="PartsSubCategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvinceRepository.cs" />
     <Compile Include="Repo\ICityRepository.cs" />
+    <Compile Include="Repo\IPartsProductsRepository.cs" />
     <Compile Include="Repo\IPartsProductManufacturerRepository.cs" />
     <Compile Include="Repo\IPartsSubCategoryRepository.cs" />
     <Compile Include="Repo\IPartsProductsCategoryRepository.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\PartsProductManuVeiwModel.cs" />
     <Compile Include="ViewModel\PartsProductsCategoryViewModel.cs" />
+    <Compile Include="ViewModel\PartsProductsViewModel.cs" />
     <Compile Include="ViewModel\PartsSubCategoryViewModel.cs" />
     <Compile Include="ViewModel\ProvinceViewModel.cs" />
     <Compile Include="ViewModel\ServiceCategoryViewModel.cs" />
