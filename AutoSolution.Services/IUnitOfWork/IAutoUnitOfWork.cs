@@ -26,6 +26,7 @@ namespace AutoSolution.Services.IUnitOfWork
         IPartsProductsCategoryRepository PartsProductsCategory { get; }
 
         IPartsSubCategoryRepository PartsSubCategory { get; }
+        IPartsProductManufacturerRepository PartsProductManufacturer { get; }
         int Complete();
     }
 }

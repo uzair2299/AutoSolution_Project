@@ -29,6 +29,7 @@ namespace AutoSolution.Database.DataBaseContext
         public DbSet<VehicleVersion> VehicleVersions { get; set; }
         public DbSet<PartsProductsCategory> PartsProductsCategories { get; set; }
         public DbSet<PartsProductsSubCategory> PartsProductsSubCategories { get; set; }
+        public DbSet<PartsProductManufacturer> PartsProductManufacturers { get; set; }
         public DbSet<PartsProduct>  PartsProducts { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
     }

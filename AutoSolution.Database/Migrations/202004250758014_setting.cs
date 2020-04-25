@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ne : DbMigration
+    public partial class setting : DbMigration
     {
         public override void Up()
         {
@@ -180,7 +180,6 @@
                         UpdatedDate = c.DateTime(nullable: false),
                         AddedBy = c.String(),
                         UpdatedBy = c.String(),
-                        YearOfManufacture = c.Int(nullable: false),
                         VehicleModelId = c.Int(),
                         VehicleEngineTypeId = c.Int(nullable: false),
                         TransmissionTypeId = c.Int(nullable: false),
