@@ -82,6 +82,7 @@
     <Compile Include="CommonServices\Pager.cs" />
     <Compile Include="CommonServices\ServiceCategoryUtility.cs" />
     <Compile Include="CommonServices\UserEmailUtility.cs" />
+    <Compile Include="CommonServices\VehicleVersionUtility.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="PartsProductManufacturerRepository.cs" />
     <Compile Include="PartsProductsCategoryRepository.cs" />

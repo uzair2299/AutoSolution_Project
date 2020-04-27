@@ -1,4 +1,5 @@
 ﻿using AutoSolution.Entities;
+using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace AutoSolution.Services.Repo
         VehicleVersionViewModel GetVehicleVersion(int PageNo, int TotalCount);
         VehicleVersionViewModel GetVehicleVersion(int PageNo, int TotalCount, string SearchTerm, string SelectedVehicleModel);
         int GetVehicleModelCount(string SearchTerm, string SelectedVehicleModel);
+        List<VehicleVersionUtility> GetVehicleVersionCheckBox(int ModelId);
         bool isExist(string GetVehicleVersion, string SelectedVehicleModel);
     }
 }

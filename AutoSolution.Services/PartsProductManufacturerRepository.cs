@@ -25,7 +25,7 @@ namespace AutoSolution.Services
             var CityTip = new SelectListItem()
             {
                 Value = (-1).ToString(),
-                Text = "-------------- Select Parts/Product Manufacturer & Maker  --------------"
+                Text = "----------- Select Parts/Product Manufacturer & Maker  -----------"
             };
             items.Insert(0, CityTip);
             return new SelectList(items, "value", "Text");

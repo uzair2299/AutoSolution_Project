@@ -5,7 +5,14 @@
 }
 
 
-
+    <div class="row" id="ImageTemplate" style="display:none">
+        <div class="card ImageTemplates" style="width: 20rem;">
+            <img class="card-img-top AutoImage" src="" alt="Card image cap">
+            <div class="card-body">
+                <button type="button" class="btn btn-dark DeleteImage" id="DeleteImages"><i class="flaticon-plus"></i>Remove</button>
+            </div>
+        </div>
+    </div>
 <div class="kt-subheader  kt-grid__item" id="kt_subheader">
     <div class="kt-container  kt-container--fluid ">
         <div class="kt-subheader__main">
@@ -15,27 +22,16 @@
         </div>
     </div>
 </div>
-<div id="AddNewContainer">
 
-</div>
-<div id="EditModal">
-    @*edit*@
-</div>
+<div id="AddNewContainer"></div>
 
-<div id="PartsProductsDetails">
+<div id="EditModal"></div>
 
-
-
-</div>
+<div id="PartsProductsDetails"></div>
 
 <div id="tableContiner">
     @{Html.RenderAction("GetPartsProduct");}
 </div>
-
-
-
-
-
 <script>
     var rendered = false;
     $("#Add_New").click(function () {
@@ -45,7 +41,6 @@
                 type: 'GET',
             })
                 .done(function (response) {
-                    //debugger;
                     $('#AddNewContainer').html("");
                     $('#AddNewContainer').html(response);
                     rendered = true;
@@ -58,4 +53,11 @@
             rendered = false;
         }
     });
+
+    function RemoveImagesOnclick() {
+        debugger;
+        $("#imgViewer .ImageTemplates").click(function () {
+            $(this).remove();
+        });
+    }
 </script>

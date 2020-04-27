@@ -1,6 +1,4 @@
 ﻿@model AutoSolution.Services.ViewModel.PartsProductsViewModel
-
-
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
     <div class="kt-portlet kt-portlet--mobile">
         <div class="kt-portlet__head kt-portlet__head--lg">
@@ -9,14 +7,20 @@
                     <i class="fa fa-car-side"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    Add New Part/Product 
+                    Add New Part/Product
                 </h3>
             </div>
         </div>
         <div class="kt-portlet__body">
             <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewPartsProducts">
                 @Html.AntiForgeryToken()
-
+                <div class="kt-login__title text-center mt-3 kt-mb-15">
+                    <div class="kt-divider">
+                        <span></span>
+                        <h4 class="p-3"><span>Part/Product Information</span></h4>
+                        <span></span>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
@@ -36,9 +40,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
@@ -59,7 +60,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
@@ -71,10 +71,50 @@
                             </div>
                         </div>
                     </div>
-                    
-
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group ">
+                            <label class="col-form-label">Product Images</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" aria-describedby="basic-addon1" multiple id="ProductImages">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="row" id="imgViewer">
+                    <input type="hidden" name="PictureIDs" id="PictureIDs"/>
+                  <!--image-->
+                </div>
+                <div class=" row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ShortDescription, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
 
+                                @Html.TextAreaFor(model => model.ShortDescription, 4, 100, new { @class = "form-control", style = "width:100%;" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" row">
+                    <div class="col-lg-12 col-xl-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LongDescription, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
+
+                                @Html.TextAreaFor(model => model.LongDescription, 8, 100, new { @class = "form-control", style = "width:100%;" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="kt-login__title text-center mt-3 kt-mb-15">
+                    <div class="kt-divider">
+                        <span></span>
+                        <h4 class="p-3"><span>Vehicle Information</span></h4>
+                        <span></span>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-6">
                         <div class="form-group">
@@ -119,6 +159,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
                 <div class="row">
                     <div class="col-lg-12">
@@ -144,7 +185,7 @@
     </div>
 </div>
 <script>
-
+/*Start Date picker*/
     $('.datepicker').datepicker({
 
         format: "yyyy",
@@ -157,59 +198,88 @@
         //format: 'mm/dd/yyyy',
         //startDate: '-3d'
     });
+    /*end Date picker*/
 
-    $(document).ready(function () {
-        debugger;
-        $('#SelectedPartsProductCategory').change(function () {
-            debugger;
-             var SelectedPartsProductCategory = $("#SelectedPartsProductCategory").val();
-             var SelectedPartsProductSubCategory = $('#SelectedPartsProductSubCategory');
-             SelectedPartsProductSubCategory.empty();
-             if (SelectedPartsProductCategory != null && SelectedPartsProductCategory != '') {
-                 $.getJSON('@Url.Action("GetSubCategories")', { SelectedPartsProductCategoryId: SelectedPartsProductCategory }, function (Moldels) {
-                     if (Moldels != null && !jQuery.isEmptyObject(Moldels))
-                        {
-                            $.each(Moldels, function (index, model) {
-                                SelectedPartsProductSubCategory.append($('<option/>', {
-                                    value: model.Value,
-                                    text: model.Text
-                                }));
-                            });
-                        }
-                    });
+    $("#ProductImages").change(function () {
+        var picx = this.files;
+        debugger
+        var PicsData = new FormData();
+        for (var i = 0; i <= picx.length; i++){
+            PicsData.append("Pictures", picx[i]);
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddImages", "PartsProducts")',
+            data: PicsData,
+            datatype: "json",
+            processData: false,
+            contentType: false
+        })
+            .done(function (responses) {
+                //var PicIds = '';
+                for (var i = 0; i < responses.length; i++) {
+                    var PicResponse = responses[i];
+                    debugger;
+                    AttachNewImage(PicResponse.PicURL, PicResponse.ID);
+                    
+                    debugger;
+                    //var ImgHtml = "<img class='img-fluid' src='/AutoImages/" + PicResponse.PicURL + "'/>";
+                    //$("#imgViewer").append(ImgHtml);
+                    //PicIds = PicIds + "," + PicResponse.ID;
                 }
+                //$("#PictureIDs").val(PicIds);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
             });
     });
 
 
-     $(document).ready(function () {
-        debugger;
-         $('#SelectedPartsProductSubCategory').change(function () {
-            debugger;
-             var SelectedPartsProductSubCategory = $("#SelectedPartsProductSubCategory").val();
-             var SelectedPartProductManufacturer = $('#SelectedPartProductManufacturer');
-             SelectedPartProductManufacturer.empty();
-             if (SelectedPartsProductSubCategory != null && SelectedPartsProductSubCategory != '') {
-                 $.getJSON('@Url.Action("GetPPManufacturer")', function (Moldels) {
-                     if (Moldels != null && !jQuery.isEmptyObject(Moldels))
-                        {
-                            $.each(Moldels, function (index, model) {
-                                SelectedPartProductManufacturer.append($('<option/>', {
-                                    value: model.Value,
-                                    text: model.Text
-                                }));
-                            });
-                        }
-                    });
-                }
-            });
-     });
+    $(document).ready(function () {
+        $('#SelectedPartsProductCategory').change(function () {
+            var SelectedPartsProductCategory = $("#SelectedPartsProductCategory").val();
+            var SelectedPartsProductSubCategory = $('#SelectedPartsProductSubCategory');
+            SelectedPartsProductSubCategory.empty();
+            if (SelectedPartsProductCategory != null && SelectedPartsProductCategory != '') {
+                $.getJSON('@Url.Action("GetSubCategories")', { SelectedPartsProductCategoryId: SelectedPartsProductCategory }, function (Moldels) {
+                    if (Moldels != null && !jQuery.isEmptyObject(Moldels))
+                    {
+                        $.each(Moldels, function (index, model) {
+                            SelectedPartsProductSubCategory.append($('<option/>', {
+                                value: model.Value,
+                                text: model.Text
+                            }));
+                        });
+                    }
+                });
+            }
+        });
+    });
 
 
+    $(document).ready(function () {
+        $('#SelectedPartsProductSubCategory').change(function () {
+            var SelectedPartsProductSubCategory = $("#SelectedPartsProductSubCategory").val();
+            var SelectedPartProductManufacturer = $('#SelectedPartProductManufacturer');
+            SelectedPartProductManufacturer.empty();
+            if (SelectedPartsProductSubCategory != null && SelectedPartsProductSubCategory != '') {
+                $.getJSON('@Url.Action("GetPPManufacturer")', function (Moldels) {
+                    if (Moldels != null && !jQuery.isEmptyObject(Moldels))
+                    {
+                        $.each(Moldels, function (index, model) {
+                            SelectedPartProductManufacturer.append($('<option/>', {
+                                value: model.Value,
+                                text: model.Text
+                            }));
+                        });
+                    }
+                });
+            }
+        });
+    });
 
 
-
-     $(document).ready(function () {
+    $(document).ready(function () {
          $('#SelectedManufacturer').change(function () {
              var selectedManufacturer = $("#SelectedManufacturer").val();
              var SelectedModel = $('#SelectedModel');
@@ -228,9 +298,10 @@
                     });
                 }
             });
-     });
+    });
 
-      @*$(document).ready(function () {
+
+    @*$(document).ready(function () {
           $('#SelectedModel').change(function () {
               var SelectedModel = $("#SelectedModel").val();
               var SelectedTransmissionType = $('#SelectedTransmissionType');
@@ -251,55 +322,41 @@
             });
       });*@
 
-    @*$(document).ready(function () {
-        $('#SelectedTransmissionType').change(function () {
-              var SelectedModel = $("#SelectedModel").val();
-            var SelectedEngineType = $('#SelectedEngineType');
-            SelectedEngineType.empty();
-            if (SelectedTransmissionType != null && SelectedTransmissionType != '') {
-                  $.getJSON('@Url.Action("GetEngineTypes")', function (Engines) {
-                      if (Engines != null && !jQuery.isEmptyObject(Engines))
-                        {
-                          $.each(Engines, function (index, Engine) {
-                              SelectedEngineType.append($('<option/>', {
-                                    value: Engine.Value,
-                                    text: Engine.Text
-                                }));
-                            });
-                        }
-                    });
-                }
-            });
-    });*@
-
 
 
     var rendered = false;
-    //debugger;
     $("#AddNew").click(function () {
-            $.ajax({
-                type: "POST",
-                url: '@Url.Action("AddNew", "PartsProducts")',
-                data: $("#AddNewPartsProducts").serialize()
-            })
-                .done(function (response) {
-                    $('#tableContiner').html(response);
-                    Swal.fire({
-                        text: 'Successfully Added',
-                    })
-                    rendered = true;
-                    //debugger;
+        var ImagesIds = [];
+        $("#imgViewer .AutoImage").each(function () {
+            var ImageId = $(this).attr("data-id")
+            ImagesIds.push(ImageId);
+        });
+        $("#PictureIDs").val(ImagesIds.join());
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddNew", "PartsProducts")',
+            data: $("#AddNewPartsProducts").serialize()
+        })
+            .done(function (response) {
+                $('#tableContiner').html(response);
+                Swal.fire({
+                    text: 'Successfully Added',
                 })
-
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("FAIL");
-                });
-            debugger;
-                $('#AddNewContainer').html("");
-            rendered = false;
-            //debugger;
-
+                rendered = true;
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+        $('#AddNewContainer').html("");
+        rendered = false;
     });
 
+        function AttachNewImage(ImageName,ImageID) {
+        var $ImgHtml = $("#ImageTemplate").clone();
+        $ImgHtml.find(".AutoImage").attr("src", "/AutoImages/" + ImageName);
+            $ImgHtml.find(".AutoImage").attr("data-id", ImageID);
+            $("#imgViewer").append($ImgHtml.html());
+            RemoveImagesOnclick();
 
+    }
 </script>

@@ -28,8 +28,8 @@ namespace AutoSolution.Services
                 PartsProductsSubCategoryList = partsSubCategoryRepository.GetPartsProductSubCategoryDropDownEmpty(),
                 PartProductManufacturerList = partsProductManufacturerRepository.GetPPManufacturerDropDownEmpty(),
                 VehicleModelList = vehicleModelRepository.GetVehicleModelDropDownEmpty(),
-                TransmissionTypeList = transmissionTypeRepository.GetTransmissionTypeDownEmpty(),
-                EngineTypeList = vehicleEngineTypeRepository.GetVehicleEngineTypeDropDownEmpty(),
+                //TransmissionTypeList = transmissionTypeRepository.GetTransmissionTypeDownEmpty(),
+                //EngineTypeList = vehicleEngineTypeRepository.GetVehicleEngineTypeDropDownEmpty(),
             };
             return partsProductsViewModel;
         }

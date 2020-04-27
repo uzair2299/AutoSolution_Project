@@ -13,10 +13,5 @@ namespace AutoSolution.Entities
         public string ImagePath { get; set; }
         public string ContentType { get; set; }
         public DateTime AddedDate { get; set; }
-
-        public int PartsProductId { get; set; }
-        public virtual PartsProduct PartsProduct { get; set; }
-
-
     }
 }

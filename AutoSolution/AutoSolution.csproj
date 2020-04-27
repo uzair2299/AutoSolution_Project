@@ -6854,6 +6854,7 @@
     <Folder Include="assets\vendors\general\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\" />
     <Folder Include="assets\vendors\general\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\" />
     <Folder Include="assets\vendors\general\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\" />
+    <Folder Include="AutoImages\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

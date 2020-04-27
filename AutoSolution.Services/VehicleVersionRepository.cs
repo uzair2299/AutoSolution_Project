@@ -1,5 +1,6 @@
 ﻿using AutoSolution.Database.DataBaseContext;
 using AutoSolution.Entities;
+using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.Repo;
 using AutoSolution.Services.ViewModel;
 using System;
@@ -18,7 +19,6 @@ namespace AutoSolution.Services
            : base(context)
     {
     }
-
         public VehicleVersionViewModel AddNewVehicleVerison()
         {
             VehicleModelRepository vehicleModelRepository = new VehicleModelRepository(new AutoSolutionContext());
@@ -34,18 +34,12 @@ namespace AutoSolution.Services
         return vehicleVersionViewModel;
 
     }
-
-        
-        
-        
-        
         public int GetVehicleModelCount(string SearchTerm, string SelectedVehicleModel)
         {
             int SelectedItem = Convert.ToInt32(SelectedVehicleModel);
 
             return AutoSolutionContext.VehicleVersions.OrderBy(x => x.VehicleVersionName).Where(x => x.VehicleVersionName.Contains(SearchTerm) && x.VehicleModelId == SelectedItem).Count();
         }
-
         public VehicleVersionViewModel GetVehicleVersion(int PageNo, int TotalCount)
         {
             VehicleModelRepository vehicleModelRepository = new VehicleModelRepository(new AutoSolutionContext());
@@ -57,9 +51,6 @@ namespace AutoSolution.Services
             };
             return VehicleVersionViewModel;
         }
-
-       
-        
         public VehicleVersionViewModel GetVehicleVersion(int PageNo, int TotalCount, string SearchTerm, string SelectedVehicleVersion)
         {
 
@@ -77,17 +68,24 @@ namespace AutoSolution.Services
             }
             return null;
         }
-
-        
-        
-        
         public bool isExist(string GetVehicleVersion ,string SelectedVehicleModel)
         {
             int VehicleModel = Convert.ToInt32(SelectedVehicleModel);
             return AutoSolutionContext.VehicleModels.Any(x => x.VehicleModelName.Trim().ToLower() == GetVehicleVersion.Trim().ToLower() && x.VehicleModelId == VehicleModel);
 
         }
+        public List<VehicleVersionUtility> GetVehicleVersionCheckBox(int ModelId)
+        {
 
+            List<VehicleVersionUtility> items = Context.Set<VehicleVersion>().OrderBy(n => n.VehicleVersionName).Where(x=>x.VehicleModelId == ModelId) .Select(n => new VehicleVersionUtility
+            {
+
+                 VehicleVersionId= n.VehicleVersionId,
+                VehicleVersionName = n.VehicleVersionName,
+                IsChecked = false
+            }).ToList();
+            return items;
+        }
         public AutoSolutionContext AutoSolutionContext
         {
             get { return Context as AutoSolutionContext; }

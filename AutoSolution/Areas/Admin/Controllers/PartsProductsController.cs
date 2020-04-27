@@ -1,9 +1,12 @@
 ﻿using AutoSolution.Database.DataBaseContext;
 using AutoSolution.Entities;
 using AutoSolution.Services;
+using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -41,7 +44,19 @@ namespace AutoSolution.Areas.Admin.Controllers
                     //if (!IsExist)
                     //{
 
-                        PartsProduct partsProduct = new PartsProduct();
+                     PartsProduct partsProduct = new PartsProduct();
+                     var ImageIds = partsProductsViewModel.PictureIDs.Split(new char[] {','},StringSplitOptions.RemoveEmptyEntries). Select(ID=>int.Parse(ID)).ToList();
+                    partsProduct.PartProductImages = new List<PartProductImages>();
+            foreach(var PicId in ImageIds)
+                    {
+                        PartProductImages partProductImages = new PartProductImages()
+                        {
+                            ImageId = PicId
+                        };
+                        partsProduct.PartProductImages.Add(partProductImages);
+
+                    }
+
                     partsProduct.AddedDate = DateTime.Now;
                     partsProduct.EndYear = Convert.ToInt32(partsProductsViewModel.EndYear);
                     partsProduct.startYear = Convert.ToInt32(partsProductsViewModel.startYear);
@@ -98,6 +113,7 @@ namespace AutoSolution.Areas.Admin.Controllers
                 PartsProductManufacturerRepository partsProductManufacturerRepository = new PartsProductManufacturerRepository(new AutoSolutionContext());
 
                 PartsProductsViewModel partsProductsViewModel = new PartsProductsViewModel();
+                partsProductsViewModel.PartsProductId = item.PartsProductId;
                 partsProductsViewModel.EndYear = item.EndYear;
                 partsProductsViewModel.startYear = item.startYear;
                 partsProductsViewModel.PartsProductName = item.PartsProductName;
@@ -277,8 +293,6 @@ namespace AutoSolution.Areas.Admin.Controllers
             return null;
         }
 
-
-
         [HttpGet]
         public ActionResult GetPPManufacturer()
         {
@@ -290,5 +304,36 @@ namespace AutoSolution.Areas.Admin.Controllers
             
         }
 
+        [HttpPost]
+        public JsonResult AddImages()
+        {
+            JsonResult jsonResult = new JsonResult();
+            List<object> PicJson = new List<object>();
+            AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
+            var RequestPicx = Request.Files;
+
+
+            for (int i = 0; i < RequestPicx.Count; i++)
+            {
+                var pic = RequestPicx[i];
+                var FileName = pic.FileName;
+                //var FileName = Guid.NewGuid() + Path.GetExtension(pic.FileName);
+                var path = Server.MapPath("~/AutoImages/") + FileName ;
+                pic.SaveAs(path);
+                var Dbimg = new Image();
+                Dbimg.AddedDate = DateTime.Now;
+                Dbimg.ImageName = FileName;
+                Dbimg.ImagePath = path;
+                autoSolutionContext.Images.Add(Dbimg);
+               autoSolutionContext.SaveChanges();
+                PicJson.Add(new 
+                {
+                    ID = Dbimg.ImageId,
+                    PicURL = FileName
+                });
+            }
+            jsonResult.Data = PicJson;
+            return jsonResult;
+        }
     }
 }

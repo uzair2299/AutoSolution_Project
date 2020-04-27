@@ -1,4 +1,5 @@
 ﻿using AutoSolution.Entities;
+using AutoSolution.Services.CommonServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,7 @@ namespace AutoSolution.Services.ViewModel
 {
     public class PartsProductsViewModel
     {
+        
         public int PartsProductId { get; set; }
         [Display(Name = "Select Part/Product Name")]
         public string PartsProductName { get; set; }
@@ -41,9 +43,10 @@ namespace AutoSolution.Services.ViewModel
         public string PartsProductManuName { get; set; }
 
         public string SearchTerm { get; set; }
+        public string PictureIDs { get; set; }
         public List<VehicleVersion> VehicleVersionList { get; set; }
         public Pager Pager { get; set; }
-
+        
         [Display(Name = "Select Vehicle Manufacturer")]
         public string SelectedManufacturer { get; set; }
         public IEnumerable<SelectListItem> VehicleManufacturerList { get; set; }
@@ -59,13 +62,13 @@ namespace AutoSolution.Services.ViewModel
         public IEnumerable<SelectListItem> VehicleModelList { get; set; }
 
 
-        [Display(Name = "Select Engine Type")]
-        public string SelectedEngineType { get; set; }
-        public IEnumerable<SelectListItem> EngineTypeList { get; set; }
+        //[Display(Name = "Select Engine Type")]
+        //public string SelectedEngineType { get; set; }
+        //public IEnumerable<SelectListItem> EngineTypeList { get; set; }
 
-        [Display(Name = "Select Transmission Type")]
-        public string SelectedTransmissionType { get; set; }
-        public IEnumerable<SelectListItem> TransmissionTypeList { get; set; }
+        //[Display(Name = "Select Transmission Type")]
+        //public string SelectedTransmissionType { get; set; }
+        //public IEnumerable<SelectListItem> TransmissionTypeList { get; set; }
 
 
 
@@ -78,6 +81,8 @@ namespace AutoSolution.Services.ViewModel
         public string SelectedPartsProductSubCategory { get; set; }
         public IEnumerable<SelectListItem> PartsProductsSubCategoryList { get; set; }
 
+        [Display(Name = "Upload Images")]
+        public List<Image> images { get; set; }
 
         public List<PartsProduct> PartsProductList { get; set; }
     }
