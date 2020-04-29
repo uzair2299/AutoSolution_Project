@@ -28899,7 +28899,7 @@ body {
       transition: height 0.3s ease;
       z-index: 97;
       box-shadow: 0px 0px 40px 0px rgba(82, 63, 105, 0.1);
-      height: 60px;
+      /*height: 60px; uzair*/ 
       background: #fff;
       border-bottom: 0; }
     .kt-header--minimize .kt-header {

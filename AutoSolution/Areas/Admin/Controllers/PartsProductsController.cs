@@ -3,6 +3,7 @@ using AutoSolution.Entities;
 using AutoSolution.Services;
 using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.ViewModel;
+using Microsoft.Web.Infrastructure.DynamicValidationHelper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -135,6 +136,8 @@ namespace AutoSolution.Areas.Admin.Controllers
                 partsProductsViewModel.SelectedPartsProductSubCategory = PSUbCategory.PartsProductsSubCategoryId.ToString();
                 partsProductsViewModel.SelectedPartProductManufacturer = PManufacturer.PartsProductManufacturerId.ToString();
                 partsProductsViewModel.SelectedModel = item.VehicleModelId.ToString();
+
+                partsProductsViewModel.PartProductImagesList = item.PartProductImages.ToList();
                 if (partsProductsViewModel != null)
                 {
                     return PartialView("_EditPartsProduct", partsProductsViewModel);
@@ -161,14 +164,43 @@ namespace AutoSolution.Areas.Admin.Controllers
         {
             try
             {
-
+               // PartsProduct partsProduct = new PartsProduct();
+                var ImageIds = partsProductsViewModel.PictureIDs.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(ID => int.Parse(ID)).ToList();
+                
                 if (partsProductsViewModel == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 PartsProduct partsProduct = new PartsProduct();
-                 partsProduct = _unitOfWork.PartsProducts.GetByID(partsProductsViewModel.PartsProductId);
+                partsProduct = _unitOfWork.PartsProducts.GetByID(partsProductsViewModel.PartsProductId);
+                AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
+               
+                var partimagesDeleted= autoSolutionContext.PartProductImages.Where(x => x.PartsProductId == partsProduct.PartsProductId).ToList();
+               foreach(var item in partimagesDeleted)
+                {
+                    autoSolutionContext.PartProductImages.Remove(item);
+                   // autoSolutionContext.Images.Remove(item.Image);
+                }
+
+               //foreach(var item in ImageIds)
+               // {
+               //   var iamgeItem=  autoSolutionContext.Images.Where(x => x.ImageId == item).FirstOrDefault();
+               //     autoSolutionContext.Images.Remove(iamgeItem);
+               // }
                 
+                autoSolutionContext.SaveChanges();
+                
+                partsProduct.PartProductImages = new List<PartProductImages>();
+                foreach (var PicId in ImageIds)
+                {
+                    PartProductImages partProductImages = new PartProductImages()
+                    {
+                        ImageId = PicId
+                    };
+                    partsProduct.PartProductImages.Add(partProductImages);
+
+                }
+
                 //vehicleVersion.VehicleVersionId = vehicleVersionViewModel.VehicleVersionId;
                 partsProduct.AddedDate = DateTime.Now;
                 partsProduct.EndYear = Convert.ToInt32(partsProductsViewModel.EndYear);

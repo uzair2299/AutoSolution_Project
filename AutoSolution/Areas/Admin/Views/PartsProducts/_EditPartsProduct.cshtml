@@ -5,7 +5,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit/Update Part/product Version</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit/Update Part/product</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 </button>
             </div>
@@ -17,7 +17,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.PartsProductName, htmlAttributes: new { @class = "col-form-label" })
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-alt"></i></span></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fab fa-whmcs"></i></span></div>
                                     @Html.EditorFor(model => model.PartsProductName, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.HiddenFor(model => model.PartsProductId)
                                 </div>
@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "col-form-label" })
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-calendar-alt"></i></span></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-price-tag"></i></span></div>
                                     @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control yearselect" } })
                                 </div>
                             </div>
@@ -91,20 +91,9 @@
                     <div class="row">
                         <div class="col-lg-12 col-xl-12">
                             <div class="form-group">
-                                @Html.LabelFor(model => model.SelectedPartProductManufacturer, htmlAttributes: new { @class = "col-form-label" })
-                                <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
-                                    @Html.DropDownListFor(x => Model.SelectedPartProductManufacturer, Model.PartProductManufacturerList as SelectList, htmlAttributes: new { @class = "form-control" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-xl-12">
-                            <div class="form-group">
                                 @Html.LabelFor(model => model.SelectedPartsProductCategory, htmlAttributes: new { @class = "col-form-label" })
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
                                     @Html.DropDownListFor(x => Model.SelectedPartsProductCategory, Model.PartsProductsCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
                                 </div>
                             </div>
@@ -115,32 +104,70 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.SelectedPartsProductSubCategory, htmlAttributes: new { @class = "col-form-label" })
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
                                     @Html.DropDownListFor(x => Model.SelectedPartsProductSubCategory, Model.PartsProductsSubCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SelectedPartProductManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
+                                    @Html.DropDownListFor(x => Model.SelectedPartProductManufacturer, Model.PartProductManufacturerList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group ">
+                                <label class="col-form-label">Product Images</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" aria-describedby="basic-addon1" multiple id="EditProductImages">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="imgViewer">
+                        <input type="hidden" name="PictureIDs" id="PictureIDsEdit" />
+                        <div class="col-lg-12 col-xl-12 d-flex"id="EditedImage">
+                            @if (Model.PartProductImagesList != null && Model.PartProductImagesList.Count > 0)
+                            {
+                                foreach (var item in Model.PartProductImagesList)
+                                {
+                                    <div class="card ImageTemplates" style="width: 21rem;">
+                                        <img class="card-img-top AutoImage" src="~/AutoImages/@item.Image.ImageName" alt="Card image cap" data-id="@item.Image.ImageId">
+                                        <div class="card-body">
+                                            <button type="button" class="btn btn-dark DeleteImage" id="DeleteImages" onclick="RemoveImagesOnclick(this)" data-id="@item.Image.ImageId"><i class="flaticon-delete"></i>Remove</button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    
+                            @*<div class="row">
+                <div class="col-lg-12 col-xl-12">
+                    <div class="kt-checkbox-inline">
+                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                            @Html.CheckBoxFor(x => Model.IsActive)
+                            Is Active
+                            <span></span>
+                        </label>
+                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })</span>
+                    </div>
 
-                    @*<div class="row">
-            <div class="col-lg-12 col-xl-12">
-                <div class="kt-checkbox-inline">
-                    <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
-                        @Html.CheckBoxFor(x => Model.IsActive)
-                        Is Active
-                        <span></span>
-                    </label>
-                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })</span>
                 </div>
-
-            </div>
-        </div>*@
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-dark" id="SaveBtn">Save Changes</button>
-                </div>
-            </form>
+            </div>*@
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-dark" id="SaveBtn">Save Changes</button>
+                        </div>
+</form>
         </div>
     </div>
 </div>
@@ -159,7 +186,49 @@
         //startDate: '-3d'
     });
 
+    $("#EditProductImages").change(function () {
+        var picx = this.files;
+        debugger
+        var PicsData = new FormData();
+        for (var i = 0; i <= picx.length; i++){
+            PicsData.append("Pictures", picx[i]);
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddImages", "PartsProducts")',
+            data: PicsData,
+            datatype: "json",
+            processData: false,
+            contentType: false
+        })
+            .done(function (responses) {
+                //var PicIds = '';
+                for (var i = 0; i < responses.length; i++) {
+                    var PicResponse = responses[i];
+                    debugger;
+                    AttachNewImageEdit(PicResponse.PicURL, PicResponse.ID);
+
+                    debugger;
+                    //var ImgHtml = "<img class='img-fluid' src='/AutoImages/" + PicResponse.PicURL + "'/>";
+                    //$("#imgViewer").append(ImgHtml);
+                    //PicIds = PicIds + "," + PicResponse.ID;
+                }
+                //$("#PictureIDs").val(PicIds);
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            });
+    });
+
+
     $("#SaveBtn").click(function () {
+        debugger;
+        var ImagesIds = [];
+        $("#imgViewer .AutoImage").each(function () {
+            var ImageId = $(this).attr("data-id")
+            ImagesIds.push(ImageId);
+        });
+        $("#PictureIDsEdit").val(ImagesIds.join());
         $('#kt_modal_1').modal('hide');
 
             $.ajax({

@@ -9,7 +9,15 @@
         <div class="card ImageTemplates" style="width: 20rem;">
             <img class="card-img-top AutoImage" src="" alt="Card image cap">
             <div class="card-body">
-                <button type="button" class="btn btn-dark DeleteImage" id="DeleteImages"><i class="flaticon-plus"></i>Remove</button>
+                <button type="button" class="btn btn-dark DeleteImage" id="DeleteImages" onclick="RemoveImagesOnclick(this)"><i class="flaticon-delete"></i>Remove</button>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="ImageTemplateEdit" style="display:none">
+        <div class="card ImageTemplates" style="width: 21rem;">
+            <img class="card-img-top AutoImage" src="" alt="Card image cap">
+            <div class="card-body">
+                <button type="button" class="btn btn-dark DeleteImage" id="DeleteImages" onclick="RemoveImagesOnclick(this)"><i class="flaticon-delete"></i>Remove</button>
             </div>
         </div>
     </div>
@@ -54,10 +62,31 @@
         }
     });
 
-    function RemoveImagesOnclick() {
-        debugger;
-        $("#imgViewer .ImageTemplates").click(function () {
-            $(this).remove();
-        });
+
+    function AttachNewImageEdit(ImageName, ImageID) {
+        debugger
+        var $ImgHtml = $("#ImageTemplate").clone();
+        $ImgHtml.find(".AutoImage").attr("src", "/AutoImages/" + ImageName);
+        $ImgHtml.find(".AutoImage").attr("data-id", ImageID);
+        $ImgHtml.find(".DeleteImage").attr("data-id", ImageID);
+        $("#EditedImage").append($ImgHtml.html());
+        // RemoveImagesOnclick();
     }
+
+    function AttachNewImage(ImageName, ImageID) {
+        debugger
+        var $ImgHtml = $("#ImageTemplate").clone();
+        $ImgHtml.find(".AutoImage").attr("src", "/AutoImages/" + ImageName);
+        $ImgHtml.find(".AutoImage").attr("data-id", ImageID);
+        $ImgHtml.find(".DeleteImage").attr("data-id", ImageID);
+        $("#imgViewer").append($ImgHtml.html());
+        // RemoveImagesOnclick();
+    }
+    function RemoveImagesOnclick(element) {
+        debugger;
+        //$("#imgViewer .ImageTemplates").parent().remove();
+        //element.parent().parent().parent().html();
+        element.parentElement.parentElement.remove();
+        };
+    
 </script>

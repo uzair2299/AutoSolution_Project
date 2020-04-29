@@ -28,6 +28,8 @@ namespace AutoSolution.Services.IUnitOfWork
 
         IPartsSubCategoryRepository PartsSubCategory { get; }
         IPartsProductManufacturerRepository PartsProductManufacturer { get; }
+
+        ITemplateRepository Template { get; }
         int Complete();
     }
 }

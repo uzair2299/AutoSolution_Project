@@ -50,6 +50,7 @@
     <Compile Include="PartsProductsSubCategory.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Roles.cs" />
+    <Compile Include="Template.cs" />
     <Compile Include="UserRoles.cs" />
     <Compile Include="VehicleManufacturer.cs" />
     <Compile Include="VehicleModel.cs" />

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="kt-subheader  kt-grid__item" id="kt_subheader">
+    <div class="kt-container  kt-container--fluid ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">Manage Templates</h3>
+            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            <button type="button" class="btn btn-dark" id="Add_New"><i class="flaticon-plus"></i>Add New Template</button>
+        </div>
+    </div>
+</div>
+<div id="AddNewContainer">
+
+</div>
+<div id="myModal">
+    @*edit*@
+</div>
+
+
+<div id="TemplateDetails">
+</div>
+<div id="tableContiner">
+    @{Html.RenderAction("GetTemplate");}
+</div>
+<script>
+
+
+
+    var rendered = false;
+
+    $("#Add_New").click(function () {
+        debugger
+        if (!rendered) {
+            $.ajax({
+                url: '@Url.Action("AddNew", "TemplateManagement")',
+                type: 'GET',
+            })
+                .done(function (response) {
+                    debugger;
+                    $('#AddNewContainer').html("");
+                    $('#AddNewContainer').html(response);
+                    rendered = true;
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        } else {
+            $('#AddNewContainer').html("");
+            rendered = false;
+        }
+    });
+
+</script>
+
+

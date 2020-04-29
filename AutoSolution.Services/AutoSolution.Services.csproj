@@ -99,6 +99,7 @@
     <Compile Include="Repo\IRepository.cs" />
     <Compile Include="Repo\IRoleRepository.cs" />
     <Compile Include="Repo\IServiceCategoryRepository.cs" />
+    <Compile Include="Repo\ITemplateRepository.cs" />
     <Compile Include="Repo\ITransmissionTypeRepository.cs" />
     <Compile Include="Repo\IUserRepository.cs" />
     <Compile Include="Repo\IUserRoleRepository.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Repo\IVehicleVersionRepository.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
+    <Compile Include="TemplateRepository.cs" />
     <Compile Include="TransmissionTypeRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="IUnitOfWork\IAutoUnitOfWork.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="ViewModel\CityProvinceCategoryViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
+    <Compile Include="ViewModel\JsonModel.cs" />
     <Compile Include="ViewModel\PartsProductManuVeiwModel.cs" />
     <Compile Include="ViewModel\PartsProductsCategoryViewModel.cs" />
     <Compile Include="ViewModel\PartsProductsViewModel.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="ViewModel\ServiceCategoryViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
+    <Compile Include="ViewModel\TemplateViewModel.cs" />
     <Compile Include="ViewModel\TransmissionTypeViewModel.cs" />
     <Compile Include="ViewModel\VehicleEngineTypeViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerAddEditViewModel.cs" />

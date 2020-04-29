@@ -85,5 +85,7 @@ namespace AutoSolution.Services.ViewModel
         public List<Image> images { get; set; }
 
         public List<PartsProduct> PartsProductList { get; set; }
+
+        public List<PartProductImages> PartProductImagesList { get; set; }
     }
 }

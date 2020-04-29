@@ -31,6 +31,7 @@ namespace AutoSolution.Services
             VehicleVersion = new VehicleVersionRepository(_context);
             PartsProductManufacturer = new PartsProductManufacturerRepository(_context);
             PartsProducts = new PartsProductsRepository(_context);
+            Template = new TemplateRepository(_context);
 }
 
 public IUserRepository User { get; private set; }
@@ -51,6 +52,7 @@ public IUserRepository User { get; private set; }
         public IPartsProductsCategoryRepository PartsProductsCategory { get; private set; }
 
         public IPartsSubCategoryRepository PartsSubCategory { get; private set; }
+        public ITemplateRepository Template { get; private set; }
 
         public int Complete()
         {

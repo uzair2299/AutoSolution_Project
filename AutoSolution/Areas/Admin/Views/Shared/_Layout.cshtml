@@ -66,6 +66,7 @@
     <script src="~/assets/vendors/general/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
     <script src="~/assets/vendors/custom/js/vendors/sweetalert2.init.js" type="text/javascript"></script>
     <script src="~/assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/summernote/dist/summernote.js" type="text/javascript"></script>
     <!--end::Layout Skins -->
 </head>
 <body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--fixed kt-subheader--solid kt-aside--enabled kt-aside--fixed kt-page--loading">
@@ -74,8 +75,8 @@
     <!-- begin:: Header Mobile -->
     <div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
         <div class="kt-header-mobile__logo">
-            <a href="#">
-                <img alt="Logo" src="/assets/media/logos/logo-light.png" />
+            <a href="@Url.Action("Index","Home")">
+                <img alt="Logo" src="~/assets/media/logos/auto6.png" />
             </a>
         </div>
         <div class="kt-header-mobile__toolbar">
@@ -96,8 +97,8 @@
                 <!-- begin:: Aside -->
                 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
                     <div class="kt-aside__brand-logo">
-                        <a href="demo1/index.html">
-                            <img alt="Logo" src="/assets/media/logos/logo-light.png" />
+                        <a href="@Url.Action("Index","Home")">
+                            <img alt="Logo" src="~/assets/media/logos/auto6.png" />
                         </a>
                     </div>
                     <div class="kt-aside__brand-tools">
@@ -309,10 +310,10 @@
                                     <span class="kt-menu__arrow"></span>
                                     <ul class="kt-menu__subnav">
                                         <li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">General</span></span></li>
+                                        <li class="kt-menu__item " aria-haspopup="true"><a href="@Url.Action("Index","PartsProducts")" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Parts/Product Management</span></a></li>
                                         <li class="kt-menu__item " aria-haspopup="true"><a href="@Url.Action("Index","PartsSubCategory")" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Parts/Product Sub Categories</span></a></li>
                                         <li class="kt-menu__item " aria-haspopup="true"><a href="@Url.Action("Index","PartsProductsCategories")" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Parts/Product Categories</span></a></li>
-                                        <li class="kt-menu__item " aria-haspopup="true"><a href ="@Url.Action("Index","PartsProductManu")" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Parts/Product Manufacturer</span></a></li>
-                                        <li class="kt-menu__item " aria-haspopup="true"><a href="demo1/layout/general/empty-page.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Empty Page</span></a></li>
+                                        <li class="kt-menu__item " aria-haspopup="true"><a href="@Url.Action("Index","PartsProductManu")" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Parts/Product Manufacturer</span></a></li>
                                         <li class="kt-menu__item " aria-haspopup="true"><a href="demo1/layout/general/fixed-footer.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">Fixed Footer</span></a></li>
                                         <li class="kt-menu__item " aria-haspopup="true"><a href="demo1/layout/general/no-header-menu.html" class="kt-menu__link "><i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i><span class="kt-menu__link-text">No Header Menu</span></a></li>
                                     </ul>
@@ -1921,7 +1922,7 @@
     <script src="~/assets/vendors/general/autosize/dist/autosize.js" type="text/javascript"></script>
     <script src="~/assets/vendors/general/clipboard/dist/clipboard.min.js" type="text/javascript"></script>
     <script src="~/assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script>
-    <script src="~/assets/vendors/general/summernote/dist/summernote.js" type="text/javascript"></script>
+    @*<script src="~/assets/vendors/general/summernote/dist/summernote.js" type="text/javascript"></script>*@
     <script src="~/assets/vendors/general/markdown/lib/markdown.js" type="text/javascript"></script>
     <script src="~/assets/vendors/general/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
     <script src="~/assets/vendors/custom/js/vendors/bootstrap-markdown.init.js" type="text/javascript"></script>

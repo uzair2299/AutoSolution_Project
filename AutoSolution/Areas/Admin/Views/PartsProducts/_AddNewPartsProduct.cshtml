@@ -26,7 +26,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.PartsProductName, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fab fa-whmcs"></i></span></div>
                                 @Html.EditorFor(model => model.PartsProductName, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-price-tag"></i></span></div>
                                 @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.SelectedPartsProductCategory, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
                                 @Html.DropDownListFor(x => Model.SelectedPartsProductCategory, Model.PartsProductsCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.SelectedPartsProductSubCategory, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
                                 @Html.DropDownListFor(x => Model.SelectedPartsProductSubCategory, Model.PartsProductsSubCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.SelectedPartProductManufacturer, htmlAttributes: new { @class = "col-form-label" })
                             <div class="input-group">
-                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon-squares-1"></i></span></div>
                                 @Html.DropDownListFor(x => Model.SelectedPartProductManufacturer, Model.PartProductManufacturerList as SelectList, htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
@@ -301,29 +301,6 @@
     });
 
 
-    @*$(document).ready(function () {
-          $('#SelectedModel').change(function () {
-              var SelectedModel = $("#SelectedModel").val();
-              var SelectedTransmissionType = $('#SelectedTransmissionType');
-              SelectedTransmissionType.empty();
-              if (SelectedModel != null && SelectedModel != '') {
-                  $.getJSON('@Url.Action("GetTransmissionTypes")', { SelectedModelId: SelectedModel }, function (Transmissions) {
-                      if (Transmissions != null && !jQuery.isEmptyObject(Transmissions))
-                        {
-                          $.each(Transmissions, function (index, Transmission) {
-                              SelectedTransmissionType.append($('<option/>', {
-                                    value: Transmission.Value,
-                                    text: Transmission.Text
-                                }));
-                            });
-                        }
-                    });
-                }
-            });
-      });*@
-
-
-
     var rendered = false;
     $("#AddNew").click(function () {
         var ImagesIds = [];
@@ -355,8 +332,9 @@
         var $ImgHtml = $("#ImageTemplate").clone();
         $ImgHtml.find(".AutoImage").attr("src", "/AutoImages/" + ImageName);
             $ImgHtml.find(".AutoImage").attr("data-id", ImageID);
+            $ImgHtml.find(".DeleteImage").attr("data-id", ImageID);
             $("#imgViewer").append($ImgHtml.html());
-            RemoveImagesOnclick();
+           // RemoveImagesOnclick();
 
     }
 </script>

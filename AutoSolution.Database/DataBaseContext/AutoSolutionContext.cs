@@ -34,6 +34,7 @@ namespace AutoSolution.Database.DataBaseContext
         public DbSet<Image> Images { get; set; }
         public DbSet<PartProductImages> PartProductImages { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Template> Templates { get; set; }
     }
 }
 
