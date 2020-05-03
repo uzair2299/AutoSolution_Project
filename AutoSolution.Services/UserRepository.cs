@@ -110,7 +110,6 @@ namespace AutoSolution.Services
         public AdminSide GetServiceProviders(int PageNo, int TotalCount)
         {
 
-
             AdminSide adminSide = new AdminSide()
             {
                 serviceProviderViewModelList = (from u in AutoSolutionContext.User
@@ -119,7 +118,7 @@ namespace AutoSolution.Services
                    //join r in AutoSolutionContext.Roles
                    //on ur.RolesId equals r.RolesId
                    where ur.RolesId == 6
-                   orderby u.FirstName
+                   orderby u.UserId
                    select new ServiceProviderViewModel()
                    {
 
@@ -129,19 +128,8 @@ namespace AutoSolution.Services
                        Gender = u.Gender,
                        MobileNumber = u.MobileNumber,
                        PhoneNumber = u.PhoneNumber,
-                       serviceCategoriesListFor= (from u in AutoSolutionContext.User 
-                                               join sc in AutoSolutionContext.UserServiceCatogories
-                                               on u.UserId equals sc.UserId
-                                               where sc.UserId ==u.UserId
-                                               select new ServiceCategoryViewModel()
-                                               {
-                                                   ServiceCategoryName=sc.ServiceCategory.ServiceCategoryName,
-                                               }
-                                               ).ToList()
-
-                                               
-                       
-                       
+                       serviceCategoriesListFor =AutoSolutionContext.UserServiceCatogories.Where(x=>x.UserId==u.UserId).Select(x=> new ServiceCategoryViewModel { 
+                       ServiceCategoryName = x.ServiceCategory.ServiceCategoryName}).ToList()
                    }
                    ).Skip((PageNo - 1) * 10).Take(10).ToList(),
 
@@ -169,26 +157,14 @@ namespace AutoSolution.Services
  * 
  * 
  */
-
-//IsActive = u.IsActive,
-
-
-
-//    FirstName = u.FirstName,
-//    LastName=u.LastName,
-//    Email=u.Email,
-//    EmailSecondary=u.EmailSecondary,
-//    DateOfBirth=u.DateOfBirth,
-//    Address=u.Address,
-//    Gender=u.Gender,
-//    RegistrationDate=u.RegistrationDate,
-//    MobileNumber=u.MobileNumber,
-//    MobileNumber1=u.MobileNumber1,
-//    PhoneNumber=u.PhoneNumber,
-//    IsActive=u.IsActive,
-
-
-//                ServiceCategoriesList = (from u in AutoSolutionContext.User
-//            join sc in AutoSolutionContext.UserServiceCatogories
-//            on u.UserId equals sc.ServiceCategoryId
-//            select new
+//serviceCategoriesListFor= (from u in AutoSolutionContext.User
+//                                              join usc in AutoSolutionContext.UserServiceCatogories
+//                                              on u.UserId equals usc.UserId
+//                                              join sc in AutoSolutionContext.ServiceCategories
+//                                              on usc.ServiceCategoryId equals sc.ServiceCategoryId
+//                                              where u.UserId == usc.UserId
+//                                              select new ServiceCategoryViewModel()
+//{
+//    ServiceCategoryName = sc.ServiceCategoryName
+//                                               }
+//                                               ).ToList()

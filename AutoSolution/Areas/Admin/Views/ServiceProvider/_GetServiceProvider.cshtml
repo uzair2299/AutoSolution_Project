@@ -147,3 +147,22 @@
 
         <!--End::Section-->
     </div>
+    <script>
+     $(".pageButtons").click(function () {
+            var SearchTerm = $("#SearchTerm").val();
+		$.ajax({
+			url: '@Url.Action("GetServiceProvider", "ServiceProvider")',
+			data: {
+                pageNo: $(this).attr("data-pageNo"),
+                search: SearchTerm
+            }
+		})
+            .done(function (response) {
+                $("#tableContiner").html("");
+        	$("#tableContiner").html(response);
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        	alert("FAIL");
+        });
+        });
+    </script>

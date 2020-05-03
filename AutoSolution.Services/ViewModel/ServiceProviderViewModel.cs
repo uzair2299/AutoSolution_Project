@@ -15,10 +15,8 @@ namespace AutoSolution.Services.ViewModel
     {
         public ServiceProviderViewModel()
         {
-            ServiceCategoriesList = new List<ServiceCategoryUtility>();
-           // ServiceProviderList = new List<ServiceProviderViewModel>();
-            //UserDTOs = new List<UserDTO>();
-       }
+            ServiceCategoriesList = new List<ServiceCategoryUtility>();  
+         }
         [Display(Name = "First Name")]
         public string First_Name { get; set; }
 
@@ -67,11 +65,7 @@ namespace AutoSolution.Services.ViewModel
         public string SelectedCity { get; set; }
         public IEnumerable<SelectListItem> CitiesList { get; set; }
         public int TotalNumberOfServiceProvider { get; set; }
-
-        //public List<ServiceProviderViewModel> ServiceProviderList { get; set; }
-        //public List<UserDTO> UserDTOs { get; set; }
-        //public Pager Pager { get; set; }
-
         public List<ServiceCategoryViewModel> serviceCategoriesListFor { get; set; }
+        public List<ServiceCategory> serviceCategoriesNew { get; set; }
     }
 }
