@@ -34,8 +34,13 @@ namespace AutoSolution.Controllers
             {
                 UserRepository userRepository = new UserRepository(new AutoSolutionContext());
                 var serviceProvider = userRepository.CreateServiceProvider(serviceProviderViewModel);
-                var cb = _unitOfWork.User.Add(serviceProvider);
+                var AddedServiceProvider = _unitOfWork.User.Add(serviceProvider);
                 int i = _unitOfWork.Complete();
+                var activationCode = AddedServiceProvider.ActivetionCode;
+                var VerificationLink = "/Registration/UserVerification/" + activationCode;
+                var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, VerificationLink);
+                UserEmailUtility.SendEmailToUser(AddedServiceProvider.Email, link);
+                return RedirectToAction("ServiceProvider");
             }
             return View(model);
         }
@@ -145,3 +150,8 @@ namespace AutoSolution.Controllers
     }
 
 }
+
+
+                                                                                                                                                                                                                                                                                    
+
+

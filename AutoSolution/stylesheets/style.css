@@ -102,65 +102,65 @@
 		white-space: normal;
 	}
 
-	button,
+	/*button,
 	input,
 	select,
 	textarea {
-		/*font-size: 100%;*/
+		font-size: 100%;
 		margin: 0;
 		max-width: 100%;
 		vertical-align: baseline;
 		-webkit-box-sizing: border-box;
 		  -moz-box-sizing: border-box;
 		       box-sizing: border-box;
-	}
+	}*/
 
-	button,
+	/*button,
 	input {
 		line-height: normal;
-	}
+	}*/
 
 	/*input,
 	textarea {
-		background-image: -webkit-linear-gradient(hsla(0,0%,100%,0), hsla(0,0%,100%,0)); /* Removing the inner shadow, rounded corners on iOS inputs */
+		background-image: -webkit-linear-gradient(hsla(0,0%,100%,0), hsla(0,0%,100%,0));  Removing the inner shadow, rounded corners on iOS inputs 
 	}*/
 
-	button,
+	/*button,
 	input[type="button"],
 	input[type="reset"],
 	input[type="submit"] {
 		line-height: 1;
-		cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-		-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+		cursor: pointer;  Improves usability and consistency of cursor style between image-type 'input' and others 
+		-webkit-appearance: button;  Corrects inability to style clickable 'input' types in iOS 
 		border: none;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		padding: 0; /* Addresses excess padding in IE8/9 */
-	}
-
-	/*input[type="search"] {
-		-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 	}*/
 
-	input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
-		-webkit-appearance: none;
-	}
+	/*input[type="checkbox"],
+	input[type="radio"] {
+		padding: 0;  Addresses excess padding in IE8/9 
+	}*/
 
-	button::-moz-focus-inner,
+	/*input[type="search"] {
+		-webkit-appearance: textfield;  Addresses appearance set to searchfield in S5, Chrome 
+	}*/
+
+	/*input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
+		/*-webkit-appearance: none;
+	}*/
+
+	/*button::-moz-focus-inner,
 	input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
-		border: 0;
+		/*border: 0;
 		padding: 0;
-	}
+	}*/
 
-	*,
+	/**,
 	*:before,
 	*:after {
 		-webkit-box-sizing: border-box;
 		   -moz-box-sizing: border-box;
 		        box-sizing: border-box;
-	}	
+	}*/	
 
 /* Repeatable Patterns
 -------------------------------------------------------------- */
@@ -218,7 +218,7 @@ button {
 	border: none;
 }
 
-button,
+/*button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {		
@@ -233,9 +233,9 @@ input[type="submit"] {
         -ms-transition: all 0.3s ease 0s;
          -o-transition: all 0.3s ease 0s;
             transition: all 0.3s ease 0s;
-}
+}*/
 
-select,
+/*select,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -265,9 +265,9 @@ input[type="color"] {
 	    -ms-transition: all 0.3s ease-in-out;
 	     -o-transition: all 0.3s ease-in-out;
 	        transition: all 0.3s ease-in-out;
-}
+}*/
 
-textarea:focus,
+/*textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime"]:focus,
@@ -286,47 +286,47 @@ input[type="color"]:focus {
 	-webkit-box-shadow: none;
 	   -moz-box-shadow: none;
 			box-shadow: none;
-}
+}*/
 
-textarea {
+/*textarea {
 	width: 100%;
 	height: 150px;
 	padding: 15px;
-}
+}*/
 
-input[type="checkbox"] {
+/*input[type="checkbox"] {
 	display: inline;
-}
+}*/
 
-textarea:-moz-placeholder,
+/*textarea:-moz-placeholder,
 textarea::-moz-placeholder,
 input:-moz-placeholder,
 input::-moz-placeholder {		
 	color: #b3b7c8;
 	opacity: 1;
-}
+}*/
 
-input:-ms-input-placeholder {
+/*input:-ms-input-placeholder {
 	color: #b3b7c8;
-}
+}*/
 
-textarea::-webkit-input-placeholder,
+/*textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
 	color: #b3b7c8;
 	opacity: 1;
-}
+}*/
 
-label {
-	/*font-size: 16px;*/
+/*label {
+	font-size: 16px;
 	line-height: 30px;
 	color: #333333;
 	font-weight: 400;
 	margin-bottom: 9px;
-}
+}*/
 
-input[type="checkbox"] {
+/*input[type="checkbox"] {
 	display: none;
-}
+}*/
 
 button {
 	z-index: 1;

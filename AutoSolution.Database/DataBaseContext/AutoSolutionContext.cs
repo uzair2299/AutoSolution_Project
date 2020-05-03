@@ -13,11 +13,11 @@ namespace AutoSolution.Database.DataBaseContext
         public AutoSolutionContext() : base("name = AutoSolutionContext") { }
 
         public DbSet<User> User { get; set; }
-        public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<UserRoles> UserRoles { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet <Province> Province { get; set; }
+        public DbSet<CityArea> CityAreas { get; set; }
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         public DbSet<UserServiceCatogory> UserServiceCatogories { get; set; }
         public DbSet<VehicleManufacturer> VehicleManufacturers { get; set; }

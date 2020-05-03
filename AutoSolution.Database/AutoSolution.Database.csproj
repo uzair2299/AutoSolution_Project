@@ -52,21 +52,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202004250758014_setting.cs" />
-    <Compile Include="Migrations\202004250758014_setting.designer.cs">
-      <DependentUpon>202004250758014_setting.cs</DependentUpon>
+    <Compile Include="Migrations\202005011947032_fres.cs" />
+    <Compile Include="Migrations\202005011947032_fres.designer.cs">
+      <DependentUpon>202005011947032_fres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004251509285_FinalParts.cs" />
-    <Compile Include="Migrations\202004251509285_FinalParts.designer.cs">
-      <DependentUpon>202004251509285_FinalParts.cs</DependentUpon>
+    <Compile Include="Migrations\202005020719398_cityarea.cs" />
+    <Compile Include="Migrations\202005020719398_cityarea.designer.cs">
+      <DependentUpon>202005020719398_cityarea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004261413010_imge.cs" />
-    <Compile Include="Migrations\202004261413010_imge.designer.cs">
-      <DependentUpon>202004261413010_imge.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004290640510_templat.cs" />
-    <Compile Include="Migrations\202004290640510_templat.designer.cs">
-      <DependentUpon>202004290640510_templat.cs</DependentUpon>
+    <Compile Include="Migrations\202005020722204_cityar.cs" />
+    <Compile Include="Migrations\202005020722204_cityar.designer.cs">
+      <DependentUpon>202005020722204_cityar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,17 +78,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004250758014_setting.resx">
-      <DependentUpon>202004250758014_setting.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005011947032_fres.resx">
+      <DependentUpon>202005011947032_fres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004251509285_FinalParts.resx">
-      <DependentUpon>202004251509285_FinalParts.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005020719398_cityarea.resx">
+      <DependentUpon>202005020719398_cityarea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004261413010_imge.resx">
-      <DependentUpon>202004261413010_imge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004290640510_templat.resx">
-      <DependentUpon>202004290640510_templat.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005020722204_cityar.resx">
+      <DependentUpon>202005020722204_cityar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

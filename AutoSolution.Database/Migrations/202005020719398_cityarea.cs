@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class templat : DbMigration
+    public partial class cityarea : DbMigration
     {
         public override void Up()
         {

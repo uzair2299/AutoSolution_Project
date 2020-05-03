@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class setting : DbMigration
+    public partial class fres : DbMigration
     {
         public override void Up()
         {
@@ -44,32 +44,6 @@
                 .PrimaryKey(t => t.ProvinceId);
             
             CreateTable(
-                "dbo.PartsProducts",
-                c => new
-                    {
-                        PartsProductId = c.Int(nullable: false, identity: true),
-                        PartsProductName = c.String(),
-                        AddedDate = c.DateTime(nullable: false),
-                        YearOfManufacture = c.Int(nullable: false),
-                        PartsProductsSubCategoryId = c.Int(nullable: false),
-                        VehicleModelId = c.Int(),
-                        VehicleVersionId = c.Int(nullable: false),
-                        VehicleManufacturerId = c.Int(nullable: false),
-                        PartsProductManufacturerId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.PartsProductId)
-                .ForeignKey("dbo.PartsProductManufacturers", t => t.PartsProductManufacturerId, cascadeDelete: true)
-                .ForeignKey("dbo.PartsProductsSubCategories", t => t.PartsProductsSubCategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.VehicleManufacturers", t => t.VehicleManufacturerId, cascadeDelete: true)
-                .ForeignKey("dbo.VehicleModels", t => t.VehicleModelId)
-                .ForeignKey("dbo.VehicleVersions", t => t.VehicleVersionId, cascadeDelete: true)
-                .Index(t => t.PartsProductsSubCategoryId)
-                .Index(t => t.VehicleModelId)
-                .Index(t => t.VehicleVersionId)
-                .Index(t => t.VehicleManufacturerId)
-                .Index(t => t.PartsProductManufacturerId);
-            
-            CreateTable(
                 "dbo.Images",
                 c => new
                     {
@@ -78,11 +52,52 @@
                         ImagePath = c.String(),
                         ContentType = c.String(),
                         AddedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.ImageId);
+            
+            CreateTable(
+                "dbo.PartProductImages",
+                c => new
+                    {
+                        ImageId = c.Int(nullable: false),
                         PartsProductId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ImageId)
+                .PrimaryKey(t => new { t.ImageId, t.PartsProductId })
+                .ForeignKey("dbo.Images", t => t.ImageId, cascadeDelete: true)
                 .ForeignKey("dbo.PartsProducts", t => t.PartsProductId, cascadeDelete: true)
+                .Index(t => t.ImageId)
                 .Index(t => t.PartsProductId);
+            
+            CreateTable(
+                "dbo.PartsProducts",
+                c => new
+                    {
+                        PartsProductId = c.Int(nullable: false, identity: true),
+                        PartsProductName = c.String(),
+                        AddedDate = c.DateTime(),
+                        UpdatedDate = c.DateTime(),
+                        startYear = c.Int(),
+                        EndYear = c.Int(),
+                        UnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ShortDescription = c.String(),
+                        LongDescription = c.String(),
+                        PartsProductsSubCategoryId = c.Int(nullable: false),
+                        VehicleModelId = c.Int(),
+                        VehicleVersionId = c.Int(),
+                        VehicleManufacturerId = c.Int(),
+                        PartsProductManufacturerId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.PartsProductId)
+                .ForeignKey("dbo.PartsProductManufacturers", t => t.PartsProductManufacturerId, cascadeDelete: true)
+                .ForeignKey("dbo.PartsProductsSubCategories", t => t.PartsProductsSubCategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.VehicleManufacturers", t => t.VehicleManufacturerId)
+                .ForeignKey("dbo.VehicleModels", t => t.VehicleModelId)
+                .ForeignKey("dbo.VehicleVersions", t => t.VehicleVersionId)
+                .Index(t => t.PartsProductsSubCategoryId)
+                .Index(t => t.VehicleModelId)
+                .Index(t => t.VehicleVersionId)
+                .Index(t => t.VehicleManufacturerId)
+                .Index(t => t.PartsProductManufacturerId);
             
             CreateTable(
                 "dbo.PartsProductManufacturers",
@@ -249,9 +264,9 @@
                         LastName = c.String(),
                         Gender = c.String(),
                         DateOfBirth = c.DateTime(),
-                        PhoneNumber = c.Int(nullable: false),
-                        MobileNumber = c.Int(nullable: false),
-                        MobileNumber1 = c.Int(nullable: false),
+                        PhoneNumber = c.String(),
+                        MobileNumber = c.String(),
+                        MobileNumber1 = c.String(),
                         Email = c.String(),
                         EmailSecondary = c.String(),
                         IsConfrimEmail = c.Boolean(nullable: false),
@@ -270,13 +285,10 @@
                         RememberMe = c.Boolean(nullable: false),
                         ActivetionCode = c.Guid(),
                         OTP = c.String(),
-                        UserTypeId = c.Int(nullable: false),
                         CityId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
-                .ForeignKey("dbo.UserTypes", t => t.UserTypeId, cascadeDelete: true)
-                .Index(t => t.UserTypeId)
                 .Index(t => t.CityId);
             
             CreateTable(
@@ -309,26 +321,28 @@
                 .PrimaryKey(t => t.ServiceCategoryId);
             
             CreateTable(
-                "dbo.UserTypes",
+                "dbo.Templates",
                 c => new
                     {
-                        UserTypeId = c.Int(nullable: false, identity: true),
-                        UserTypeName = c.String(),
-                        UserTypeCode = c.String(),
-                        UserTypeDescription = c.String(),
+                        TemplateId = c.Int(nullable: false, identity: true),
+                        TemplateShortCode = c.String(),
+                        TemplateTitle = c.String(),
+                        AddedDate = c.DateTime(nullable: false),
+                        UpdatedTime = c.DateTime(nullable: false),
+                        TemplateBody = c.String(unicode: false, storeType: "text"),
                     })
-                .PrimaryKey(t => t.UserTypeId);
+                .PrimaryKey(t => t.TemplateId);
             
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
-            DropForeignKey("dbo.Users", "UserTypeId", "dbo.UserTypes");
             DropForeignKey("dbo.UserServiceCatogories", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
             DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
             DropForeignKey("dbo.UserRoles", "RolesId", "dbo.Roles");
+            DropForeignKey("dbo.PartProductImages", "PartsProductId", "dbo.PartsProducts");
             DropForeignKey("dbo.PartsProducts", "VehicleVersionId", "dbo.VehicleVersions");
             DropForeignKey("dbo.PartsProducts", "VehicleModelId", "dbo.VehicleModels");
             DropForeignKey("dbo.VehicleVersions", "VehicleModelId", "dbo.VehicleModels");
@@ -342,12 +356,11 @@
             DropForeignKey("dbo.PartsProducts", "PartsProductsSubCategoryId", "dbo.PartsProductsSubCategories");
             DropForeignKey("dbo.PartsProductsSubCategories", "PartsProductsCategoryId", "dbo.PartsProductsCategories");
             DropForeignKey("dbo.PartsProducts", "PartsProductManufacturerId", "dbo.PartsProductManufacturers");
-            DropForeignKey("dbo.Images", "PartsProductId", "dbo.PartsProducts");
+            DropForeignKey("dbo.PartProductImages", "ImageId", "dbo.Images");
             DropForeignKey("dbo.Cities", "ProvinceId", "dbo.Provinces");
             DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
             DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
             DropIndex("dbo.Users", new[] { "CityId" });
-            DropIndex("dbo.Users", new[] { "UserTypeId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
             DropIndex("dbo.UserRoles", new[] { "RolesId" });
             DropIndex("dbo.VehicleVersions", new[] { "TransmissionTypeId" });
@@ -358,14 +371,15 @@
             DropIndex("dbo.PartsProductSuppliers", new[] { "PartsProductId" });
             DropIndex("dbo.PartsProductSuppliers", new[] { "SupplierId" });
             DropIndex("dbo.PartsProductsSubCategories", new[] { "PartsProductsCategoryId" });
-            DropIndex("dbo.Images", new[] { "PartsProductId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductManufacturerId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleManufacturerId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleVersionId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleModelId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductsSubCategoryId" });
+            DropIndex("dbo.PartProductImages", new[] { "PartsProductId" });
+            DropIndex("dbo.PartProductImages", new[] { "ImageId" });
             DropIndex("dbo.Cities", new[] { "ProvinceId" });
-            DropTable("dbo.UserTypes");
+            DropTable("dbo.Templates");
             DropTable("dbo.ServiceCategories");
             DropTable("dbo.UserServiceCatogories");
             DropTable("dbo.Users");
@@ -381,11 +395,13 @@
             DropTable("dbo.PartsProductsCategories");
             DropTable("dbo.PartsProductsSubCategories");
             DropTable("dbo.PartsProductManufacturers");
-            DropTable("dbo.Images");
             DropTable("dbo.PartsProducts");
+            DropTable("dbo.PartProductImages");
+            DropTable("dbo.Images");
             DropTable("dbo.Provinces");
             DropTable("dbo.Cities");
             DropTable("dbo.BodyTypes");
         }
     }
 }
+

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -15,6 +16,8 @@ namespace AutoSolution.Services.ViewModel
         public ServiceProviderViewModel()
         {
             ServiceCategoriesList = new List<ServiceCategoryUtility>();
+           // ServiceProviderList = new List<ServiceProviderViewModel>();
+            //UserDTOs = new List<UserDTO>();
        }
         [Display(Name = "First Name")]
         public string First_Name { get; set; }
@@ -24,10 +27,12 @@ namespace AutoSolution.Services.ViewModel
 
 
         [Display(Name = "Phone Number")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
+
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Mobile Number")]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
         public String Gender { get; set; }
 
         [Display(Name = "E-mail")]
@@ -61,5 +66,12 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Select City")]
         public string SelectedCity { get; set; }
         public IEnumerable<SelectListItem> CitiesList { get; set; }
+        public int TotalNumberOfServiceProvider { get; set; }
+
+        //public List<ServiceProviderViewModel> ServiceProviderList { get; set; }
+        //public List<UserDTO> UserDTOs { get; set; }
+        //public Pager Pager { get; set; }
+
+        public List<ServiceCategoryViewModel> serviceCategoriesListFor { get; set; }
     }
 }

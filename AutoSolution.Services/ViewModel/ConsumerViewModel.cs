@@ -28,11 +28,11 @@ namespace AutoSolution.Services.ViewModel
 
 
         [Display(Name = "Phone Number")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
 
         [Display(Name = "Mobile Number")]
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
 
         [Required(ErrorMessage = "*Please select Gender Type")]
         public String Gender { get; set; }

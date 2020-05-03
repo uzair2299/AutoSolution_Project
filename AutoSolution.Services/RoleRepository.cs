@@ -43,22 +43,45 @@ namespace AutoSolution.Services
         }
 
 
-        public List<UserRoles> AddRolesTOUser(string user ,string role)
+        public List<UserRoles> AddRolesTOUser(string user, string role)
         {
-            if(role == "User")
+
+            List<UserRoles> userRoles = new List<UserRoles>();
+            AutoSolutionRoleProvider autoSolutionRoleProvider = new AutoSolutionRoleProvider();
+            bool isExist = false;
+            if (role == "User")
             {
-                List<UserRoles> userRoles = new List<UserRoles>();
-                AutoSolutionRoleProvider autoSolutionRoleProvider = new AutoSolutionRoleProvider();
-                bool isExist = autoSolutionRoleProvider.RoleExists(role);
-                if(isExist==true)
+                isExist = autoSolutionRoleProvider.RoleExists(role);
+                if (isExist == true)
                 {
-                   bool IsInRole= autoSolutionRoleProvider.IsUserInRole(user, role);
-                    if(IsInRole==true)
+                    bool IsInRole = autoSolutionRoleProvider.IsUserInRole(user, role);
+                    if (IsInRole == true)
                     {
                         UserRoles userRoles1 = new UserRoles();
                         Roles roles = new Roles();
-                       var id = AutoSolutionContext.Roles.Where(x => x.RoleName == role).Select(x=>x.RolesId).FirstOrDefault();
+                        var id = AutoSolutionContext.Roles.Where(x => x.RoleName == role).Select(x => x.RolesId).FirstOrDefault();
                         userRoles1.RolesId = id;
+                        userRoles1.AddedDate = DateTime.Now;
+                        userRoles.Add(userRoles1);
+                        return userRoles;
+                    }
+
+                }
+               
+            }
+            else if (role == "Service Provider")
+            {
+                isExist = autoSolutionRoleProvider.RoleExists(role);
+                if (isExist == true)
+                {
+                    bool IsInRole = autoSolutionRoleProvider.IsUserInRole(user, role);
+                    if (IsInRole == true)
+                    {
+                        UserRoles userRoles1 = new UserRoles();
+                        Roles roles = new Roles();
+                        var id = AutoSolutionContext.Roles.Where(x => x.RoleName == role).Select(x => x.RolesId).FirstOrDefault();
+                        userRoles1.RolesId = id;
+                        userRoles1.AddedDate = DateTime.Now;
                         userRoles.Add(userRoles1);
                         return userRoles;
                     }

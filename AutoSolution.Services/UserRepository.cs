@@ -46,8 +46,6 @@ namespace AutoSolution.Services
             user.MobileNumber = consumerViewModel.MobileNumber;
             user.PhoneNumber = consumerViewModel.PhoneNumber;
             user.Gender = consumerViewModel.Gender;
-
-            //email not verified on registration time
             user.IsConfrimEmail = false;
             user.IsActive = false;
             user.IsTermAndConditionAccepted = consumerViewModel.IsTermAndConditionAccepted;
@@ -57,12 +55,11 @@ namespace AutoSolution.Services
             user.RegistrationDate = DateTime.Now;
             user.Address = "-";            
             user.PasswordCount = 0;
-            user.UserTypeId = 1;
+           
             user.RememberMe = false;
             user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
             user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(consumerViewModel.Email,"User");
-            
             return user;
         }
 
@@ -85,9 +82,10 @@ namespace AutoSolution.Services
         {
             User user = new User();
             UserServiceCatogoryRepository userServiceCatogoryRepository = new UserServiceCatogoryRepository(new AutoSolutionContext());
+            RoleRepository autoSolutionRoleProvider = new RoleRepository(new AutoSolutionContext());
             user.FirstName = serviceProviderViewModel.First_Name;
             user.LastName = serviceProviderViewModel.Last_Name;
-            user.Password = serviceProviderViewModel.Password;
+            user.Password = EncryptPassword.PasswordToEncrypt(serviceProviderViewModel.Password);
             user.Email = serviceProviderViewModel.Email;
             user.MobileNumber = serviceProviderViewModel.MobileNumber;
             user.PhoneNumber = serviceProviderViewModel.PhoneNumber;
@@ -101,24 +99,66 @@ namespace AutoSolution.Services
             user.RegistrationDate = DateTime.Now;
             user.Address = "-";
             user.PasswordCount = 0;
-            user.UserTypeId = 2;
-            user.RememberMe = false; 
+            user.RememberMe = false;
+            user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(serviceProviderViewModel.SelectedCity);
+            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(serviceProviderViewModel.Email, "Service Provider");
             user.UserServiceCatogories = userServiceCatogoryRepository.SelectedServiceCategories(serviceProviderViewModel.ServiceCategoriesList);
             return user;
         }
 
-        //public SignInViewModel GetSignInViewModel()
-        //{
-        //    return new SignInViewModel();
-        //}
+        public AdminSide GetServiceProviders(int PageNo, int TotalCount)
+        {
 
 
-        
-        //public AutoSolutionContext AutoSolutionContext
-        //{
-        //    get { return Context as AutoSolutionContext; }
-        //}
+            AdminSide adminSide = new AdminSide()
+            {
+                serviceProviderViewModelList = (from u in AutoSolutionContext.User
+                   join ur in AutoSolutionContext.UserRoles
+                   on u.UserId equals ur.UserId
+                   //join r in AutoSolutionContext.Roles
+                   //on ur.RolesId equals r.RolesId
+                   where ur.RolesId == 6
+                   orderby u.FirstName
+                   select new ServiceProviderViewModel()
+                   {
+
+                       First_Name = u.FirstName,
+                       Last_Name = u.LastName,
+                       Email = u.MobileNumber1,
+                       Gender = u.Gender,
+                       MobileNumber = u.MobileNumber,
+                       PhoneNumber = u.PhoneNumber,
+                       serviceCategoriesListFor= (from u in AutoSolutionContext.User 
+                                               join sc in AutoSolutionContext.UserServiceCatogories
+                                               on u.UserId equals sc.UserId
+                                               where sc.UserId ==u.UserId
+                                               select new ServiceCategoryViewModel()
+                                               {
+                                                   ServiceCategoryName=sc.ServiceCategory.ServiceCategoryName,
+                                               }
+                                               ).ToList()
+
+                                               
+                       
+                       
+                   }
+                   ).Skip((PageNo - 1) * 10).Take(10).ToList(),
+
+            Pager = new Pager(TotalCount, PageNo, 10)
+
+            };
+            return adminSide;
+        }
+
+        public int GetServiceProvidersCount()
+        {
+            return AutoSolutionContext.UserRoles.Where(x => x.RolesId == 6).Count();
+        }
+        public AutoSolutionContext AutoSolutionContext
+        {
+            get { return Context as AutoSolutionContext; }
+        }
     }
 
 }
@@ -129,3 +169,26 @@ namespace AutoSolution.Services
  * 
  * 
  */
+
+//IsActive = u.IsActive,
+
+
+
+//    FirstName = u.FirstName,
+//    LastName=u.LastName,
+//    Email=u.Email,
+//    EmailSecondary=u.EmailSecondary,
+//    DateOfBirth=u.DateOfBirth,
+//    Address=u.Address,
+//    Gender=u.Gender,
+//    RegistrationDate=u.RegistrationDate,
+//    MobileNumber=u.MobileNumber,
+//    MobileNumber1=u.MobileNumber1,
+//    PhoneNumber=u.PhoneNumber,
+//    IsActive=u.IsActive,
+
+
+//                ServiceCategoriesList = (from u in AutoSolutionContext.User
+//            join sc in AutoSolutionContext.UserServiceCatogories
+//            on u.UserId equals sc.ServiceCategoryId
+//            select new

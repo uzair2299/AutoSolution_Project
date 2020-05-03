@@ -14,175 +14,177 @@
     </div>
 </div>
 @ViewBag.Message
-<div class="kt-portlet">
-    <div class="kt-portlet__head">
-        <div class="kt-portlet__head-label">
-            <h3 class="kt-portlet__head-title">
-                Select Your Interest
-            </h3>
+<div class="kt-container">
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    Select Your Interest
+                </h3>
+            </div>
         </div>
-    </div>
-    <div class="kt-portlet__body">
-        <ul class="nav nav-tabs nav-fill" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1">Find Your Auto </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2">Find Your Mechanic</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
-                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                    <div class="kt-portlet kt-portlet--mobile">
-                        <div class="kt-portlet__body">
-                            <!--begin: Search Form -->
-                            <form class="kt-form kt-form--fit kt-margin-b-20">
-                                <div class="row kt-margin-b-20">
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>RecordID:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>OrderID:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Country:</label>
-                                        <select class="form-control kt-input" data-col-index="2">
-                                            <option value="">Select</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Agent:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
-                                    </div>
-                                </div>
-                                <div class="row kt-margin-b-20">
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Ship Date:</label>
-                                        <div class="input-daterange input-group" id="kt_datepicker">
-                                            <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+        <div class="kt-portlet__body">
+            <ul class="nav nav-tabs nav-fill" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1">Find Your Auto </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_tabs_1_2">Find Your Mechanic</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
+                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                        <div class="kt-portlet kt-portlet--mobile">
+                            <div class="kt-portlet__body">
+                                <!--begin: Search Form -->
+                                <form class="kt-form kt-form--fit kt-margin-b-20">
+                                    <div class="row kt-margin-b-20">
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>RecordID:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>OrderID:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Country:</label>
+                                            <select class="form-control kt-input" data-col-index="2">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Agent:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Status:</label>
-                                        <select class="form-control kt-input" data-col-index="6">
-                                            <option value="">Select</option>
-                                        </select>
+                                    <div class="row kt-margin-b-20">
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Ship Date:</label>
+                                            <div class="input-daterange input-group" id="kt_datepicker">
+                                                <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Status:</label>
+                                            <select class="form-control kt-input" data-col-index="6">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Type:</label>
+                                            <select class="form-control kt-input" data-col-index="7">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Type:</label>
-                                        <select class="form-control kt-input" data-col-index="7">
-                                            <option value="">Select</option>
-                                        </select>
+                                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <button class="btn btn-primary btn-brand--icon" id="kt_search">
+                                                <span>
+                                                    <i class="la la-search"></i>
+                                                    <span>Search</span>
+                                                </span>
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                                <span>
+                                                    <i class="la la-close"></i>
+                                                    <span>Reset</span>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <button class="btn btn-primary btn-brand--icon" id="kt_search">
-                                            <span>
-                                                <i class="la la-search"></i>
-                                                <span>Search</span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                            <span>
-                                                <i class="la la-close"></i>
-                                                <span>Reset</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
 
-                            <!--begin: Datatable -->
-                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
+                                <!--begin: Datatable -->
+                                <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
 
 
-                            <!--end: Datatable -->
+                                <!--end: Datatable -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
-                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-                    <div class="kt-portlet kt-portlet--mobile">
-                        <div class="kt-portlet__body">
-                            <!--begin: Search Form -->
-                            <form class="kt-form kt-form--fit kt-margin-b-20">
-                                <div class="row kt-margin-b-20">
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>RecordID:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>OrderID:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Country:</label>
-                                        <select class="form-control kt-input" data-col-index="2">
-                                            <option value="">Select</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Agent:</label>
-                                        <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
-                                    </div>
-                                </div>
-                                <div class="row kt-margin-b-20">
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Ship Date:</label>
-                                        <div class="input-daterange input-group" id="kt_datepicker">
-                                            <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
-                                            <div class="input-group-append">
-                                                <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+                <div class="tab-pane" id="kt_tabs_1_2" role="tabpanel">
+                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                        <div class="kt-portlet kt-portlet--mobile">
+                            <div class="kt-portlet__body">
+                                <!--begin: Search Form -->
+                                <form class="kt-form kt-form--fit kt-margin-b-20">
+                                    <div class="row kt-margin-b-20">
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>RecordID:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="E.g: 4590" data-col-index="0">
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>OrderID:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="E.g: 37000-300" data-col-index="1">
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Country:</label>
+                                            <select class="form-control kt-input" data-col-index="2">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Agent:</label>
+                                            <input type="text" class="form-control kt-input" placeholder="Agent ID or name" data-col-index="4">
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Status:</label>
-                                        <select class="form-control kt-input" data-col-index="6">
-                                            <option value="">Select</option>
-                                        </select>
+                                    <div class="row kt-margin-b-20">
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Ship Date:</label>
+                                            <div class="input-daterange input-group" id="kt_datepicker">
+                                                <input type="text" class="form-control kt-input" name="start" placeholder="From" data-col-index="5">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control kt-input" name="end" placeholder="To" data-col-index="5">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Status:</label>
+                                            <select class="form-control kt-input" data-col-index="6">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
+                                            <label>Type:</label>
+                                            <select class="form-control kt-input" data-col-index="7">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3 kt-margin-b-10-tablet-and-mobile">
-                                        <label>Type:</label>
-                                        <select class="form-control kt-input" data-col-index="7">
-                                            <option value="">Select</option>
-                                        </select>
+                                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <button class="btn btn-primary btn-brand--icon" id="kt_search">
+                                                <span>
+                                                    <i class="la la-search"></i>
+                                                    <span>Search</span>
+                                                </span>
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                                <span>
+                                                    <i class="la la-close"></i>
+                                                    <span>Reset</span>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <button class="btn btn-primary btn-brand--icon" id="kt_search">
-                                            <span>
-                                                <i class="la la-search"></i>
-                                                <span>Search</span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
-                                            <span>
-                                                <i class="la la-close"></i>
-                                                <span>Reset</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!--begin: Datatable -->
-                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
-                            <!--end: Datatable -->
+                                </form>
+                                <!--begin: Datatable -->
+                                <div class="kt-separator kt-separator--border-dashed kt-separator--space-md"></div>
+                                <!--end: Datatable -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,6 +192,7 @@
         </div>
     </div>
 </div>
+
 <div class="kt-portlet kt-portlet--skin-solid kt-portlet--solid-warning kt-portlet--head-lg kt-portlet--head-overlay kt-portlet--height-fluid">
     <div class="kt-portlet__head kt-portlet__head--noborder">
         <div class="kt-portlet__head-label">
@@ -484,7 +487,505 @@
         </div>
     </div>
 </div>
+<div>
+    <div class="boxed">
 
+
+         END IMAGE BOX 
+         PRODUCT NEW 
+        <section class="flat-row row-product-new">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+                            <div id="kt_aside_menu" class="kt-aside-menu">
+                                <ul class="kt-menu__nav ">
+
+                                    <li class="kt-menu__section ">
+                                        <h2 class="kt-menu__section-text">Components</h2>
+                                        <i class="kt-menu__section-icon flaticon-more-v2"></i>
+                                    </li>
+
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+                                    <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" data-ktmenu-submenu-toggle="hover">
+                                        <a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">Utils</span></a>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="title-section margin-bottom-52">
+                            <h2 class="title">
+                                New Product
+                            </h2>
+                        </div>
+                        <div class="product-content product-fourcolumn clearfix">
+                            <ul class="product style2 clearfix">
+                                <li class="product-item">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/assets/Uzair/template (1).png" alt="image">
+                                        </a>
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-info text-center clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+
+                                <li class="product-item">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/assets/Uzair/template.png" alt="image">
+                                        </a>
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/15.jpg" alt="image">
+                                        </a>
+                                        <span class="new sale">Sale</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <del>
+                                                <span class="regular">$150.00</span>
+                                            </del>
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/16.jpg" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         END PRODUCT NEW 
+         ANIMATION BOX 
+        <section class="flat-row row-animation-box bg-section row-1" style="background-image:url('/assets/Uzair/template (24).png')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="flat-animation-block">
+                            <div class="title-section width-before-17 bg-before-white margin-bottom-14">
+                                <div class="sup-title"><span>NEW TREND 2018</span></div>
+                                <h2 class="title font-size-52 line-height-76">Women‘s Collection</h2>
+                                <div class="sub-title"><span>Big Sale of this Week</span></div>
+                            </div>
+                            <div class="elm-btn text-center">
+                                <a href="#" class="themesflat-button bg-accent has-padding-36">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         END ANIMATION BOX 
+         PRODUCT 
+        <section class="flat-row row-product-project style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-section margin-bottom-41">
+                            <h2 class="title">Best Sale</h2>
+                        </div>
+                        <ul class="flat-filter style-1 text-center max-width-682 clearfix">
+                            <li class="active"><a href="#" data-filter="*">All Product</a></li>
+                            <li><a href="#" data-filter=".kid">For Kid’s</a></li>
+                            <li><a href="#" data-filter=".man">For Man’s</a></li>
+                            <li><a href="#" data-filter=".woman">For Woman’s</a></li>
+                            <li><a href="#" data-filter=".accessories">Accessories</a></li>
+                        </ul>
+                        <div class="divider h54"></div>
+                        <div class="product-content product-fourcolumn clearfix">
+                            <ul class="product style2 isotope-product clearfix">
+                                <li class="product-item kid woman">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#">
+                                            <img src="~/images/shop/sh-4/1.jpg" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item man accessories">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#">
+                                            <img src="~/images/shop/sh-4/2.jpg" alt="image">
+                                        </a>
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item kid woman">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/3.jpg" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item man accessories">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/4.jpg" alt="image">
+                                        </a>
+                                        <span class="new sale">Sale</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <del>
+                                                <span class="regular">$120.00</span>
+                                            </del>
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item kid woman">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/5.jpg" alt="image">
+                                        </a>
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item man accessories">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/6.jpg" alt="image">
+                                        </a>
+                                        <span class="new sale">Sale</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <del>
+                                                <span class="regular">$150.00</span>
+                                            </del>
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                        <ul class="flat-color-list width-14">
+                                            <li>
+                                                <a href="#" class="red"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="blue"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="black"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item kid woman">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/7.jpg" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                                <li class="product-item man accessories">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#" class="product-thumb">
+                                            <img src="~/images/shop/sh-4/8.jpg" alt="image">
+                                        </a>
+                                        <span class="new">New</span>
+                                    </div>
+                                    <div class="product-info clearfix">
+                                        <span class="product-title">Cotton White Underweaer Block Out Edition</span>
+                                        <div class="price">
+                                            <ins>
+                                                <span class="amount">$100.00</span>
+                                            </ins>
+                                        </div>
+                                    </div>
+                                    <div class="add-to-cart text-center">
+                                        <a href="#">ADD TO CART</a>
+                                    </div>
+                                    <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         END PRODUCT 
+         ICON BOX 
+        <section class="flat-row row-icon-box bg-section bg-color-f5f">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+                            <div class="inner no-margin">
+                                <div class="icon-wrap">
+                                    <i class="fa fa-truck"></i>
+                                </div>
+                                <div class="text-wrap">
+                                    <h5 class="heading"><a href="#">Free Shipping</a></h5>
+                                    <p class="desc">Free Shipping on order over $99</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+                            <div class="inner">
+                                <div class="icon-wrap">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="text-wrap">
+                                    <h5 class="heading"><a href="#">Cash On Delivery</a></h5>
+                                    <p class="desc">The Internet Trend To Repeat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+                            <div class="inner">
+                                <div class="icon-wrap">
+                                    <i class="fa fa-gift"></i>
+                                </div>
+                                <div class="text-wrap">
+                                    <h5 class="heading"><a href="#">Gift For All</a></h5>
+                                    <p class="desc">Receive Gift When Subscribe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="flat-icon-box icon-top style-1 clearfix text-center">
+                            <div class="inner">
+                                <div class="icon-wrap">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <div class="text-wrap">
+                                    <h5 class="heading"><a href="#">Opening All Week</a></h5>
+                                    <p class="desc">6.00 am - 17.00pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         END ICON BOX 
+         NEW LATEST 
+    </div>
+</div>
 
 <div id="tableContiner">
     @{Html.RenderAction("GetServiceCategories");}

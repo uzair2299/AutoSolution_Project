@@ -34,7 +34,7 @@
                                         @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextBoxFor(model => model.First_Name, new { @class = "form-control" , PlaceHolder = "Enter Your Last Name" })
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                         @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextBoxFor(model => model.Last_Name, new { @class = "form-control",PlaceHolder = "Enter Your Last Name"})
                                         </div>
                                     </div>
 
@@ -55,8 +55,9 @@
                                         @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-mobile-alt"></i></span></div>
-                                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.TextBoxFor(model => model.MobileNumber,  new { @class = "form-control", PlaceHolder="Enter Mobile Number" , Value =""} )
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -77,6 +78,9 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
                                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span>
+                                        <span class="form-text text-muted">@Html.ValidationMessage("EmailExists", new { @class = "text-danger" })</span>
+                                        <span class="form-text text-danger" id="ErrorMessage"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -201,7 +205,7 @@
                                 <button id="kt_login_signin_submit" type="button" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Sign Up As a Service Provider</button>
                             </div>
                             <!--end::Action-->
-                        </div>@*}*@
+                        </div>
                         </form>
                 </div>
             </div>
@@ -211,6 +215,26 @@
 <!--end content-->
 <script>
 
+    $("#Email").change(function () {
+        var Email = $("#Email").val();
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("IsAlreadySigned", "Registration")',
+            data: '{Email: "' + Email + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var ErrorDiv = $("#ErrorMessage");
+                if (response) {
+                    ErrorDiv.html("Email is Available");
+                }
+                else {
+                    ErrorDiv.css("color", "red");
+                    ErrorDiv.html("*This Email is  Already Exist");
+                }
+            }
+        });
+    });
 
      $("#kt_login_signin_submit").click(function () {
 			$.ajax({

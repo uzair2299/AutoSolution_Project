@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodyType.cs" />
+    <Compile Include="CityArea.cs" />
     <Compile Include="PartProductImages.cs" />
     <Compile Include="PartsProductsSubCategory.cs" />
     <Compile Include="Image.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="TransmissionType.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserServiceCatogory.cs" />
-    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
