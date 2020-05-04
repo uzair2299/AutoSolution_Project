@@ -1,153 +1,166 @@
-﻿@model AutoSolution.Services.ViewModel.AdminSide
+﻿@model AutoSolution.Services.ViewModel.ServiceProviderWraper
 
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-        @foreach (var item in Model.serviceProviderViewModelList)
-        {
-            
-            <div class="kt-portlet">
-                <div class="kt-portlet__body">
-                    <div class="kt-widget kt-widget--user-profile-3">
-                        <div class="kt-widget__top">
-                            <div class="kt-widget__media kt-hidden-">
-                                <img src="~/assets/media/users/100_1.jpg" alt="image">
-                            </div>
-
-                            <div class="kt-widget__content">
-                                <div class="kt-widget__head">
-                                    <div class="kt-widget__username">
-                                        @Html.DisplayFor(x => item.First_Name)
-                                        @Html.DisplayFor(x=>item.Last_Name)
-                                        <i class="flaticon2-correct kt-font-success"></i>
+        <div class="row">
+            <div class="col-sm-12">
+                @foreach (var item in Model.serviceProviderViewModelList)
+                {
+                    <div class="kt-portlet">
+                        <div class="kt-portlet__body">
+                            <div class="kt-widget kt-widget--user-profile-3">
+                                <div class="kt-widget__top">
+                                    <div class="kt-widget__media kt-hidden-">
+                                        <img src="~/assets/media/users/100_1.jpg" alt="image">
                                     </div>
-                                   
-                                    @*<a href="#" class="kt-widget__username">
+
+                                    <div class="kt-widget__content">
+                                        <div class="kt-widget__head">
+                                            <div class="kt-widget__username">
+                                                @Html.DisplayFor(x => item.First_Name)
+                                                @Html.DisplayFor(x => item.Last_Name)
+
+                                                <i class="flaticon2-correct kt-font-success"></i>
+                                            </div>
+
+                                            @*<a href="#" class="kt-widget__username">
                                         Jason Muller
                                         <i class="flaticon2-correct kt-font-success"></i>
                                     </a>*@
-                                    <div class="kt-widget__action">
-                                        <button type="button" class="btn btn-label-success btn-sm btn-upper">ask</button>&nbsp;
-                                        <button type="button" class="btn btn-brand btn-sm btn-upper">View Profile</button>
+                                            <div class="kt-widget__action">
+                                                <button type="button" class="btn btn-label-success btn-sm btn-upper">ask</button>&nbsp;
+                                                <button type="button" class="btn btn-brand btn-sm btn-upper">View Profile</button>
+                                            </div>
+                                        </div>
+                                        <div class="kt-widget__subhead">
+                                            <a><i class="flaticon2-new-email"></i>@Html.DisplayTextFor(x => item.Email)</a>
+                                            <a><i class="flaticon2-phone"></i>@Html.DisplayFor(x => item.MobileNumber)</a>
+                                            <a><i class="flaticon-placeholder-3"></i>@Html.DisplayFor(x => item.SelectedCity)</a>
+                                        </div>
+                                        <div class="kt-widget__subhead">
+                                            <h5>Services</h5>
+                                            <div class="row">
+                                                @foreach (var sc in item.serviceCategoriesListFor)
+                                                {
+                                                    <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4 mb-1">
+
+                                                        <a><i class="flaticon2-settings"></i>@Html.DisplayFor(x => sc.ServiceCategoryName)</a>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            @*<a href="#"><i class="flaticon2-new-email"></i>jason@siastudio.com</a>*@
+                                            @*<a href="#"><i class="flaticon2-placeholder"></i>Melbourne</a>*@
+                                        </div>
+                                        <div class="kt-widget__info">
+                                            <div class="kt-widget__desc" style="font-size:1.1rem">
+                                                @Html.DisplayFor(x => item.BusinessDescription)
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="kt-widget__subhead">
-                                    <a><i class="flaticon2-new-email"></i>@Html.DisplayFor(x => item.Email)</a>
-                                    <a href="#"><i class="flaticon2-placeholder"></i>@Html.DisplayFor(x => item.MobileNumber)</a>
-                                </div>
-                                <div class="kt-widget__subhead">
-                                    <h5>Services</h5>
-                                    @foreach (var sc in item.serviceCategoriesListFor)
-                                    {
-                                        <a href="#"><i class="flaticon2-placeholder"></i>@Html.DisplayFor(x=>sc.ServiceCategoryName)</a>
-                                    }
-                                    @*<a href="#"><i class="flaticon2-new-email"></i>jason@siastudio.com</a>*@
-                                    @*<a href="#"><i class="flaticon2-placeholder"></i>Melbourne</a>*@                                <a href="#"><i class="flaticon2-placeholder"></i>Melbourne</a>                                <a href="#"><i class="flaticon2-placeholder"></i>Melbourne</a>
-                                </div>
-                                <div class="kt-widget__info">
-                                    <div class="kt-widget__desc">
-                                        I distinguish three main text objektive could be merely to inform people.<br>
-                                        A second could be persuade people.You want people to bay objective/                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="kt-widget__bottom">
-                            <div class="kt-widget__item">
-                                <div class="kt-widget__icon">
-                                    <i class="flaticon-piggy-bank"></i>
-                                </div>
-                                <div class="kt-widget__details">
-                                    <span class="kt-widget__title">Earnings</span>
-                                    <span class="kt-widget__value"><span>$</span>249,500</span>
-                                </div>
-                            </div>
-                            <div class="kt-widget__item">
-                                <div class="kt-widget__icon">
-                                    <i class="flaticon-file-2"></i>
-                                </div>
-                                <div class="kt-widget__details">
-                                    <span class="kt-widget__title">73 Completed Tasks</span>
-                                    <a href="#" class="kt-widget__value kt-font-brand">View</a>
-                                </div>
-                            </div>
-                            <div class="kt-widget__item">
-                                <div class="kt-widget__icon">
-                                    <i class="flaticon-chat-1"></i>
-                                </div>
-                                <div class="kt-widget__details">
-                                    <span class="kt-widget__title">648 Comments</span>
-                                    <a href="#" class="kt-widget__value kt-font-brand">View</a>
+                                <div class="kt-widget__bottom">
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="flaticon-piggy-bank"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Earnings</span>
+                                            <span class="kt-widget__value"><span>$</span>249,500</span>
+                                        </div>
+                                    </div>
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="flaticon-file-2"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">73 Completed Tasks</span>
+                                            <a href="#" class="kt-widget__value kt-font-brand">View</a>
+                                        </div>
+                                    </div>
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="flaticon-chat-1"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">648 Comments</span>
+                                            <a href="#" class="kt-widget__value kt-font-brand">View</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        }
-        <!--begin:: Widgets/Applications/User/Profile3-->
-        <!--end:: Widgets/Applications/User/Profile3-->
-        <!--Begin::Section-->
-        <div class="row">
-            <div class="col-sm-12 col-md-5">
-                @{ var PageNoForBottom = Model.Pager.CurrentPage;
-                    var PageSizeForBottom = Model.Pager.PageSize;
-                    int StartRange = 0;
-                    int EndRange = 0;
-                    if (PageNoForBottom > 1)
-                    {
-                        StartRange = ((PageNoForBottom - 1) * PageSizeForBottom) + 1;
-                        EndRange = PageNoForBottom * PageSizeForBottom;
-                        if (PageNoForBottom == Model.Pager.EndPage)
-                        {
-                            EndRange = Model.Pager.TotalItems;
-                        }
-
-                    }
-                    else
-                    {
-                        StartRange = 1;
-                        EndRange = 10;
-
-                    }
-
                 }
-                <div class="dataTables_info" style="color:#595d6e">Showing @StartRange to @EndRange of @Model.Pager.TotalItems</div>
+
             </div>
-            <div class="col-sm-12 col-md-7">
-                <div class="dataTables_paginate paging_simple_numbers">
-                    @if (Model.Pager.EndPage > 1)
-                    {
-                        @*<ul class="pagination">*@
-                        if (Model.Pager.CurrentPage > 1)
+            </div>
 
-                        {
-                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="1"><i class="fa fa-angle-double-left"></i></button>
-                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-left"></i></button>
-                            @*<li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer" class="page-link">First</a></li>
-                            <li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage - 1)" class="page-link">Previous</a></li>*@
-                        }
-                        for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                <!--begin:: Widgets/Applications/User/Profile3-->
+                <!--end:: Widgets/Applications/User/Profile3-->
+                <!--Begin::Section-->
+                <div class="row">
+                    <div class="col-sm-12 col-md-5">
+                        @{ var PageNoForBottom = Model.Pager.CurrentPage;
+                            var PageSizeForBottom = Model.Pager.PageSize;
+                            int StartRange = 0;
+                            int EndRange = 0;
+                            if (PageNoForBottom > 1)
+                            {
+                                StartRange = ((PageNoForBottom - 1) * PageSizeForBottom) + 1;
+                                EndRange = PageNoForBottom * PageSizeForBottom;
+                                if (PageNoForBottom == Model.Pager.EndPage)
+                                {
+                                    EndRange = Model.Pager.TotalItems;
+                                }
 
-                        {
-                            //string activeClass = Model.Pager.CurrentPage == page ? "active btn-dark" : string.Empty;
-                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@page">@page</button>
+                            }
+                            else
+                            {
+                                StartRange = 1;
+                                EndRange = 10;
 
-                            @*<li class="paginate_button page-item @(page == Model.Pager.CurrentPage ? "active" : "")"><a href="~/Vehicle/GetVehicleManufacturer?page=@page" class="page-link">@page</a></li>*@
+                            }
+
                         }
-                        if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                        {
-                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage + 1)"><i class="fa fa-angle-right"></i></button>
-                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@Model.Pager.EndPage"><i class="fa fa-angle-double-right"></i></button>
-                            @*<li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage + 1)" class="page-link">Next</a></li>
-                                <li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.TotalPages)" class="page-link">Last</a></li>
-                            }*@
-                        }
-                        @*</ul>*@}
+                        <div class="dataTables_info" style="color:#595d6e">Showing @StartRange to @EndRange of @Model.Pager.TotalItems</div>
+                    </div>
+                    <div class="col-sm-12 col-md-7 text-right text-right">
+                        <div class="dataTables_paginate paging_simple_numbers text-right">
+                            @if (Model.Pager.EndPage > 1)
+                            {
+                                @*<ul class="pagination">*@
+                                if (Model.Pager.CurrentPage > 1)
+
+                                {
+                                    <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="1"><i class="fa fa-angle-double-left"></i></button>
+                                    <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-left"></i></button>
+                                    @*<li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer" class="page-link">First</a></li>
+                                    <li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage - 1)" class="page-link">Previous</a></li>*@
+                                }
+                                for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+
+                                {
+                                    //string activeClass = Model.Pager.CurrentPage == page ? "active btn-dark" : string.Empty;
+                                    <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@page">@page</button>
+
+                                    @*<li class="paginate_button page-item @(page == Model.Pager.CurrentPage ? "active" : "")"><a href="~/Vehicle/GetVehicleManufacturer?page=@page" class="page-link">@page</a></li>*@
+                                }
+                                if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                {
+                                    <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage + 1)"><i class="fa fa-angle-right"></i></button>
+                                    <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@Model.Pager.EndPage"><i class="fa fa-angle-double-right"></i></button>
+                                    @*<li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage + 1)" class="page-link">Next</a></li>
+                                        <li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.TotalPages)" class="page-link">Last</a></li>
+                                    }*@
+                                }
+                                @*</ul>*@}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!--End::Section-->
-    </div>
-    <script>
+                <!--End::Section-->
+            </div>
+            <script>
      $(".pageButtons").click(function () {
             var SearchTerm = $("#SearchTerm").val();
 		$.ajax({
@@ -165,4 +178,4 @@
         	alert("FAIL");
         });
         });
-    </script>
+            </script>

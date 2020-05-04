@@ -45,6 +45,7 @@ namespace AutoSolution.Entities
 
         public int CityId { get; set; }
         public virtual City Cities { get; set; }
+        public string BusinessDescription { get; set; }
     }
 }
 

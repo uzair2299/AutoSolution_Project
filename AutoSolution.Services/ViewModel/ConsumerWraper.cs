@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AutoSolution.Services.ViewModel
 {
-   public  class AdminSide
+    public class ConsumerWraper
     {
-        public List<ServiceProviderViewModel> serviceProviderViewModelList { get; set; }
+        public List<ConsumerViewModel> consumerViewModelViewModelList { get; set; }
         public Pager Pager { get; set; }
     }
 }

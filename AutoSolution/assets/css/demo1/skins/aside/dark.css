@@ -178,9 +178,9 @@
   .kt-aside-menu .kt-menu__nav > .kt-menu__item > .kt-menu__arrow {
     color: #1e1e2d; }
   .kt-aside-menu .kt-menu__nav > .kt-menu__section .kt-menu__section-text {
-    color: #4c4e6f ; }
+    color:white /*#4c4e6f*/ ; } /*uzair*/
   .kt-aside-menu .kt-menu__nav > .kt-menu__section .kt-menu__section-icon {
-    color: #4c4e6f ; }
+    color: #4c4e6f ; } 
   .kt-aside-menu .kt-menu__nav > .kt-menu__separator {
     border-bottom: 1px solid #4c4e6f ; }
   .kt-aside-menu .kt-menu__nav > .kt-menu__item .kt-menu__submenu .kt-menu__item > .kt-menu__heading .kt-menu__link-text,

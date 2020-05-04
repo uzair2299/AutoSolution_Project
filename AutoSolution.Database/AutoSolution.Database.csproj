@@ -52,17 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext\AutoSolutionContext.cs" />
-    <Compile Include="Migrations\202005011947032_fres.cs" />
-    <Compile Include="Migrations\202005011947032_fres.designer.cs">
-      <DependentUpon>202005011947032_fres.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005020719398_cityarea.cs" />
-    <Compile Include="Migrations\202005020719398_cityarea.designer.cs">
-      <DependentUpon>202005020719398_cityarea.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005020722204_cityar.cs" />
-    <Compile Include="Migrations\202005020722204_cityar.designer.cs">
-      <DependentUpon>202005020722204_cityar.cs</DependentUpon>
+    <Compile Include="Migrations\202005040705448_bussines.cs" />
+    <Compile Include="Migrations\202005040705448_bussines.designer.cs">
+      <DependentUpon>202005040705448_bussines.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,14 +70,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005011947032_fres.resx">
-      <DependentUpon>202005011947032_fres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005020719398_cityarea.resx">
-      <DependentUpon>202005020719398_cityarea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005020722204_cityar.resx">
-      <DependentUpon>202005020722204_cityar.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005040705448_bussines.resx">
+      <DependentUpon>202005040705448_bussines.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

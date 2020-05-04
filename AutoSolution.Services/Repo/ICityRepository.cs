@@ -11,10 +11,10 @@ namespace AutoSolution.Services.Repo
 {
     public interface ICityRepository: IRepository<City>
     {
-        List<City> GetCityWithRespectToProvince(int Id);
+
 
         IEnumerable<SelectListItem> GetCities();
         IEnumerable<SelectListItem> GetCities(string Id);
-        List<City> GetCitiesWRTProvince(int id);
+    
     }
 }

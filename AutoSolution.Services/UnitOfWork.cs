@@ -18,6 +18,7 @@ namespace AutoSolution.Services
             _context = context;
             User = new UserRepository(_context);
             City = new CityRepository(_context);
+            CityArea = new CityAreaRepository(_context);
             Province = new ProvinceRepository(_context);
             ServiceCategory = new ServiceCategoryRepository(_context);
             UserServiceCatogory = new UserServiceCatogoryRepository(_context);
@@ -34,24 +35,22 @@ namespace AutoSolution.Services
             Template = new TemplateRepository(_context);
 }
 
-public IUserRepository User { get; private set; }
+        public IRoleRepository RoleRepository { get; private set; }
+        public IUserRepository User { get; private set; }
         public ICityRepository City { get; private set; }
+        public ICityAreaRepository CityArea { get; }
         public IProvinceRepository Province { get; private set; }
         public IServiceCategoryRepository ServiceCategory { get; private set; }
         public IUserServiceCatogoryRepository UserServiceCatogory { get; private set; }
-
         public IVehicleManufacturerRepository VehicleManufacturer { get; private set; }
-        public IRoleRepository RoleRepository { get; private set; }
        public  IVehicleModelRepository VehicleModel { get; private set; }
        public IVehicleVersionRepository VehicleVersion { get; private set; }
         public ITransmissionTypeRepository TransmissionType { get; private set; }
-        public IPartsProductManufacturerRepository PartsProductManufacturer { get; private set; }
-        public IPartsProductsRepository PartsProducts { get; private set; }
-
         public IVehicleEngineTypeRepository VehicleEngineType { get; private set; }
         public IPartsProductsCategoryRepository PartsProductsCategory { get; private set; }
-
         public IPartsSubCategoryRepository PartsSubCategory { get; private set; }
+        public IPartsProductManufacturerRepository PartsProductManufacturer { get; private set; }
+        public IPartsProductsRepository PartsProducts { get; private set; }
         public ITemplateRepository Template { get; private set; }
 
         public int Complete()

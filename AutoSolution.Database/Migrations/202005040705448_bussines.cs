@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class fres : DbMigration
+    public partial class bussines : DbMigration
     {
         public override void Up()
         {
@@ -42,6 +42,18 @@
                         IsActive = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.ProvinceId);
+            
+            CreateTable(
+                "dbo.CityAreas",
+                c => new
+                    {
+                        CityAreaID = c.Int(nullable: false, identity: true),
+                        CityAreaName = c.String(),
+                        CityId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CityAreaID)
+                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
+                .Index(t => t.CityId);
             
             CreateTable(
                 "dbo.Images",
@@ -286,6 +298,7 @@
                         ActivetionCode = c.Guid(),
                         OTP = c.String(),
                         CityId = c.Int(nullable: false),
+                        BusinessDescription = c.String(),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
@@ -357,6 +370,7 @@
             DropForeignKey("dbo.PartsProductsSubCategories", "PartsProductsCategoryId", "dbo.PartsProductsCategories");
             DropForeignKey("dbo.PartsProducts", "PartsProductManufacturerId", "dbo.PartsProductManufacturers");
             DropForeignKey("dbo.PartProductImages", "ImageId", "dbo.Images");
+            DropForeignKey("dbo.CityAreas", "CityId", "dbo.Cities");
             DropForeignKey("dbo.Cities", "ProvinceId", "dbo.Provinces");
             DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
             DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
@@ -378,6 +392,7 @@
             DropIndex("dbo.PartsProducts", new[] { "PartsProductsSubCategoryId" });
             DropIndex("dbo.PartProductImages", new[] { "PartsProductId" });
             DropIndex("dbo.PartProductImages", new[] { "ImageId" });
+            DropIndex("dbo.CityAreas", new[] { "CityId" });
             DropIndex("dbo.Cities", new[] { "ProvinceId" });
             DropTable("dbo.Templates");
             DropTable("dbo.ServiceCategories");
@@ -398,10 +413,10 @@
             DropTable("dbo.PartsProducts");
             DropTable("dbo.PartProductImages");
             DropTable("dbo.Images");
+            DropTable("dbo.CityAreas");
             DropTable("dbo.Provinces");
             DropTable("dbo.Cities");
             DropTable("dbo.BodyTypes");
         }
     }
 }
-

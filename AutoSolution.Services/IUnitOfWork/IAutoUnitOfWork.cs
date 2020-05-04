@@ -10,25 +10,22 @@ namespace AutoSolution.Services.IUnitOfWork
 {
     public interface IAutoUnitOfWork: IDisposable
     {
+        IRoleRepository RoleRepository { get; }
         IUserRepository User { get; }
-        ICityRepository City { get; }
         IProvinceRepository Province { get; }
+        ICityRepository City { get; }
+        ICityAreaRepository CityArea { get; }
         IServiceCategoryRepository ServiceCategory { get; }
         IUserServiceCatogoryRepository UserServiceCatogory { get; }
-
         IVehicleManufacturerRepository VehicleManufacturer { get; }
-        IRoleRepository RoleRepository { get; }
         IVehicleModelRepository VehicleModel { get; }
         IVehicleVersionRepository VehicleVersion { get; }
         ITransmissionTypeRepository TransmissionType { get; }
         IVehicleEngineTypeRepository VehicleEngineType { get; }
-
         IPartsProductsCategoryRepository PartsProductsCategory { get; }
-        IPartsProductsRepository PartsProducts { get; }
-
         IPartsSubCategoryRepository PartsSubCategory { get; }
+        IPartsProductsRepository PartsProducts { get; }
         IPartsProductManufacturerRepository PartsProductManufacturer { get; }
-
         ITemplateRepository Template { get; }
         int Complete();
     }

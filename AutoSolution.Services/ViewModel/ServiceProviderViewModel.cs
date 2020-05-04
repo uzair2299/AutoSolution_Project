@@ -31,16 +31,25 @@ namespace AutoSolution.Services.ViewModel
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
+        
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Mobile Number")]
+        public string MobileNumber1 { get; set; }
         public String Gender { get; set; }
 
         [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public string Password { get; set; }
+        [Display(Name = "Date Of Birth")]
+        public DateTime? DateOfBirth { get; set; }
 
         [Display(Name = "Confrim Password")]
         public string ConfrimPassword { get; set; }
         public bool IsTermAndConditionAccepted { get; set; }
-
+        public bool IsActive { get; set; }
+        public string Address { get; set; }
+        public string ImagePath { get; set; }
 
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }

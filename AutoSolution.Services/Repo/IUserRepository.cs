@@ -10,8 +10,10 @@ namespace AutoSolution.Services.Repo
 {
     public interface IUserRepository: IRepository<User>
     {
-        AdminSide GetServiceProviders(int PageNo, int TotalCount);
+        ServiceProviderWraper GetServiceProviders(int PageNo, int TotalCount);
+        ConsumerWraper GetUsers(int PageNo, int TotalCount);
         int GetServiceProvidersCount();
+        int GetUsersCount();
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();
         User CreateConsumer(ConsumerViewModel consumerViewModel);

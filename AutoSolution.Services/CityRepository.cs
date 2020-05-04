@@ -18,15 +18,6 @@ namespace AutoSolution.Services
         {
         }
 
-        public List<City> GetCityWithRespectToProvince(int Id)
-        {
-            Context.Configuration.ProxyCreationEnabled = false;
-            var CityList = Context.Set<City>().Where(x => x.Province.ProvinceId == Id).ToList();
-            return CityList;
-        }
-
-
-
         public IEnumerable<SelectListItem> GetCities(string Id)
         {
             int ID = Convert.ToInt32(Id);
@@ -38,7 +29,7 @@ namespace AutoSolution.Services
 
             var CityTip = new SelectListItem()
             {
-                Value = (-1).ToString(),
+                Value = null,
                 Text = "----------------------- Select City ------------------------"
             };
             items.Insert(0, CityTip);
@@ -51,21 +42,11 @@ namespace AutoSolution.Services
             {
                 new SelectListItem
                 {
-                    Value = (-1).ToString(),
+                    Value = null,
                     Text = "----------------------- Select City ------------------------"
                 }
             };
             return new SelectList(items, "value", "Text");
         }
-
-        public List<City> GetCitiesWRTProvince(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public List<City> GetCities()
-        //{
-
-        //}
     }
 }

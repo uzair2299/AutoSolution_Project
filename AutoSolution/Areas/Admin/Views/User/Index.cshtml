@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container  kt-container--fluid ">
+        <div class="kt-subheader__main">
+            <h3 class="kt-subheader__title">
+                Users
+            </h3>
+            <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+            <div class="kt-subheader__group" id="kt_subheader_search">
+                <span class="kt-subheader__desc" id="kt_subheader_total">
+                    @ViewBag.count Total
+                </span>
+                <form class="kt-margin-l-20" id="kt_subheader_search_form">
+                    <div class="kt-input-icon kt-input-icon--right kt-subheader__search">
+                        <input type="text" class="form-control" placeholder="Search..." id="generalSearch">
+                        <span class="kt-input-icon__icon kt-input-icon__icon--right">
+                            <span>
+                                <i class="flaticon2-search-1"></i>
+                            </span>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="kt-subheader__toolbar">
+            <a href="#" class="">
+            </a>
+            <a href="demo1/custom/apps/user/add-user.html" class="btn btn-label-brand btn-bold">
+                Add User
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="tableContiner">
+    @{Html.RenderAction("GetUser");}
+</div>

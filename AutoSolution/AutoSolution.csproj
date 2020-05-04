@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdmSignInController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CityAreaController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductManuController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductsCategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartsProductsController.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Areas\Admin\Controllers\TemplateManagementController.cs" />
     <Compile Include="Areas\Admin\Controllers\TermsAndConditionController.cs" />
     <Compile Include="Areas\Admin\Controllers\TransmissionTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleEngineTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleModelController.cs" />
@@ -6937,6 +6939,12 @@
     <Content Include="Areas\Admin\Views\TemplateManagement\_GetTemplate.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceProvider\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ServiceProvider\_GetServiceProvider.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\_GetUser.cshtml" />
+    <Content Include="Areas\Admin\Views\CityArea\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CityArea\_AddNewCityArea.cshtml" />
+    <Content Include="Areas\Admin\Views\CityArea\_GetCityArea.cshtml" />
+    <Content Include="Areas\Admin\Views\CityArea\_DetailsCityArea.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

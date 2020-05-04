@@ -30751,7 +30751,7 @@ body {
     margin: 20px 0 0 0;
     height: 40px; }
     .kt-aside-menu .kt-menu__nav > .kt-menu__section .kt-menu__section-text {
-      font-size: 0.9rem;
+      font-size: 1.1rem; /*.9rem uzair*/
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.3px; }

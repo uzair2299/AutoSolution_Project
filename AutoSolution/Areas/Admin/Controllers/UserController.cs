@@ -9,28 +9,26 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Areas.Admin.Controllers
 {
-    public class ServiceProviderController : Controller
+    public class UserController : Controller
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
-        // GET: Admin/ServiceProvider
+        // GET: Admin/User
         public ActionResult Index()
-        
         {
-            ViewBag.count = _unitOfWork.User.GetServiceProvidersCount();
-            
+            ViewBag.count = _unitOfWork.User.GetUsersCount();
             return View();
         }
 
-        public ActionResult GetServiceProvider(string search, int? pageNo)
+        public ActionResult GetUser(string search, int? pageNo)
         {
             try
             {
                 if (string.IsNullOrEmpty(search))
                 {
                     int PageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
-                    int TotalCount = _unitOfWork.User.GetServiceProvidersCount();
-                    ServiceProviderWraper model = _unitOfWork.User.GetServiceProviders(PageNo, TotalCount);
-                    return PartialView("_GetServiceProvider", model);
+                    int TotalCount = _unitOfWork.User.GetUsersCount();
+                    ConsumerWraper model = _unitOfWork.User.GetUsers(PageNo, TotalCount);
+                    return PartialView("_GetUser", model);
                 }
                 //else
                 //{
@@ -49,7 +47,8 @@ namespace AutoSolution.Areas.Admin.Controllers
 
 
 
-            return PartialView("_GetServiceProvider");
+            return PartialView("_GetUser");
         }
+
     }
 }

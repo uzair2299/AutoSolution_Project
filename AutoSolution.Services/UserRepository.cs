@@ -40,6 +40,7 @@ namespace AutoSolution.Services
             RoleRepository autoSolutionRoleProvider = new RoleRepository(new AutoSolutionContext());
             user.FirstName = consumerViewModel.First_Name;
             user.LastName = consumerViewModel.Last_Name;
+            //user.UserFullName = consumerViewModel.First_Name + " " + consumerViewModel.Last_Name;
             user.Password = EncryptPassword.PasswordToEncrypt(consumerViewModel.Password);
             //user.Password = consumerViewModel.Password;
             user.Email = consumerViewModel.Email;
@@ -83,6 +84,7 @@ namespace AutoSolution.Services
             User user = new User();
             UserServiceCatogoryRepository userServiceCatogoryRepository = new UserServiceCatogoryRepository(new AutoSolutionContext());
             RoleRepository autoSolutionRoleProvider = new RoleRepository(new AutoSolutionContext());
+            //user.UserFullName = serviceProviderViewModel.First_Name + " " + serviceProviderViewModel.Last_Name;
             user.FirstName = serviceProviderViewModel.First_Name;
             user.LastName = serviceProviderViewModel.Last_Name;
             user.Password = EncryptPassword.PasswordToEncrypt(serviceProviderViewModel.Password);
@@ -107,10 +109,10 @@ namespace AutoSolution.Services
             return user;
         }
 
-        public AdminSide GetServiceProviders(int PageNo, int TotalCount)
+        public ServiceProviderWraper GetServiceProviders(int PageNo, int TotalCount)
         {
 
-            AdminSide adminSide = new AdminSide()
+            ServiceProviderWraper serviceProviderWraper = new ServiceProviderWraper()
             {
                 serviceProviderViewModelList = (from u in AutoSolutionContext.User
                    join ur in AutoSolutionContext.UserRoles
@@ -124,10 +126,14 @@ namespace AutoSolution.Services
 
                        First_Name = u.FirstName,
                        Last_Name = u.LastName,
-                       Email = u.MobileNumber1,
-                       Gender = u.Gender,
+                       Email = u.Email,
                        MobileNumber = u.MobileNumber,
                        PhoneNumber = u.PhoneNumber,
+                       SelectedCity = u.Cities.CityName,
+                       Address=u.Address,
+                       BusinessDescription=u.BusinessDescription,
+                       ImagePath=u.ImagePath,
+                       IsActive=u.IsActive,
                        serviceCategoriesListFor =AutoSolutionContext.UserServiceCatogories.Where(x=>x.UserId==u.UserId).Select(x=> new ServiceCategoryViewModel { 
                        ServiceCategoryName = x.ServiceCategory.ServiceCategoryName}).ToList()
                    }
@@ -136,12 +142,45 @@ namespace AutoSolution.Services
             Pager = new Pager(TotalCount, PageNo, 10)
 
             };
-            return adminSide;
+            return serviceProviderWraper;
+        }
+        public ConsumerWraper GetUsers(int PageNo, int TotalCount)
+        {
+
+            ConsumerWraper consumerWraper = new ConsumerWraper()
+            {
+                consumerViewModelViewModelList = (from u in AutoSolutionContext.User
+                                                join ur in AutoSolutionContext.UserRoles
+                                                on u.UserId equals ur.UserId
+                                                //join r in AutoSolutionContext.Roles
+                                                //on ur.RolesId equals r.RolesId
+                                                where ur.RolesId == 6
+                                                orderby u.UserId
+                                                select new ConsumerViewModel()
+                                                {
+
+                                                    First_Name = u.FirstName,
+                                                    Last_Name = u.LastName,
+                                                    Email = u.Email.Trim(),
+                                                    MobileNumber = u.MobileNumber,
+                                                    PhoneNumber = u.PhoneNumber,
+                                                    SelectedCity = u.Cities.CityName
+                                                }
+                   ).Skip((PageNo - 1) * 10).Take(10).ToList(),
+
+                Pager = new Pager(TotalCount, PageNo, 10)
+
+            };
+            return consumerWraper;
         }
 
         public int GetServiceProvidersCount()
         {
             return AutoSolutionContext.UserRoles.Where(x => x.RolesId == 6).Count();
+        }
+        public int GetUsersCount()
+        {
+            return AutoSolutionContext.UserRoles.Where(x => x.RolesId == 5).Count();
         }
         public AutoSolutionContext AutoSolutionContext
         {
@@ -168,3 +207,5 @@ namespace AutoSolution.Services
 //    ServiceCategoryName = sc.ServiceCategoryName
 //                                               }
 //                                               ).ToList()
+
+

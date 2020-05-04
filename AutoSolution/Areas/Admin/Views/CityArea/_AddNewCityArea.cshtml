@@ -1,0 +1,133 @@
+﻿@model AutoSolution.Services.ViewModel.CityAreaViewModel
+
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+    <div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="fa fa-map-marker-alt"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">
+                    Add New City Area/Town
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewCityArea">
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvinceList as SelectList, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                @Html.DropDownListFor(x => Model.SelectedCity, Model.CityList as SelectList, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                @Html.EditorFor(model => model.CityAreaName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button class="btn btn-dark btn-brand--icon pageButtons" id="AddNew" type="button">
+                            <span>
+                                <i class="la la-plus"></i>
+                                <span>Add New</span>
+                            </span>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset" type="reset">
+                            <span>
+                                <i class="la la-close"></i>
+                                <span>Cancel</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!--begin: Datatable -->
+            <!--end: Datatable -->
+        </div>
+    </div>
+</div>
+<script>
+
+      $(document).ready(function () {
+            $('#SelectedProvince').change(function () {
+                var selectedProvince = $("#SelectedProvince").val();
+                var selectedCity = $('#SelectedCity');
+                selectedCity.empty();
+                if (selectedProvince != null && selectedProvince != '') {
+                    $.getJSON('@Url.Action("GetCities")', { ProvinceId: selectedProvince }, function (cities) {
+                        if (cities != null && !jQuery.isEmptyObject(cities))
+                        {
+                            $.each(cities, function (index, city) {
+                                selectedCity.append($('<option/>', {
+                                    value: city.Value,
+                                    text: city.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+    var rendered = false;
+    //debugger;
+    $("#AddNew").click(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddNew", "CityArea")',
+                data: $("#AddNewCityArea").serialize()
+            })
+                .done(function (response) {
+                    $('#tableContiner').html(response);
+                    Swal.fire({
+                        text: 'Successfully Added',
+                    })
+                    rendered = true;
+                    //debugger;
+                })
+
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+            debugger;
+                $('#AddNewContainer').html("");
+            rendered = false;
+            //debugger;
+
+    });
+
+
+</script>
