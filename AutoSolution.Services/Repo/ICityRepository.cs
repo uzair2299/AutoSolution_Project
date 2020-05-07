@@ -15,6 +15,9 @@ namespace AutoSolution.Services.Repo
 
         IEnumerable<SelectListItem> GetCities();
         IEnumerable<SelectListItem> GetCities(string Id);
-    
+
+        IEnumerable<SelectListItem> GetCitiesForHome();
+        IEnumerable<SelectListItem> GetCitiesForHome(string Id);
+
     }
 }

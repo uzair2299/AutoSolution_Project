@@ -12,6 +12,7 @@ namespace AutoSolution.Services.Repo
 {
    public interface IServiceCategoryRepository:IRepository<ServiceCategory>
     {
+        IEnumerable<SelectListItem> GetServiceCategoryDropDown();
         List<ServiceCategoryUtility> GetServiceCategories();
         bool isExist(string ServiceCategory);
 

@@ -1,13 +1,13 @@
 ﻿@model List<AutoSolution.Entities.ServiceCategory>
-@{ 
-    var counter = 0;
+@{
+//var counter = 0;
 }
-    <link href="~/assets/css/Uzair.css" rel="stylesheet" />
-<div id="column">
+@*<link href="~/assets/css/Uzair.css" rel="stylesheet" />*@
+@*<div id="column">
     <div class="container ">
-    
+
         <h2 class="text-center text-white p-4 m-4">GET YOUR SERVICE</h2>
-                @{
+        @{
 
             foreach (var item in Model)
             {
@@ -41,4 +41,35 @@
 
 
     </div>
-    </div>
+</div>*@
+
+<div class="boxed">
+    <section class="flat-row row-product-project style-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-section margin-bottom-41">
+                        <h2 class="title">Our Popular Service Categories</h2>
+                    </div>
+                    <div class="product-content product-fourcolumn clearfix">
+                        <ul class="product style2 isotope-product clearfix">
+                            @foreach (var item in Model)
+                            {
+                                <li class="product-item kid woman">
+                                    <div class="product-thumb clearfix">
+                                        <a href="#">
+                                            <img src="~/assets/Uzair/template (16).png" alt="image">
+                                        </a>
+                                    </div>
+                                    <div class="product-info clearfix mt-2">
+                                        <span class="product-title">@item.ServiceCategoryName</span>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

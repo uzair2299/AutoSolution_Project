@@ -130,6 +130,7 @@
     <Compile Include="ViewModel\ConsumerWraper.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
     <Compile Include="ViewModel\JsonModel.cs" />
+    <Compile Include="ViewModel\FindYourMechanic.cs" />
     <Compile Include="ViewModel\ServiceProviderWraper.cs" />
     <Compile Include="ViewModel\PartsProductManuVeiwModel.cs" />
     <Compile Include="ViewModel\PartsProductsCategoryViewModel.cs" />

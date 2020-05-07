@@ -11,6 +11,7 @@ namespace AutoSolution.Services.Repo
    public interface IProvinceRepository:IRepository<Province>
     {
         IEnumerable<SelectListItem> GetProvinces();
+        IEnumerable<SelectListItem> GetProvincesForHome();
         bool isExist(string Province);
     }
 }

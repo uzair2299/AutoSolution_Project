@@ -20,6 +20,23 @@ namespace AutoSolution.Services
         {
         }
 
+        public IEnumerable<SelectListItem> GetServiceCategoryDropDown()
+        {
+            List<SelectListItem> items = Context.Set<ServiceCategory>().OrderBy(n => n.ServiceCategoryName).Select(n => new SelectListItem
+            {
+                Value = n.ServiceCategoryId.ToString(),
+                Text = n.ServiceCategoryName
+            }).ToList();
+
+            var CityTip = new SelectListItem()
+            {
+                Value = null,
+                Text = "--------- Select Service Category ----------"
+            };
+            items.Insert(0, CityTip);
+            return new SelectList(items, "value", "Text");
+        }
+
         public List<ServiceCategoryUtility> GetServiceCategories()
         {
             

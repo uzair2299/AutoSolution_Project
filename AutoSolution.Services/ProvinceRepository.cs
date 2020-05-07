@@ -30,6 +30,22 @@ namespace AutoSolution.Services
             items.Insert(0, CityTip);
             return new SelectList(items, "value", "Text");
         }
+        public IEnumerable<SelectListItem> GetProvincesForHome()
+        {
+            List<SelectListItem> items = Context.Set<Province>().OrderBy(n => n.ProvinceName).Select(n => new SelectListItem
+            {
+                Value = n.ProvinceId.ToString(),
+                Text = n.ProvinceName
+            }).ToList();
+
+            var CityTip = new SelectListItem()
+            {
+                Value = null,
+                Text = "------------- Select Province --------------"
+            };
+            items.Insert(0, CityTip);
+            return new SelectList(items, "value", "Text");
+        }
 
         public bool isExist(string Province)
         {

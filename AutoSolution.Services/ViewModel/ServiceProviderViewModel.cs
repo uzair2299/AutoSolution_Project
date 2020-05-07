@@ -26,8 +26,10 @@ namespace AutoSolution.Services.ViewModel
 
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
+        [Display(Name = "Select City Area/Town Name")]
+        public string SelectedCityAreaName { get; set; }
 
-
+        public string SelectedCityAreaId { get; set; }
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
