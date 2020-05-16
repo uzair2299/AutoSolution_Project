@@ -148,8 +148,11 @@
     <Compile Include="Areas\Admin\Controllers\VehicleModelController.cs" />
     <Compile Include="Areas\Admin\Controllers\VehicleVersionController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
+    <Compile Include="Controllers\GetPartProductController.cs" />
+    <Compile Include="Controllers\GetServiceProviderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
@@ -1740,8 +1743,22 @@
     <Content Include="assets\Uzair\template %2826%29.png" />
     <Content Include="assets\Uzair\template %2827%29.png" />
     <Content Include="assets\Uzair\template %2828%29.png" />
+    <Content Include="assets\Uzair\template %2829%29.png" />
     <Content Include="assets\Uzair\template %283%29.png" />
+    <Content Include="assets\Uzair\template %2830%29.png" />
+    <Content Include="assets\Uzair\template %2831%29.png" />
+    <Content Include="assets\Uzair\template %2832%29.png" />
+    <Content Include="assets\Uzair\template %2833%29.png" />
+    <Content Include="assets\Uzair\template %2834%29.png" />
+    <Content Include="assets\Uzair\template %2835%29.png" />
+    <Content Include="assets\Uzair\template %2836%29.png" />
+    <Content Include="assets\Uzair\template %2837%29.png" />
+    <Content Include="assets\Uzair\template %2838%29.png" />
+    <Content Include="assets\Uzair\template %2839%29.png" />
     <Content Include="assets\Uzair\template %284%29.png" />
+    <Content Include="assets\Uzair\template %2840%29.png" />
+    <Content Include="assets\Uzair\template %2841%29.png" />
+    <Content Include="assets\Uzair\template %2842%29.png" />
     <Content Include="assets\Uzair\template %285%29.png" />
     <Content Include="assets\Uzair\template %286%29.png" />
     <Content Include="assets\Uzair\template %287%29.png" />
@@ -6988,10 +7005,12 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -7073,6 +7092,7 @@
     <Content Include="stylesheets\font-awesome.css" />
     <Content Include="stylesheets\jquery-ui.css" />
     <Content Include="stylesheets\magnific-popup.css" />
+    <Content Include="stylesheets\OurTeam.css" />
     <Content Include="stylesheets\owl.carousel.css" />
     <Content Include="stylesheets\responsive.css" />
     <Content Include="stylesheets\shortcodes.css" />
@@ -7117,8 +7137,14 @@
     <Content Include="Views\Home\_GetServiceCategories.cshtml" />
     <Content Include="Views\UserDashboard\Index.cshtml" />
     <Content Include="Views\VebndorDashoard\Index.cshtml" />
-    <Content Include="Views\Home\_GetPartsPartialView.cshtml" />
     <Content Include="Views\Home\_SelectYourInterest.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\GetServiceProvider\Index.cshtml" />
+    <Content Include="Views\GetServiceProvider\_GetServiceProviders.cshtml" />
+    <Content Include="Views\Home\_GetPartsProduct.cshtml" />
+    <Content Include="Views\GetPartProduct\Index.cshtml" />
+    <Content Include="Views\GetPartProduct\_GetPartsProducts.cshtml" />
+    <Content Include="Views\GetPartProduct\PartProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

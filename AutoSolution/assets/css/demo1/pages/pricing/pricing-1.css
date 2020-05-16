@@ -86,23 +86,24 @@
           position: absolute; }
           .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__visual .kt-pricing-1__icon > i {
             font-size: 8.57rem; }
-      .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__price {
-        font-size: 3rem;
-        font-weight: 700;
-        display: block;
-        margin-top: 20rem;
-        color: #595d6e; }
+        .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__price {
+            font-size: 2.14rem;/*font-size: 3rem;*/
+            font-weight: 700;
+            display: block;
+            /*margin-top: 20rem;*/
+            color: #595d6e;
+        }
         .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__price .kt-pricing-1__label {
           margin-top: 0.64rem;
           margin-left: 0.357rem;
           position: absolute;
-          font-size: 1.64rem;
+          font-size:.9rem /*1.64rem*/;
           font-weight: 500;
           color: #74788d; }
       .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item:nth-child(1) .kt-pricing-1__price {
         font-size: 2.14rem;
-        margin-bottom: 0.571rem;
-        margin-top: 270px;
+        /*margin-bottom: 0.571rem;*/
+        /*margin-top: 270px;*/
         color: #595d6e; }
       .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__subtitle {
         font-size: 1.1rem;
@@ -120,7 +121,7 @@
       .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__btn {
         margin: 2.14rem 0 2.14rem 0; }
         .kt-pricing-1 .kt-pricing-1__items .kt-pricing-1__item .kt-pricing-1__btn > .btn {
-          padding: 0.86rem 3.57rem 0.86rem 3.57rem; }
+          /*padding: 0.86rem 3.57rem 0.86rem 3.57rem;*/  /*uzair*/}
 
 @media (min-width: 1025px) and (max-width: 1399px) {
   .kt-pricing-1.kt-pricing-1--fixed {

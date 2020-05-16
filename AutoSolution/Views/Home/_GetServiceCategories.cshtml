@@ -1,75 +1,290 @@
 ﻿@model List<AutoSolution.Entities.ServiceCategory>
 @{
-//var counter = 0;
+    var counterServiceCategory = 0;
+
 }
+
+<link href="~/stylesheets/owl.carousel.css" rel="stylesheet" />
+<div class="kt-portlet">
+    <div class="kt-portlet__body kt-portlet__body--fit">
+        <div class="kt-pricing-2">
+            <div class="kt-pricing-2__head">
+                <div class="kt-pricing-2__title kt-font-light">
+                    <h1>Auto Solution Service Categories</h1>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="kt-pricing-2_content1" aria-expanded="true">
+                    <div class="kt-pricing-2__content">
+                        <div class="kt-pricing-2__container">
+                            @{
+                                if (Model.Count() > 0)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        if (counterServiceCategory % 4 == 0)
+                                        {
+                                            @: <div class="kt-pricing-2__items row">
+                                            }
+                                            <div class="kt-pricing-2__item col-lg-3">
+
+
+                                                <img src="~/assets/Uzair/template (30).png" alt="image">
+
+
+                                                <h5 class="kt-pricing-2__subtitle">@item.ServiceCategoryName</h5>
+                                                <div class="kt-pricing-2__btn">
+                                                    <button type="button" class="btn btn-pill  btn-dark btn-wide btn-uppercase btn-bolder btn-lg" onclick="location.href='@Url.Action( "Index","GetServiceProvider" ,new {  id = item.ServiceCategoryId })';return false;">Explore</button>
+                                                </div>
+                                            </div>
+                                            counterServiceCategory = counterServiceCategory + 1;
+                                            if (counterServiceCategory % 4 == 0)
+                                            {
+                                            @:</div>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="alert alert-dark" role="alert">
+                                        <div class="alert-icon"><i class="flaticon-light"></i></div>
+                                        <div class="alert-text"><h5>No Data to Show</h5></div>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 @*<link href="~/assets/css/Uzair.css" rel="stylesheet" />*@
 @*<div id="column">
-    <div class="container ">
+        <div class="container ">
 
-        <h2 class="text-center text-white p-4 m-4">GET YOUR SERVICE</h2>
-        @{
+            <h2 class="text-center text-white p-4 m-4">GET YOUR SERVICE</h2>
+            @{
 
-            foreach (var item in Model)
-            {
-
-                if (counter % 5 == 0)
+                foreach (var item in Model)
                 {
-                    @:<div class="card-deck my-5">
+
+                    if (counter % 5 == 0)
+                    {
+                        @:<div class="card-deck my-5">
+                        }
+
+
+
+                        <div class="card">
+                            <div class="inner"><img class="card-img-top rounded" src="~/assets/Uzair/gallery_bg.jpg" alt="Card image cap"></div>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">@item.ServiceCategoryName</h5>
+                            </div>
+                        </div>
+                        counter = counter + 1;
+                        if (counter % 5 == 0)
+                        {
+                        @:</div>
                     }
 
 
-
-                    <div class="card">
-                        <div class="inner"><img class="card-img-top rounded" src="~/assets/Uzair/gallery_bg.jpg" alt="Card image cap"></div>
-                        <div class="card-body">
-                            <h5 class="card-title text-center">@item.ServiceCategoryName</h5>
-                        </div>
-                    </div>
-                    counter = counter + 1;
-                    if (counter % 5 == 0)
-                    {
-                    @:</div>
                 }
 
+                <div class="mb-5"></div>
 
             }
 
-            <div class="mb-5"></div>
-
-        }
 
 
+        </div>
+    </div>*@
 
-    </div>
-</div>*@
-
-<div class="boxed">
-    <section class="flat-row row-product-project style-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="title-section margin-bottom-41">
-                        <h2 class="title">Our Popular Service Categories</h2>
-                    </div>
-                    <div class="product-content product-fourcolumn clearfix">
-                        <ul class="product style2 isotope-product clearfix">
-                            @foreach (var item in Model)
-                            {
-                                <li class="product-item kid woman">
-                                    <div class="product-thumb clearfix">
-                                        <a href="#">
-                                            <img src="~/assets/Uzair/template (16).png" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="product-info clearfix mt-2">
-                                        <span class="product-title">@item.ServiceCategoryName</span>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
+@*<div class="boxed">
+        <section class="flat-row row-product-project style-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-section margin-bottom-41">
+                            <h2 class="title">Our Popular Service Categories</h2>
+                        </div>
+                        <div class="product-content product-fourcolumn clearfix">
+                            <ul class="product style2 isotope-product clearfix">
+                                @foreach (var item in Model)
+                                {
+                                    <li class="product-item kid woman">
+                                        <div class="product-thumb clearfix">
+                                            <a href="#">
+                                                <img src="~/assets/Uzair/template (16).png" alt="image">
+                                            </a>
+                                        </div>
+                                        <div class="product-info clearfix mt-2">
+                                            <span class="product-title">@item.ServiceCategoryName</span>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>*@
+<div class="kt-portlet">
+    <div class="kt-portlet__body kt-portlet__body--fit">
+        <div class="kt-pricing-2">
+            <div class="kt-pricing-2__head">
+                <div class="kt-pricing-2__title kt-font-light">
+                    <h1>Transparent &amp; Simple Pricing</h1>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="kt-pricing-2_content1" aria-expanded="true">
+                    <div class="kt-pricing-2__content">
+                        <div class="kt-pricing-2__container">
+                            <div class="kt-pricing-2__items">
+                                <div class="owl-carousel owl-theme">
+
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan1</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets1</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan1</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets1</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                    <div class="kt-pricing-2__item">
+                                        <div class="kt-pricing-2__visual">
+                                            <div class="kt-pricing-2__hexagon"></div>
+                                            <span class="kt-pricing-2__icon kt-font-info"><i class="fa flaticon-confetti"></i></span>
+                                        </div>
+                                        <h2 class="kt-pricing-2__subtitle">Basic Plan</h2>
+                                        <div class="kt-pricing-2__features">
+                                            <span>1 Domain</span>
+                                            <span>10 Users</span>
+                                            <span>20 Copies</span>
+                                            <span>Free Assets</span>
+                                        </div>
+                                        <span class="kt-pricing-2__price">69</span>
+                                        <span class="kt-pricing-2__label">$</span>
+                                        <div class="kt-pricing-2__btn">
+                                            <button type="button" class="btn btn-pill  btn-info btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-    </section>
 </div>
+        
+   
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots:true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        </script>

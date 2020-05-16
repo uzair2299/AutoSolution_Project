@@ -9,7 +9,7 @@
   .kt-sc-faq-3 .kt-sc__subtitle {
     font-size: 1.4rem;
     color: #9392a0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem; /*uzair 0.5rem;*/
     font-weight: 400; }
   .kt-sc-faq-3 .kt-sc__bg svg {
     width: 550px;

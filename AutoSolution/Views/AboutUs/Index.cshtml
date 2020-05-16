@@ -3,97 +3,271 @@
     ViewBag.Title = "Index";
 }
 
-    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
-        <div class="kt-container ">
-            <div class="kt-subheader__main">
-                <h3 class="kt-subheader__title kt-align-center">About Us</h3>
-            </div>
+    <style>
+
+figure.snip0078 {
+
+    color: #fff;
+    position: relative;
+    float: left;
+    margin: 10px 1%;
+    min-width: 220px;
+    max-width: 350px;
+    max-height: 310px;
+    width: 100%;
+    text-align: center;
+}
+
+figure.snip0078 * {
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+}
+
+figure.snip0078 img {
+    opacity: 1;
+    max-width: 100%;
+    border: 10px solid #000000;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+figure.snip0078 figcaption {
+    bottom: 0;
+    width: 60%;
+    right: 0;
+    position: absolute;
+    background: #000000;
+    padding: 12px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    box-shadow: 0 0px 10px -10px #000000;
+}
+
+figure.snip0078 figcaption h2,
+figure.snip0078 figcaption p {
+    margin: 0;
+    color: #ffffff;
+}
+
+figure.snip0078 figcaption h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+figure.snip0078 figcaption h2 span {
+    font-weight: 800;
+}
+
+figure.snip0078 figcaption p {
+    font-size: 0.9em;
+    font-weight: 500;
+    opacity: 0.65;
+}
+
+figure.snip0078 a {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+figure.snip0078.blue figcaption {
+    background: #315e95;
+}
+
+figure.snip0078.blue img {
+    border: 10px solid #315e95;
+}
+
+figure.snip0078.red figcaption {
+    background: #81261d;
+}
+
+figure.snip0078.red img {
+    border: 10px solid #81261d;
+}
+
+figure.snip0078.yellow figcaption {
+    background: #a85913;
+}
+
+figure.snip0078.yellow img {
+    border: 10px solid #a85913;
+}
+
+figure.snip0078:hover figcaption,
+figure.snip0078.hover figcaption {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 15px -15px #000000;
+}
+
+figure.snip0078:hover.blue img,
+figure.snip0078.hover.blue img {
+    border: 10px solid #2980b9;
+}
+
+figure.snip0078:hover.red img,
+figure.snip0078.hover.red img {
+    border: 10px solid #c0392b;
+}
+
+figure.snip0078:hover.yellow img,
+figure.snip0078.hover.yellow img {
+    border: 10px solid #e67e22;
+}
+
+
+.snip1374 {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 10px 10%;
+    min-width: 240px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+.snip1374 img {
+    max-width: 100%;
+    vertical-align: top;
+    -webkit-transition: all 2s ease-out;
+    transition: all 2s ease-out;
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.snip1374:hover img,
+.snip1374.hover img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.info-text{
+  top: 50%;
+}
+.info-text p {
+    display: table-cell;
+    margin: 0;
+    vertical-align: middle;
+    text-align: left;
+    /*font-size: 26px;
+    line-height: 1.4;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    padding: 16% 4%;
+    vertical-align: middle;
+}
+.info-text .right {
+  float: right;
+}
+    </style>
+
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+            <h2 class="kt-subheader__title kt-align-center">About Us</h2>
+            <h5>Auto Solution is the leading platform that connects skilled auto mobile professionals in Pakistan with customers.</h5>
         </div>
     </div>
-    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-
-        <!--begin::Portlet-->
-            <div class="kt-portlet kt-portlet--height-fluid">
-                <div class="kt-portlet__head">
-                    <div class="kt-portlet__head-label">
-                        <span class="kt-portlet__head-icon"><i class="flaticon-car"></i></span>
-                        <h3 class="kt-portlet__head-title">About Auto Solution</h3>
-                    </div>
-                </div>
-                <div class="kt-portlet__body">
-                    <div class="kt-portlet__content">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.
-                    </div>
-                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
-                    <div class="kt-portlet__head-label">
-                        <h3 class="kt-portlet__head-title kt-align-center kt-mt-20">Our Team</h3>
-                        <div class="kt-portlet">
-                            <div class="kt-portlet__head">
-                                <div class="kt-portlet__head-label">
-                                    <span class="kt-portlet__head-icon">
-                                        <i class="la la-puzzle-piece"></i>
-                                    </span>
-                                    <h3 class="kt-portlet__head-title">
-                                        Basic Pricing Table
-                                    </h3>
-                                </div>
+</div>
+<div class="kt-container ">
+    <div class="kt-portlet">
+        <div class="kt-portlet__body mt-3">
+            <!--begin::Section-->
+            <div class="kt-section">
+                <div class="kt-section__content" style="line-height:30px; font-size:1.2rem">
+                    <div class="kt-container  kt-grid__item kt-grid__item--fluid">
+                        <!-- begin:: Section -->
+                        <div class="kt-sc-faq-3 kt-sc-feedback">
+                        
+                            <div class="kt-sc__bg" style="background-image:url('/assets/Uzair/template (34).png') ;height: 350px;background-size: contain;width: 100%;background-repeat: no-repeat;">
                             </div>
-                            <div class="kt-portlet__body">
-                                <div class="kt-pricing-1 kt-pricing-1--fixed">
-                                    <div class="kt-pricing-1__items row">
-                                        <div class="kt-pricing-1__item col-lg-4">
-                                            <div class="kt-pricing-1__visual">
-                                                <div class="kt-pricing-1__hexagon1"></div>
-                                                <div class="kt-pricing-1__hexagon2"></div>
-                                                <span class="kt-pricing-1__icon kt-font-brand"><i class="fa flaticon-rocket"></i></span>
-                                            </div>
-                                            <span class="kt-pricing-1__price">Free</span>
-                                            <h2 class="kt-pricing-1__subtitle">1 End Product License</h2>
-                                            <span class="kt-pricing-1__description">
-                                                <span>Lorem ipsum dolor sit amet edipiscing elit</span>
-                                                <span>sed do eiusmod elpors labore et dolore</span>
-                                                <span>magna siad enim aliqua</span>
-                                            </span>
-                                            <div class="kt-pricing-1__btn">
-                                                <button type="button" class="btn btn-pill  btn-brand btn-wide btn-uppercase btn-bolder btn-sm">Get For Free</button>
+                        </div>
+                        <div class="kt-margin-top-30">
+                            @*<div class="kt-portlet__head">
+            <div class="kt-portlet__head-label" style="margin:0 auto">
+                <h3 class="kt-portlet__head-title">
+                    Send us your enquiries
+                </h3>
+            </div>
+        </div>*@
+                            <div class="kt-portlet__body" style="line-height:30px; font-size:1.2rem">
+                            
+                                <div class="container" style="max-width:100%;">
+                                    <div class="row">
+                                        <div class="col-12" style="text-align:center;">
+                                            <h2>– Auto Solution –</h2>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-8 col-md-6">
+                                            <div class="info-text">
+                                                <p  class="text-justify"><span class="font-weight-bold">Auto Solution</span> aims to provides auto parts and services in all over the Pakistan.The local market is scattered which creates confusion for the customers where to get services for their auto vehicles. <span class="font-weight-bold">Auto Solution</span> creates a unified place where service providers can register and offer their services. <span class="font-weight-bold">Auto Solution</span> has a variety of auto parts with satisfactory quality. With <span class="font-weight-bold">Auto Solution</span> people can save their valuable time and find the right part and right service provider for their auto vehicles.</p>                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-6">
+                                            <div class="col-xs-12">
+                                                <figure class="snip1374"><a href="#"><img src="~/assets/Uzair/template (36).png" alt=""></a></figure>
                                             </div>
                                         </div>
-                                        <div class="kt-pricing-1__item col-lg-4">
-                                            <div class="kt-pricing-1__visual">
-                                                <div class="kt-pricing-1__hexagon1"></div>
-                                                <div class="kt-pricing-1__hexagon2"></div>
-                                                <span class="kt-pricing-1__icon kt-font-brand"><i class="fa flaticon-piggy-bank"></i></span>
+                                        <div style="clear: both;"></div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-6 col-md-pull-6">
+                                                <div class="col-xs-12">
+                                                    <figure class="snip1374"><a href="#"><img src="~/assets/Uzair/template (36).png" alt=""></a></figure>
+                                                </div>
                                             </div>
-                                            <span class="kt-pricing-1__price">69<span class="kt-pricing-1__label">$</span></span>
-                                            <h2 class="kt-pricing-1__subtitle">Business License</h2>
-                                            <span class="kt-pricing-1__description">
-                                                <span>Lorem ipsum dolor sit amet edipiscing elit</span>
-                                                <span>sed do eiusmod elpors labore et dolore</span>
-                                                <span>magna siad enim aliqua</span>
-                                            </span>
-                                            <div class="kt-pricing-1__btn">
-                                                <button type="button" class="btn btn-pill  btn-brand btn-wide btn-uppercase btn-bolder btn-sm">Purchase</button>
+                                            <div class="col-xs-12 col-sm-8 col-sm-push-4 col-md-6 col-md-push-6">
+                                                <div class="info-text right">
+                                                    <p  class="text-justify"><span class="font-weight-bold">Auto Solution</span> gives people a trusted and unified innovative platform for the service providers where they can register themselves and offer their services. <span class="font-weight-bold">Auto Solution</span> has filled the market gap for the customers and service providers.Real time communication between customer and service providers makes <span class="font-weight-bold">Auto Solution</span> trustworthy.</p>                                                </div>
                                             </div>
+
                                         </div>
-                                        <div class="kt-pricing-1__item col-lg-4">
-                                            <div class="kt-pricing-1__visual">
-                                                <div class="kt-pricing-1__hexagon1"></div>
-                                                <div class="kt-pricing-1__hexagon2"></div>
-                                                <span class="kt-pricing-1__icon kt-font-brand"><i class="fa flaticon-gift"></i></span>
+                                        <div style="clear: both;"></div>
+                                        <hr>
+
+                                    </div>
+                                    <div class="container" style="max-width:100%;"></div>
+                                    <div class="row">
+                                        <div class="col-12" style="text-align:center;padding-top:25px;">
+                                            <h3 style="padding-bottom:10px;text-transform:uppercase;">Contact us today for:</h3></div>
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <figure class="snip0078 blue">
+                                                    <img src="https://cdn.shopify.com/s/files/1/2204/2817/files/hottest_trends_2-0078.jpg?1369754927576680618" alt="sampl45" />
+                                                    <figcaption>
+                                                        <h2>The Hottest <span> Trends</span></h2>
+                                                    </figcaption>
+                                                    <a href="#"></a>
+                                                </figure>
                                             </div>
-                                            <span class="kt-pricing-1__price">889<span class="kt-pricing-1__label">$</span></span>
-                                            <h2 class="kt-pricing-1__subtitle">Enterprice License</h2>
-                                            <span class="kt-pricing-1__description">
-                                                <span>Lorem ipsum dolor sit amet edipiscing elit</span>
-                                                <span>sed do eiusmod elpors labore et dolore</span>
-                                                <span>magna siad enim aliqua</span>
-                                            </span>
-                                            <div class="kt-pricing-1__btn">
-                                                <button type="button" class="btn btn-pill  btn-brand btn-wide btn-uppercase btn-bolder btn-sm">Purchase</button>
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <figure class="snip0078 red">
+                                                    <img src="https://cdn.shopify.com/s/files/1/2204/2817/files/budget_friendly_ideas_3-0078.jpg?15005372342585381625" alt="sample50" />
+                                                    <figcaption>
+                                                        <h2>Budget Friendly <span>Ideas</span></h2>
+                                                    </figcaption>
+                                                    <a href="#"></a>
+                                                </figure>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                                <figure class="snip0078 yellow">
+                                                    <img src="https://cdn.shopify.com/s/files/1/2204/2817/files/custom_proposals_2-0078.jpg?1369754927576680618" alt="sample46" />
+                                                    <figcaption>
+                                                        <h2>Customized <span> Proposals</span></h2>
+                                                    </figcaption>
+                                                    <a href="#"></a>
+                                                </figure>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -101,4 +275,4 @@
                 </div>
             </div>
         </div>
-        <!--end::Portlet-->
+<!--end::Portlet-->

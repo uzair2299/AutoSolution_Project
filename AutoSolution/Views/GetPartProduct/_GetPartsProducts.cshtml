@@ -1,0 +1,408 @@
+﻿@model AutoSolution.Services.ViewModel.PartProductwraperForHome
+    @{ 
+        int counter = 0;
+    }
+<div class="kt-container">
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label" style="margin:0 auto">
+                <h3 style="font-size:1.5rem" class="kt-portlet__head-title">
+                    Select Your Interest
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body kt-mb-50">
+            <ul class="nav nav-tabs nav-fill" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#kt_tabs_1_1" style="font-size:1.3rem">Find Your Auto </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="kt_tabs_1_1" role="tabpanel">
+                    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                        <div class="kt-portlet kt-portlet--mobile">
+                            <div class="kt-portlet__body">
+                                <!--begin: Search Form -->
+                                <form class="kt-form kt-form--fit kt-margin-b-20">
+                                    <div class="row kt-margin-b-20">
+                                        <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.FindYourPart.SelectedVehicleManufacturer, htmlAttributes: new { @class = "col-form-label" })
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                                    @Html.DropDownListFor(x => Model.FindYourPart.SelectedVehicleManufacturer, Model.FindYourPart.VehicleManufacturersList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.FindYourPart.SelectedVehicleModel, htmlAttributes: new { @class = "col-form-label" })
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-car-side"></i></span></div>
+                                                    @Html.DropDownListFor(x => Model.FindYourPart.SelectedVehicleModel, Model.FindYourPart.VehicleModelsList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                            <div class="form-group">
+                                                @Html.Label("Select Year", htmlAttributes: new { @class = "col-form-label" })
+                                                <div class="date input-group" id="kt_datepicker_5">
+                                                    @Html.EditorFor(model => model.FindYourPart.startYear, new { htmlAttributes = new { @class = "form-control datepicker", @readonly = "readonly", PlaceHolder = "Start Year" } })
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="la la-ellipsis-h"></i></span>
+                                                    </div>
+                                                    @Html.EditorFor(model => model.FindYourPart.EndYear, new { htmlAttributes = new { @class = "form-control datepicker", @readonly = "readonly", PlaceHolder = "End Year" } })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row kt-margin-t-40">
+                                        <div class="col-lg-12 text-right">
+                                            <button class="btn btn-dark btn-brand--icon" id="kt_search">
+                                                <span>
+                                                    <i class="la la-search"></i>
+                                                    <span>Search</span>
+                                                </span>
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                                <span>
+                                                    <i class="la la-close"></i>
+                                                    <span>Reset</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--begin: Datatable -->
+                                <!--end: Datatable -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div>
+        @*<div class="boxed">
+                <section class="flat-row row-animation-box bg-section row-1" style="background-image:url('/assets/Uzair/template (27).png')">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="flat-animation-block">
+                                    <div class="title-section width-before-17 bg-before-white margin-bottom-14">
+                                        <div class="sup-title"><span>NEW TREND  @DateTime.Now.Year</span></div>
+                                        <h2 class="title font-size-52 line-height-76">Auto Parts Products & Accessories Collection</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+    </div>  
+        <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!--begin::Portlet-->
+                            <div class="kt-portlet ">
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                        <h3 class="kt-portlet__head-title">
+                                            Showing Result By:
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body">
+                                    <!--begin::Accordion-->
+                                    <div class="accordion  accordion-toggle-arrow" id="accordionExample4">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne4">
+                                                <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
+                                                    <i class="fab fa-whmcs"></i> Category
+                                                </div>
+                                            </div>
+                                            <div id="collapseOne4" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample4" style="">
+                                                <div class="card-body">
+
+                                                    <div id="kt_tree_1" class="tree-demo jstree jstree-1 jstree-default" role="tree" aria-multiselectable="true" tabindex="0" aria-activedescendant="j1_1" aria-busy="false">
+                                                        <ul class="jstree-container-ul jstree-children" role="group">
+                                                            <li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="j1_1_anchor" aria-expanded="false" id="j1_1" class="jstree-node jstree-closed">
+                                                                <i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="#" tabindex="-1" id="j1_1_anchor">
+                                                                    <i class="jstree-icon jstree-themeicon fa fa-folder jstree-themeicon-custom" role="presentation"></i>
+                                                                    Category
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo4">
+                                                <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4">
+                                                    <i class="fa fa-money-bill-alt"></i> Price Range
+                                                </div>
+                                            </div>
+                                            <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo1" data-parent="#accordionExample4">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label class="col-form-label" for="Select_Year">Price Range</label>
+                                                        <div class="date input-group" id="kt_datepicker_5">
+                                                            <input class="form-control  text-box single-line" data-val="true" data-val-number="The field startYear must be a number." readonly="readonly" type="number" value="">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text"><i class="fa fa-money-bill"></i></span>
+                                                            </div>
+                                                            <input class="form-control  text-box single-line" data-val="true" data-val-number="The field End Year must be a number." name="FindYourPart.EndYear" readonly="readonly" type="number" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree4">
+                                                <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+                                                    <i class="fa fa-tags"></i> Sale
+                                                </div>
+                                            </div>
+                                            <div id="collapseThree4" class="collapse" aria-labelledby="headingThree1" data-parent="#accordionExample4">
+                                                <div class="card-body">
+                                                    <div class="kt-checkbox-inline">
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox" value="true">
+                                                            <input name="IsTermAndConditionAccepted" type="hidden" value="false">
+                                                            Discounted Parts/Products
+                                                            <span></span>
+                                                        </label>
+                                                        <span class="form-text text-muted"><span class="field-validation-valid text-danger" data-valmsg-for="IsTermAndConditionAccepted" data-valmsg-replace="true"></span></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree4">
+                                                <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree5" aria-expanded="false" aria-controls="collapseThree4">
+                                                    <i class="fa fa-th-large"></i> Brand
+                                                </div>
+                                            </div>
+                                            <div id="collapseThree5" class="collapse" aria-labelledby="headingThree1" data-parent="#accordionExample4">
+                                                <div class="card-body">
+                                                    <div class="kt-checkbox-list">
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="kt-checkbox kt-checkbox--solid kt-checkbox--brand">
+                                                            <input type="checkbox"> Default
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--end::Accordion-->
+                                </div>
+                            </div>
+
+
+                       
+                    </div>
+                    <!--begin::Portlet-->
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+
+                </div>
+
+            </div>
+            <div class="col-9">
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label" style="margin: 0 auto">
+                            <h3 class="kt-portlet__head-title" style="font-size:1.5rem">
+                                @Model.PartsProductsCategory.PartsProductsCategoryName&nbsp;Parts/Products
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body" style="padding:30px">
+                        <div class="kt-pricing-1">
+
+                            @if (Model.PartsProductsViewModelsList.Count > 0)
+                            {
+                                foreach (var product in Model.PartsProductsViewModelsList)
+                                {
+                                    if (counter % 4 == 0)
+                                    {
+                                        @: <div class="kt-pricing-1__items row">
+                                        }
+
+                                        <div class="kt-pricing-1__item col-lg-3">
+                                            <div class="kt-portlet__head kt-portlet__head--right kt-ribbon kt-ribbon--dark">
+                                                <div class="kt-ribbon__target" style="top: 10px; left: 10px;">New</div>
+                                                <div class="kt-portlet__head-label" style="align-self: center;">
+                                                    <p class="kt-portlet__head-title" style="font-size:1rem;font-weight:unset;"><span class="kt-font-danger">Free Shipping</span></p>
+                                                </div>
+                                            </div>
+                                            <img src="~/assets/Uzair/template (31).png" alt="image" style="padding:10px">
+                                            <span class="kt-pricing-1__price kt-mt-10">@product.UnitPrice<span class="kt-pricing-1__label">PKR</span></span>
+                                            <h6 class="kt-pricing-1__subtitle p-2">
+                                                <span class="kt-pricing-1__description">
+                                                    <del>@product.UnitPrice PKR</del>:&nbsp; **% OFF
+                                                </span>
+                                            </h6>
+
+                                            <h2 class="kt-pricing-1__subtitle p-2">
+                                                @if (product.VehicleManufacturerName != null)
+                                                {
+                                                    @product.VehicleManufacturerName@:&nbsp;
+                                                }
+                                                @if (product.VehicleModelName != null)
+                                                {
+                                                    @product.VehicleModelName @:for
+                                                }
+                                                @*else
+                                {
+                                    @:for
+                                }*@
+                                                @if (product.startYear != 0)
+                                                {
+                                                    @product.startYear
+                                                    if (product.EndYear != 0)
+                                                    {
+                                                        @:- @product.EndYear
+                                                    }
+                                                }
+                                                @product.PartsProductName
+                                            </h2>
+                                            <div class="kt-pricing-1__btn align-self-baseline">
+                                                <button type="button" class="btn btn-outline-dark btn-elevate btn-icon"><i class="la la-cart-plus" style="font-size:1.7rem"></i></button>
+                                                <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
+                                                <a href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
+                                            </div>
+                                        </div>
+                                        counter = counter + 1;
+                                        if (counter % 4 == 0)
+                                        {
+                                        @:</div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <div class="alert alert-dark" role="alert">
+                                    <div class="alert-icon"><i class="flaticon-light"></i></div>
+                                    <div class="alert-text"><h5>No Data to Show</h5></div>
+                                </div>
+                            }
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-5">
+                                @{ var PageNoForBottom = Model.Pager.CurrentPage;
+                                    var PageSizeForBottom = Model.Pager.PageSize;
+                                    int StartRange = 0;
+                                    int EndRange = 0;
+                                    if (PageNoForBottom > 1)
+                                    {
+                                        StartRange = ((PageNoForBottom - 1) * PageSizeForBottom) + 1;
+                                        EndRange = PageNoForBottom * PageSizeForBottom;
+                                        if (PageNoForBottom == Model.Pager.EndPage)
+                                        {
+                                            EndRange = Model.Pager.TotalItems;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        StartRange = 1;
+                                        EndRange = 12;
+
+                                    }
+
+                                }
+                                <div class="dataTables_info" style="color:#595d6e">Showing @StartRange to @EndRange of @Model.Pager.TotalItems</div>
+                            </div>
+                            <div class="col-sm-12 col-md-7 text-right text-right">
+                                <div class="dataTables_paginate paging_simple_numbers text-right">
+                                    @if (Model.Pager.EndPage > 1)
+                                    {
+                                        @*<ul class="pagination">*@
+                                        if (Model.Pager.CurrentPage > 1)
+
+                                        {
+                                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="1"><i class="fa fa-angle-double-left"></i></button>
+                                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-left"></i></button>
+                                            @*<li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer" class="page-link">First</a></li>
+                            <li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage - 1)" class="page-link">Previous</a></li>*@
+                                        }
+                                        for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+
+                                        {
+                                            //string activeClass = Model.Pager.CurrentPage == page ? "active btn-dark" : string.Empty;
+                                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@page">@page</button>
+
+                                            @*<li class="paginate_button page-item @(page == Model.Pager.CurrentPage ? "active" : "")"><a href="~/Vehicle/GetVehicleManufacturer?page=@page" class="page-link">@page</a></li>*@
+                                        }
+                                        if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                        {
+                                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage + 1)"><i class="fa fa-angle-right"></i></button>
+                                            <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@Model.Pager.EndPage"><i class="fa fa-angle-double-right"></i></button>
+                                            @*<li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage + 1)" class="page-link">Next</a></li>
+                                <li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.TotalPages)" class="page-link">Last</a></li>
+                            }*@
+                                        }
+                                        @*</ul>*@}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<script>
+      $(document).ready(function () {
+        debugger
+        $('#FindYourPart_SelectedVehicleManufacturer').change(function () {
+                 debugger
+                 var selectedManufacturer = $("#FindYourPart_SelectedVehicleManufacturer").val();
+                 var SelectedModel = $('#FindYourPart_SelectedVehicleModel');
+             SelectedModel.empty();
+             if (selectedManufacturer != null && selectedManufacturer != '') {
+                 $.getJSON('@Url.Action("GetModels","Home")', { selectedManufacturerId: selectedManufacturer }, function (Moldels) {
+                     if (Moldels != null && !jQuery.isEmptyObject(Moldels))
+                     {
+                            $.each(Moldels, function (index, model) {
+                                SelectedModel.append($('<option/>',{
+                                    value: model.Value,
+                                    text: model.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+     });
+</script>

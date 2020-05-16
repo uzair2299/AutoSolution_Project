@@ -11,8 +11,11 @@ namespace AutoSolution.Services.Repo
     public interface IUserRepository: IRepository<User>
     {
         ServiceProviderWraper GetServiceProviders(int PageNo, int TotalCount);
+        ServiceProviderWraperForHome GetServiceProviders(int PageNo, int TotalCount, string id);
+
         ConsumerWraper GetUsers(int PageNo, int TotalCount);
         int GetServiceProvidersCount();
+        int GetServiceProviderCountWRTId(string id);
         int GetUsersCount();
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();

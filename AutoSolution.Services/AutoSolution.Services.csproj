@@ -129,8 +129,15 @@
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\ConsumerWraper.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
+    <Compile Include="ViewModel\FindYourMechanicViewModel.cs" />
+    <Compile Include="ViewModel\FindYourPartViewModel.cs" />
+    <Compile Include="ViewModel\InnerMostPartViewModel.cs" />
+    <Compile Include="ViewModel\InnerPartViewModel.cs" />
     <Compile Include="ViewModel\JsonModel.cs" />
-    <Compile Include="ViewModel\FindYourMechanic.cs" />
+    <Compile Include="ViewModel\PartProductwraperForHome.cs" />
+    <Compile Include="ViewModel\SelectYourInterest.cs" />
+    <Compile Include="ViewModel\OuterMostPartsViewModel.cs" />
+    <Compile Include="ViewModel\OuterPartViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderWraper.cs" />
     <Compile Include="ViewModel\PartsProductManuVeiwModel.cs" />
     <Compile Include="ViewModel\PartsProductsCategoryViewModel.cs" />
@@ -139,6 +146,7 @@
     <Compile Include="ViewModel\ProvinceViewModel.cs" />
     <Compile Include="ViewModel\ServiceCategoryViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
+    <Compile Include="ViewModel\ServiceProviderWraperForHome.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
     <Compile Include="ViewModel\TemplateViewModel.cs" />
     <Compile Include="ViewModel\TransmissionTypeViewModel.cs" />

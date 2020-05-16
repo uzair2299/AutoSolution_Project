@@ -133,11 +133,11 @@ sup {
   top: -.5em; }
 
 a {
-  color: #5867dd;
+  /*color: #5867dd; uzair*/
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #2739c1;
+    /*color: #2739c1; uzair*/
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -1313,7 +1313,7 @@ pre {
   .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #7096f6;
+    /*border-color: #7096f6; uzair*/
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(88, 103, 221, 0.25); }
   .form-control::-webkit-input-placeholder {
@@ -9841,11 +9841,11 @@ code {
       transition: all 0.3s; }
 
 .nav-tabs .nav-item .nav-link {
-  color: #366cf3; }
+  /*color: #366cf3; uzair*/ }
   .nav-tabs .nav-item .nav-link i {
     color: #366cf3; }
   .nav-tabs .nav-item .nav-link.active, .nav-tabs .nav-item .nav-link:active, .nav-tabs .nav-item .nav-link:hover {
-    color: #366cf3; }
+    /*color: #366cf3; uzair*/ }
     .nav-tabs .nav-item .nav-link.active i, .nav-tabs .nav-item .nav-link:active i, .nav-tabs .nav-item .nav-link:hover i {
       color: #366cf3; }
   .nav-tabs .nav-item .nav-link.disabled {
@@ -16676,7 +16676,7 @@ strong {
       align-items: center;
       align-content: flex-first; }
       .kt-portlet .kt-portlet__head .kt-portlet__head-label .kt-portlet__head-title {
-        margin: 0;
+        /*margin: 0; uzair*/
         padding: 0;
         font-size: 1.2rem;
         font-weight: 500;
@@ -31849,9 +31849,9 @@ body {
           color: #a9a7bc;
           margin-bottom: 0.5rem;
           transition: color 0.3s ease; }
-          .kt-footer .kt-footer__top .kt-footer__nav .kt-footer__nav-section a:hover {
+          /*.kt-footer .kt-footer__top .kt-footer__nav .kt-footer__nav-section a:hover {
             transition: color 0.3s ease;
-            color: #366cf3; }
+            color: #366cf3; } uzair*/
     .kt-footer .kt-footer__top .kt-footer__subscribe {
       background-color: rgba(0, 0, 0, 0.2); }
       .kt-footer .kt-footer__top .kt-footer__subscribe .input-group {

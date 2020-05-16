@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Services.ViewModel
 {
-    public class FindYourMechanic
+    public class FindYourMechanicViewModel
     {
         public int CityAreaID { get; set; }
         [Display(Name = "City Area Name")]
@@ -22,8 +22,6 @@ namespace AutoSolution.Services.ViewModel
         public IEnumerable<SelectListItem> CityList { get; set; }
         public string SelectedServiceCategory { get; set; }
         public IEnumerable<SelectListItem> ServiceCategoryList { get; set; }
-        //public Pager Pager { get; set; }
-
         public List<CityArea> CityAreaList { get; set; }
     }
 }

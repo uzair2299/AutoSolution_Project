@@ -1,0 +1,179 @@
+﻿@model AutoSolution.Services.ViewModel.OuterMostPartsViewModel
+@{
+    var counter = 0;
+}
+
+<div class="container-fluid">
+    <div>
+        @*<div class="boxed">
+                <section class="flat-row row-animation-box bg-section row-1" style="background-image:url('/assets/Uzair/template (27).png')">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="flat-animation-block">
+                                    <div class="title-section width-before-17 bg-before-white margin-bottom-14">
+                                        <div class="sup-title"><span>NEW TREND  @DateTime.Now.Year</span></div>
+                                        <h2 class="title font-size-52 line-height-76">Auto Parts Products & Accessories Collection</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>*@
+    </div>
+    @foreach (var item in Model.OuterpartViewModelsList)
+    {
+        <div class="row">
+            <div class="col-3">
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label" style="margin: 0 auto">
+
+                            <h3 class="kt-portlet__head-title" style="font-size:1.5rem">
+                           @*     @Html.ActionLink(item.PartsProductsCategoryName, "GetPartsProducts", "GetPartProduct",new { id=item.PartsProductsCategoryId})*@
+
+                                <a href="@Url.Action("index","GetPartProduct",new { id=item.PartsProductsCategoryId})" target="_blank">@item.PartsProductsCategoryName</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body">
+                        <div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper">
+                            <div id="kt_aside_menu" class="kt-aside-menu" style="margin-top: -20px">
+                                <ul class="kt-menu__nav" style="font-size:1rem">
+                                    @foreach (var innerItemSub in item.partInnerViewModelList)
+                                    {
+                                        <li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true">
+                                            <a href="@Url.Action("GetPartsProductList","Home",new { id=innerItemSub.PartsProductsSubCategoryId})" class=" kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon2-gear"></i><span class="kt-menu__link-text">@innerItemSub.PartsProductsSubCategoryName</span></a>
+
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-9">
+                <div class="kt-portlet">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label" style="margin: 0 auto">
+
+                            <h3 class="kt-portlet__head-title" style="font-size:1.5rem">
+                                @item.PartsProductsCategoryName&nbsp;Parts/Products
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body" style="padding:30px">
+                        <div class="kt-pricing-1">
+
+                            @if (item.PartsProductsViewModelsList.Count > 0)
+                            {
+                                foreach (var product in item.PartsProductsViewModelsList)
+                                {
+                                    if (counter % 4 == 0)
+                                    {
+                                        @: <div class="kt-pricing-1__items row">
+                                        }
+
+                                        <div class="kt-pricing-1__item col-lg-3">
+                                            <div class="kt-portlet__head kt-portlet__head--right kt-ribbon kt-ribbon--dark">
+                                                <div class="kt-ribbon__target" style="top: 10px; left: 10px;">New</div>
+                                                <div class="kt-portlet__head-label" style="align-self: center;">
+                                                    <p class="kt-portlet__head-title" style="font-size:1rem;font-weight:unset;"><span class="kt-font-danger">Free Shipping</span></p>
+                                                </div>
+                                            </div>
+                                            <img src="~/assets/Uzair/template (31).png" alt="image" style="padding:10px">
+                                            <span class="kt-pricing-1__price kt-mt-10">@product.UnitPrice<span class="kt-pricing-1__label">PKR</span></span>
+                                            <h6 class="kt-pricing-1__subtitle p-2">
+                                                <span class="kt-pricing-1__description">
+                                                    <del>@product.UnitPrice PKR</del>:&nbsp; **% OFF
+                                                </span>
+                                            </h6>
+
+                                            <h2 class="kt-pricing-1__subtitle p-2">
+                                                @if (product.VehicleManufacturerName != null)
+                                                {
+                                                    @product.VehicleManufacturerName@:&nbsp;
+                                                }
+                                                @if (product.VehicleModelName != null)
+                                                {
+                                                    @product.VehicleModelName @:for
+                                                }
+                                                @*else
+                                                    {
+                                                        @:for
+                                                    }*@
+                                                @if (product.startYear != 0)
+                                                {
+                                                    @product.startYear
+                                                    if (product.EndYear != 0)
+                                                    {
+                                                        @:- @product.EndYear
+                                                    }
+                                                }
+                                                @product.PartsProductName
+                                            </h2>
+                                            <div class="kt-pricing-1__btn align-self-baseline">
+                                                <button type="button" class="btn btn-outline-dark btn-elevate btn-icon"><i class="la la-cart-plus" style="font-size:1.7rem"></i></button>
+                                                <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
+                                                <a  href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
+                                            </div>
+                                        </div>
+                                        counter = counter + 1;
+                                        if (counter % 4 == 0)
+                                        {
+                                        @:</div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <div class="alert alert-dark" role="alert">
+                                    <div class="alert-icon"><i class="flaticon-light"></i></div>
+                                    <div class="alert-text"><h5>No Data to Show</h5></div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+@*<script>
+    $('.datepicker').datepicker({
+
+        format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years",
+        startDate: '-80y',
+        autoclose: true,
+        clearBtn: true
+    });
+         $(document).ready(function () {
+             $('#FindYourPart_SelectedVehicleManufacturer').change(function () {
+                 var selectedManufacturer = $("#FindYourPart_SelectedVehicleManufacturer").val();
+                 var SelectedModel = $('#FindYourPart_SelectedVehicleModel');
+             SelectedModel.empty();
+             if (selectedManufacturer != null && selectedManufacturer != '') {
+                 $.getJSON('@Url.Action("GetModels")', { selectedManufacturerId: selectedManufacturer }, function (Moldels) {
+                     debugger;
+                     if (Moldels != null && !jQuery.isEmptyObject(Moldels))
+                     {
+                         debugger;
+                            $.each(Moldels, function (index, model) {
+                                SelectedModel.append($('<option/>',{
+                                    value: model.Value,
+                                    text: model.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+     });
+</script>*@

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class bussines : DbMigration
+    public partial class footer : DbMigration
     {
         public override void Up()
         {
@@ -95,19 +95,16 @@
                         LongDescription = c.String(),
                         PartsProductsSubCategoryId = c.Int(nullable: false),
                         VehicleModelId = c.Int(),
-                        VehicleVersionId = c.Int(),
                         VehicleManufacturerId = c.Int(),
-                        PartsProductManufacturerId = c.Int(nullable: false),
+                        PartsProductManufacturerId = c.Int(),
                     })
                 .PrimaryKey(t => t.PartsProductId)
-                .ForeignKey("dbo.PartsProductManufacturers", t => t.PartsProductManufacturerId, cascadeDelete: true)
+                .ForeignKey("dbo.PartsProductManufacturers", t => t.PartsProductManufacturerId)
                 .ForeignKey("dbo.PartsProductsSubCategories", t => t.PartsProductsSubCategoryId, cascadeDelete: true)
                 .ForeignKey("dbo.VehicleManufacturers", t => t.VehicleManufacturerId)
                 .ForeignKey("dbo.VehicleModels", t => t.VehicleModelId)
-                .ForeignKey("dbo.VehicleVersions", t => t.VehicleVersionId)
                 .Index(t => t.PartsProductsSubCategoryId)
                 .Index(t => t.VehicleModelId)
-                .Index(t => t.VehicleVersionId)
                 .Index(t => t.VehicleManufacturerId)
                 .Index(t => t.PartsProductManufacturerId);
             
@@ -298,11 +295,14 @@
                         ActivetionCode = c.Guid(),
                         OTP = c.String(),
                         CityId = c.Int(nullable: false),
+                        CityAreaID = c.Int(),
                         BusinessDescription = c.String(),
                     })
                 .PrimaryKey(t => t.UserId)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
-                .Index(t => t.CityId);
+                .ForeignKey("dbo.CityAreas", t => t.CityAreaID)
+                .Index(t => t.CityId)
+                .Index(t => t.CityAreaID);
             
             CreateTable(
                 "dbo.UserServiceCatogories",
@@ -353,10 +353,10 @@
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserServiceCatogories", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
+            DropForeignKey("dbo.Users", "CityAreaID", "dbo.CityAreas");
             DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
             DropForeignKey("dbo.UserRoles", "RolesId", "dbo.Roles");
             DropForeignKey("dbo.PartProductImages", "PartsProductId", "dbo.PartsProducts");
-            DropForeignKey("dbo.PartsProducts", "VehicleVersionId", "dbo.VehicleVersions");
             DropForeignKey("dbo.PartsProducts", "VehicleModelId", "dbo.VehicleModels");
             DropForeignKey("dbo.VehicleVersions", "VehicleModelId", "dbo.VehicleModels");
             DropForeignKey("dbo.VehicleVersions", "VehicleEngineTypeId", "dbo.VehicleEngineTypes");
@@ -366,14 +366,15 @@
             DropForeignKey("dbo.PartsProductSuppliers", "SupplierId", "dbo.Suppliers");
             DropForeignKey("dbo.Suppliers", "CityId", "dbo.Cities");
             DropForeignKey("dbo.PartsProductSuppliers", "PartsProductId", "dbo.PartsProducts");
-            DropForeignKey("dbo.PartsProducts", "PartsProductsSubCategoryId", "dbo.PartsProductsSubCategories");
             DropForeignKey("dbo.PartsProductsSubCategories", "PartsProductsCategoryId", "dbo.PartsProductsCategories");
+            DropForeignKey("dbo.PartsProducts", "PartsProductsSubCategoryId", "dbo.PartsProductsSubCategories");
             DropForeignKey("dbo.PartsProducts", "PartsProductManufacturerId", "dbo.PartsProductManufacturers");
             DropForeignKey("dbo.PartProductImages", "ImageId", "dbo.Images");
             DropForeignKey("dbo.CityAreas", "CityId", "dbo.Cities");
             DropForeignKey("dbo.Cities", "ProvinceId", "dbo.Provinces");
             DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
             DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
+            DropIndex("dbo.Users", new[] { "CityAreaID" });
             DropIndex("dbo.Users", new[] { "CityId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
             DropIndex("dbo.UserRoles", new[] { "RolesId" });
@@ -387,7 +388,6 @@
             DropIndex("dbo.PartsProductsSubCategories", new[] { "PartsProductsCategoryId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductManufacturerId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleManufacturerId" });
-            DropIndex("dbo.PartsProducts", new[] { "VehicleVersionId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleModelId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductsSubCategoryId" });
             DropIndex("dbo.PartProductImages", new[] { "PartsProductId" });

@@ -4,18 +4,14 @@ using AutoSolution.Services.CommonServices;
 using AutoSolution.Services.Repo;
 using AutoSolution.Services.ViewModel;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace AutoSolution.Services
 {
-   public class UserRepository : AutoSolutionRepository<User>, IUserRepository
+    public class UserRepository : AutoSolutionRepository<User>, IUserRepository
     {
-        
+
         public UserRepository(AutoSolutionContext context)
            : base(context)
         {
@@ -28,7 +24,7 @@ namespace AutoSolution.Services
             {
                 ProvincesList = province.GetProvinces(),
                 CitiesList = city.GetCities(),
-                
+
 
             };
             return consumer;
@@ -54,28 +50,28 @@ namespace AutoSolution.Services
             user.DateOfBirth = DateTime.Now;
             user.LastUpdateDate = DateTime.Now;
             user.RegistrationDate = DateTime.Now;
-            user.Address = "-";            
+            user.Address = "-";
             user.PasswordCount = 0;
-           
+
             user.RememberMe = false;
             user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(consumerViewModel.SelectedCity);
-            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(consumerViewModel.Email,"User");
+            user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(consumerViewModel.Email, "User");
             return user;
         }
 
         public ServiceProviderViewModel CreateServiceProvider()
 
         {
-        var province = new ProvinceRepository(new AutoSolutionContext());
-        var city = new CityRepository(new AutoSolutionContext());
-        var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
+            var province = new ProvinceRepository(new AutoSolutionContext());
+            var city = new CityRepository(new AutoSolutionContext());
+            var serviceCategories = new ServiceCategoryRepository(new AutoSolutionContext());
             var serviceProvider = new ServiceProviderViewModel()
             {
                 ProvincesList = province.GetProvinces(),
                 CitiesList = city.GetCities(),
                 ServiceCategoriesList = serviceCategories.GetServiceCategories()
-        };
+            };
             return serviceProvider;
         }
         public User CreateServiceProvider(ServiceProviderViewModel serviceProviderViewModel)
@@ -104,6 +100,7 @@ namespace AutoSolution.Services
             user.RememberMe = false;
             user.ActivetionCode = Guid.NewGuid();
             user.CityId = Convert.ToInt32(serviceProviderViewModel.SelectedCity);
+            user.CityAreaID = Convert.ToInt32(serviceProviderViewModel.SelectedCityAreaId);
             user.UserRoles = autoSolutionRoleProvider.AddRolesTOUser(serviceProviderViewModel.Email, "Service Provider");
             user.UserServiceCatogories = userServiceCatogoryRepository.SelectedServiceCategories(serviceProviderViewModel.ServiceCategoriesList);
             return user;
@@ -115,34 +112,86 @@ namespace AutoSolution.Services
             ServiceProviderWraper serviceProviderWraper = new ServiceProviderWraper()
             {
                 serviceProviderViewModelList = (from u in AutoSolutionContext.User
-                   join ur in AutoSolutionContext.UserRoles
-                   on u.UserId equals ur.UserId
-                   //join r in AutoSolutionContext.Roles
-                   //on ur.RolesId equals r.RolesId
-                   where ur.RolesId == 6
-                   orderby u.UserId
-                   select new ServiceProviderViewModel()
-                   {
+                                                join ur in AutoSolutionContext.UserRoles
+                                                on u.UserId equals ur.UserId
+                                                //join r in AutoSolutionContext.Roles
+                                                //on ur.RolesId equals r.RolesId
+                                                where ur.RolesId == 6
+                                                orderby u.UserId
+                                                select new ServiceProviderViewModel()
+                                                {
 
-                       First_Name = u.FirstName,
-                       Last_Name = u.LastName,
-                       Email = u.Email,
-                       MobileNumber = u.MobileNumber,
-                       PhoneNumber = u.PhoneNumber,
-                       SelectedCity = u.Cities.CityName,
-                       Address=u.Address,
-                       BusinessDescription=u.BusinessDescription,
-                       ImagePath=u.ImagePath,
-                       IsActive=u.IsActive,
-                       serviceCategoriesListFor =AutoSolutionContext.UserServiceCatogories.Where(x=>x.UserId==u.UserId).Select(x=> new ServiceCategoryViewModel { 
-                       ServiceCategoryName = x.ServiceCategory.ServiceCategoryName}).ToList()
-                   }
+                                                    First_Name = u.FirstName,
+                                                    Last_Name = u.LastName,
+                                                    Email = u.Email,
+                                                    MobileNumber = u.MobileNumber,
+                                                    PhoneNumber = u.PhoneNumber,
+                                                    SelectedCity = u.Cities.CityName,
+                                                    Address = u.Address,
+                                                    BusinessDescription = u.BusinessDescription,
+                                                    ImagePath = u.ImagePath,
+                                                    IsActive = u.IsActive,
+                                                    serviceCategoriesListFor = AutoSolutionContext.UserServiceCatogories.Where(x => x.UserId == u.UserId).Select(x => new ServiceCategoryViewModel
+                                                    {
+                                                        ServiceCategoryName = x.ServiceCategory.ServiceCategoryName
+                                                    }).ToList()
+                                                }
                    ).Skip((PageNo - 1) * 10).Take(10).ToList(),
 
-            Pager = new Pager(TotalCount, PageNo, 10)
+                Pager = new Pager(TotalCount, PageNo, 10)
 
             };
             return serviceProviderWraper;
+        }
+        public ServiceProviderWraperForHome GetServiceProviders(int PageNo, int TotalCount, string id)
+        {
+            int Id = Convert.ToInt32(id);
+            ServiceCategoryRepository serviceCategoryRepository = new ServiceCategoryRepository(new AutoSolutionContext());
+            ProvinceRepository provinceRepository = new ProvinceRepository(new AutoSolutionContext());
+            CityRepository cityRepository = new CityRepository(new AutoSolutionContext());
+            CityAreaRepository cityAreaRepository = new CityAreaRepository(new AutoSolutionContext());
+            ServiceProviderWraperForHome serviceProviderWraperForHome = new ServiceProviderWraperForHome()
+            {
+                FindYourMechanicViewModel =
+                {
+                    ServiceCategoryList = serviceCategoryRepository.GetServiceCategoryDropDown(),
+                    ProvinceList=provinceRepository.GetProvincesForHome(),
+                    CityList= cityRepository.GetCitiesForHome()
+                },
+                ServiceCategoriesList = AutoSolutionContext.ServiceCategories.ToList(),
+                ServiceCategoryName = AutoSolutionContext.ServiceCategories.Where(x => x.ServiceCategoryId == Id).FirstOrDefault(),
+                serviceProviderViewModelList = (from u in AutoSolutionContext.User
+                                                join ur in AutoSolutionContext.UserRoles
+                                                on u.UserId equals ur.UserId
+                                                join USC in AutoSolutionContext.UserServiceCatogories
+                                                on u.UserId equals USC.UserId
+                                                where ur.RolesId == 6 && USC.ServiceCategoryId == Id
+                                                orderby u.UserId
+                                                select new ServiceProviderViewModel()
+                                                {
+
+                                                    First_Name = u.FirstName,
+                                                    Last_Name = u.LastName,
+                                                    Email = u.Email,
+                                                    MobileNumber = u.MobileNumber,
+                                                    PhoneNumber = u.PhoneNumber,
+                                                    SelectedCity = u.Cities.CityName,
+                                                    Address = u.Address,
+                                                    BusinessDescription = u.BusinessDescription,
+                                                    ImagePath = u.ImagePath,
+                                                    IsActive = u.IsActive,
+                                                    serviceCategoriesListFor = AutoSolutionContext.UserServiceCatogories.Where(x => x.UserId == u.UserId).Select(x => new ServiceCategoryViewModel
+                                                    {
+                                                        ServiceCategoryName = x.ServiceCategory.ServiceCategoryName
+                                                    }).ToList()
+                                                }
+
+                   )./*Skip((PageNo - 1) * 10).Take(10)*/ToList(),
+
+                Pager = new Pager(TotalCount, PageNo, 10)
+
+            };
+            return serviceProviderWraperForHome;
         }
         public ConsumerWraper GetUsers(int PageNo, int TotalCount)
         {
@@ -150,30 +199,33 @@ namespace AutoSolution.Services
             ConsumerWraper consumerWraper = new ConsumerWraper()
             {
                 consumerViewModelViewModelList = (from u in AutoSolutionContext.User
-                                                join ur in AutoSolutionContext.UserRoles
-                                                on u.UserId equals ur.UserId
-                                                //join r in AutoSolutionContext.Roles
-                                                //on ur.RolesId equals r.RolesId
-                                                where ur.RolesId == 6
-                                                orderby u.UserId
-                                                select new ConsumerViewModel()
-                                                {
+                                                  join ur in AutoSolutionContext.UserRoles
+                                                  on u.UserId equals ur.UserId
+                                                  //join r in AutoSolutionContext.Roles
+                                                  //on ur.RolesId equals r.RolesId
+                                                  where ur.RolesId == 6
+                                                  orderby u.UserId
+                                                  select new ConsumerViewModel()
+                                                  {
 
-                                                    First_Name = u.FirstName,
-                                                    Last_Name = u.LastName,
-                                                    Email = u.Email.Trim(),
-                                                    MobileNumber = u.MobileNumber,
-                                                    PhoneNumber = u.PhoneNumber,
-                                                    SelectedCity = u.Cities.CityName
-                                                }
+                                                      First_Name = u.FirstName,
+                                                      Last_Name = u.LastName,
+                                                      Email = u.Email.Trim(),
+                                                      MobileNumber = u.MobileNumber,
+                                                      PhoneNumber = u.PhoneNumber,
+                                                      SelectedCity = u.Cities.CityName
+                                                  }
                    ).Skip((PageNo - 1) * 10).Take(10).ToList(),
 
                 Pager = new Pager(TotalCount, PageNo, 10)
-
             };
             return consumerWraper;
         }
-
+        public int GetServiceProviderCountWRTId(string id)
+        {
+            int Id = Convert.ToInt32(id);
+            return AutoSolutionContext.UserServiceCatogories.Where(x => x.ServiceCategoryId == Id).Count();
+        }
         public int GetServiceProvidersCount()
         {
             return AutoSolutionContext.UserRoles.Where(x => x.RolesId == 6).Count();

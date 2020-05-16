@@ -1,0 +1,376 @@
+﻿@model AutoSolution.Services.ViewModel.ServiceProviderWraperForHome
+<link href="~/stylesheets/owl.carousel.css" rel="stylesheet" />
+<link href="~/assets/css/demo1/pages/pricing/pricing-2.css" rel="stylesheet" />
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+            <h3 class="kt-subheader__title" style="font-size:3.5rem">@Model.ServiceCategoryName.ServiceCategoryName</h3>
+            @*<h5>We Make car maintenance easy so people can enjoy their drive</h5>*@
+        </div>
+    </div>
+</div>
+
+@*<div class="kt-subheader   kt-grid__item" id="kt_subheader" style="padding:10px 0 !important;height:unset">
+        <div class="kt-container  kt-container--fluid ">
+            <div class="kt-subheader__main">
+
+                <div class="kt-subheader__breadcrumbs">
+                    <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
+                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                    <a href="" class="kt-subheader__breadcrumbs-link">
+                        Components
+                    </a>
+                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                    <a href="" class="kt-subheader__breadcrumbs-link">
+                        Custom
+                    </a>
+                    <span class="kt-subheader__breadcrumbs-separator"></span>
+                    <a href="" class="kt-subheader__breadcrumbs-link">
+                        Miscellaneous
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+<div class="kt-container">
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label" style="margin:0 auto">
+                <h3 style="font-size:1.5rem" class="kt-portlet__head-title">
+                    Select Your Interest
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body kt-mb-50">
+            <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                <div class="kt-portlet kt-portlet--mobile">
+                    <div class="kt-portlet__body">
+                        <!--begin: Search Form -->
+                        <form class="kt-form kt-form--fit kt-margin-b-20">
+                            <div class="row kt-margin-b-20">
+                                <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FindYourMechanicViewModel.SelectedServiceCategory, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-settings"></i></span></div>
+                                            @Html.DropDownListFor(x => Model.FindYourMechanicViewModel.SelectedServiceCategory, Model.FindYourMechanicViewModel.ServiceCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FindYourMechanicViewModel.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                            @Html.DropDownListFor(x => Model.FindYourMechanicViewModel.SelectedProvince, Model.FindYourMechanicViewModel.ProvinceList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FindYourMechanicViewModel.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                            @Html.DropDownListFor(x => Model.FindYourMechanicViewModel.SelectedCity, Model.FindYourMechanicViewModel.CityList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FindYourMechanicViewModel.SelectedCityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                                        <div class="input-group">
+                                            <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
+                                            @Html.TextBoxFor(model => model.FindYourMechanicViewModel.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Enter Your Last Name" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row kt-margin-t-40">
+                                <div class="col-lg-12 text-right">
+                                    <button class="btn btn-dark btn-brand--icon" id="kt_search">
+                                        <span>
+                                            <i class="la la-search"></i>
+                                            <span>Search</span>
+                                        </span>
+                                    </button>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                        <span>
+                                            <i class="la la-close"></i>
+                                            <span>Reset</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--begin: Datatable -->
+                        <!--end: Datatable -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kt-container">
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label" style="margin:0 auto">
+                <h3 style="font-size:1.5rem" class="kt-portlet__head-title">
+                    Select Your Interest
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body kt-mb-50">
+            <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+                <div class="kt-portlet kt-portlet--mobile">
+
+                    <!--begin: Search Form -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @foreach (var item in Model.serviceProviderViewModelList)
+                            {
+                                <div class="kt-portlet">
+                                    <div class="kt-portlet__body" style="background: lavender;">
+                                        <div class="kt-widget kt-widget--user-profile-3">
+                                            <div class="kt-widget__top">
+                                                <div class="kt-widget__media kt-hidden-">
+                                                    <img src="~/assets/media/users/100_1.jpg" alt="image">
+                                                </div>
+
+                                                <div class="kt-widget__content">
+                                                    <div class="kt-widget__head">
+                                                        <div class="kt-widget__username">
+                                                            @Html.DisplayFor(x => item.First_Name)
+                                                            @Html.DisplayFor(x => item.Last_Name)
+
+                                                            <i class="flaticon2-correct kt-font-dark"></i>
+                                                        </div>
+
+                                                        @*<a href="#" class="kt-widget__username">
+                                                                Jason Muller
+                                                                <i class="flaticon2-correct kt-font-success"></i>
+                                                            </a>*@
+                                                        <div class="kt-widget__action">
+                                                            <button type="button" class="btn btn-label-success btn-sm btn-upper">ask</button>&nbsp;
+                                                            <button type="button" class="btn btn-brand btn-dark btn-sm btn-upper">View Profile</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="kt-widget__subhead">
+                                                        <a><i class="flaticon2-new-email"></i>@Html.DisplayTextFor(x => item.Email)</a>
+                                                        <a><i class="flaticon2-phone"></i>@Html.DisplayFor(x => item.MobileNumber)</a>
+                                                        <a><i class="flaticon-placeholder-3"></i>@Html.DisplayFor(x => item.SelectedCity)</a>
+                                                    </div>
+                                                    <div class="kt-widget__subhead">
+                                                        <h5>Services</h5>
+                                                        <div class="row">
+                                                            @foreach (var sc in item.serviceCategoriesListFor)
+                                                            {
+                                                                <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4 mb-1">
+
+                                                                    <a><i class="flaticon2-settings"></i>@Html.DisplayFor(x => sc.ServiceCategoryName)</a>
+                                                                </div>
+                                                            }
+                                                        </div>
+
+                                                        @*<a href="#"><i class="flaticon2-new-email"></i>jason@siastudio.com</a>*@
+                                                        @*<a href="#"><i class="flaticon2-placeholder"></i>Melbourne</a>*@
+                                                    </div>
+                                                    <div class="kt-widget__info">
+                                                        <div class="kt-widget__desc" style="font-size:1.1rem">
+                                                            @Html.DisplayFor(x => item.BusinessDescription)
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="kt-widget__bottom" style="border-top:2px">
+                                                <div class="kt-widget__item">
+                                                    <div class="kt-widget__icon">
+                                                        <i class="flaticon-file-2"></i>
+                                                    </div>
+                                                    <div class="kt-widget__details">
+                                                        <span class="kt-widget__title">73 Completed Tasks</span>
+                                                        <a href="#" class="kt-widget__value kt-font-brand">View</a>
+                                                    </div>
+                                                </div>
+                                                <div class="kt-widget__item">
+                                                    <div class="kt-widget__icon">
+                                                        <i class="flaticon-chat-1"></i>
+                                                    </div>
+                                                    <div class="kt-widget__details">
+                                                        <span class="kt-widget__title">648 Comments</span>
+                                                        <a href="#" class="kt-widget__value kt-font-brand">View</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+                    <!--begin:: Widgets/Applications/User/Profile3-->
+                    <!--end:: Widgets/Applications/User/Profile3-->
+                    <!--Begin::Section-->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-5">
+                            @{ var PageNoForBottom = Model.Pager.CurrentPage;
+                                var PageSizeForBottom = Model.Pager.PageSize;
+                                int StartRange = 0;
+                                int EndRange = 0;
+                                if (PageNoForBottom > 1)
+                                {
+                                    StartRange = ((PageNoForBottom - 1) * PageSizeForBottom) + 1;
+                                    EndRange = PageNoForBottom * PageSizeForBottom;
+                                    if (PageNoForBottom == Model.Pager.EndPage)
+                                    {
+                                        EndRange = Model.Pager.TotalItems;
+                                    }
+
+                                }
+                                else
+                                {
+                                    StartRange = 1;
+                                    EndRange = 10;
+
+                                }
+
+                            }
+                            <div class="dataTables_info" style="color:#595d6e">Showing @StartRange to @EndRange of @Model.Pager.TotalItems</div>
+                        </div>
+                        <div class="col-sm-12 col-md-7 text-right text-right">
+                            <div class="dataTables_paginate paging_simple_numbers text-right">
+                                @if (Model.Pager.EndPage > 1)
+                                {
+                                    @*<ul class="pagination">*@
+                                    if (Model.Pager.CurrentPage > 1)
+
+                                    {
+                                        <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="1"><i class="fa fa-angle-double-left"></i></button>
+                                        <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage - 1)"><i class="fa fa-angle-left"></i></button>
+                                        @*<li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer" class="page-link">First</a></li>
+                                            <li class="paginate_button page-item"><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage - 1)" class="page-link">Previous</a></li>*@
+                                    }
+                                    for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+
+                                    {
+                                        //string activeClass = Model.Pager.CurrentPage == page ? "active btn-dark" : string.Empty;
+                                        <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@page">@page</button>
+
+                                        @*<li class="paginate_button page-item @(page == Model.Pager.CurrentPage ? "active" : "")"><a href="~/Vehicle/GetVehicleManufacturer?page=@page" class="page-link">@page</a></li>*@
+                                    }
+                                    if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                                    {
+                                        <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@(Model.Pager.CurrentPage + 1)"><i class="fa fa-angle-right"></i></button>
+                                        <button type="button" class="pageButtons btn btn-outline-dark btn-elevate btn-icon" data-pageno="@Model.Pager.EndPage"><i class="fa fa-angle-double-right"></i></button>
+                                        @*<li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.CurrentPage + 1)" class="page-link">Next</a></li>
+                                                <li class="paginate_button page-item "><a href="~/Vehicle/GetVehicleManufacturer?page=@(Model.Pager.TotalPages)" class="page-link">Last</a></li>
+                                            }*@
+                                    }
+                                    @*</ul>*@}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End::Section-->
+                </div>
+                <!--begin: Datatable -->
+                <!--end: Datatable -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kt-container">
+    <div class="kt-portlet">
+        <div class="kt-portlet__body kt-portlet__body--fit">
+            <div class="kt-pricing-2">
+                <div class="kt-pricing-2__head">
+                    <div class="kt-pricing-2__title kt-font-light">
+                        <h1>Auto Solution Service Categories</h1>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="kt-pricing-2_content1" aria-expanded="true">
+                        <div class="kt-pricing-2__content">
+                            <div class="kt-pricing-2__container">
+                                @{
+                                    if (Model.ServiceCategoriesList.Count > 0)
+                                    {
+
+                                        <div class="kt-pricing-2__items">
+                                            <div class="owl-carousel owl-theme">
+                                                @foreach (var item in Model.ServiceCategoriesList)
+                                                {
+                                                    <div class="kt-pricing-2__item">
+                                                        <img src="~/assets/Uzair/template (30).png" alt="image">
+                                                        <h6 class="kt-pricing-2__subtitle">@item.ServiceCategoryName</h6>
+                                                        <div class="kt-pricing-2__btn">
+                                                            <button type="button" class="btn btn-pill  btn-dark btn-wide btn-uppercase btn-bolder btn-lg">Purchase</button>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                    else
+                                    {
+                                        <div class="alert alert-dark" role="alert">
+                                            <div class="alert-icon"><i class="flaticon-light"></i></div>
+                                            <div class="alert-text"><h5>No Data to Show</h5></div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        dots: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
+
+<script>
+     $(".pageButtons").click(function () {
+            var SearchTerm = $("#SearchTerm").val();
+		$.ajax({
+			url: '@Url.Action("GetServiceProvider", "ServiceProvider")',
+			data: {
+                pageNo: $(this).attr("data-pageNo"),
+                search: SearchTerm
+            }
+		})
+            .done(function (response) {
+                $("#tableContiner").html("");
+        	$("#tableContiner").html(response);
+        })
+        .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+        	alert("FAIL");
+        });
+        });
+</script>

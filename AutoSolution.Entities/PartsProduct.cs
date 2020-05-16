@@ -24,14 +24,14 @@ namespace AutoSolution.Entities
         public int? VehicleModelId { get; set; }
         public virtual VehicleModel VehicleModel { get; set; }
 
-        public int? VehicleVersionId { get; set; }
-        public virtual VehicleVersion VehicleVersion { get; set; }
+        //public int? VehicleVersionId { get; set; }
+        //public virtual VehicleVersion VehicleVersion { get; set; }
 
         public int? VehicleManufacturerId { get; set; }
         public virtual VehicleManufacturer VehicleManufacturer { get; set; }
 
 
-        public int PartsProductManufacturerId { get; set; }
+        public int? PartsProductManufacturerId { get; set; }
         public virtual PartsProductManufacturer PartsProductManufacturer { get; set; }
         public virtual ICollection<PartsProductSupplier> PartsProductSuppliers { get; set; }
        public virtual ICollection<PartProductImages> PartProductImages { get; set; } 

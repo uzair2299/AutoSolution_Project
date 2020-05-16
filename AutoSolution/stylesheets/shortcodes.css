@@ -200,7 +200,7 @@
 
 .title-section .title:before {
 	content: "";
-	width: 300px;
+	width: 250px;
 	height: 2.5px;
 	position: absolute;
 	bottom: 0;
@@ -2486,7 +2486,7 @@
 /* Flat Icon Box
 ---------------------------------------------------------------*/
 .flat-icon-box .icon-wrap {
-	font-size: 24px;
+	font-size: 35px;
 	line-height: 30px;
 	position: relative;
 	z-index: 1;
@@ -2498,7 +2498,7 @@
 }
 /* Style 1 */
 .flat-icon-box.style-1 .icon-wrap {
-	color: #f63440;
+	/*color: #f63440;*/
 }
 
 .flat-icon-box.style-1 .text-wrap .heading {

@@ -39,6 +39,24 @@ namespace AutoSolution.Services
             return new SelectList(items, "value", "Text");
         }
 
+        public IEnumerable<SelectListItem> GetVehicleManufacturerDropDownForHome()
+        {
+            List<SelectListItem> items = Context.Set<VehicleManufacturer>().OrderBy(n => n.VehicleManufacturerName).Select(n => new SelectListItem
+            {
+                Value = n.VehicleManufacturerId.ToString(),
+                Text = n.VehicleManufacturerName
+            }).ToList();
+
+            var Tip = new SelectListItem()
+            {
+                Value = null,
+                Text = "------- Select Vehicle Manufacturer --------"
+            };
+            items.Insert(0, Tip);
+            return new SelectList(items, "value", "Text");
+        }
+
+
         public IEnumerable<SelectListItem> GetVehicleModelDropDown()
         {
             List<SelectListItem> items = Context.Set<VehicleModel>().OrderBy(n => n.VehicleModelName).Select(n => new SelectListItem
@@ -56,6 +74,7 @@ namespace AutoSolution.Services
             return new SelectList(items, "value", "Text");
         }
 
+   
         public IEnumerable<SelectListItem> GetVehicleModelDropDownEmpty()
         {
             List<SelectListItem> items = new List<SelectListItem>()
@@ -64,6 +83,19 @@ namespace AutoSolution.Services
                 {
                     Value = (-1).ToString(),
                     Text = "--------------------- Select Vehicle Model ---------------------"
+                }
+            };
+            return new SelectList(items, "value", "Text");
+        }
+
+        public IEnumerable<SelectListItem> GetVehicleModelDropDownEmptyForHome()
+        {
+            List<SelectListItem> items = new List<SelectListItem>()
+            {
+                new SelectListItem
+                {
+                    Value = (-1).ToString(),
+                    Text = "------------ Select Vehicle Model ------------"
                 }
             };
             return new SelectList(items, "value", "Text");
@@ -83,6 +115,25 @@ namespace AutoSolution.Services
             {
                 Value = (-1).ToString(),
                 Text = "--------------------- Select Vehicle Model ---------------------"
+            };
+            items.Insert(0, CityTip);
+            return new SelectList(items, "value", "Text");
+        }
+
+        public IEnumerable<SelectListItem> GetVehicleModelDropDownForHome(string Id)
+        {
+            int ID = Convert.ToInt32(Id);
+
+            List<SelectListItem> items = Context.Set<VehicleModel>().OrderBy(n => n.VehicleModelName).Where(x => x.VehicleManufacturer.VehicleManufacturerId == ID).Select(n => new SelectListItem
+            {
+                Value = n.VehicleModelId.ToString(),
+                Text = n.VehicleModelName
+            }).ToList();
+
+            var CityTip = new SelectListItem()
+            {
+                Value = null,
+                Text = "--------- Select Vehicle Model -----------"
             };
             items.Insert(0, CityTip);
             return new SelectList(items, "value", "Text");

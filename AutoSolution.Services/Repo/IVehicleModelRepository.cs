@@ -17,6 +17,9 @@ namespace AutoSolution.Services.Repo
        
         int GetVehicleModelCount(string SearchTerm, string SelectedVehicleManufacturer);
         IEnumerable<SelectListItem> GetVehicleManufacturerDropDown();
+        IEnumerable<SelectListItem> GetVehicleManufacturerDropDownForHome();
+        IEnumerable<SelectListItem> GetVehicleModelDropDownEmptyForHome();
+        IEnumerable<SelectListItem> GetVehicleModelDropDownForHome(string Id);
         IEnumerable<SelectListItem> GetVehicleModelDropDown();
         IEnumerable<SelectListItem> GetVehicleModelDropDown(string Id);
     }

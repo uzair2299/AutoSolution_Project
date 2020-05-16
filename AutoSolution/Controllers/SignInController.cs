@@ -65,7 +65,7 @@ namespace AutoSolution.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index","SignIn");
         }
 
         //public ActionResult _UserSignIn()

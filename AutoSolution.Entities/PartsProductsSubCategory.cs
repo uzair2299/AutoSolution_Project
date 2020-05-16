@@ -12,5 +12,6 @@ namespace AutoSolution.Entities
         public string PartsProductsSubCategoryName { get; set; }
         public int PartsProductsCategoryId { get; set; }
         public virtual PartsProductsCategory PartsProductsCategory { get; set; }
+        public virtual ICollection<PartsProduct> PartsProducts { get; set; }
     }
 }

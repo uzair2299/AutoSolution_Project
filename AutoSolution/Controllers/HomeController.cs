@@ -10,14 +10,13 @@ using System.Web.Mvc;
 
 namespace AutoSolution.Controllers
 {
-    
+    //[AllowAnonymous]
     public class HomeController : Controller
     {
         private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
 
         public ActionResult Index()
         {
-            //HomeViewModel homeViewModel = new HomeViewModel();
             
             return View();
         }
@@ -27,16 +26,33 @@ namespace AutoSolution.Controllers
             var model = _unitOfWork.ServiceCategory.GetAll();
             return PartialView("_GetServiceCategories",model);
         }
-      
+
+        //public ActionResult GetServiceProvider(string id, int? pageNo)
+        //{
+        //    int PageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
+        //    var model = _unitOfWork.User.GetServiceProviders(PageNo, 50, id);
+        //    return View();
+        //}
+        public ActionResult GetPartsProductForHome()
+        {
+           OuterMostPartsViewModel model = _unitOfWork.PartsProducts.GetPartsProductForHome();
+            return PartialView("_GetPartsProduct",model);
+        }
+        public ActionResult GetPartsProductList(string id)
+        {
+           
+            return View();
+        }
+        //[Authorize(Roles = "Admin")]
         public ActionResult SelectYourInterest()
         {
-            FindYourMechanic findYourMechanic = new FindYourMechanic()
-            {
-                ProvinceList = _unitOfWork.Province.GetProvincesForHome(),
-                CityList = _unitOfWork.City.GetCitiesForHome(),
-                ServiceCategoryList = _unitOfWork.ServiceCategory.GetServiceCategoryDropDown()
-            };
-            return PartialView("_SelectYourInterest",findYourMechanic);
+            SelectYourInterest selectYourInterest = new SelectYourInterest();
+            selectYourInterest.findYourMechanic.ProvinceList = _unitOfWork.Province.GetProvincesForHome();
+            selectYourInterest.findYourMechanic.CityList = _unitOfWork.City.GetCitiesForHome();
+            selectYourInterest.findYourMechanic.ServiceCategoryList = _unitOfWork.ServiceCategory.GetServiceCategoryDropDown();
+            selectYourInterest.FindYourPart.VehicleManufacturersList = _unitOfWork.VehicleModel.GetVehicleManufacturerDropDownForHome();
+            selectYourInterest.FindYourPart.VehicleModelsList = _unitOfWork.VehicleModel.GetVehicleModelDropDownEmptyForHome();
+            return PartialView("_SelectYourInterest", selectYourInterest);
         }
 
         public ActionResult check()
@@ -68,6 +84,17 @@ namespace AutoSolution.Controllers
             }
             return null;
         }
+
+        [HttpGet]
+        public ActionResult GetModels(string selectedManufacturerId)
+        {
+            if (!string.IsNullOrWhiteSpace(selectedManufacturerId))
+            {
+                IEnumerable<SelectListItem> Moldels = _unitOfWork.VehicleModel.GetVehicleModelDropDownForHome(selectedManufacturerId);
+                return Json(Moldels, JsonRequestBehavior.AllowGet);
+            }
+            return null;
+        }
         //public JsonResult GetServiceCategory(string Prefix)
         //{
         //    AutoSolutionContext autoSolutionContext = new AutoSolutionContext();
@@ -82,3 +109,26 @@ namespace AutoSolution.Controllers
         //}
     }
 }
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

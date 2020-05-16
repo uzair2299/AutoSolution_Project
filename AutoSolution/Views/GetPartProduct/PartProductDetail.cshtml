@@ -1,0 +1,286 @@
+﻿
+@{
+    ViewBag.Title = "PartProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-container ">
+            <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+                <h3 class="kt-subheader__title">Auto Parts and Car Accessories for Sale in Pakistan</h3>
+                <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+            </div>
+        </div>
+    </div>
+<div class="kt-container">
+    <div class="kt-portlet ">
+        <div class="kt-portlet__body">
+            <div class="boxed">
+                <section class="flat-row main-shop shop-detail style-1">
+                    <div class="kt-container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="flexslider">
+                                    <ul class="slides">
+                                        <li>
+                                            <img src="~/assets/Uzair/template (37).png" style="height:550px;width:100%" />
+                                        </li>
+                                        <li>
+                                            <img src="~/assets/Uzair/template (38).png" style="height:550px;width:100%" />
+                                        </li>
+                                        <li>
+                                            <img src="~/assets/Uzair/template (39).png" style="height:550px;width:100%" />
+                                        </li>
+                                        <li>
+                                            <img src="~/assets/Uzair/template (40).png" style="height:550px;width:100%" />
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                @*<div class="flexslider">
+                                        <ul class="slides">
+                                            <li data-thumb="E:\MVC\AutoSolutionProject\AutoSolution\assets\Uzairtemplate (42).png">
+                                                <img src="~/assets/Uzair/template (40).png" />
+                                            </li>
+                                            <li data-thumb="assets/Uzair/template (42).png">
+                                                <img src="~/assets/Uzair/template (40).png" />
+                                            </li>
+                                            <li data-thumb="assets/Uzair/template (42).png">
+                                                <img src="~/assets/Uzair/template (40).png" />
+                                            </li>
+                                            <li data-thumb="assets/Uzair/template (42).png">
+                                                <img src="~/assets/Uzair/template (37).png" />
+                                            </li>
+                                            <li data-thumb="assets/Uzair/template (42).png">
+                                                <img src="~/assets/Uzair/template (38).png" />
+                                            </li>
+                                            <li data-thumb="assets/Uzair/template (42).png">
+                                                <img src="~/assets/Uzair/template (39).png" />
+                                            </li>
+                                        </ul>
+                                    </div>*@
+
+                            </div><!-- /.col-md-6 -->
+
+                            <div class="col-md-6">
+
+                                <div class="product-detail clearfix">
+                                    <div class="inner">
+                                        <div class="content-detail">
+                                            <h2 class="product-title">Product Name</h2>
+                                            @*<div class="flat-star style-1">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                    <i class="fa fa-star-half-o"></i>
+                                                    <span>(1)</span>
+                                                </div>*@
+                                            <div class="kt-portlet kt-mt-10">
+                                                <div class="kt-portlet__body kt-portlet__body--fit">
+                                                    <div class="row row-no-padding row-col-separator-xl">
+                                                        <div class="col-md-6 col-lg-6 col-xl-6">
+                                                            <!--begin:: Widgets/Stats2-1 -->
+                                                            <div class="kt-widget1">
+                                                                <div class="kt-widget1__item">
+                                                                    <div class="kt-widget1__info">
+                                                                        <h3 class="kt-widget1__title">Product Name</h3>
+                                                                        <span class="kt-widget1__desc">ABC</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="kt-widget1__item">
+                                                                    <div class="kt-widget1__info">
+                                                                        <h3 class="kt-widget1__title">Category</h3>
+                                                                        <span class="kt-widget1__desc">ABC</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="kt-widget1__item">
+                                                                    <div class="kt-widget1__info">
+                                                                        <h3 class="kt-widget1__title">Sub Category</h3>
+                                                                        <span class="kt-widget1__desc">Awerage Weekly Profit</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-lg-6 col-xl-6" style="border-bottom: 1px solid #ebedf2;">
+                                                            <!--begin:: Widgets/Stats2-1 -->
+                                                            <div class="kt-widget1">
+                                                                <div class="kt-widget1__item">
+                                                                    <div class="kt-widget1__info">
+                                                                        <h3 class="kt-widget1__title">Last Update</h3>
+                                                                        <span class="kt-widget1__desc">03/06/2020</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="kt-widget1__item">
+                                                                    <div class="kt-widget1__info">
+                                                                        <h3 class="kt-widget1__title">Add Reference</h3>
+                                                                        <span class="kt-widget1__desc">Awerage Weekly Profit</span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="kt-portlet__head-label kt-mt-15">
+                                                    <h5 class="kt-portlet__head-title">
+                                                        Quantity
+                                                    </h5>
+                                                </div>
+                                                <div class="input-group" style="width:34%">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-dark" type="button">+</button>
+                                                    </div>
+                                                    <input type="text" class="form-control" readonly min="1" max="100" value="1">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-dark" type="button">-</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="product-quantity margin-top-15">
+                                                <button type="button" class="btn  btn-dark btn-wide btn-uppercase btn-bolder">Buy Now</button>
+                                                <button type="button" class="btn  btn-danger btn-wide btn-uppercase btn-bolder">Add To Cart</button>
+                                                @*<div class="add-to-cart no-margin">
+                                                        <a href="#">Buy Now</a>
+                                                    </div>
+                                                    <div class="add-to-cart no-margin">
+                                                        <a href="#">Add To Cart</a>
+                                                    </div>*@
+                                                <div class="box-like margin-left-3">
+                                                    <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
+                                                </div>
+                                            </div>
+                                            @*<div class="product-categories margin-top-49">
+                                                    <span>Categories: </span><a href="#">Men,</a> <a href="#">Shoes</a>
+                                                </div>
+                                                <div class="product-tags">
+                                                    <span>Tags: </span><a href="#">Dress,</a> <a href="#">Fashion,</a> <a href="#">Furniture,</a> <a href="#">Lookbok</a>
+                                                </div>*@
+                                            <div>
+                                                <div class="kt-portlet__head-label kt-mt-15">
+                                                    <h5 class="kt-portlet__head-title">
+                                                        Share With
+                                                    </h5>
+                                                </div>
+
+                                                <div class="kt-section__content kt-section__content--solid">
+                                                    <a href="#" class="btn btn-facebook btn-icon" style="color:white"><i class="socicon-facebook"></i></a>&nbsp;
+                                                    <a href="#" class="btn btn-twitter  btn-icon" style="color:white"><i class="socicon-twitter"></i></a>&nbsp;
+                                                    <a href="#" class="btn btn-google btn-icon" style="color:white"><i class="socicon-google"></i></a>&nbsp;
+                                                    <a href="#" class="btn btn-instagram btn-icon" style="color:white"><i class="socicon-instagram"></i></a>&nbsp;
+                                                    <a href="#" class="btn btn-linkedin btn-icon" style="color:white"><i class="socicon-linkedin"></i></a>&nbsp;
+
+
+                                                </div>
+                                                @*<ul class="flat-socials margin-top-27">
+                                                        <li><a href="#"><i class="fab fa-facebook fa-2x"></i></a></li>
+                                                        <li><a href="#"><i class="fab fa-twitter fa-2x"></i></a></li>
+                                                        <li><a href="#"><i class="fab fa-pinterest fa-2x"></i></a></li>
+                                                        <li><a href="#"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                                                        <li><a href="#"><i class="fab fa-google-plus fa-2x"></i></a></li>
+                                                    </ul>*@
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div><!-- /.product-detail -->
+                            </div>
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </section>
+
+
+                <div class="kt-portlet ">
+                    <div class="kt-portlet__head">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                Product Name
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body">
+
+                        <!--begin::Accordion-->
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="accordion  accordion-toggle-arrow" id="accordionExample4">
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne4">
+                                            <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseOne4" aria-expanded="false" aria-controls="collapseOne4">
+                                                <i class="flaticon2-layers-1"></i> User Permissions
+                                            </div>
+                                        </div>
+                                        <div id="collapseOne4" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample4" style="">
+                                            <div class="card-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo4">
+                                            <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4">
+                                                <i class="flaticon2-copy"></i> Account Settings
+                                            </div>
+                                        </div>
+                                        <div id="collapseTwo4" class="collapse" aria-labelledby="headingTwo1" data-parent="#accordionExample4">
+                                            <div class="card-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree4">
+                                            <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+                                                <i class="flaticon2-bell-alarm-symbol"></i> Application Options
+                                            </div>
+                                        </div>
+                                        <div id="collapseThree4" class="collapse" aria-labelledby="headingThree1" data-parent="#accordionExample4">
+                                            <div class="card-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="well kt-mb-10 kt-mt-10 kt-ml-70" style="padding:15px">
+                                    <img alt="Buy-from-pakwheels" style="max-width:100%" src="https://wsa2.pakwheels.com/assets/buy-from-pakwheels-2ea088a74470c8c2599cc0c797296865.png">
+                                    <h5 class="kt-mt-15">Buy From Auto Solution and Get</h5>
+                                    <ol style="font-size:1.1rem;line-height:1.9">
+                                        <li>100% Genuine Products</li>
+                                        <li>Hassle Free Buying</li>
+                                        <li>Money Back Guarantee</li>
+                                    </ol>
+                                    <div class="clearfix">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--end::Accordion-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+            $(document).ready(function () {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    controlsContainer: $(".custom-controls-container"),
+                    customDirectionNav: $(".custom-navigation a")
+                });
+            });
+</script>
