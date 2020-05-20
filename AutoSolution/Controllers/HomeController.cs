@@ -95,6 +95,12 @@ namespace AutoSolution.Controllers
             }
             return null;
         }
+
+
+        //public ActionResult AutoSolutionCart()
+        //{
+        //    return PartialView("_AutoSolutionCart");
+        //}
         //public JsonResult GetServiceCategory(string Prefix)
         //{
         //    AutoSolutionContext autoSolutionContext = new AutoSolutionContext();

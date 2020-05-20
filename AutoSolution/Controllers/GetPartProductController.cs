@@ -24,10 +24,10 @@ namespace AutoSolution.Controllers
         }
 
 
-        public ActionResult PartProductDetail(String id)
+        public ActionResult PartProductDetail(String id="1")
         {
-
-            return View();
+            var model = _unitOfWork.PartsProducts.PartProductDetail(id);
+            return View(model);
         }
     }
 }

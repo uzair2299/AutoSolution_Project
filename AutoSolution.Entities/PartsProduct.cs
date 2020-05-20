@@ -34,6 +34,7 @@ namespace AutoSolution.Entities
         public int? PartsProductManufacturerId { get; set; }
         public virtual PartsProductManufacturer PartsProductManufacturer { get; set; }
         public virtual ICollection<PartsProductSupplier> PartsProductSuppliers { get; set; }
-       public virtual ICollection<PartProductImages> PartProductImages { get; set; } 
+       public virtual ICollection<PartProductImages> PartProductImages { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -4,24 +4,6 @@
 }
 
 <div class="container-fluid">
-    <div>
-        @*<div class="boxed">
-                <section class="flat-row row-animation-box bg-section row-1" style="background-image:url('/assets/Uzair/template (27).png')">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="flat-animation-block">
-                                    <div class="title-section width-before-17 bg-before-white margin-bottom-14">
-                                        <div class="sup-title"><span>NEW TREND  @DateTime.Now.Year</span></div>
-                                        <h2 class="title font-size-52 line-height-76">Auto Parts Products & Accessories Collection</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>*@
-    </div>
     @foreach (var item in Model.OuterpartViewModelsList)
     {
         <div class="row">
@@ -31,7 +13,7 @@
                         <div class="kt-portlet__head-label" style="margin: 0 auto">
 
                             <h3 class="kt-portlet__head-title" style="font-size:1.5rem">
-                           @*     @Html.ActionLink(item.PartsProductsCategoryName, "GetPartsProducts", "GetPartProduct",new { id=item.PartsProductsCategoryId})*@
+                                @*     @Html.ActionLink(item.PartsProductsCategoryName, "GetPartsProducts", "GetPartProduct",new { id=item.PartsProductsCategoryId})*@
 
                                 <a href="@Url.Action("index","GetPartProduct",new { id=item.PartsProductsCategoryId})" target="_blank">@item.PartsProductsCategoryName</a>
                             </h3>
@@ -116,9 +98,9 @@
                                                 @product.PartsProductName
                                             </h2>
                                             <div class="kt-pricing-1__btn align-self-baseline">
-                                                <button type="button" class="btn btn-outline-dark btn-elevate btn-icon"><i class="la la-cart-plus" style="font-size:1.7rem"></i></button>
+                                                <button type="button" class="btn btn-outline-dark btn-elevate btn-icon AddToCart" data-id="@product.PartsProductId"><i class="la la-cart-plus" style="font-size:1.7rem"></i></button>
                                                 <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
-                                                <a  href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
+                                                <a href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
                                             </div>
                                         </div>
                                         counter = counter + 1;
@@ -144,36 +126,23 @@
 
 </div>
 
-@*<script>
-    $('.datepicker').datepicker({
-
-        format: "yyyy",
-        viewMode: "years",
-        minViewMode: "years",
-        startDate: '-80y',
-        autoclose: true,
-        clearBtn: true
-    });
-         $(document).ready(function () {
-             $('#FindYourPart_SelectedVehicleManufacturer').change(function () {
-                 var selectedManufacturer = $("#FindYourPart_SelectedVehicleManufacturer").val();
-                 var SelectedModel = $('#FindYourPart_SelectedVehicleModel');
-             SelectedModel.empty();
-             if (selectedManufacturer != null && selectedManufacturer != '') {
-                 $.getJSON('@Url.Action("GetModels")', { selectedManufacturerId: selectedManufacturer }, function (Moldels) {
-                     debugger;
-                     if (Moldels != null && !jQuery.isEmptyObject(Moldels))
-                     {
-                         debugger;
-                            $.each(Moldels, function (index, model) {
-                                SelectedModel.append($('<option/>',{
-                                    value: model.Value,
-                                    text: model.Text
-                                }));
-                            });
-                        }
-                    });
-                }
-            });
-     });
-</script>*@
+<script>
+    $(".AddToCart").click(function () {
+        alert("hello");
+        debugger
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("AddToCart", "Cart")',
+            data: {
+                id:$(this).attr("data-id")
+            }
+            })
+                .done(function (response) {
+                    $('#HomeBarAddtoCart').html("");
+                    $('#HomeBarAddtoCart').html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+ });
+</script>

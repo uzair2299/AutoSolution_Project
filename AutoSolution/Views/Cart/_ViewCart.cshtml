@@ -1,0 +1,143 @@
+﻿@using AutoSolution.Services.ViewModel;
+<div class="kt-container ">
+    <div class="kt-portlet">
+        <div class="kt-portlet__body mt-3">
+            <form>
+                <div class="kt-mycart">
+                    <div class="kt-mycart__head kt-head" style="background-image: url(/assets/Uzair/cart.png); height:270px">
+                    </div>
+                    <div class="kt-mycart__head kt-head" @*style="background-image: url(/assets/Uzair/cart.png); height:270px"*@>
+                        <div class="kt-mycart__info">
+                            <span class="kt-mycart__icon bg-dark"><i class="flaticon2-shopping-cart-1"></i></span>
+                            <h3 class="kt-mycart__title kt-font-dark">Auto Solution Cart</h3>
+                        </div>
+                        <div class="kt-mycart__button" style="margin-top: 5px;">
+                            @{
+                                if (Session["AddToCart"] != null)
+                                {
+                                    var cartWarpper = (CartWrapper)Session["AddToCart"];
+                                    <button type="button" class="btn btn-dark btn-sm">@cartWarpper.PartsProductsViewModelList.Count() Items</button>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="kt-mycart__body kt-scroll">
+                        @{if (Session["AddToCart"] != null)
+                            {
+                                var cartWarpper = (CartWrapper)Session["AddToCart"];
+                                foreach (var item in cartWarpper.PartsProductsViewModelList)
+                                {
+                                    <div class="kt-mycart__item" RemoveData-id="@item.PartsProductId">
+                                        <div class="kt-mycart__container">
+                                            <div class="kt-mycart__info">
+                                                <a href="#" class="kt-mycart__title">
+                                                    @item.PartsProductName
+                                                </a>
+                                                @if (item.VehicleManufacturerName != null || item.VehicleModelName != null)
+                                                {
+                                                    <span class="kt-mycart__desc">
+                                                        for @item.VehicleManufacturerName @item.VehicleModelName
+
+                                                    </span>
+                                                }
+
+                                                <div class="kt-mycart__action">
+                                                    @{ 
+                                                        decimal unitPrcice = item.UnitPrice;
+                                                        int quantity = item.Quantity;
+                                                        decimal PriceXquantity = unitPrcice * (decimal)quantity;
+
+                                                    }
+                                                    <span class="kt-mycart__price">@PriceXquantity</span>
+                                                    <span class="kt-mycart__text">for</span>
+                                                    <span class="kt-mycart__quantity">@item.Quantity</span>
+                                                    <a href="#" class="btn btn-label-success btn-icon" style="width:2rem; height:2rem">&minus;</a>
+                                                    <a href="#" class="btn btn-label-success btn-icon" style="width:2rem; height:2rem">&plus;</a>
+                                                    <a href="#" class="btn btn-label-danger btn-icon RemoveFromCart" style="width:2rem; height:2rem" data-id="@item.PartsProductId"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="kt-mycart__pic">
+                                                <img src="/assets/media/products/product9.jpg" title="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+
+
+
+                            }
+                            else
+                            {
+                                <div class="alert text-center" role="alert" style="height:150px;margin:auto 0">
+                                    <div class="alert-text"><h4>No selected item in cart</h4></div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    @{
+                        if (Session["AddToCart"] != null)
+                        {
+                            var cartWrapper = (CartWrapper)Session["AddToCart"];
+
+                            if (cartWrapper.PartsProductsViewModelList.Count > 0)
+                            {
+                                <div class="kt-mycart__footer">
+                                    <div class="kt-mycart__section">
+                                        <div class="kt-mycart__subtitel">
+                                            <span>Sub Total</span>
+                                            <span>Taxes</span>
+                                            <span>Total</span>
+                                        </div>
+                                        <div class="kt-mycart__prices">
+                                            <span>PKR @cartWrapper.SubTotal</span>
+                                            <span>PKR @cartWrapper.Tax</span>
+                                            <span class="kt-font-dark">PKR @cartWrapper.Total</span>
+                                        </div>
+                                    </div>
+                                    <div class="kt-mycart__button kt-align-right">
+                                        <button type="button" class="btn btn-dark">Place Order</button>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert text-center" role="alert" style="height:150px;margin:auto 0">
+                                    <div class="alert-text"><h4>No selected item in cart</h4></div>
+                                </div>
+                            }
+                        } else
+                            {
+                                <div class="alert text-center" role="alert" style="height:150px;margin:auto 0">
+                                    <div class="alert-text"><h4>No selected item in cart</h4></div>
+                                </div>
+                            }
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(".RemoveFromCart").click(function () {
+        alert("hello");
+        debugger
+        $.ajax({
+            type: "GET",
+            datatype: "json",
+            url: '@Url.Action("RemoveFromCart", "Cart")',
+            data: {
+                id:$(this).attr("data-id")
+            }
+            })
+            .done(function (response) {
+                $('#ViewCart').html("");
+                $('#ViewCart').html(response);
+            })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+ });
+</script>

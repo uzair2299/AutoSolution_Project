@@ -1,0 +1,27 @@
+﻿@using AutoSolution.Services.ViewModel;
+@{ 
+    if (Session["AddToCart"] != null)
+    {
+        var items = (CartWrapper)Session["AddToCart"];
+    }
+}
+<a href="@Url.Action("Index","Cart")" target="_blank">
+    <div class="kt-header__topbar-wrapper" style="margin-top: 18px;">
+
+    <span class="kt-header__topbar-icon" style="margin-top:4px">
+
+        @{
+            if (Session["AddToCart"] != null)
+            {
+                var cartWarpper = (CartWrapper)Session["AddToCart"];
+                <span class="kt-badge kt-badge--danger kt-badge" style="height:18px;width:18px;margin-top:5px">@cartWarpper.PartsProductsViewModelList.Count()</span>
+            }
+            else
+            {
+                <span class="kt-badge kt-badge--danger kt-badge" style="height:18px;width:18px">0</span>
+            }
+        }
+        <i class="fa fa-shopping-cart"></i>
+    </span>
+</div></a>
+

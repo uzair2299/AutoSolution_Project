@@ -1,11 +1,21 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="tableContiner">
-    @{Html.RenderAction("GetPartsProducts");}
+    <div class="kt-subheader   kt-grid__item" id="kt_subheader">
+        <div class="kt-container ">
+            <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+                <h3 class="kt-subheader__title" style="font-size:3.5rem">Auto Solution Cart</h3>
+                <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+            </div>
+        </div>
+    </div>
+<div id="ViewCart">
+    @{Html.RenderAction("ViewCart");}
 </div>
+
 
 @*<script>
     $(".RemoveFromCart").click(function () {
@@ -20,9 +30,9 @@
             }
             })
             .done(function (response) {
-
-                   
-                })
+                $('#ViewCart').html("");
+                $('#ViewCart').html(response);
+            })
                 .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("FAIL");
                 });

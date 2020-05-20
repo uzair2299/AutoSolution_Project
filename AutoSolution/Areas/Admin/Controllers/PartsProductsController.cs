@@ -65,10 +65,10 @@ namespace AutoSolution.Areas.Admin.Controllers
                     partsProduct.ShortDescription = partsProductsViewModel.ShortDescription;
                     partsProduct.LongDescription = partsProductsViewModel.LongDescription;
                     partsProduct.PartsProductName = partsProductsViewModel.PartsProductName;
-                    partsProduct.VehicleManufacturerId = Convert.ToInt32(partsProductsViewModel.SelectedManufacturer);
+                    partsProduct.VehicleManufacturerId = partsProductsViewModel.SelectedManufacturer;
                     partsProduct.PartsProductsSubCategoryId = Convert.ToInt32(partsProductsViewModel.SelectedPartsProductSubCategory);
-                    partsProduct.VehicleModelId = Convert.ToInt32(partsProductsViewModel.SelectedModel);
-                    partsProduct.PartsProductManufacturerId = Convert.ToInt32(partsProductsViewModel.SelectedPartProductManufacturer);
+                    partsProduct.VehicleModelId = partsProductsViewModel.SelectedModel;
+                    //partsProduct.PartsProductManufacturerId = Convert.ToInt32(partsProductsViewModel.SelectedPartProductManufacturer);
                         _unitOfWork.PartsProducts.Add(partsProduct);
                         _unitOfWork.Complete();
                         _unitOfWork.Dispose();
@@ -130,12 +130,12 @@ namespace AutoSolution.Areas.Admin.Controllers
                 partsProductsViewModel.PartProductManufacturerList = partsProductManufacturerRepository.GetPPManufacturerDropDown();
 
 
-                partsProductsViewModel.SelectedManufacturer = VManufacturer.VehicleManufacturerId.ToString();
-                partsProductsViewModel.SelectedModel = VModel.VehicleModelId.ToString();
+                partsProductsViewModel.SelectedManufacturer = VManufacturer.VehicleManufacturerId;
+                partsProductsViewModel.SelectedModel = VModel.VehicleModelId;
                 partsProductsViewModel.SelectedPartsProductCategory = PCategory.PartsProductsCategoryId.ToString();
                 partsProductsViewModel.SelectedPartsProductSubCategory = PSUbCategory.PartsProductsSubCategoryId.ToString();
                 partsProductsViewModel.SelectedPartProductManufacturer = PManufacturer.PartsProductManufacturerId.ToString();
-                partsProductsViewModel.SelectedModel = item.VehicleModelId.ToString();
+                partsProductsViewModel.SelectedModel = item.VehicleModelId;
 
                 partsProductsViewModel.PartProductImagesList = item.PartProductImages.ToList();
                 if (partsProductsViewModel != null)

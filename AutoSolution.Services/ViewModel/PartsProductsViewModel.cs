@@ -1,11 +1,7 @@
 ﻿using AutoSolution.Entities;
-using AutoSolution.Services.CommonServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace AutoSolution.Services.ViewModel
@@ -19,6 +15,9 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Start Year")]
         public int? startYear { get; set; }
         [Display(Name = "End Year")]
+
+
+        public DateTime? UpdatedDate { get; set; } 
         public int? EndYear { get; set; }
         [Display(Name = "Price")]
         public decimal UnitPrice { get; set; }
@@ -42,13 +41,15 @@ namespace AutoSolution.Services.ViewModel
         [Display(Name = "Parts/Products Manufacturer Name")]
         public string PartsProductManuName { get; set; }
 
+        public int Quantity { get; set; }
+
         public string SearchTerm { get; set; }
         public string PictureIDs { get; set; }
         public List<VehicleVersion> VehicleVersionList { get; set; }
         public Pager Pager { get; set; }
         
         [Display(Name = "Select Vehicle Manufacturer")]
-        public string SelectedManufacturer { get; set; }
+        public int? SelectedManufacturer { get; set; }
         public IEnumerable<SelectListItem> VehicleManufacturerList { get; set; }
 
 
@@ -58,7 +59,7 @@ namespace AutoSolution.Services.ViewModel
 
 
         [Display(Name = "Select Vehicle Model")]
-        public string SelectedModel { get; set; }
+        public int? SelectedModel { get; set; }
         public IEnumerable<SelectListItem> VehicleModelList { get; set; }
 
 

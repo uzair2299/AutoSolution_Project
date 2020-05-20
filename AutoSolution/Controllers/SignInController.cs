@@ -41,7 +41,9 @@ namespace AutoSolution.Controllers
                         else
                         {
                             FormsAuthentication.SetAuthCookie(model.Email,false);
-                            //cookies
+                            Session["UserID"] = model.UserId.ToString();
+                            Session["UserName"] = model.FirstName.ToString() +" "+ model.LastName.ToString() ;
+
                             return RedirectToAction("Index", "Home");
                         }
 

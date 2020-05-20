@@ -168,6 +168,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CartController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\demo1\pages\error\error-1.css" />
@@ -1719,6 +1720,7 @@
     <Content Include="assets\Uzair\bg1.jpg" />
     <Content Include="assets\Uzair\bg2.jpg" />
     <Content Include="assets\Uzair\bg4.jpg" />
+    <Content Include="assets\Uzair\cart.png" />
     <Content Include="assets\Uzair\gallery_bg.jpg" />
     <Content Include="assets\Uzair\left.jpg" />
     <Content Include="assets\Uzair\login-left.jpg" />
@@ -7132,7 +7134,6 @@
     <Content Include="Views\SignIn\index.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
     <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\check.cshtml" />
     <Content Include="Views\Home\_GetServiceCategories.cshtml" />
     <Content Include="Views\UserDashboard\Index.cshtml" />
@@ -7145,6 +7146,9 @@
     <Content Include="Views\GetPartProduct\Index.cshtml" />
     <Content Include="Views\GetPartProduct\_GetPartsProducts.cshtml" />
     <Content Include="Views\GetPartProduct\PartProductDetail.cshtml" />
+    <Content Include="Views\Cart\_AutoSolutionCart.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\_ViewCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

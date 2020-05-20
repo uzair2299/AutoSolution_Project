@@ -123,6 +123,7 @@
     <Compile Include="VehicleManufacturerRepository.cs" />
     <Compile Include="VehicleModelRepository.cs" />
     <Compile Include="VehicleVersionRepository.cs" />
+    <Compile Include="ViewModel\CartWrapper.cs" />
     <Compile Include="ViewModel\ChangePassword.cs" />
     <Compile Include="ViewModel\CityAreaViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceCategoryViewModel.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="ViewModel\InnerPartViewModel.cs" />
     <Compile Include="ViewModel\JsonModel.cs" />
     <Compile Include="ViewModel\PartProductwraperForHome.cs" />
+    <Compile Include="ViewModel\PartsProductsDetailViewModel.cs" />
     <Compile Include="ViewModel\SelectYourInterest.cs" />
     <Compile Include="ViewModel\OuterMostPartsViewModel.cs" />
     <Compile Include="ViewModel\OuterPartViewModel.cs" />

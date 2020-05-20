@@ -81,7 +81,7 @@ namespace AutoSolution.Services
             {
                 new SelectListItem
                 {
-                    Value = (-1).ToString(),
+                    Value = null,
                     Text = "--------------------- Select Vehicle Model ---------------------"
                 }
             };
@@ -94,7 +94,7 @@ namespace AutoSolution.Services
             {
                 new SelectListItem
                 {
-                    Value = (-1).ToString(),
+                    Value = null,
                     Text = "------------ Select Vehicle Model ------------"
                 }
             };
@@ -113,7 +113,7 @@ namespace AutoSolution.Services
 
             var CityTip = new SelectListItem()
             {
-                Value = (-1).ToString(),
+                Value = null,
                 Text = "--------------------- Select Vehicle Model ---------------------"
             };
             items.Insert(0, CityTip);

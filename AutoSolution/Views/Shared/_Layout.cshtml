@@ -80,7 +80,7 @@
     <link href="~/assets/css/demo1/skins/header/base/dark.css" rel="stylesheet" />
     <link href="~/assets/css/demo1/skins/header/menu/dark.css" rel="stylesheet" />
     <script src="~/Scripts/owl.carousel.js"></script>
-    
+
     <!--end::Layout Skins -->
 
     <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
@@ -230,24 +230,23 @@
                             <!--begin: Notifications -->
                             <!--end: Notifications -->
                             <!--begin: Cart -->
-                            <div class="kt-header__topbar-item dropdown">
-                                <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
-                                    <span class="kt-header__topbar-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <rect id="bound" x="0" y="0" width="24" height="24" />
-                                                <path d="M12,4.56204994 L7.76822128,9.6401844 C7.4146572,10.0644613 6.7840925,10.1217854 6.3598156,9.76822128 C5.9355387,9.4146572 5.87821464,8.7840925 6.23177872,8.3598156 L11.2317787,2.3598156 C11.6315738,1.88006147 12.3684262,1.88006147 12.7682213,2.3598156 L17.7682213,8.3598156 C18.1217854,8.7840925 18.0644613,9.4146572 17.6401844,9.76822128 C17.2159075,10.1217854 16.5853428,10.0644613 16.2317787,9.6401844 L12,4.56204994 Z" id="Path-30" fill="#000000" fill-rule="nonzero" opacity="0.3" />
-                                                <path d="M3.5,9 L20.5,9 C21.0522847,9 21.5,9.44771525 21.5,10 C21.5,10.132026 21.4738562,10.2627452 21.4230769,10.3846154 L17.7692308,19.1538462 C17.3034221,20.271787 16.2111026,21 15,21 L9,21 C7.78889745,21 6.6965779,20.271787 6.23076923,19.1538462 L2.57692308,10.3846154 C2.36450587,9.87481408 2.60558331,9.28934029 3.11538462,9.07692308 C3.23725479,9.02614384 3.36797398,9 3.5,9 Z M12,17 C13.1045695,17 14,16.1045695 14,15 C14,13.8954305 13.1045695,13 12,13 C10.8954305,13 10,13.8954305 10,15 C10,16.1045695 10.8954305,17 12,17 Z" id="Combined-Shape" fill="#000000" />
-                                            </g>
-                                        </svg>
+                            <div class="kt-header__topbar-item dropdown" id="HomeBarAddtoCart">
 
-                                        <!--<i class="flaticon2-shopping-cart-1"></i>-->
+                                @{Html.RenderAction("AddToCart", "Cart");}
+                            </div>
+                            @*<div class="kt-header__topbar-item dropdown">
+                                <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
+                                  
+                                    <span class="kt-header__topbar-icon" style="margin-top: 4px">
+                                        <span class="kt-badge kt-badge--danger kt-badge"style="height:18px;width:18px">12</span>
+                                      
+                                        <i class="fa fa-shopping-cart"></i>
                                     </span>
                                 </div>
                                 <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
                                     <form>
 
-                                        <!-- begin:: Mycart -->
+                                         begin:: Mycart 
                                         <div class="kt-mycart">
                                             <div class="kt-mycart__head kt-head" style="background-image: url(/assets/media/bg/bg-1.jpg);">
                                                 <div class="kt-mycart__info">
@@ -367,10 +366,10 @@
                                             </div>
                                         </div>
 
-                                        <!-- end:: Mycart -->
+                                         end:: Mycart 
                                     </form>
                                 </div>
-                            </div>
+                            </div>*@
 
                             <!--end: Cart-->
                             <!--begin: Quick panel toggler -->
@@ -384,10 +383,13 @@
                                 {
                                     <div class="kt-header__topbar-item kt-header__topbar-item--user">
                                         <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
-                                            <span class="kt-header__topbar-welcome">Hi,</span>
-                                            <span class="kt-header__topbar-username">@User.Identity.Name</span>
-                                            <span class="kt-header__topbar-icon"><b>U</b></span>
-                                            <img alt="Pic" src="/assets/media/users/300_21.jpg" class="kt-hidden" />
+                                            @{if (Session["UserName"] != null)
+                                                {
+                                                    <span class="kt-header__topbar-username">Hi,</span>
+                                                    <span class="kt-header__topbar-username" style="width:100px">@Session["UserName"].ToString()</span>
+                                                    <span class="kt-header__topbar-icon"><b>@Session["UserName"].ToString().Substring(0, 1)</b></span>
+                                                }
+                                            }  <img alt="Pic" src="/assets/media/users/300_21.jpg" class="kt-hidden" />
                                         </div>
                                         <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
 
@@ -397,11 +399,20 @@
                                                     <img class="kt-hidden" alt="Pic" src="/assets/media/users/300_25.jpg" />
 
                                                     <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
-                                                    <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">S</span>
+                                                    @if (Session["UserName"] != null)
+                                                    {
+                                                        <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">@Session["UserName"].ToString().Substring(0, 1)</span>
+
+                                                    }
                                                 </div>
                                                 <div class="kt-user-card__name">
-                                                    Sean Stone
+                                                    @if (Session["UserName"] != null)
+                                                    {
+                                                        @Session["UserName"].ToString()
+                                                    }
+
                                                 </div>
+
                                                 <div class="kt-user-card__badge">
                                                     <span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span>
                                                 </div>
@@ -485,123 +496,13 @@
                                     </div>
                                 }
                             }
-                            @*<div class="kt-header__topbar-item kt-header__topbar-item--user">
-                                    <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,0px">
-                                        <span class="kt-header__topbar-welcome">Hi,</span>
-                                        <span class="kt-header__topbar-username">Uzair</span>
-                                        <span class="kt-header__topbar-icon"><b>U</b></span>
-                                        <img alt="Pic" src="/assets/media/users/300_21.jpg" class="kt-hidden" />
-                                    </div>
-                                    <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl">
-
-                                        begin: Head
-                                        <div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(/assets/media/bg/bg-1.jpg)">
-                                            <div class="kt-user-card__avatar">
-                                                <img class="kt-hidden" alt="Pic" src="/assets/media/users/300_25.jpg" />
-
-                                                use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it)
-                                                <span class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">S</span>
-                                            </div>
-                                            <div class="kt-user-card__name">
-                                                Sean Stone
-                                            </div>
-                                            <div class="kt-user-card__badge">
-                                                <span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span>
-                                            </div>
-                                        </div>
-                                        end: Head
-                                        begin: Navigation
-                                        <div class="kt-notification">
-                                            <a href="#" class="kt-notification__item">
-                                                <div class="kt-notification__item-icon">
-                                                    <i class="flaticon2-calendar-3 kt-font-success"></i>
-                                                </div>
-                                                <div class="kt-notification__item-details">
-                                                    <div class="kt-notification__item-title kt-font-bold">
-                                                        My Profile
-                                                    </div>
-                                                    <div class="kt-notification__item-time">
-                                                        Account settings and more
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="kt-notification__item">
-                                                <div class="kt-notification__item-icon">
-                                                    <i class="flaticon2-mail kt-font-warning"></i>
-                                                </div>
-                                                <div class="kt-notification__item-details">
-                                                    <div class="kt-notification__item-title kt-font-bold">
-                                                        My Messages
-                                                    </div>
-                                                    <div class="kt-notification__item-time">
-                                                        Inbox and tasks
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="kt-notification__item">
-                                                <div class="kt-notification__item-icon">
-                                                    <i class="flaticon2-rocket-1 kt-font-danger"></i>
-                                                </div>
-                                                <div class="kt-notification__item-details">
-                                                    <div class="kt-notification__item-title kt-font-bold">
-                                                        My Activities
-                                                    </div>
-                                                    <div class="kt-notification__item-time">
-                                                        Logs and notifications
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="kt-notification__item">
-                                                <div class="kt-notification__item-icon">
-                                                    <i class="flaticon2-hourglass kt-font-brand"></i>
-                                                </div>
-                                                <div class="kt-notification__item-details">
-                                                    <div class="kt-notification__item-title kt-font-bold">
-                                                        My Tasks
-                                                    </div>
-                                                    <div class="kt-notification__item-time">
-                                                        latest tasks and projects
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="kt-notification__item">
-                                                <div class="kt-notification__item-icon">
-                                                    <i class="flaticon2-cardiogram kt-font-warning"></i>
-                                                </div>
-                                                <div class="kt-notification__item-details">
-                                                    <div class="kt-notification__item-title kt-font-bold">
-                                                        Billing
-                                                    </div>
-                                                    <div class="kt-notification__item-time">
-                                                        billing & statements <span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded">2 pending</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class="kt-notification__custom kt-space-between">
-                                                <a href="@Url.Action("Logout","SignIn")" target="_blank" class="btn btn-label btn-label-brand btn-sm btn-bold">Logout</a>
-
-                                            </div>
-                                        </div>
-
-                                        end: Navigation
-                                    </div>
-                                </div>*@
-
                             <!--end: User bar -->
                             <!--begin:Login-->
                             <div class="kt-header__topbar-item dropdown" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Sign In">
                                 <div class="kt-header__topbar-wrapper">
-                                    <span class="kt-header__topbar-icon">
+                                    <span class="kt-header__topbar-icon" style="margin-top:8px">
                                         <a href="/SignIn" class="kt-grid-nav__item">
-                                            <!--<i class="flaticon2-gear"></i>-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect id="bound" x="0" y="0" width="24" height="24" />
-                                                    <rect id="Rectangle" fill="#000000" opacity="0.3" transform="translate(9.000000, 12.000000) rotate(-270.000000) translate(-9.000000, -12.000000) " x="8" y="6" width="2" height="12" rx="1" />
-                                                    <path d="M20,7.00607258 C19.4477153,7.00607258 19,6.55855153 19,6.00650634 C19,5.45446114 19.4477153,5.00694009 20,5.00694009 L21,5.00694009 C23.209139,5.00694009 25,6.7970243 25,9.00520507 L25,15.001735 C25,17.2099158 23.209139,19 21,19 L9,19 C6.790861,19 5,17.2099158 5,15.001735 L5,8.99826498 C5,6.7900842 6.790861,5 9,5 L10.0000048,5 C10.5522896,5 11.0000048,5.44752105 11.0000048,5.99956624 C11.0000048,6.55161144 10.5522896,6.99913249 10.0000048,6.99913249 L9,6.99913249 C7.8954305,6.99913249 7,7.89417459 7,8.99826498 L7,15.001735 C7,16.1058254 7.8954305,17.0008675 9,17.0008675 L21,17.0008675 C22.1045695,17.0008675 23,16.1058254 23,15.001735 L23,9.00520507 C23,7.90111468 22.1045695,7.00607258 21,7.00607258 L20,7.00607258 Z" id="Path-103" fill="#000000" fill-rule="nonzero" opacity="0.3" transform="translate(15.000000, 12.000000) rotate(-90.000000) translate(-15.000000, -12.000000) " />
-                                                    <path d="M16.7928932,9.79289322 C17.1834175,9.40236893 17.8165825,9.40236893 18.2071068,9.79289322 C18.5976311,10.1834175 18.5976311,10.8165825 18.2071068,11.2071068 L15.2071068,14.2071068 C14.8165825,14.5976311 14.1834175,14.5976311 13.7928932,14.2071068 L10.7928932,11.2071068 C10.4023689,10.8165825 10.4023689,10.1834175 10.7928932,9.79289322 C11.1834175,9.40236893 11.8165825,9.40236893 12.2071068,9.79289322 L14.5,12.0857864 L16.7928932,9.79289322 Z" id="Path-104" fill="#000000" fill-rule="nonzero" transform="translate(14.500000, 12.000000) rotate(-90.000000) translate(-14.500000, -12.000000) " />
-                                                </g>
-                                            </svg>
+                                            <i class="fa fa-sign-in-alt"></i>
                                         </a>
                                     </span>
                                 </div>

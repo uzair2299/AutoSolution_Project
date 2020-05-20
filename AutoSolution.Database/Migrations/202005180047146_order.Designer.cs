@@ -7,13 +7,13 @@ namespace AutoSolution.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class footer : IMigrationMetadata
+    public sealed partial class order : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(footer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(order));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005092244148_footer"; }
+            get { return "202005180047146_order"; }
         }
         
         string IMigrationMetadata.Source

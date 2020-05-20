@@ -4,7 +4,9 @@ using AutoSolution.Services.Repo;
 using AutoSolution.Services.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -175,6 +177,74 @@ namespace AutoSolution.Services
             return outerMostPartsViewModel;
         
 
+        }
+
+        public PartsProductsDetailViewModel PartProductDetail(string id)
+        {
+            int Id = Convert.ToInt32(id);
+            PartsProduct item = GetByID(Id);
+            //item =
+            PartsProductsDetailViewModel PartsProductsDetailViewModel = new PartsProductsDetailViewModel()
+            {
+              PartsProductId = item.PartsProductId,
+                PartsProductName = item.PartsProductName,
+                UpdatedDate = item.UpdatedDate,
+                startYear = item.startYear,
+                EndYear = item.EndYear,
+                UnitPrice=item.UnitPrice,
+                ShortDescription = item.ShortDescription,
+                LongDescription = item.LongDescription,
+                PartsProductSubCategoryName = item.PartsProductsSubCategory.PartsProductsSubCategoryName,
+                
+               // VehicleModelName = item.VehicleModel.VehicleModelName,
+               PartsProductCategoryName = item.PartsProductsSubCategory.PartsProductsCategory.PartsProductsCategoryName,
+                    //VehicleManufacturerName = item.VehicleManufacturer.VehicleManufacturerName,
+            };
+            if (item.VehicleModel != null)
+            {
+                PartsProductsDetailViewModel.VehicleModelName = item.VehicleModel.VehicleModelName;
+            }
+
+            if (item.VehicleManufacturer != null)
+            {
+                PartsProductsDetailViewModel.VehicleManufacturerName = item.VehicleManufacturer.VehicleManufacturerName;
+            }
+            PartsProductsDetailViewModel.PartsProductsList = AutoSolutionContext.PartsProducts.Where(x => x.PartsProductsSubCategoryId == item.PartsProductsSubCategoryId).Take(12).ToList();
+            return PartsProductsDetailViewModel;
+        }
+
+
+        public PartsProductsViewModel PartProductDetail(int? id,int Quantity)
+        {
+            int Id = Convert.ToInt32(id);
+            PartsProduct item = GetByID(Id);
+            //item =
+            PartsProductsViewModel PartsProductsViewModel = new PartsProductsViewModel()
+            {
+                PartsProductId = item.PartsProductId,
+                PartsProductName = item.PartsProductName,
+                UnitPrice = item.UnitPrice,
+                startYear = item.startYear,
+                EndYear = item.EndYear,
+                PartsProductSubCategoryName = item.PartsProductsSubCategory.PartsProductsSubCategoryName,
+
+                VehicleModelName = item.VehicleModel?.VehicleModelName,
+                PartsProductCategoryName = item.PartsProductsSubCategory.PartsProductsCategory.PartsProductsCategoryName,
+                Quantity = Quantity,
+            VehicleManufacturerName = item.VehicleManufacturer?.VehicleManufacturerName,
+
+            };
+            
+            //if (item.VehicleModel != null)
+            //{
+            //    PartsProductsViewModel.VehicleModelName = item.VehicleModel.VehicleModelName;
+            //}
+
+            //if (item.VehicleManufacturer != null)
+            //{
+            //    PartsProductsViewModel.VehicleManufacturerName = item.VehicleManufacturer.VehicleManufacturerName;
+            //}
+            return PartsProductsViewModel;
         }
 
         public AutoSolutionContext AutoSolutionContext

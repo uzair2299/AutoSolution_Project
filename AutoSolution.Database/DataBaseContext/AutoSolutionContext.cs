@@ -31,6 +31,13 @@ namespace AutoSolution.Database.DataBaseContext
         public DbSet<PartsProductsSubCategory> PartsProductsSubCategories { get; set; }
         public DbSet<PartsProductManufacturer> PartsProductManufacturers { get; set; }
         public DbSet<PartsProduct>  PartsProducts { get; set; }
+
+        public DbSet<WishList> WishLists { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<OrderStatus> GetStatuses { get; set; }
+
         public DbSet<Image> Images { get; set; }
         public DbSet<PartProductImages> PartProductImages { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
