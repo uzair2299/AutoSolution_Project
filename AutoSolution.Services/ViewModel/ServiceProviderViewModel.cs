@@ -50,8 +50,13 @@ namespace AutoSolution.Services.ViewModel
         public string ConfrimPassword { get; set; }
         public bool IsTermAndConditionAccepted { get; set; }
         public bool IsActive { get; set; }
+        [Display(Name = "Bussiness Address")]
         public string Address { get; set; }
+        [Display(Name = "Address")]
+        public string SelfAddress { get; set; }
         public string ImagePath { get; set; }
+        [Display(Name = "Registration Date")]
+        public DateTime? RegistrationDate { get; set; }
 
         [Display(Name = "Remember Me")]
         public bool RememberMe { get; set; }
@@ -78,5 +83,14 @@ namespace AutoSolution.Services.ViewModel
         public int TotalNumberOfServiceProvider { get; set; }
         public List<ServiceCategoryViewModel> serviceCategoriesListFor { get; set; }
         public List<ServiceCategory> serviceCategoriesNew { get; set; }
+
+
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+        [Display(Name = "City Area/Town")]
+        public string CityArea { get; set; }
+
+
     }
 }

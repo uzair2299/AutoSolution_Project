@@ -128,8 +128,6 @@
 
 <script>
     $(".AddToCart").click(function () {
-        alert("hello");
-        debugger
         $.ajax({
             type: "GET",
             url: '@Url.Action("AddToCart", "Cart")',

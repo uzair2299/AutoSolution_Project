@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model AutoSolution.Services.ViewModel.UserDashboardWrapper
+  @{  ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,7 +8,7 @@
 <div class="kt-subheader kt-grid__item" id="kt_subheader">
     <div class="kt-container ">
         <div class="kt-subheader__main">
-            <h3 class="kt-subheader__title">User Profile</h3>
+            <h3 class="kt-subheader__title">@Session["UserName"] Profile</h3>
             <div class="kt-subheader__breadcrumbs">
                 <a href="/" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
                 <span class="kt-subheader__breadcrumbs-separator"></span>
@@ -41,10 +40,10 @@
                             <div class="kt-widget__content">
                                 <div class="kt-widget__section">
                                     <div class="kt-widget__username">
-                                        Iqra Hussain
+                                        @Session["UserName"]
                                     </div>
                                     <span class="kt-widget__subtitle">
-                                        Head of Development
+                                        Shop Name : ABCDE
                                     </span>
                                 </div>
                             </div>
@@ -52,16 +51,28 @@
                         <div class="kt-widget__body">
                             <div class="kt-widget__content">
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">Email:</span>
-                                    <a href="#" class="kt-widget__data">iqra.husain@dynovativetech.com</a>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.Email)</span>
+                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.Email</a>
                                 </div>
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">Phone:</span>
-                                    <a href="#" class="kt-widget__data">44(76)34254578</a>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.MobileNumber)</span>
+                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.MobileNumber</a>
                                 </div>
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">Location:</span>
-                                    <span class="kt-widget__data">Melbourne</span>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.PhoneNumber)</span>
+                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.PhoneNumber</a>
+                                </div>
+                                <div class="kt-widget__info">
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.CityArea)</span>
+                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.SelectedCityAreaName</span>
+                                </div>
+                                <div class="kt-widget__info">
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.City)</span>
+                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.SelectedCity</span>
+                                </div>
+                                <div class="kt-widget__info">
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.RegistrationDate)</span>
+                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.RegistrationDate</span>
                                 </div>
                             </div>
                             <div class="kt-widget__items">

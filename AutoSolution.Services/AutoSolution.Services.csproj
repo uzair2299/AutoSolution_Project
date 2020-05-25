@@ -152,6 +152,7 @@
     <Compile Include="ViewModel\SignInViewModel.cs" />
     <Compile Include="ViewModel\TemplateViewModel.cs" />
     <Compile Include="ViewModel\TransmissionTypeViewModel.cs" />
+    <Compile Include="ViewModel\UserDashboardWrapper.cs" />
     <Compile Include="ViewModel\VehicleEngineTypeViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerAddEditViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />

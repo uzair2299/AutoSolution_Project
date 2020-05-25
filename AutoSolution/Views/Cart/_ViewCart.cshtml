@@ -8,7 +8,7 @@
                     </div>
                     <div class="kt-mycart__head kt-head" @*style="background-image: url(/assets/Uzair/cart.png); height:270px"*@>
                         <div class="kt-mycart__info">
-                            <span class="kt-mycart__icon bg-dark"><i class="flaticon2-shopping-cart-1"></i></span>
+                            <span class="kt-mycart__icon bg-dark"><i class="flaticon2-shopping-cart-1 kt-font-hover-light"></i></span>
                             <h3 class="kt-mycart__title kt-font-dark">Auto Solution Cart</h3>
                         </div>
                         <div class="kt-mycart__button" style="margin-top: 5px;">
@@ -41,30 +41,31 @@
                                                     </span>
                                                 }
 
-                                                <div class="kt-mycart__action">
-                                                    @{ 
-                                                        decimal unitPrcice = item.UnitPrice;
-                                                        int quantity = item.Quantity;
-                                                        decimal PriceXquantity = unitPrcice * (decimal)quantity;
+                                            <div class="kt-mycart__action">
+                                                @{
+                                                    decimal unitPrcice = item.UnitPrice;
+                                                    int quantity = item.Quantity;
+                                                    decimal PriceXquantity = unitPrcice * (decimal)quantity;
 
-                                                    }
-                                                    <span class="kt-mycart__price">@PriceXquantity</span>
-                                                    <span class="kt-mycart__text">for</span>
-                                                    <span class="kt-mycart__quantity">@item.Quantity</span>
-                                                    <a href="#" class="btn btn-label-success btn-icon" style="width:2rem; height:2rem">&minus;</a>
-                                                    <a href="#" class="btn btn-label-success btn-icon" style="width:2rem; height:2rem">&plus;</a>
-                                                    <a href="#" class="btn btn-label-danger btn-icon RemoveFromCart" style="width:2rem; height:2rem" data-id="@item.PartsProductId"><i class="fa fa-trash"></i></a>
-                                                </div>
+                                                }
+                                                <span class="kt-mycart__price">@PriceXquantity</span>
+                                                <span class="kt-mycart__text">for</span>
+                                                <span class="kt-mycart__quantity">@item.Quantity</span>
+                                                @if (item.Quantity > 1)
+                                                {
+                                                    <a  class="btn btn-label-success btn-icon DecQuantityInCart" data-id="@item.PartsProductId" style="width:2rem; height:2rem">&minus;</a>
+                                                }
+
+                                                <a class="btn btn-label-success btn-icon InsQuantityInCart" style="width:2rem; height:2rem" data-id="@item.PartsProductId" quantity-data="@item.Quantity">&plus;</a>
+                                                <button type="button" class="btn btn-label-danger btn-icon RemoveFromCart" style="width:2rem; height:2rem" data-id="@item.PartsProductId"><i class="fa fa-trash"></i></button>
                                             </div>
-                                            <a href="#" class="kt-mycart__pic">
+                                            </div>
+                                            <a href="" class="kt-mycart__pic">
                                                 <img src="/assets/media/products/product9.jpg" title="">
                                             </a>
                                         </div>
                                     </div>
                                 }
-
-
-
                             }
                             else
                             {
@@ -85,7 +86,7 @@
                                     <div class="kt-mycart__section">
                                         <div class="kt-mycart__subtitel">
                                             <span>Sub Total</span>
-                                            <span>Taxes</span>
+                                            <span>Tax(16%)</span>
                                             <span>Total</span>
                                         </div>
                                         <div class="kt-mycart__prices">
@@ -122,14 +123,50 @@
 
 <script>
     $(".RemoveFromCart").click(function () {
-        alert("hello");
-        debugger
         $.ajax({
             type: "GET",
             datatype: "json",
             url: '@Url.Action("RemoveFromCart", "Cart")',
             data: {
                 id:$(this).attr("data-id")
+            }
+            })
+            .done(function (response) {
+                $('#ViewCart').html("");
+                $('#ViewCart').html(response);
+            })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
+
+    $(".InsQuantityInCart").click(function () {
+        $.ajax({
+            type: "GET",
+            datatype: "json",
+            url: '@Url.Action("ViewCart", "Cart")',
+            data: {
+                id: $(this).attr("data-id")
+            }
+            })
+            .done(function (response) {
+                debugger
+                $('#ViewCart').html("");
+                $('#ViewCart').html(response);
+            })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
+
+     $(".DecQuantityInCart").click(function () {
+        $.ajax({
+            type: "GET",
+            datatype: "json",
+            url: '@Url.Action("ViewCart", "Cart")',
+            data: {
+                id: $(this).attr("data-id"),
+                quantity:-1
             }
             })
             .done(function (response) {

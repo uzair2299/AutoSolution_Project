@@ -85,7 +85,80 @@
                         <div class="kt-portlet kt-portlet--mobile">
                             <div class="kt-portlet__body">
                                 <!--begin: Search Form -->
-                                <form class="kt-form kt-form--fit kt-margin-b-20">
+                                @using (Html.BeginForm("GetServiceProviderSearch", "GetServiceProvider", FormMethod.Get, new { @class = "kt-form kt-form--fit kt-margin-b-20" }))
+                                {
+                                    <form class="kt-form kt-form--fit kt-margin-b-20">
+                                        <div class="row kt-margin-b-20">
+                                            <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.findYourMechanic.SelectedServiceCategory, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="flaticon2-settings"></i></span>
+                                                        </div>
+                                                        @Html.DropDownListFor(x => Model.findYourMechanic.SelectedServiceCategory, Model.findYourMechanic.ServiceCategoryList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.findYourMechanic.SelectedServiceCategory, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.findYourMechanic.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                        </div>
+                                                        @Html.DropDownListFor(x => Model.findYourMechanic.SelectedProvince, Model.findYourMechanic.ProvinceList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.findYourMechanic.SelectedProvince, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.findYourMechanic.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                        </div>
+                                                        @Html.DropDownListFor(x => Model.findYourMechanic.SelectedCity, Model.findYourMechanic.CityList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.findYourMechanic.SelectedCity, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.findYourMechanic.SelectedCityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                        </div>
+                                                        @Html.TextBoxFor(model => model.findYourMechanic.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Select City Area/Town" })
+                                                        @Html.HiddenFor(model => model.findYourMechanic.CityAreaID)
+                                                    </div>
+                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.findYourMechanic.SelectedCityAreaName, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row kt-margin-t-40">
+                                            <div class="col-lg-12 text-right">
+                                                <button type="submit" class="btn btn-dark btn-brand--icon kt_FindYourServiceProvider" id="kt_search">
+                                                    <span>
+                                                        <i class="la la-search"></i>
+                                                        <span>Search</span>
+                                                    </span>
+                                                </button>
+                                                &nbsp;&nbsp;
+                                                <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                                                    <span>
+                                                        <i class="la la-close"></i>
+                                                        <span>Reset</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                }
+                                @*<form class="kt-form kt-form--fit kt-margin-b-20">
                                     <div class="row kt-margin-b-20">
                                         <div class="col-lg-4 kt-margin-b-10-tablet-and-mobile">
                                             <div class="form-group">
@@ -120,13 +193,14 @@
                                                 <div class="input-group">
                                                     <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span></div>
                                                     @Html.TextBoxFor(model => model.findYourMechanic.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Enter Your Last Name" })
+                                                    @Html.HiddenFor(model => model.findYourMechanic.CityAreaID)
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row kt-margin-t-40">
                                         <div class="col-lg-12 text-right">
-                                            <button class="btn btn-dark btn-brand--icon" id="kt_search">
+                                            <button type="button" class="btn btn-dark btn-brand--icon kt_FindYourServiceProvider" id="kt_search">
                                                 <span>
                                                     <i class="la la-search"></i>
                                                     <span>Search</span>
@@ -141,7 +215,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                </form>
+                                </form>*@
                                 <!--begin: Datatable -->
                                 <!--end: Datatable -->
                             </div>
@@ -166,9 +240,9 @@
         //startDate: '-3d'
     });
     $(document).ready(function () {
-        debugger
+      
         $('#FindYourPart_SelectedVehicleManufacturer').change(function () {
-                 debugger
+             
                  var selectedManufacturer = $("#FindYourPart_SelectedVehicleManufacturer").val();
                  var SelectedModel = $('#FindYourPart_SelectedVehicleModel');
              SelectedModel.empty();
@@ -229,20 +303,53 @@
                         SelectedCityId: SelectedCity
                     },
                     success: function (data) {
+                        debugger
                         response($.map(data.slice(0, 7), function (item) {
-                            return { label: item.label, value: item.val };
+                            return { label: item.label, value: item.val,id: item.id };
                         }))
 
                     }
                 })
-                       },
-                       select: function (event, ui) {
-                           var label = ui.item.label;
-                           var value = ui.item.value;
+                      },
+                      
+                      select: function (event, ui) {
+                          debugger
+                           $("#findYourMechanic_SelectedCityAreaName").val(ui.item.label);
+                           $("#findYourMechanic_CityAreaID").val(ui.item.id);
                        }
 
         });
                 }
             });
+      });
+
+
+    @*$(document).ready(function () {
+            $('.kt_FindYourServiceProvider').click(function () {
+                alert("hello");
+                debugger;
+        var SelectedServiceCategory = $("#findYourMechanic_SelectedServiceCategory").val();
+        var SelectedProvince = $('#findYourMechanic_SelectedProvince').val();
+        var SelectedCity = $('#findYourMechanic_SelectedCity').val();
+                var SelectedCityAreaId = $('#findYourMechanic_CityAreaID').val();
+        debugger;
+        $.ajax({
+            url: '@Url.Action("index", "GetServiceProvider")',
+            dataType: "json",
+            data: {
+
+                id: SelectedServiceCategory,
+                SelectedProvinceId: SelectedProvince,
+                SelectedCityId: SelectedCity,
+                SelectedCityAreaId: SelectedCityAreaId
+            },
+            success: function (response) {
+                debugger
+            }
+        })
     });
+    })*@
+
+
+
 </script>

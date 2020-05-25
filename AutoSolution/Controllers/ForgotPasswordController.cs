@@ -49,7 +49,6 @@ namespace AutoSolution.Controllers
                 return View();
             }
         }
-
         public ActionResult ChangePassword(string id)
         {
             var isExist = _unitOfWork.User.Get(u => u.ActivetionCode == new Guid(id)).FirstOrDefault();

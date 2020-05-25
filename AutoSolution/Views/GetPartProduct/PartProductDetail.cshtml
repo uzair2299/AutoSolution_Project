@@ -145,11 +145,11 @@
                                                             <div class="input-group">
 
                                                                 <div class="input-group-prepend">
-                                                                    <button class="btn btn-dark" type="button">+</button>
+                                                                    <button class="btn btn-dark" id="btn-Increment" type="button">+</button>
                                                                 </div>
-                                                                <input type="text" class="form-control" readonly min="1" max="100" value="10">
+                                                                <input type="text" class="form-control" id="Quantity" readonly min="1" max="100" value="1">
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-dark" type="button">-</button>
+                                                                    <button class="btn btn-dark" id="btn-decrement" type="button">-</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -157,7 +157,7 @@
                                                     <div class="row kt-mt-15">
                                                         <div class="col-12">
                                                             <button type="button" class="btn  btn-dark btn-uppercase btn-bolder kt-mr-5">Buy Now</button>
-                                                            <button type="button" class="btn  btn-danger btn-uppercase btn-bolder  kt-mr-5">Add To Cart</button>
+                                                            <button type="button" class="btn  btn-danger btn-uppercase btn-bolder  kt-mr-5 AddToCartFromDetail" data-id="@Model.PartsProductId">Add To Cart</button>
                                                             <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
                                                         </div>
                                                     </div>
@@ -335,4 +335,45 @@
             customDirectionNav: $(".custom-navigation a")
         });
     });
+
+    $(document).ready(function () {
+        $("#btn-Increment").click(function () {
+           
+            var value = $('#Quantity').val()
+            var quantity = parseInt(value) + 1;
+            $('#Quantity').val(quantity);
+        });
+    });
+
+    $(document).ready(function () {
+        $("#btn-decrement").click(function () {
+            var value = parseInt($('#Quantity').val());
+            if (value>1) {
+                var quantity = parseInt(value) - 1;
+                $('#Quantity').val(quantity);
+            }
+            else {
+                $('#Quantity').val(1);
+            }
+            
+        });
+    });
+
+    $(".AddToCartFromDetail").click(function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("AddToCart", "Cart")',
+            data: {
+                id: $(this).attr("data-id"),
+                quantity: $('#Quantity').val()
+            }
+            })
+                .done(function (response) {
+                    $('#HomeBarAddtoCart').html("");
+                    $('#HomeBarAddtoCart').html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+ });
 </script>

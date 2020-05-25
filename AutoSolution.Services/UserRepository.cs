@@ -60,6 +60,29 @@ namespace AutoSolution.Services
             return user;
         }
 
+        public UserDashboardWrapper GetUser(int id)
+        {
+            var user = GetByID(id);
+            UserDashboardWrapper userDashboardWrapper = new UserDashboardWrapper() {
+                ServiceProviderViewModel = new ServiceProviderViewModel()
+                {
+                    First_Name = user.FirstName,
+                    Last_Name = user.LastName,
+                    Gender = user.Gender,
+                    DateOfBirth = user.DateOfBirth,
+                    PhoneNumber = user.PhoneNumber,
+                    MobileNumber = user.MobileNumber,
+                    MobileNumber1 = user.MobileNumber1,
+                    Email = user.Email,
+                    SelfAddress = "Dummy",
+                    RegistrationDate = user.RegistrationDate,
+                    CityArea = user.CityArea?.CityAreaName,
+                    City = user.Cities.CityName
+                }
+            };
+            return userDashboardWrapper;
+        }
+
         public ServiceProviderViewModel CreateServiceProvider()
 
         {
@@ -186,7 +209,7 @@ namespace AutoSolution.Services
                                                     }).ToList()
                                                 }
 
-                   )./*Skip((PageNo - 1) * 10).Take(10)*/ToList(),
+                   ).Skip((PageNo - 1) * 10).Take(10).ToList(),
 
                 Pager = new Pager(TotalCount, PageNo, 10)
 
@@ -225,6 +248,76 @@ namespace AutoSolution.Services
         {
             int Id = Convert.ToInt32(id);
             return AutoSolutionContext.UserServiceCatogories.Where(x => x.ServiceCategoryId == Id).Count();
+        }
+
+        public ServiceProviderWraperForHome GetServiceProvidersHomeSearch(int PageNo, int TotalCount, SelectYourInterest selectYourInterest)
+        {
+            int Id = selectYourInterest.findYourMechanic.SelectedServiceCategory;
+            ServiceCategoryRepository serviceCategoryRepository = new ServiceCategoryRepository(new AutoSolutionContext());
+            ProvinceRepository provinceRepository = new ProvinceRepository(new AutoSolutionContext());
+            CityRepository cityRepository = new CityRepository(new AutoSolutionContext());
+            CityAreaRepository cityAreaRepository = new CityAreaRepository(new AutoSolutionContext());
+            ServiceProviderWraperForHome serviceProviderWraperForHome = new ServiceProviderWraperForHome()
+            {
+                FindYourMechanicViewModel =
+                {
+                    ServiceCategoryList = serviceCategoryRepository.GetServiceCategoryDropDown(),
+                    ProvinceList=provinceRepository.GetProvincesForHome(),
+                    CityList= cityRepository.GetCitiesForHome()
+                },
+                ServiceCategoriesList = AutoSolutionContext.ServiceCategories.ToList(),
+                ServiceCategoryName = AutoSolutionContext.ServiceCategories.Where(x => x.ServiceCategoryId == Id).FirstOrDefault(),
+                serviceProviderViewModelList = (from u in AutoSolutionContext.User
+                                                join ur in AutoSolutionContext.UserRoles
+                                                on u.UserId equals ur.UserId
+                                                join USC in AutoSolutionContext.UserServiceCatogories
+                                                on u.UserId equals USC.UserId
+                                                where ((ur.RolesId == 6) && (USC.ServiceCategoryId == Id) &&
+                                                (u.Cities.Province.ProvinceId == selectYourInterest.findYourMechanic.SelectedProvince) &&
+                                                (u.Cities.CityId == selectYourInterest.findYourMechanic.SelectedCity) &&
+                                                (u.CityAreaID == selectYourInterest.findYourMechanic.CityAreaID))
+                                                orderby u.UserId
+                                                select new ServiceProviderViewModel()
+                                                {
+
+                                                    First_Name = u.FirstName,
+                                                    Last_Name = u.LastName,
+                                                    Email = u.Email,
+                                                    MobileNumber = u.MobileNumber,
+                                                    PhoneNumber = u.PhoneNumber,
+                                                    SelectedCity = u.Cities.CityName,
+                                                    SelectedCityAreaName =u.CityArea.CityAreaName,
+                                                    Address = u.Address,
+                                                    BusinessDescription = u.BusinessDescription,
+                                                    ImagePath = u.ImagePath,
+                                                    IsActive = u.IsActive,
+                                                    serviceCategoriesListFor = AutoSolutionContext.UserServiceCatogories.Where(x => x.UserId == u.UserId).Select(x => new ServiceCategoryViewModel
+                                                    {
+                                                        ServiceCategoryName = x.ServiceCategory.ServiceCategoryName
+                                                    }).ToList()
+                                                }
+
+                   ).Skip((PageNo - 1) * 10).Take(10).ToList(),
+
+                Pager = new Pager(TotalCount, PageNo, 10)
+
+            };
+            return serviceProviderWraperForHome;
+        }
+        public int GetServiceProviderCountWRTHomeSearch(SelectYourInterest selectYourInterest)
+        {
+            int Id = selectYourInterest.findYourMechanic.SelectedServiceCategory;
+            return (from u in AutoSolutionContext.User
+                    join ur in AutoSolutionContext.UserRoles
+                    on u.UserId equals ur.UserId
+                    join USC in AutoSolutionContext.UserServiceCatogories
+                    on u.UserId equals USC.UserId
+                    where (
+                    (ur.RolesId == 6) && (USC.ServiceCategoryId == Id) &&
+                    (u.Cities.Province.ProvinceId == selectYourInterest.findYourMechanic.SelectedProvince) &&
+                    (u.Cities.CityId == selectYourInterest.findYourMechanic.SelectedCity)&&
+                   (u.CityAreaID == selectYourInterest.findYourMechanic.CityAreaID))
+                    select new object() { }).Count();
         }
         public int GetServiceProvidersCount()
         {

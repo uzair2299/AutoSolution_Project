@@ -18,11 +18,45 @@ namespace AutoSolution.Views.Home
             return View();
         }
 
-        public ActionResult ViewCart()
+        public ActionResult ViewCart(int? id, int? quantity)
         {
+            if (id != null)
+            {
+                int Quantity = 0;
+                if (Session["AddToCart"] != null)
+                {
+                    CartWrapper Cart = (CartWrapper)Session["AddToCart"];
+                    if(quantity==null || quantity >= 1)
+                    {
+                         Quantity = quantity.HasValue ? quantity.Value > 0 ? quantity.Value : 1 : 1;
+
+                    }
+                    else
+                    {
+                        Quantity = (int)quantity;
+                    }
+                    var item = _unitOfWork.PartsProducts.PartProductDetail(id, Quantity);
+                    foreach (var CartItem in Cart.PartsProductsViewModelList)
+                    {
+                        if (CartItem.PartsProductId == item.PartsProductId)
+                        {
+                            CartItem.Quantity = CartItem.Quantity + item.Quantity;
+                            Cart.SubTotal = (item.UnitPrice * item.Quantity) + Cart.SubTotal;
+                            break;
+                        }
+                    }
+
+                    Cart.Tax = Cart.SubTotal * (decimal).16;
+                    Cart.Total = Cart.Tax + Cart.SubTotal;
+                    Session["AddToCart"] = Cart;
+                }
+            }
             return PartialView("_ViewCart");
         }
 
+
+
+        //[ChildActionOnly]
         public ActionResult AddToCart(int? id, int? quantity)
         {
             if (id != null)
@@ -47,7 +81,7 @@ namespace AutoSolution.Views.Home
                     CartWrapper Cart = (CartWrapper)Session["AddToCart"];
                     int Quantity = quantity.HasValue ? quantity.Value > 0 ? quantity.Value : 1 : 1;
                     var item = _unitOfWork.PartsProducts.PartProductDetail(id, Quantity);
-                    if (Quantity == 1)
+                    if (Quantity >= 1)
                     {
                         if (Cart.PartsProductsViewModelList.Count == 0)
                         {
@@ -58,27 +92,32 @@ namespace AutoSolution.Views.Home
                             Cart.SubTotal = item.UnitPrice * item.Quantity;
                             Cart.Tax = (Cart.SubTotal * (decimal).16);
                             Cart.Total = Cart.SubTotal + Cart.Tax;
+                            Session["AddToCart"] = Cart;
+                            return PartialView("_AutoSolutionCart");
+
                         }
-                        else
+                        else {
                             foreach (var CartItem in Cart.PartsProductsViewModelList)
                             {
                                 if (CartItem.PartsProductId == item.PartsProductId)
                                 {
-                                    CartItem.Quantity = CartItem.Quantity + 1;
+                                    CartItem.Quantity = CartItem.Quantity + item.Quantity;
                                     Cart.SubTotal = (item.UnitPrice * item.Quantity) + Cart.SubTotal;
                                     IsInCart = true;
                                     break;
                                 }
                             }
-                        if (IsInCart != true)
-                        {
+                            if (IsInCart != true)
+                            {
 
-                            Cart.PartsProductsViewModelList.Add(item);
-                            Cart.SubTotal = (item.UnitPrice * item.Quantity)+Cart.SubTotal;
-                            IsInCart = false;
-                         
+                                Cart.PartsProductsViewModelList.Add(item);
+                                Cart.SubTotal = (item.UnitPrice * item.Quantity) + Cart.SubTotal;
+                                IsInCart = false;
 
+
+                            }
                         }
+                        
                     }
                     Cart.Tax = Cart.SubTotal * (decimal).16;
                     Cart.Total = Cart.Tax + Cart.SubTotal;

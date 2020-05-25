@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoSolution.Database.DataBaseContext;
+using AutoSolution.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,11 @@ namespace AutoSolution.Controllers
     public class UserDashboardController : Controller
     {
         // GET: UserDashboard
-        public ActionResult Index()
+        private UnitOfWork _unitOfWork = new UnitOfWork(new AutoSolutionContext());
+        public ActionResult Index(int id)
         {
-            return View();
+            var model = _unitOfWork.User.GetUser(id);
+            return View(model);
         }
     }
 }

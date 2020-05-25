@@ -16,9 +16,12 @@ namespace AutoSolution.Services.Repo
         ConsumerWraper GetUsers(int PageNo, int TotalCount);
         int GetServiceProvidersCount();
         int GetServiceProviderCountWRTId(string id);
+        int GetServiceProviderCountWRTHomeSearch(SelectYourInterest selectYourInterest);
+        ServiceProviderWraperForHome GetServiceProvidersHomeSearch(int PageNo, int TotalCount, SelectYourInterest selectYourInterest);
         int GetUsersCount();
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();
+        UserDashboardWrapper GetUser(int id);
         User CreateConsumer(ConsumerViewModel consumerViewModel);
         //SignInViewModel GetSignInViewModel();
     }

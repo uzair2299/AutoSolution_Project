@@ -22,7 +22,7 @@ namespace AutoSolution.Services.ViewModel
         public DateTime? UpdatedDate { get; set; }
         [Display(Name = "End Year")]
         public int? EndYear { get; set; }
-        [Display(Name = "Price")]
+        [Display(Name = "Unit Price")]
         public decimal UnitPrice { get; set; }
 
         public string ShortDescription { get; set; }
