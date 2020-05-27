@@ -36,6 +36,19 @@ namespace AutoSolution.Services
             return new SelectList(items, "value", "Text");
         }
 
+        public IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDownEmptyForHome()
+        {
+            List<SelectListItem> items = new List<SelectListItem>()
+            {
+                new SelectListItem
+                {
+                    Value = null,
+                    Text = "---- Select Parts/Product Sub Category ----"
+                }
+            };
+            return new SelectList(items, "value", "Text");
+        }
+
         public IEnumerable<SelectListItem> GetPartsProductCategoryDropDown()
         {
             List<SelectListItem> items = Context.Set<PartsProductsCategory>().OrderBy(n => n.PartsProductsCategoryName).Select(n => new SelectListItem
@@ -48,6 +61,22 @@ namespace AutoSolution.Services
             {
                 Value = null,
                 Text = "-------------- Select Parts/Product Category ---------------"
+            };
+            items.Insert(0, Tip);
+            return new SelectList(items, "value", "Text");
+        }
+        public IEnumerable<SelectListItem> GetPartsProductCategoryDropDownForHome()
+        {
+            List<SelectListItem> items = Context.Set<PartsProductsCategory>().OrderBy(n => n.PartsProductsCategoryName).Select(n => new SelectListItem
+            {
+                Value = n.PartsProductsCategoryId.ToString(),
+                Text = n.PartsProductsCategoryName
+            }).ToList();
+
+            var Tip = new SelectListItem()
+            {
+                Value = null,
+                Text = "----- Select Parts/Product Category ------"
             };
             items.Insert(0, Tip);
             return new SelectList(items, "value", "Text");

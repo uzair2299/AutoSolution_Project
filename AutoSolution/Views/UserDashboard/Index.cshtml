@@ -64,11 +64,11 @@
                                 </div>
                                 <div class="kt-widget__info">
                                     <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.CityArea)</span>
-                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.SelectedCityAreaName</span>
+                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.CityArea</span>
                                 </div>
                                 <div class="kt-widget__info">
                                     <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.City)</span>
-                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.SelectedCity</span>
+                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.City</span>
                                 </div>
                                 <div class="kt-widget__info">
                                     <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.RegistrationDate)</span>
@@ -104,7 +104,7 @@
                                             </svg>
                                         </span>
                                         <span class="kt-widget__desc">
-                                            Contract Information
+                                           Services Information
                                         </span>
                                     </span>
                                 </a>
@@ -121,7 +121,7 @@
                                             </svg>
                                         </span>
                                         <span class="kt-widget__desc">
-                                            Documents
+                                            Manage Appointments
                                         </span>
                                     </span>
                                 </a>
@@ -138,7 +138,7 @@
                                             </svg>
                                         </span>
                                         <span class="kt-widget__desc">
-                                            Change Password
+                                            Orders History
                                         </span>
                                     </span>
                                 </a>
@@ -154,7 +154,7 @@
                                             </svg>
                                         </span>
                                         <span class="kt-widget__desc">
-                                            Account Statement
+                                            Change Password
                                         </span>
                                     </span>
                                 </a>
@@ -200,190 +200,193 @@
                             <div class="kt-portlet__body">
                                 <div class="kt-section kt-section--first">
                                     <div class="kt-section__body" style="max-width: 600px; margin:auto;">
-                                        @*<div class="row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label">Avatar</label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-avatar kt-avatar--outline kt-avatar--circle" id="kt_apps_user_add_avatar">
-                                                        <div class="kt-avatar__holder" style="background-image: url(&quot;http://keenthemes.com/metronic/preview/default/custom/user/assets/media/users/ default.jpg&quot;);"></div>
-                                                        <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                                                            <i class="fa fa-pen"></i>
-                                                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                                                        </label>
-                                                        <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
-                                                            <i class="fa fa-times"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>*@
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">First Name</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        <input type="text" class="form-control" value="Iqra" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">First Name(Arabic)</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Last Name</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        <input type="text" class="form-control" value="Hussain" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Last Name(Arabic)</label>
-
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Date of Birth</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
-                                                        <input type="date" class="form-control" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">TAX No.</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-money"></i></span></div>
-                                                        <input type="text" class="form-control" value="123146" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Phone No.</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                                        <input type="tel" class="form-control" value="44(76)34254578" placeholder="Phone" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Mobile No.</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
-                                                        <input type="tel" class="form-control" value="44(76)34254578" placeholder="Mobile" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Email</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                        <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Email" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Secondary Email</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                        <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Secondary Email" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="row">
                                             <div class="col-lg-12 col-xl-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Address 1</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label text-left">Profile Image</label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_apps_user_add_avatar">
+                                                            <div class="kt-avatar__holder" style="background-image: url(&quot;http://keenthemes.com/metronic/preview/default/custom/user/assets/media/users/300_20.jpg&quot;);"></div>
+                                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
+                                                                <i class="fa fa-pen"></i>
+                                                                <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                                            </label>
+                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
+                                                                <i class="fa fa-times"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div></div>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">First Name</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                                <input type="text" class="form-control" value="Iqra" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">First Name(Arabic)</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-xl-12">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Address 2</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Last Name</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                                <input type="text" class="form-control" value="Hussain" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Last Name(Arabic)</label>
 
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">City</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-signs"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">State</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Country</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-globe"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Date of Birth</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
+                                                                <input type="date" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">TAX No.</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-money"></i></span></div>
+                                                                <input type="text" class="form-control" value="123146" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    <label class="col-form-label">Post Code</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-marker"></i></span></div>
-                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Phone No.</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+                                                                <input type="tel" class="form-control" value="44(76)34254578" placeholder="Phone" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Mobile No.</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
+                                                                <input type="tel" class="form-control" value="44(76)34254578" placeholder="Mobile" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Email</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                                                <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Email" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Secondary Email</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                                                <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Secondary Email" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Address 1</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-xl-12">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Address 2</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">City</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-signs"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">State</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Country</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-globe"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Post Code</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-marker"></i></span></div>
+                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                             <div class="kt-portlet__foot">
                                 <div class="kt-form__actions">
                                     <div class="row">

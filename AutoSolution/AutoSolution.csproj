@@ -154,6 +154,7 @@
     <Compile Include="Controllers\GetPartProductController.cs" />
     <Compile Include="Controllers\GetServiceProviderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlaceOrderController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SignInController.cs" />
     <Compile Include="Controllers\TermsAndConditionsController.cs" />
@@ -1720,6 +1721,7 @@
     <Content Include="assets\Uzair\bg2.jpg" />
     <Content Include="assets\Uzair\bg4.jpg" />
     <Content Include="assets\Uzair\cart.png" />
+    <Content Include="assets\Uzair\CheckOut.png" />
     <Content Include="assets\Uzair\gallery_bg.jpg" />
     <Content Include="assets\Uzair\left.jpg" />
     <Content Include="assets\Uzair\login-left.jpg" />
@@ -7129,7 +7131,6 @@
     <Content Include="Views\TermsAndConditions\Index.cshtml" />
     <Content Include="Views\Registration\Consumer.cshtml" />
     <Content Include="Views\Registration\UserVerification.cshtml" />
-    <Content Include="Views\SignIn\_UserSignIn.cshtml" />
     <Content Include="Views\SignIn\index.cshtml" />
     <Content Include="Views\ForgotPassword\Index.cshtml" />
     <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
@@ -7149,6 +7150,8 @@
     <Content Include="Views\Cart\_ViewCart.cshtml" />
     <Content Include="Views\Shared\_AutoSolutionCart.cshtml" />
     <Content Include="Views\GetServiceProvider\GetServiceProviderSearch.cshtml" />
+    <Content Include="Views\PlaceOrder\Check.cshtml" />
+    <Content Include="Views\PlaceOrder\Shipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

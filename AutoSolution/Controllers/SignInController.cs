@@ -8,7 +8,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
 namespace AutoSolution.Controllers
 {
     public class SignInController : Controller
@@ -64,8 +63,53 @@ namespace AutoSolution.Controllers
             return View();
         }
 
+
+        public ActionResult PlaceOrderSigin(SignInViewModel signInViewModel)
+        {
+            string message = "";
+            try
+            {
+                if (signInViewModel != null)
+                {
+                    var PasswordHash = EncryptPassword.PasswordToEncrypt(signInViewModel.Password);
+                    var model = _unitOfWork.User.Get(x => x.Email == signInViewModel.Email && x.Password == PasswordHash).FirstOrDefault();
+                    if (model != null)
+                    {
+                        if (model.IsConfrimEmail != true)
+                        {
+                            message = "Please verify your email first";
+                            return RedirectToAction("Index","PlaceOrder");
+                        }
+                        else
+                        {
+                            FormsAuthentication.SetAuthCookie(model.Email, false);
+                            Session["UserID"] = model.UserId.ToString();
+                            Session["UserName"] = model.FirstName.ToString() + " " + model.LastName.ToString();
+
+                            return RedirectToAction("Index", "PlaceOrder");
+                        }
+
+                    }
+                    else
+                    {
+                        message = "Please enter a valid email address or password";
+                    }
+                    ViewBag.Message = message;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return View();
+        }
+
         public ActionResult Logout()
         {
+            Session["UserID"] = null;
+            Session["UserName"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index","SignIn");
         }

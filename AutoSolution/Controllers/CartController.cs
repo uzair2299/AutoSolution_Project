@@ -152,5 +152,27 @@ namespace AutoSolution.Views.Home
             Session["AddToCart"] = Cart;
             return PartialView("_ViewCart");
         }
+
+        [Authorize]
+        public ActionResult AddToWishList(int id)
+        {
+            int userId =Convert.ToInt32(Session["UserID"]);
+            var widhlistItem = _unitOfWork.WishList.AddToWishList(id, userId);
+            bool result = false;
+            if (widhlistItem != null)
+            {
+                _unitOfWork.WishList.Add(widhlistItem);
+                _unitOfWork.Complete();
+                _unitOfWork.Dispose();
+                result = true;
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+
+            
+        }
     }
 }

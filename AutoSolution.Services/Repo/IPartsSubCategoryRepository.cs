@@ -18,9 +18,11 @@ namespace AutoSolution.Services.Repo
         int GetPartsSubCategoryCount(string SearchTerm, string SelectedPartsProductsCategory);
 
         IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDownEmpty();
+        IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDownEmptyForHome();
         IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDown(string Id);
         IEnumerable<SelectListItem> GetPartsProductSubCategoryDropDown();
         IEnumerable<SelectListItem> GetPartsProductCategoryDropDown();
+        IEnumerable<SelectListItem> GetPartsProductCategoryDropDownForHome();
 
 
     }

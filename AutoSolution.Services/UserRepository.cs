@@ -63,6 +63,9 @@ namespace AutoSolution.Services
         public UserDashboardWrapper GetUser(int id)
         {
             var user = GetByID(id);
+           
+            RoleRepository roleRepository = new RoleRepository(new AutoSolutionContext());
+            var UserRole = roleRepository.CheckIsUserInRole(user.Email);
             UserDashboardWrapper userDashboardWrapper = new UserDashboardWrapper() {
                 ServiceProviderViewModel = new ServiceProviderViewModel()
                 {

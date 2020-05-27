@@ -41,7 +41,6 @@
                 <div class="kt-portlet">
                     <div class="kt-portlet__head">
                         <div class="kt-portlet__head-label" style="margin: 0 auto">
-
                             <h3 class="kt-portlet__head-title" style="font-size:1.5rem">
                                 @item.PartsProductsCategoryName&nbsp;Parts/Products
                             </h3>
@@ -49,7 +48,6 @@
                     </div>
                     <div class="kt-portlet__body" style="padding:30px">
                         <div class="kt-pricing-1">
-
                             @if (item.PartsProductsViewModelsList.Count > 0)
                             {
                                 foreach (var product in item.PartsProductsViewModelsList)
@@ -99,9 +97,18 @@
                                             </h2>
                                             <div class="kt-pricing-1__btn align-self-baseline">
                                                 <button type="button" class="btn btn-outline-dark btn-elevate btn-icon AddToCart" data-id="@product.PartsProductId"><i class="la la-cart-plus" style="font-size:1.7rem"></i></button>
-                                                <button type="button" class="btn btn-outline-danger btn-elevate btn-icon"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
-                                                <a href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
-                                            </div>
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    if (User.IsInRole("Service Provider") || User.IsInRole("User"))
+                                                    {
+                                                        //if (Session["UserId"] != null)
+                                                        //{ 
+                                                        <button type="button" class="btn btn-outline-danger btn-elevate btn-icon  AddItemToWishList" data-id="@product.PartsProductId"><i class="la la-heart-o" style="font-size:1.7rem"></i></button>
+                                                        //}
+                                                    }
+                                                }
+                                                        <a href="@Url.Action("PartProductDetail","GetPartProduct",new { id=product.PartsProductId})" class="btn btn-outline-dark btn-elevate btn-icon" target="_blank"><i class="la la-eye" style="font-size:1.7rem"></i></a>
+                                                    </div>
                                         </div>
                                         counter = counter + 1;
                                         if (counter % 4 == 0)
@@ -142,5 +149,35 @@
                 .fail(function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("FAIL");
                 });
+    });
+
+
+    $(".AddItemToWishList").click(function () {
+        alert("hello");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddToWishList","Cart")',
+            data: {
+                id:$(this).attr("data-id")
+            }
+            })
+                .done(function (response) {
+                    debugger
+                    if (response == true) {
+                        Swal.fire({
+                            text: 'Successfully Added',
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            text: 'Item Already Exist In Your Wish List',
+                        })
+                    }
+
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
  });
+
 </script>

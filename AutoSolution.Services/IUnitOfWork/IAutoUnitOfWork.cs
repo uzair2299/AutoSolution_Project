@@ -27,6 +27,7 @@ namespace AutoSolution.Services.IUnitOfWork
         IPartsProductsRepository PartsProducts { get; }
         IPartsProductManufacturerRepository PartsProductManufacturer { get; }
         ITemplateRepository Template { get; }
+        IWishListRepository WishList { get; }
         int Complete();
     }
 }

@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Shipment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="kt-subheader   kt-grid__item mb-5" id="kt_subheader">
+        <div class="kt-container ">
+            <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+                <h3 class="kt-subheader__title" style="font-size:3.5rem">Auto Solution</h3>
+                <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+            </div>
+        </div>
+    </div>
+    <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head kt-portlet__head--lg">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon">
+                        <i class="fa fa-car-side"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                       Shipment Information
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <form class="kt-form kt-form--fit kt-margin-b-20" id="AddNewPartsProducts">
+                    @Html.AntiForgeryToken()
+                    <div class="kt-login__title text-center mt-3 kt-mb-15">
+                        <div class="kt-divider">
+                            <span></span>
+                            <h4 class="p-3"><span>User Personal Information</span></h4>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                    </div>
+                    <div class="row" id="imgViewer">
+                        <input type="hidden" name="PictureIDs" id="PictureIDs" />
+                        <!--image-->
+                    </div>
+                    <div class=" row">
+                        <div class="col-lg-12 col-xl-12">
+
+                        </div>
+                    </div>
+
+                    <div class="kt-login__title text-center mt-3 kt-mb-15">
+                        <div class="kt-divider">
+                            <span></span>
+                            <h4 class="p-3"><span>Vehicle Information</span></h4>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                        <div class="col-lg-6 col-xl-6">
+
+                        </div>
+                    </div>
+                    <div class=" row">
+                        <div class="col-lg-12 col-xl-12">
+                            <div class="form-group">
+                                @*@Html.LabelFor(model => model.LongDescription, htmlAttributes: new { @class = "col-form-label" })*@
+                                <div class="input-group">
+
+                                    @*@Html.TextAreaFor(model => model.LongDescription, 8, 100, new { @class = "form-control", style = "width:100%;" })*@
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="kt-separator kt-separator--md kt-separator--dashed"></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button class="btn btn-dark btn-brand--icon pageButtons" id="AddNew" type="button">
+                                <span>
+                                 
+                                    <span>Submit Your Order</span>
+                                </span>
+                            </button>
+                            &nbsp;&nbsp;
+                            <button class="btn btn-secondary btn-secondary--icon" id="kt_reset" type="reset">
+                                <span>
+                                 @*  *@
+                                    <span>Cancel</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!--begin: Datatable -->
+                <!--end: Datatable -->
+            </div>
+        </div>
+    </div>
+

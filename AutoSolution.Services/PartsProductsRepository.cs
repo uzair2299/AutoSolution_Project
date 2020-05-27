@@ -119,32 +119,8 @@ namespace AutoSolution.Services
 
         public OuterMostPartsViewModel GetPartsProductForHome()
         {
-
-
             PartsProductsCategoryRepository partsProductsCategoryRepository = new PartsProductsCategoryRepository(new AutoSolutionContext());
-
             PartsSubCategoryRepository partsSubCategoryRepository = new PartsSubCategoryRepository(new AutoSolutionContext());
-
-            //OuterMostPartsViewModel outerMostPartsViewModel = new OuterMostPartsViewModel()
-            //{
-            //    OuterpartViewModelsList = AutoSolutionContext.PartsProductsCategories.Select(x => new OuterPartViewModel()
-            //    {
-            //        PartsProductsCategoryId = x.PartsProductsCategoryId,
-            //        PartsProductsCategoryName = x.PartsProductsCategoryName,
-            //        partInnerViewModelList = x.PartsProductsSubCategories.Select(y => new InnerPartViewModel()
-            //        {
-            //            PartsProductsSubCategoryId = y.PartsProductsSubCategoryId,
-            //            PartsProductsSubCategoryName = y.PartsProductsSubCategoryName,
-            //            mostInnertPartViewModelList = y.PartsProducts.Select(z => new InnerMostPartViewModel
-            //            {
-            //                PartsProductId = z.PartsProductId,
-            //                PartsProductName = z.PartsProductName
-            //            }).ToList()
-            //        }).ToList()
-            //    }).ToList()
-            //};
-
-
             OuterMostPartsViewModel outerMostPartsViewModel = new OuterMostPartsViewModel()
             {
                 OuterpartViewModelsList = AutoSolutionContext.PartsProductsCategories.Select(x => new OuterPartViewModel()

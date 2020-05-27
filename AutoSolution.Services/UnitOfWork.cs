@@ -33,6 +33,7 @@ namespace AutoSolution.Services
             PartsProductManufacturer = new PartsProductManufacturerRepository(_context);
             PartsProducts = new PartsProductsRepository(_context);
             Template = new TemplateRepository(_context);
+            WishList = new WishListRepository(_context);
 }
 
         public IRoleRepository RoleRepository { get; private set; }
@@ -52,6 +53,7 @@ namespace AutoSolution.Services
         public IPartsProductManufacturerRepository PartsProductManufacturer { get; private set; }
         public IPartsProductsRepository PartsProducts { get; private set; }
         public ITemplateRepository Template { get; private set; }
+       public  IWishListRepository WishList { get; private set; }
 
         public int Complete()
         {

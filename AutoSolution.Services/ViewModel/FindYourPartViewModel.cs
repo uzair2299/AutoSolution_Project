@@ -23,9 +23,11 @@ namespace AutoSolution.Services.ViewModel
 
         public string SelectedVehicleModel { get; set; }
         public IEnumerable<SelectListItem> VehicleModelsList { get; set; }
-
+        [Display(Name = "Select Parts/Products Category")]
         public string SelectedPartProductCategory { get; set; }
         public IEnumerable<SelectListItem> PartsProductsCategoryList { get; set; }
+
+        [Display(Name = "Select Parts/Products Sub Category")]
 
         public string SelectedPartProductSubCategory { get; set; }
         public IEnumerable<SelectListItem> PartsProductsSubCategoryList { get; set; }

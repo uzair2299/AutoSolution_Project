@@ -111,6 +111,7 @@
     <Compile Include="AutoSolutionRoleProvider.cs" />
     <Compile Include="Repo\IVehicleModelRepository.cs" />
     <Compile Include="Repo\IVehicleVersionRepository.cs" />
+    <Compile Include="Repo\IWishListRepository.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="TemplateRepository.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />
     <Compile Include="ViewModel\VehicleVersionViewModel.cs" />
     <Compile Include="ViewModel\VehilceModelViewModel.cs" />
+    <Compile Include="WishListRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutoSolution.Database\AutoSolution.Database.csproj">

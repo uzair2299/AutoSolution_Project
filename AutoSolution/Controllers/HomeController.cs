@@ -27,12 +27,6 @@ namespace AutoSolution.Controllers
             return PartialView("_GetServiceCategories",model);
         }
 
-        //public ActionResult GetServiceProvider(string id, int? pageNo)
-        //{
-        //    int PageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
-        //    var model = _unitOfWork.User.GetServiceProviders(PageNo, 50, id);
-        //    return View();
-        //}
         public ActionResult GetPartsProductForHome()
         {
            OuterMostPartsViewModel model = _unitOfWork.PartsProducts.GetPartsProductForHome();
@@ -52,6 +46,8 @@ namespace AutoSolution.Controllers
             selectYourInterest.findYourMechanic.ServiceCategoryList = _unitOfWork.ServiceCategory.GetServiceCategoryDropDown();
             selectYourInterest.FindYourPart.VehicleManufacturersList = _unitOfWork.VehicleModel.GetVehicleManufacturerDropDownForHome();
             selectYourInterest.FindYourPart.VehicleModelsList = _unitOfWork.VehicleModel.GetVehicleModelDropDownEmptyForHome();
+            selectYourInterest.FindYourPart.PartsProductsCategoryList = _unitOfWork.PartsSubCategory.GetPartsProductCategoryDropDownForHome();
+            selectYourInterest.FindYourPart.PartsProductsSubCategoryList = _unitOfWork.PartsSubCategory.GetPartsProductSubCategoryDropDownEmptyForHome();
             return PartialView("_SelectYourInterest", selectYourInterest);
         }
 
