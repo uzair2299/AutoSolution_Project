@@ -1768,6 +1768,7 @@
     <Content Include="assets\Uzair\template %288%29.png" />
     <Content Include="assets\Uzair\template %289%29.png" />
     <Content Include="assets\Uzair\template.png" />
+    <Content Include="assets\Uzair\thankyou.png" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.css" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.js" />
     <Content Include="assets\vendors\custom\datatables\datatables.bundle.min.css" />
@@ -7152,6 +7153,7 @@
     <Content Include="Views\GetServiceProvider\GetServiceProviderSearch.cshtml" />
     <Content Include="Views\PlaceOrder\Check.cshtml" />
     <Content Include="Views\PlaceOrder\Shipment.cshtml" />
+    <Content Include="Views\PlaceOrder\Invoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

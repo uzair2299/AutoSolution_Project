@@ -25,9 +25,12 @@ namespace AutoSolution.Entities
 
         public int Quantity { get; set; }
         public decimal ProductUnitPrice { get; set; }
+        public decimal ItemQuanitiyPrice { get; set; }
 
         public decimal Discount { get; set; }
         public decimal ProductUnitPriceAfterDiscount { get; set; }
+
+      
 
     }
 }

@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newww : DbMigration
+    public partial class demo : DbMigration
     {
         public override void Up()
         {
@@ -68,17 +68,153 @@
                 .PrimaryKey(t => t.ImageId);
             
             CreateTable(
-                "dbo.PartProductImages",
+                "dbo.OrderDetails",
                 c => new
                     {
-                        ImageId = c.Int(nullable: false),
                         PartsProductId = c.Int(nullable: false),
+                        OrderId = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                        ProductUnitPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ItemQuanitiyPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Discount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ProductUnitPriceAfterDiscount = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
-                .PrimaryKey(t => new { t.ImageId, t.PartsProductId })
-                .ForeignKey("dbo.Images", t => t.ImageId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.PartsProductId, t.OrderId })
+                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
                 .ForeignKey("dbo.PartsProducts", t => t.PartsProductId, cascadeDelete: true)
-                .Index(t => t.ImageId)
-                .Index(t => t.PartsProductId);
+                .Index(t => t.PartsProductId)
+                .Index(t => t.OrderId);
+            
+            CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        OrderId = c.Int(nullable: false, identity: true),
+                        First_Name = c.String(),
+                        Last_Name = c.String(),
+                        MobileNumber = c.String(),
+                        MobileNumberCode = c.String(),
+                        MobileIsConfirmed = c.Boolean(nullable: false),
+                        ShippingAddress = c.String(),
+                        OrderDate = c.DateTime(nullable: false),
+                        OrderStatusId = c.Int(nullable: false),
+                        TaxAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        TotalAmount = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        SubTotal = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        UserId = c.Int(),
+                        CityId = c.Int(),
+                    })
+                .PrimaryKey(t => t.OrderId)
+                .ForeignKey("dbo.Cities", t => t.CityId)
+                .ForeignKey("dbo.OrderStatus", t => t.OrderStatusId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.OrderStatusId)
+                .Index(t => t.UserId)
+                .Index(t => t.CityId);
+            
+            CreateTable(
+                "dbo.OrderStatus",
+                c => new
+                    {
+                        OrderStatusId = c.Int(nullable: false, identity: true),
+                        Status = c.String(),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.OrderStatusId);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false, identity: true),
+                        LoginId = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Gender = c.String(),
+                        DateOfBirth = c.DateTime(),
+                        PhoneNumber = c.String(),
+                        MobileNumber = c.String(),
+                        MobileNumber1 = c.String(),
+                        Email = c.String(),
+                        EmailSecondary = c.String(),
+                        IsConfrimEmail = c.Boolean(nullable: false),
+                        EmailSendCounter = c.Int(nullable: false),
+                        EmailSendTime = c.DateTime(),
+                        Password = c.String(),
+                        ConfrimPassword = c.String(),
+                        PasswordCount = c.Int(nullable: false),
+                        Address = c.String(),
+                        ImagePath = c.String(),
+                        RegistrationDate = c.DateTime(),
+                        LastUpdateDate = c.DateTime(),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDelete = c.Boolean(nullable: false),
+                        IsTermAndConditionAccepted = c.Boolean(nullable: false),
+                        RememberMe = c.Boolean(nullable: false),
+                        ActivetionCode = c.Guid(),
+                        OTP = c.String(),
+                        CityId = c.Int(nullable: false),
+                        CityAreaID = c.Int(),
+                        BusinessDescription = c.String(),
+                    })
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
+                .ForeignKey("dbo.CityAreas", t => t.CityAreaID)
+                .Index(t => t.CityId)
+                .Index(t => t.CityAreaID);
+            
+            CreateTable(
+                "dbo.UserRoles",
+                c => new
+                    {
+                        RolesId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
+                        AddedDate = c.DateTime(),
+                    })
+                .PrimaryKey(t => new { t.RolesId, t.UserId })
+                .ForeignKey("dbo.Roles", t => t.RolesId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.RolesId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Roles",
+                c => new
+                    {
+                        RolesId = c.Int(nullable: false, identity: true),
+                        RoleName = c.String(),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.RolesId);
+            
+            CreateTable(
+                "dbo.UserServiceCatogories",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false),
+                        ServiceCategoryId = c.Int(nullable: false),
+                        IsActive = c.Boolean(nullable: false),
+                        IsDelete = c.Boolean(nullable: false),
+                        IsDeleteTime = c.DateTime(),
+                        ServiceAddedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.ServiceCategoryId })
+                .ForeignKey("dbo.ServiceCategories", t => t.ServiceCategoryId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.ServiceCategoryId);
+            
+            CreateTable(
+                "dbo.ServiceCategories",
+                c => new
+                    {
+                        ServiceCategoryId = c.Int(nullable: false, identity: true),
+                        ServiceCategoryName = c.String(),
+                        ServiceCategoryCode = c.String(),
+                        Description = c.String(),
+                        IsDelete = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ServiceCategoryId);
             
             CreateTable(
                 "dbo.PartsProducts",
@@ -107,6 +243,19 @@
                 .Index(t => t.VehicleModelId)
                 .Index(t => t.VehicleManufacturerId)
                 .Index(t => t.PartsProductManufacturerId);
+            
+            CreateTable(
+                "dbo.PartProductImages",
+                c => new
+                    {
+                        ImageId = c.Int(nullable: false),
+                        PartsProductId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ImageId, t.PartsProductId })
+                .ForeignKey("dbo.Images", t => t.ImageId, cascadeDelete: true)
+                .ForeignKey("dbo.PartsProducts", t => t.PartsProductId, cascadeDelete: true)
+                .Index(t => t.ImageId)
+                .Index(t => t.PartsProductId);
             
             CreateTable(
                 "dbo.PartsProductManufacturers",
@@ -240,100 +389,6 @@
                 .PrimaryKey(t => t.VehicleEngineTypeId);
             
             CreateTable(
-                "dbo.Roles",
-                c => new
-                    {
-                        RolesId = c.Int(nullable: false, identity: true),
-                        RoleName = c.String(),
-                        Description = c.String(),
-                    })
-                .PrimaryKey(t => t.RolesId);
-            
-            CreateTable(
-                "dbo.UserRoles",
-                c => new
-                    {
-                        RolesId = c.Int(nullable: false),
-                        UserId = c.Int(nullable: false),
-                        AddedDate = c.DateTime(),
-                    })
-                .PrimaryKey(t => new { t.RolesId, t.UserId })
-                .ForeignKey("dbo.Roles", t => t.RolesId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.RolesId)
-                .Index(t => t.UserId);
-            
-            CreateTable(
-                "dbo.Users",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false, identity: true),
-                        LoginId = c.String(),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Gender = c.String(),
-                        DateOfBirth = c.DateTime(),
-                        PhoneNumber = c.String(),
-                        MobileNumber = c.String(),
-                        MobileNumber1 = c.String(),
-                        Email = c.String(),
-                        EmailSecondary = c.String(),
-                        IsConfrimEmail = c.Boolean(nullable: false),
-                        EmailSendCounter = c.Int(nullable: false),
-                        EmailSendTime = c.DateTime(),
-                        Password = c.String(),
-                        ConfrimPassword = c.String(),
-                        PasswordCount = c.Int(nullable: false),
-                        Address = c.String(),
-                        ImagePath = c.String(),
-                        RegistrationDate = c.DateTime(),
-                        LastUpdateDate = c.DateTime(),
-                        IsActive = c.Boolean(nullable: false),
-                        IsDelete = c.Boolean(nullable: false),
-                        IsTermAndConditionAccepted = c.Boolean(nullable: false),
-                        RememberMe = c.Boolean(nullable: false),
-                        ActivetionCode = c.Guid(),
-                        OTP = c.String(),
-                        CityId = c.Int(nullable: false),
-                        CityAreaID = c.Int(),
-                        BusinessDescription = c.String(),
-                    })
-                .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
-                .ForeignKey("dbo.CityAreas", t => t.CityAreaID)
-                .Index(t => t.CityId)
-                .Index(t => t.CityAreaID);
-            
-            CreateTable(
-                "dbo.UserServiceCatogories",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false),
-                        ServiceCategoryId = c.Int(nullable: false),
-                        IsActive = c.Boolean(nullable: false),
-                        IsDelete = c.Boolean(nullable: false),
-                        IsDeleteTime = c.DateTime(),
-                        ServiceAddedDate = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.ServiceCategoryId })
-                .ForeignKey("dbo.ServiceCategories", t => t.ServiceCategoryId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId)
-                .Index(t => t.ServiceCategoryId);
-            
-            CreateTable(
-                "dbo.ServiceCategories",
-                c => new
-                    {
-                        ServiceCategoryId = c.Int(nullable: false, identity: true),
-                        ServiceCategoryName = c.String(),
-                        ServiceCategoryCode = c.String(),
-                        Description = c.String(),
-                        IsDelete = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.ServiceCategoryId);
-            
-            CreateTable(
                 "dbo.Templates",
                 c => new
                     {
@@ -346,17 +401,28 @@
                     })
                 .PrimaryKey(t => t.TemplateId);
             
+            CreateTable(
+                "dbo.WishLists",
+                c => new
+                    {
+                        WishListId = c.Int(nullable: false, identity: true),
+                        PartsProductId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
+                        DateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.WishListId)
+                .ForeignKey("dbo.PartsProducts", t => t.PartsProductId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.PartsProductId)
+                .Index(t => t.UserId);
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
-            DropForeignKey("dbo.UserServiceCatogories", "UserId", "dbo.Users");
-            DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
-            DropForeignKey("dbo.Users", "CityAreaID", "dbo.CityAreas");
-            DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
-            DropForeignKey("dbo.UserRoles", "RolesId", "dbo.Roles");
-            DropForeignKey("dbo.PartProductImages", "PartsProductId", "dbo.PartsProducts");
+            DropForeignKey("dbo.WishLists", "UserId", "dbo.Users");
+            DropForeignKey("dbo.WishLists", "PartsProductId", "dbo.PartsProducts");
+            DropForeignKey("dbo.OrderDetails", "PartsProductId", "dbo.PartsProducts");
             DropForeignKey("dbo.PartsProducts", "VehicleModelId", "dbo.VehicleModels");
             DropForeignKey("dbo.VehicleVersions", "VehicleModelId", "dbo.VehicleModels");
             DropForeignKey("dbo.VehicleVersions", "VehicleEngineTypeId", "dbo.VehicleEngineTypes");
@@ -369,15 +435,22 @@
             DropForeignKey("dbo.PartsProductsSubCategories", "PartsProductsCategoryId", "dbo.PartsProductsCategories");
             DropForeignKey("dbo.PartsProducts", "PartsProductsSubCategoryId", "dbo.PartsProductsSubCategories");
             DropForeignKey("dbo.PartsProducts", "PartsProductManufacturerId", "dbo.PartsProductManufacturers");
+            DropForeignKey("dbo.PartProductImages", "PartsProductId", "dbo.PartsProducts");
             DropForeignKey("dbo.PartProductImages", "ImageId", "dbo.Images");
+            DropForeignKey("dbo.OrderDetails", "OrderId", "dbo.Orders");
+            DropForeignKey("dbo.Orders", "UserId", "dbo.Users");
+            DropForeignKey("dbo.UserServiceCatogories", "UserId", "dbo.Users");
+            DropForeignKey("dbo.UserServiceCatogories", "ServiceCategoryId", "dbo.ServiceCategories");
+            DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
+            DropForeignKey("dbo.UserRoles", "RolesId", "dbo.Roles");
+            DropForeignKey("dbo.Users", "CityAreaID", "dbo.CityAreas");
+            DropForeignKey("dbo.Users", "CityId", "dbo.Cities");
+            DropForeignKey("dbo.Orders", "OrderStatusId", "dbo.OrderStatus");
+            DropForeignKey("dbo.Orders", "CityId", "dbo.Cities");
             DropForeignKey("dbo.CityAreas", "CityId", "dbo.Cities");
             DropForeignKey("dbo.Cities", "ProvinceId", "dbo.Provinces");
-            DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
-            DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
-            DropIndex("dbo.Users", new[] { "CityAreaID" });
-            DropIndex("dbo.Users", new[] { "CityId" });
-            DropIndex("dbo.UserRoles", new[] { "UserId" });
-            DropIndex("dbo.UserRoles", new[] { "RolesId" });
+            DropIndex("dbo.WishLists", new[] { "UserId" });
+            DropIndex("dbo.WishLists", new[] { "PartsProductId" });
             DropIndex("dbo.VehicleVersions", new[] { "TransmissionTypeId" });
             DropIndex("dbo.VehicleVersions", new[] { "VehicleEngineTypeId" });
             DropIndex("dbo.VehicleVersions", new[] { "VehicleModelId" });
@@ -386,20 +459,27 @@
             DropIndex("dbo.PartsProductSuppliers", new[] { "PartsProductId" });
             DropIndex("dbo.PartsProductSuppliers", new[] { "SupplierId" });
             DropIndex("dbo.PartsProductsSubCategories", new[] { "PartsProductsCategoryId" });
+            DropIndex("dbo.PartProductImages", new[] { "PartsProductId" });
+            DropIndex("dbo.PartProductImages", new[] { "ImageId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductManufacturerId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleManufacturerId" });
             DropIndex("dbo.PartsProducts", new[] { "VehicleModelId" });
             DropIndex("dbo.PartsProducts", new[] { "PartsProductsSubCategoryId" });
-            DropIndex("dbo.PartProductImages", new[] { "PartsProductId" });
-            DropIndex("dbo.PartProductImages", new[] { "ImageId" });
+            DropIndex("dbo.UserServiceCatogories", new[] { "ServiceCategoryId" });
+            DropIndex("dbo.UserServiceCatogories", new[] { "UserId" });
+            DropIndex("dbo.UserRoles", new[] { "UserId" });
+            DropIndex("dbo.UserRoles", new[] { "RolesId" });
+            DropIndex("dbo.Users", new[] { "CityAreaID" });
+            DropIndex("dbo.Users", new[] { "CityId" });
+            DropIndex("dbo.Orders", new[] { "CityId" });
+            DropIndex("dbo.Orders", new[] { "UserId" });
+            DropIndex("dbo.Orders", new[] { "OrderStatusId" });
+            DropIndex("dbo.OrderDetails", new[] { "OrderId" });
+            DropIndex("dbo.OrderDetails", new[] { "PartsProductId" });
             DropIndex("dbo.CityAreas", new[] { "CityId" });
             DropIndex("dbo.Cities", new[] { "ProvinceId" });
+            DropTable("dbo.WishLists");
             DropTable("dbo.Templates");
-            DropTable("dbo.ServiceCategories");
-            DropTable("dbo.UserServiceCatogories");
-            DropTable("dbo.Users");
-            DropTable("dbo.UserRoles");
-            DropTable("dbo.Roles");
             DropTable("dbo.VehicleEngineTypes");
             DropTable("dbo.TransmissionTypes");
             DropTable("dbo.VehicleVersions");
@@ -410,8 +490,16 @@
             DropTable("dbo.PartsProductsCategories");
             DropTable("dbo.PartsProductsSubCategories");
             DropTable("dbo.PartsProductManufacturers");
-            DropTable("dbo.PartsProducts");
             DropTable("dbo.PartProductImages");
+            DropTable("dbo.PartsProducts");
+            DropTable("dbo.ServiceCategories");
+            DropTable("dbo.UserServiceCatogories");
+            DropTable("dbo.Roles");
+            DropTable("dbo.UserRoles");
+            DropTable("dbo.Users");
+            DropTable("dbo.OrderStatus");
+            DropTable("dbo.Orders");
+            DropTable("dbo.OrderDetails");
             DropTable("dbo.Images");
             DropTable("dbo.CityAreas");
             DropTable("dbo.Provinces");

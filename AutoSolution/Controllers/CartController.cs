@@ -174,5 +174,12 @@ namespace AutoSolution.Views.Home
 
             
         }
+
+
+        public ActionResult ClearCart()
+        {
+            Session["AddToCart"] = null;
+            return RedirectToAction("Index");
+        }
     }
 }

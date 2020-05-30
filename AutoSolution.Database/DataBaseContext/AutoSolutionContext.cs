@@ -36,7 +36,7 @@ namespace AutoSolution.Database.DataBaseContext
 
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<OrderStatus> GetStatuses { get; set; }
+        public DbSet<OrderStatus> OrderStatuses { get; set; }
 
         public DbSet<Image> Images { get; set; }
         public DbSet<PartProductImages> PartProductImages { get; set; }

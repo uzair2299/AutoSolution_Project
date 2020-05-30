@@ -72,15 +72,18 @@
                                 </div>
                                 <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })</span>
                                 <div class="kt-login__actions align-content-end mt-4" style="color:#646c9a">
-                                    <button id="kt_login_signin_submit"  class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Submit Request For Password Reset</button>
+                                    <button id="kt_login_signin_submit" class="btn btn-dark btn-elevate kt-login__btn-primary float-md-right mb-5">Submit Request For Password Reset</button>
                                 </div>
                             }
 
                             @*</form>*@
-                            <div class="alert alert-dark alert-bold" role="alert">
-                                <div class="alert-text">Please check your inbox for an email we just sent you with instructions for how to reset your password.</div>
+                            @if (ViewBag.msg != null)
+                            {
+                                <div class="alert alert-dark alert-bold" role="alert">
+                                    <div class="alert-text">@ViewBag.msg</div>
+                                </div>
+                            }
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>

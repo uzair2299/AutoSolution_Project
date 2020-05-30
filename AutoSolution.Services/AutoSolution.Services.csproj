@@ -85,6 +85,9 @@
     <Compile Include="CommonServices\UserDTO.cs" />
     <Compile Include="CommonServices\UserEmailUtility.cs" />
     <Compile Include="CommonServices\VehicleVersionUtility.cs" />
+    <Compile Include="OrderDetailRepository.cs" />
+    <Compile Include="OrderRepository.cs" />
+    <Compile Include="OrderStatusRepository.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="PartsProductManufacturerRepository.cs" />
     <Compile Include="PartsProductsCategoryRepository.cs" />
@@ -94,6 +97,8 @@
     <Compile Include="ProvinceRepository.cs" />
     <Compile Include="Repo\ICityAreaRepository.cs" />
     <Compile Include="Repo\ICityRepository.cs" />
+    <Compile Include="Repo\IorderDetailRepository.cs" />
+    <Compile Include="Repo\IOrderRepository.cs" />
     <Compile Include="Repo\IPartsProductsRepository.cs" />
     <Compile Include="Repo\IPartsProductManufacturerRepository.cs" />
     <Compile Include="Repo\IPartsSubCategoryRepository.cs" />
@@ -112,6 +117,7 @@
     <Compile Include="Repo\IVehicleModelRepository.cs" />
     <Compile Include="Repo\IVehicleVersionRepository.cs" />
     <Compile Include="Repo\IWishListRepository.cs" />
+    <Compile Include="Repo\IOrderStatusRepository.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="ServiceCategoryRepository.cs" />
     <Compile Include="TemplateRepository.cs" />
@@ -135,7 +141,9 @@
     <Compile Include="ViewModel\FindYourPartViewModel.cs" />
     <Compile Include="ViewModel\InnerMostPartViewModel.cs" />
     <Compile Include="ViewModel\InnerPartViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\JsonModel.cs" />
+    <Compile Include="ViewModel\OrderDetailViewModel.cs" />
     <Compile Include="ViewModel\PartProductwraperForHome.cs" />
     <Compile Include="ViewModel\PartsProductsDetailViewModel.cs" />
     <Compile Include="ViewModel\SelectYourInterest.cs" />
@@ -150,6 +158,7 @@
     <Compile Include="ViewModel\ServiceCategoryViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderViewModel.cs" />
     <Compile Include="ViewModel\ServiceProviderWraperForHome.cs" />
+    <Compile Include="ViewModel\ShipmentViewModel.cs" />
     <Compile Include="ViewModel\SignInViewModel.cs" />
     <Compile Include="ViewModel\TemplateViewModel.cs" />
     <Compile Include="ViewModel\TransmissionTypeViewModel.cs" />

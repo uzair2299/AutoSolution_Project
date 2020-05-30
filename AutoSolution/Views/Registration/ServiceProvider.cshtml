@@ -28,14 +28,16 @@
                             <div class="kt-login__title  text-center mt-3 kt-mb-15">
                                 <h4>Personal Information</h4>
                             </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="row">
                                 <div class="col-lg-6 col-xl-6">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            @Html.TextBoxFor(model => model.First_Name, new { @class = "form-control" , PlaceHolder = "Enter Your Last Name" })
+                                            @Html.TextBoxFor(model => model.First_Name, new { @class = "form-control", PlaceHolder = "Enter Your Fisrt Name" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.First_Name, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -43,10 +45,10 @@
                                         @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
-                                            @Html.TextBoxFor(model => model.Last_Name, new { @class = "form-control",PlaceHolder = "Enter Your Last Name"})
+                                            @Html.TextBoxFor(model => model.Last_Name, new { @class = "form-control", PlaceHolder = "Enter Your Last Name" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Last_Name, "", new { @class = "text-danger" })</span>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row">
@@ -67,6 +69,8 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
                                             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -99,6 +103,8 @@
                                                 <span></span>
                                             </label>
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +116,8 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -119,6 +127,8 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
                                             @Html.EditorFor(model => model.ConfrimPassword, new { htmlAttributes = new { @class = "form-control" } })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.ConfrimPassword, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -136,6 +146,8 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-th-large"></i></span></div>
                                             @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvincesList as SelectList, htmlAttributes: new { @class = "form-control" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedProvince, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-6">
@@ -145,6 +157,8 @@
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-th-large"></i></span></div>
                                             @Html.DropDownListFor(x => Model.SelectedCity, Model.CitiesList as SelectList, htmlAttributes: new { @class = "form-control" })
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCity, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -157,6 +171,8 @@
                                             @Html.TextBoxFor(model => model.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Enter City Area/Town Name" })
                                             @Html.HiddenFor(model => model.SelectedCityAreaId)
                                         </div>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCityAreaName, "", new { @class = "text-danger" })</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -178,9 +194,12 @@
                                                                 <span></span>
                                                             </label>
                                                         </div>}
+
                                                 </div>
                                             </div>
                                             <span class="form-text text-muted">* Please select your area of services with keen ATTENTION</span>
+                                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.ServiceCategoriesList, "", new { @class = "text-danger" })</span>
+
                                         </div>
                                     </div>
                                 </div>
@@ -191,7 +210,8 @@
                                         <label class="col-form-label">Business Description</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-expand-arrows-alt"></i></span></div>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                            @*<textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>*@
+                                            @Html.TextAreaFor(x=>x.BusinessDescription,2,100,new { @class= "form-control"})
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +224,7 @@
                                             <a href="/TermsAndConditions/index" class="kt-link kt-font-bolder" style="color:#646c9a">I have read and agree to the Terms and Conditions</a>
                                             <span></span>
                                         </label>
+                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.IsTermAndConditionAccepted, "", new { @class = "text-danger" })</span>
                                     </div>
                                 </div>
                             </div>
@@ -248,20 +269,26 @@
         });
     });
 
-     $("#kt_login_signin_submit").click(function () {
-			$.ajax({
-				type: 'POST',
-				url: '@Url.Action("ServiceProvider", "Registration")',
-				data: $("#ServiceProviderRegistration").serialize()
-			})
+    $("#kt_login_signin_submit").click(function () {
+        if ($("#ServiceProviderRegistration").valid()) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("ServiceProvider", "Registration")',
+                data: $("#ServiceProviderRegistration").serialize()
+            })
                 .done(function (response) {
                     $("#RegisterNotification").show();
                     $('html, body').animate({ scrollTop: $('#RegisterNotification').offset().top }, 'slow');
-			})
-			.fail(function (XMLHttpRequest, textStatus, errorThrown) {
-				alert("FAIL");
-		});
-         
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+        } else {
+
+            alert("message");
+            console.write("fail");
+
+        }
     });
     $(document).ready(function () {
             $('#SelectedProvince').change(function () {

@@ -1,0 +1,135 @@
+﻿@model AutoSolution.Services.ViewModel.InvoiceViewModel
+@{
+    ViewBag.Title = "Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/assets/css/demo1/pages/invoices/invoice-1.css" rel="stylesheet" />
+
+<div class="kt-subheader   kt-grid__item" id="kt_subheader">
+    <div class="kt-container ">
+        <div class="kt-subheader__main" style="margin: 0 auto;color:white">
+            <h3 class="kt-subheader__title" style="font-size:3.5rem">Auto Solution</h3>
+            <h5>We Make car maintenance easy so people can enjoy their drive</h5>
+        </div>
+    </div>
+</div>
+
+<div class="kt-container ">
+    <div class="kt-portlet">
+        <div class="kt-portlet__body mt-3">
+            <!--begin::Section-->
+            <div class="kt-section">
+                <div class="kt-section__content" style="line-height:30px; font-size:1.2rem">
+                    <div class="kt-container  kt-grid__item kt-grid__item--fluid">
+                        <!-- begin:: Section -->
+                        <div class="kt-sc-faq-3 kt-sc-feedback">
+                            <div class="kt-sc__bg" style="background-image:url('/assets/Uzair/thankyou.png') ;height: 350px;background-size: contain;width: 100%;background-repeat: no-repeat;">
+                            </div>
+                        </div>
+                        <div class="kt-margin-top-30">
+                            <div class="kt-portlet kt-portlet--mobile" style="box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.3);">
+
+                                <div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label" style="margin: 0 auto">
+                                        <h1 class="kt-portlet__head-title" style="font-size:1.7rem">
+                                            Billing Invoice
+                                        </h1>
+                                    </div>
+                                </div>
+                                <div class="kt-portlet__body" style="line-height:30px; font-size:1.2rem">
+                                    <div class="container" style="max-width:100%;">
+                                        <div class="kt-invoice-1">
+                                            <div class="kt-invoice__head" style="background-image: url(/assets/media/bg/bg-6.jpg);">
+                                                <div class="kt-invoice__container">
+                                                    <div class="kt-invoice__brand">
+                                                        <h2 class="kt-invoice__title">Invoice</h2>
+                                                        <div href="#" class="kt-invoice__logo">
+                                                            <a href="#"><img src="~/assets/media/logos/auto6.png"></a>
+                                                            <span class="kt-invoice__desc">
+                                                                <span> E-40/1, Shahrah-e-Hazrat Imam Hussain, Block E-1 Gulberg III, Lahore, Punjab 54660</span>
+                                                                <span>+923366312299</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="kt-invoice__items">
+                                                        <div class="kt-invoice__item">
+                                                            <span class="kt-invoice__subtitle">DATE</span>
+                                                            <span class="kt-invoice__text">@Model.OrderDate.ToString("dd-MM-yyyy")</span>
+                                                        </div>
+                                                        <div class="kt-invoice__item">
+                                                            <span class="kt-invoice__subtitle">INVOICE NO.</span>
+                                                            <span class="kt-invoice__text">@Model.OrderId</span>
+                                                        </div>
+                                                        <div class="kt-invoice__item">
+                                                            <span class="kt-invoice__subtitle">INVOICE TO.</span>
+                                                            <span class="kt-invoice__text">@Model.First_Name  @Model.Last_Name</span>
+                                                            <span class="kt-invoice__text">@Model.MobileNumber</span>
+                                                            <span class="kt-invoice__text">@Model.ShippingAddress  @Model.SelectedCity @Model.SelectedProvince</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="kt-invoice__body">
+                                                <div class="kt-invoice__container">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>DESCRIPTION</th>
+                                                                    <th>QUANTITY</th>
+                                                                    <th>PRICE PER UNIT</th>
+                                                                    <th>AMOUNT</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    foreach (var item in Model.orderDetails)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>@item.PartsProductName</td>
+                                                                            <td>@item.Quantity</td>
+                                                                            <td>@item.ProductUnitPrice</td>
+                                                                            @{
+                                                                                var amount = @item.ProductUnitPrice * @item.Quantity;
+                                                                            }
+                                                                            <td>amount</td>
+                                                                        </tr>
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="kt-invoice__footer">
+                                                <div class="kt-invoice__container">
+                                                    <div class="kt-invoice__bank">
+                                                    </div>
+                                                    <div class="kt-invoice__total" style="float:right">
+                                                        <span class="kt-invoice__title">SUB TOTAL </span>
+                                                        <span class="kt-invoice__price">PKR @Model.SubTotal</span>
+                                                        <span class="kt-invoice__title">TAX <sub>16%</sub></span>
+                                                        <span class="kt-invoice__price">PKR @Model.TaxAmount</span>
+                                                        <span class="kt-invoice__title">TOTAL AMOUNT</span>
+                                                        <span class="kt-invoice__price">PKR @Model.TotalAmount</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="kt-invoice__actions">
+                                                <div class="kt-invoice__container">
+                                                    <button type="button" class="btn btn-label-dark btn-bold" onclick="window.print();">Download Invoice</button>
+                                                    <button type="button" class="btn btn-dark btn-bold" onclick="window.print();">Print Invoice</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
