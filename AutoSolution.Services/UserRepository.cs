@@ -71,6 +71,7 @@ namespace AutoSolution.Services
             var CityArea = new CityAreaRepository(new AutoSolutionContext());
             DashboardPersonalInformation ServiceProviderViewModel = new DashboardPersonalInformation()
             {
+
                 First_Name = user.FirstName,
                 Last_Name = user.LastName,
                 Gender = user.Gender,

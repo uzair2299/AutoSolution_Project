@@ -17,5 +17,10 @@ namespace AutoSolution.Controllers
             var model = _unitOfWork.User.GetUser(id);
             return View(model);
         }
+
+        public ActionResult ChangePassword()
+        {
+            return PartialView("_ChangePassword");
+        }
     }
 }

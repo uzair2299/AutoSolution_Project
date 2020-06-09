@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="kt-widget__items">
-                                <a href="/UserProfile" class="kt-widget__item kt-widget__item--active">
+                                <a href="@Url.Action("Index","UserDashboard")" class="kt-widget__item kt-widget__item--active">
                                     <span class="kt-widget__section">
                                         <span class="kt-widget__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -136,7 +136,7 @@
                                         </span>
                                     </span>
                                 </a>
-                                <a href="/ChangePassword" class="kt-widget__item">
+                                <a href="/ChangePassword" class="kt-widget__item" id="ChangePassword">
                                     <span class="kt-widget__section">
                                         <span class="kt-widget__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -153,7 +153,7 @@
                                         </span>
                                     </span>
                                 </a>
-                                <a href="/AccountStatement" class="kt-widget__item">
+                                <a class="kt-widget__item" id="chngePassword">
                                     <span class="kt-widget__section">
                                         <span class="kt-widget__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -198,202 +198,205 @@
 
         <!--End:: App Aside-->
         <!--Begin:: App Content-->
-        <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="kt-portlet">
-                        <div class="kt-portlet__head">
-                            <div class="kt-portlet__head-label">
-                                <h3 class="kt-portlet__head-title">Personal Information <small>update your personal informaiton</small></h3>
+        <div class="kt-container" id="content">
+            <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="kt-portlet">
+                            <div class="kt-portlet__head">
+                                <div class="kt-portlet__head-label">
+                                    <h3 class="kt-portlet__head-title">Personal Information <small>update your personal informaiton</small></h3>
+                                </div>
                             </div>
-                        </div>
-                        <form class="kt-form kt-form--label-right">
-                            <div class="kt-portlet__body">
-                                <div class="kt-section kt-section--first">
-                                    <div class="kt-section__body" style="max-width: 700px; margin:auto;">
-                                        <div class="row">
-                                            <div class="col-lg-12 col-xl-12">
-                                                <div class="form-group row">
-                                                    <label class="col-xl-3 col-lg-3 col-form-label text-left">Profile Image</label>
-                                                    <div class="col-lg-9 col-xl-6">
-                                                        <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_apps_user_add_avatar">
-                                                            <div class="kt-avatar__holder" style="background-image: url(&quot;http://keenthemes.com/metronic/preview/default/custom/user/assets/media/users/300_20.jpg&quot;);"></div>
-                                                            <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
-                                                                <i class="fa fa-pen"></i>
-                                                                <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
-                                                            </label>
-                                                            <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
-                                                                <i class="fa fa-times"></i>
-                                                            </span>
+                            <form class="kt-form kt-form--label-right">
+                                <div class="kt-portlet__body">
+                                    <div class="kt-section kt-section--first">
+                                        <div class="kt-section__body" style="max-width: 700px; margin:auto;">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-xl-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label text-left">Profile Image</label>
+                                                        <div class="col-lg-9 col-xl-6">
+                                                            <div class="kt-avatar kt-avatar--outline kt-avatar--circle-" id="kt_apps_user_add_avatar">
+                                                                <div class="kt-avatar__holder" style="background-image: url(&quot;http://keenthemes.com/metronic/preview/default/custom/user/assets/media/users/300_20.jpg&quot;);"></div>
+                                                                <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Change avatar">
+                                                                    <i class="fa fa-pen"></i>
+                                                                    <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                                                                </label>
+                                                                <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="" data-original-title="Cancel avatar">
+                                                                    <i class="fa fa-times"></i>
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                        @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
-                                                        @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                @*<div class="form-group">
-                    <label class="col-form-label">Date of Birth</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
-                        <input type="date" class="form-control" aria-describedby="basic-addon1">
-                    </div>
-                </div>*@
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group" style="margin-top:5px">
-                                                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "col-form-label" })
-
-                                                    <div class="kt-radio-inline">
-                                                        <label class="kt-radio kt-radio--solid">
-                                                            @Html.RadioButtonFor(model => model.Gender, "Male", new { @name = "Gender" })
-                                                            Male
-                                                            <span></span>
-                                                        </label>
-                                                        <label class=" kt-ml-40 kt-radio kt-radio--solid">
-                                                            @Html.RadioButtonFor(model => model.Gender, "Female", new { @name = "Gender" })
-                                                            Female
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @*<div class="row">
-            <div class="col-lg-12 col-xl-12">
-                <div class="form-group">
-                    <label class="col-form-label">Address 1</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                        <input type="text" class="form-control" aria-describedby="basic-addon1">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-xl-12">
-                <div class="form-group">
-                    <label class="col-form-label">Address 2</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                        <input type="text" class="form-control" aria-describedby="basic-addon1">
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
-                                                        @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvincesList as SelectList, htmlAttributes: new { @class = "form-control" })
-                                                    </div>
-                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedProvince, "", new { @class = "text-danger" })</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-xl-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
-                                                        @Html.DropDownListFor(x => Model.SelectedCity, Model.CitiesList as SelectList, htmlAttributes: new { @class = "form-control" })
-                                                    </div>
-                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCity, "", new { @class = "text-danger" })</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        @if (Model.userRole == "Service Provider")
-                                        {
                                             <div class="row">
                                                 <div class="col-lg-6 col-xl-6">
                                                     <div class="form-group">
-                                                        @Html.LabelFor(model => model.SelectedCityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                                                        @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
                                                         <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
-                                                            </div>
-                                                            @Html.TextBoxFor(model => model.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Select City Area/Town" })
-                                                            @Html.HiddenFor(model => model.SelectedCityAreaId)
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                            @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
                                                         </div>
-                                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCityAreaName, "", new { @class = "text-danger" })</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-xl-6">
-
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                            @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        }
-                                    </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
+                                                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+                                                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-6 col-xl-6">
+                                                    @*<div class="form-group">
+                                                    <label class="col-form-label">Date of Birth</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
+                                                        <input type="date" class="form-control" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>*@
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group" style="margin-top:5px">
+                                                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "col-form-label" })
+
+                                                        <div class="kt-radio-inline">
+                                                            <label class="kt-radio kt-radio--solid">
+                                                                @Html.RadioButtonFor(model => model.Gender, "Male", new { @name = "Gender" })
+                                                                Male
+                                                                <span></span>
+                                                            </label>
+                                                            <label class=" kt-ml-40 kt-radio kt-radio--solid">
+                                                                @Html.RadioButtonFor(model => model.Gender, "Female", new { @name = "Gender" })
+                                                                Female
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*<div class="row">
+                                            <div class="col-lg-12 col-xl-12">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Address 1</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                            <div class="kt-portlet__foot">
-                                <div class="kt-form__actions">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-xl-3">
-                                        </div>
-                                        <div class="col-lg-9 col-xl-9 kt-align-right">
-                                            <button type="reset" class="btn btn-dark">Submit</button>&nbsp;
-                                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-xl-12">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Address 2</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                                                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>*@
+
+                                            <div class="row">
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
+                                                            @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvincesList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                        </div>
+                                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedProvince, "", new { @class = "text-danger" })</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
+                                                            @Html.DropDownListFor(x => Model.SelectedCity, Model.CitiesList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                        </div>
+                                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCity, "", new { @class = "text-danger" })</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @if (Model.userRole == "Service Provider")
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-xl-6">
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(model => model.SelectedCityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                                </div>
+                                                                @Html.TextBoxFor(model => model.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Select City Area/Town" })
+                                                                @Html.HiddenFor(model => model.SelectedCityAreaId)
+                                                            </div>
+                                                            <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCityAreaName, "", new { @class = "text-danger" })</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-xl-6">
+
+                                                    </div>
+                                                </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="kt-portlet__foot">
+                                    <div class="kt-form__actions">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-xl-3">
+                                            </div>
+                                            <div class="col-lg-9 col-xl-9 kt-align-right">
+                                                <button type="reset" class="btn btn-dark">Submit</button>&nbsp;
+                                                <button type="reset" class="btn btn-secondary">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!--End:: App Content-->
     </div>
 </div>
@@ -418,4 +421,22 @@
                 }
             });
      });
+
+
+
+    $("#chngePassword").click(function () {
+        debugger
+        $.ajax({
+                url: '@Url.Action("ChangePassword", "UserDashboard")',
+                type: 'GET',
+            })
+                .done(function (response) {
+                  
+                    $('#content').html("");
+                    $('#content').html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
 </script>
