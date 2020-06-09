@@ -11,6 +11,8 @@ namespace AutoSolution.Services.ViewModel
         public string PartsProductName { get; set; }
         public int Quantity { get; set; }
         public decimal ProductUnitPrice { get; set; }
+        public decimal ItemQuanitiyPrice { get; set; }
+
 
     }
 }

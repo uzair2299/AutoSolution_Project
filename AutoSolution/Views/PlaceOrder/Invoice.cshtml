@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="kt-portlet__body" style="line-height:30px; font-size:1.2rem">
                                     <div class="container" style="max-width:100%;">
-                                        <div class="kt-invoice-1">
+                                        <div class="kt-invoice-1" id="Invoice">
                                             <div class="kt-invoice__head" style="background-image: url(/assets/media/bg/bg-6.jpg);">
                                                 <div class="kt-invoice__container">
                                                     <div class="kt-invoice__brand">
@@ -89,10 +89,7 @@
                                                                             <td>@item.PartsProductName</td>
                                                                             <td>@item.Quantity</td>
                                                                             <td>@item.ProductUnitPrice</td>
-                                                                            @{
-                                                                                var amount = @item.ProductUnitPrice * @item.Quantity;
-                                                                            }
-                                                                            <td>amount</td>
+                                                                            <td>@item.ItemQuanitiyPrice</td>
                                                                         </tr>
                                                                     }
                                                                 }

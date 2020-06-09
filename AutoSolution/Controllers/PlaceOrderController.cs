@@ -112,6 +112,7 @@ namespace AutoSolution.Controllers
                 OrderDetailViewModel orderDetail = new OrderDetailViewModel();
                 orderDetail.PartsProductName = item.PartsProduct.PartsProductName;
                 orderDetail.ProductUnitPrice = item.ProductUnitPrice;
+                orderDetail.ItemQuanitiyPrice = item.ItemQuanitiyPrice;
                 orderDetail.Quantity = item.Quantity;
                 list.Add(orderDetail);
             }

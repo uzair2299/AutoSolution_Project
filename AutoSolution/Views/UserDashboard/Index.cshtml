@@ -1,4 +1,4 @@
-﻿@model AutoSolution.Services.ViewModel.UserDashboardWrapper
+﻿@model AutoSolution.Services.ViewModel.DashboardPersonalInformation
   @{  ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -42,37 +42,48 @@
                                     <div class="kt-widget__username">
                                         @Session["UserName"]
                                     </div>
-                                    <span class="kt-widget__subtitle">
-                                        Shop Name : ABCDE
-                                    </span>
+                                    @if (Model.userRole == "Service Provider")
+                                    {
+                                        <span class="kt-widget__subtitle">
+                                            Shop Name : ABCDE
+                                        </span>
+                                    }
+
                                 </div>
                             </div>
                         </div>
                         <div class="kt-widget__body">
                             <div class="kt-widget__content">
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.Email)</span>
-                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.Email</a>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.Email)</span>
+                                    <span class="kt-widget__data">@Model.Email</span>
                                 </div>
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.MobileNumber)</span>
-                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.MobileNumber</a>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.MobileNumber)</span>
+                                    <span class="kt-widget__data">@Model.MobileNumber</span>
                                 </div>
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.PhoneNumber)</span>
-                                    <a class="kt-widget__data">@Model.ServiceProviderViewModel.PhoneNumber</a>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.PhoneNumber)</span>
+                                    <span class="kt-widget__data">@Model.PhoneNumber</span>
+                                </div>
+
+                                @if (Model.CityArea != null)
+                                {
+                                    <div class="kt-widget__info">
+                                        <span class="kt-widget__label">@Html.DisplayNameFor(x => x.CityArea)</span>
+                                        <span class="kt-widget__data">@Model.CityArea</span>
+                                    </div>
+                                }
+                                <div class="kt-widget__info">
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.City)</span>
+                                    <span class="kt-widget__data">@Model.City</span>
                                 </div>
                                 <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.CityArea)</span>
-                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.CityArea</span>
-                                </div>
-                                <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.City)</span>
-                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.City</span>
-                                </div>
-                                <div class="kt-widget__info">
-                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.ServiceProviderViewModel.RegistrationDate)</span>
-                                    <span class="kt-widget__data">@Model.ServiceProviderViewModel.RegistrationDate</span>
+                                    <span class="kt-widget__label">@Html.DisplayNameFor(x => x.RegistrationDate)</span>
+                                    @{
+                                        DateTime reg = (DateTime)Model.RegistrationDate;
+                                    }
+                                    <span class="kt-widget__data">@reg.ToString("dd-MM-yyyy")</span>
                                 </div>
                             </div>
                             <div class="kt-widget__items">
@@ -199,7 +210,7 @@
                         <form class="kt-form kt-form--label-right">
                             <div class="kt-portlet__body">
                                 <div class="kt-section kt-section--first">
-                                    <div class="kt-section__body" style="max-width: 600px; margin:auto;">
+                                    <div class="kt-section__body" style="max-width: 700px; margin:auto;">
                                         <div class="row">
                                             <div class="col-lg-12 col-xl-12">
                                                 <div class="form-group row">
@@ -216,175 +227,154 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                </div></div>
+                                                </div>
                                             </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">First Name</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                                <input type="text" class="form-control" value="Iqra" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">First Name(Arabic)</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Last Name</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                                <input type="text" class="form-control" value="Hussain" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Last Name(Arabic)</label>
-
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Date of Birth</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
-                                                                <input type="date" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">TAX No.</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-money"></i></span></div>
-                                                                <input type="text" class="form-control" value="123146" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Phone No.</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
-                                                                <input type="tel" class="form-control" value="44(76)34254578" placeholder="Phone" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Mobile No.</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
-                                                                <input type="tel" class="form-control" value="44(76)34254578" placeholder="Mobile" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Email</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                                <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Email" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Secondary Email</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
-                                                                <input type="email" class="form-control" value="iqra.husain@dynovativetech.com" placeholder="Secondary Email" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-xl-12">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Address 1</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-xl-12">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Address 2</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">City</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-signs"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">State</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Country</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-globe"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-xl-6">
-                                                        <div class="form-group">
-                                                            <label class="col-form-label">Post Code</label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-marker"></i></span></div>
-                                                                <input type="text" class="form-control" aria-describedby="basic-addon1">
-                                                            </div>
-                                                        </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.First_Name, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                        @Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control" } })
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Last_Name, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-user"></i></span></div>
+                                                        @Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-mobile"></i></span></div>
+                                                        @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-phone"></i></span></div>
+                                                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xl-6">
+                                                @*<div class="form-group">
+                    <label class="col-form-label">Date of Birth</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-calendar"></i></span></div>
+                        <input type="date" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>*@
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-at"></i></span></div>
+                                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group" style="margin-top:5px">
+                                                    @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "col-form-label" })
+
+                                                    <div class="kt-radio-inline">
+                                                        <label class="kt-radio kt-radio--solid">
+                                                            @Html.RadioButtonFor(model => model.Gender, "Male", new { @name = "Gender" })
+                                                            Male
+                                                            <span></span>
+                                                        </label>
+                                                        <label class=" kt-ml-40 kt-radio kt-radio--solid">
+                                                            @Html.RadioButtonFor(model => model.Gender, "Female", new { @name = "Gender" })
+                                                            Female
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*<div class="row">
+            <div class="col-lg-12 col-xl-12">
+                <div class="form-group">
+                    <label class="col-form-label">Address 1</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-xl-12">
+                <div class="form-group">
+                    <label class="col-form-label">Address 2</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-map-pin"></i></span></div>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SelectedProvince, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
+                                                        @Html.DropDownListFor(x => Model.SelectedProvince, Model.ProvincesList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedProvince, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-6">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SelectedCity, htmlAttributes: new { @class = "col-form-label" })
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="la la-th-large"></i></span></div>
+                                                        @Html.DropDownListFor(x => Model.SelectedCity, Model.CitiesList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                                    </div>
+                                                    <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCity, "", new { @class = "text-danger" })</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @if (Model.userRole == "Service Provider")
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6 col-xl-6">
+                                                    <div class="form-group">
+                                                        @Html.LabelFor(model => model.SelectedCityAreaName, htmlAttributes: new { @class = "col-form-label" })
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                                                            </div>
+                                                            @Html.TextBoxFor(model => model.SelectedCityAreaName, new { @class = "form-control", PlaceHolder = "Select City Area/Town" })
+                                                            @Html.HiddenFor(model => model.SelectedCityAreaId)
+                                                        </div>
+                                                        <span class="form-text text-muted">@Html.ValidationMessageFor(model => model.SelectedCityAreaName, "", new { @class = "text-danger" })</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-xl-6">
+
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
                                         </div>
                                     </div>
                             <div class="kt-portlet__foot">
@@ -404,7 +394,28 @@
                 </div>
             </div>
         </div>
-
         <!--End:: App Content-->
     </div>
 </div>
+<script>
+     $(document).ready(function () {
+         $('#SelectedProvince').change(function () {
+             var selectedProvince = $("#SelectedProvince").val();
+             var selectedCity = $('#SelectedCity');
+                selectedCity.empty();
+                if (selectedProvince != null && selectedProvince != '') {
+                    $.getJSON('@Url.Action("GetCities","Home")', { ProvinceId: selectedProvince }, function (cities) {
+                        if (cities != null && !jQuery.isEmptyObject(cities))
+                        {
+                            $.each(cities, function (index, city) {
+                                selectedCity.append($('<option/>', {
+                                    value: city.Value,
+                                    text: city.Text
+                                }));
+                            });
+                        }
+                    });
+                }
+            });
+     });
+</script>

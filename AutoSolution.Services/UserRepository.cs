@@ -60,30 +60,41 @@ namespace AutoSolution.Services
             return user;
         }
 
-        public UserDashboardWrapper GetUser(int id)
+        public DashboardPersonalInformation GetUser(int id)
         {
             var user = GetByID(id);
            
             RoleRepository roleRepository = new RoleRepository(new AutoSolutionContext());
-            var UserRole = roleRepository.CheckIsUserInRole(user.Email);
-            UserDashboardWrapper userDashboardWrapper = new UserDashboardWrapper() {
-                ServiceProviderViewModel = new ServiceProviderViewModel()
-                {
-                    First_Name = user.FirstName,
-                    Last_Name = user.LastName,
-                    Gender = user.Gender,
-                    DateOfBirth = user.DateOfBirth,
-                    PhoneNumber = user.PhoneNumber,
-                    MobileNumber = user.MobileNumber,
-                    MobileNumber1 = user.MobileNumber1,
-                    Email = user.Email,
-                    SelfAddress = "Dummy",
-                    RegistrationDate = user.RegistrationDate,
-                    CityArea = user.CityArea?.CityAreaName,
-                    City = user.Cities.CityName
-                }
+            var UserRole =roleRepository.CheckIsUserInRole(user.Email);
+            var province = new ProvinceRepository(new AutoSolutionContext());
+            var city = new CityRepository(new AutoSolutionContext());
+            var CityArea = new CityAreaRepository(new AutoSolutionContext());
+            DashboardPersonalInformation ServiceProviderViewModel = new DashboardPersonalInformation()
+            {
+                First_Name = user.FirstName,
+                Last_Name = user.LastName,
+                Gender = user.Gender,
+                userRole = UserRole[0].ToString(),
+                PhoneNumber = user.PhoneNumber,
+                MobileNumber = user.MobileNumber,
+                Email = user.Email,
+                SelfAddress = "Dummy",
+                RegistrationDate = user.RegistrationDate,
+               
+                City = user.Cities.CityName,
+                ProvincesList = province.GetProvincesForHome(),
+                SelectedProvince = user.Cities.Province.ProvinceId.ToString(),
+                CitiesList= city.GetCitiesForHome(user.Cities.Province.ProvinceId.ToString()),
+                SelectedCity=user.CityId.ToString(),
+               
             };
-            return userDashboardWrapper;
+
+            if(UserRole[0]== "Service Provider") { 
+            ServiceProviderViewModel.CityArea = user.CityArea?.CityAreaName;
+            ServiceProviderViewModel.SelectedCityAreaName = user.CityArea.CityAreaName;
+            ServiceProviderViewModel.SelectedCityAreaId = user.CityAreaID.ToString();
+            }
+            return ServiceProviderViewModel;
         }
 
         public ServiceProviderViewModel CreateServiceProvider()

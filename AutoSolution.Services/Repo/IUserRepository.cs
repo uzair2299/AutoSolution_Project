@@ -21,7 +21,7 @@ namespace AutoSolution.Services.Repo
         int GetUsersCount();
         ServiceProviderViewModel CreateServiceProvider();
         ConsumerViewModel CreateConsumer();
-        UserDashboardWrapper GetUser(int id);
+        DashboardPersonalInformation GetUser(int id);
         User CreateConsumer(ConsumerViewModel consumerViewModel);
         //SignInViewModel GetSignInViewModel();
     }

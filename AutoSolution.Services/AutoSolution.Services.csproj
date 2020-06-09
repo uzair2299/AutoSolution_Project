@@ -137,6 +137,7 @@
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />
     <Compile Include="ViewModel\ConsumerWraper.cs" />
     <Compile Include="ViewModel\ConsumerViewModel.cs" />
+    <Compile Include="ViewModel\DashboardPersonalInformation.cs" />
     <Compile Include="ViewModel\FindYourMechanicViewModel.cs" />
     <Compile Include="ViewModel\FindYourPartViewModel.cs" />
     <Compile Include="ViewModel\InnerMostPartViewModel.cs" />
@@ -162,7 +163,6 @@
     <Compile Include="ViewModel\SignInViewModel.cs" />
     <Compile Include="ViewModel\TemplateViewModel.cs" />
     <Compile Include="ViewModel\TransmissionTypeViewModel.cs" />
-    <Compile Include="ViewModel\UserDashboardWrapper.cs" />
     <Compile Include="ViewModel\VehicleEngineTypeViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerAddEditViewModel.cs" />
     <Compile Include="ViewModel\VehicleManufacturerViewModel.cs" />

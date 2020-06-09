@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class demo : DbMigration
+    public partial class newwww : DbMigration
     {
         public override void Up()
         {
