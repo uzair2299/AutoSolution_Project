@@ -71,7 +71,7 @@ namespace AutoSolution.Services
             var CityArea = new CityAreaRepository(new AutoSolutionContext());
             DashboardPersonalInformation ServiceProviderViewModel = new DashboardPersonalInformation()
             {
-
+                UserId=user.UserId,
                 First_Name = user.FirstName,
                 Last_Name = user.LastName,
                 Gender = user.Gender,
@@ -349,23 +349,4 @@ namespace AutoSolution.Services
     }
 
 }
-/*  1-- CreateConsumer
- *  2-- CreateServiceProvider
- *  3-- GetSignInViewModel
- * 
- * 
- * 
- */
-//serviceCategoriesListFor= (from u in AutoSolutionContext.User
-//                                              join usc in AutoSolutionContext.UserServiceCatogories
-//                                              on u.UserId equals usc.UserId
-//                                              join sc in AutoSolutionContext.ServiceCategories
-//                                              on usc.ServiceCategoryId equals sc.ServiceCategoryId
-//                                              where u.UserId == usc.UserId
-//                                              select new ServiceCategoryViewModel()
-//{
-//    ServiceCategoryName = sc.ServiceCategoryName
-//                                               }
-//                                               ).ToList()
-
 

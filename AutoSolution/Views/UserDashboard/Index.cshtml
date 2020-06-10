@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="kt-widget__items">
-                                <a href="@Url.Action("Index","UserDashboard")" class="kt-widget__item kt-widget__item--active">
+                                <a href="@Url.Action("Index","UserDashboard")" class="kt-widget__item">
                                     <span class="kt-widget__section">
                                         <span class="kt-widget__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -115,7 +115,7 @@
                                             </svg>
                                         </span>
                                         <span class="kt-widget__desc">
-                                           Services Information
+                                            Bussiness Information
                                         </span>
                                     </span>
                                 </a>
@@ -153,14 +153,30 @@
                                         </span>
                                     </span>
                                 </a>
-                                <a class="kt-widget__item" id="chngePassword">
+                                <a class="kt-widget__item" id="ManageWishlist" data-id="@Model.UserId">
                                     <span class="kt-widget__section">
                                         <span class="kt-widget__icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24" />
+                                                    <path d="M16.5,4.5 C14.8905,4.5 13.00825,6.32463215 12,7.5 C10.99175,6.32463215 9.1095,4.5 7.5,4.5 C4.651,4.5 3,6.72217984 3,9.55040872 C3,12.6834696 6,16 12,19.5 C18,16 21,12.75 21,9.75 C21,6.92177112 19.349,4.5 16.5,4.5 Z" id="Shape" fill="#000000" fill-rule="nonzero" />
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        <span class="kt-widget__desc">
+                                            Manange Wishlist
+                                        </span>
+                                    </span>
+                                </a>
+                                <a class="kt-widget__item" id="chngePassword">
+                                    <span class="kt-widget__section">
+                                        <span class="kt-widget__icon">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect id="bound" x="0" y="0" width="24" height="24" />
-                                                    <rect id="Rectangle-20" fill="#000000" x="4" y="5" width="16" height="3" rx="1.5" />
-                                                    <path d="M5.5,15 L18.5,15 C19.3284271,15 20,15.6715729 20,16.5 C20,17.3284271 19.3284271,18 18.5,18 L5.5,18 C4.67157288,18 4,17.3284271 4,16.5 C4,15.6715729 4.67157288,15 5.5,15 Z M5.5,10 L12.5,10 C13.3284271,10 14,10.6715729 14,11.5 C14,12.3284271 13.3284271,13 12.5,13 L5.5,13 C4.67157288,13 4,12.3284271 4,11.5 C4,10.6715729 4.67157288,10 5.5,10 Z" id="Combined-Shape" fill="#000000" opacity="0.3" />
+                                                    <polygon id="Path-59" fill="#000000" opacity="0.3" transform="translate(8.885842, 16.114158) rotate(-315.000000) translate(-8.885842, -16.114158) " points="6.89784488 10.6187476 6.76452164 19.4882481 8.88584198 21.6095684 11.0071623 19.4882481 9.59294876 18.0740345 10.9659914 16.7009919 9.55177787 15.2867783 11.0071623 13.8313939 10.8837471 10.6187476" />
+                                                    <path d="M15.9852814,14.9852814 C12.6715729,14.9852814 9.98528137,12.2989899 9.98528137,8.98528137 C9.98528137,5.67157288 12.6715729,2.98528137 15.9852814,2.98528137 C19.2989899,2.98528137 21.9852814,5.67157288 21.9852814,8.98528137 C21.9852814,12.2989899 19.2989899,14.9852814 15.9852814,14.9852814 Z M16.1776695,9.07106781 C17.0060967,9.07106781 17.6776695,8.39949494 17.6776695,7.57106781 C17.6776695,6.74264069 17.0060967,6.07106781 16.1776695,6.07106781 C15.3492424,6.07106781 14.6776695,6.74264069 14.6776695,7.57106781 C14.6776695,8.39949494 15.3492424,9.07106781 16.1776695,9.07106781 Z" id="Combined-Shape" fill="#000000" transform="translate(15.985281, 8.985281) rotate(-315.000000) translate(-15.985281, -8.985281) " />
                                                 </g>
                                             </svg>
                                         </span>
@@ -422,16 +438,32 @@
             });
      });
 
+    $("#ManageWishlist").click(function () {
+        debugger
+        $.ajax({
+                url: '@Url.Action("GetWishList", "UserDashboard")',
+            type: 'GET',
+            data: { id: $(this).attr("data-id")}
+            })
+                .done(function (response) {
 
+                    $('#content').html("");
+                    $('#content').html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
 
     $("#chngePassword").click(function () {
         debugger
         $.ajax({
                 url: '@Url.Action("ChangePassword", "UserDashboard")',
-                type: 'GET',
+            type: 'GET',
+            data: { id: $(this).attr("data-id")}
             })
                 .done(function (response) {
-                  
+
                     $('#content').html("");
                     $('#content').html(response);
                 })

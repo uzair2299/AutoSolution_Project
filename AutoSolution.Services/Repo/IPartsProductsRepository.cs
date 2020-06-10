@@ -17,6 +17,7 @@ namespace AutoSolution.Services.Repo
         PartProductwraperForHome GetPartsProducts(int PageNo, int TotalCount, int id);
         PartsProductsDetailViewModel PartProductDetail(string id);
         PartsProductsViewModel PartProductDetail(int? id,int Quantity);
+        List<PartsProductsViewModel> GetWishlist(int id);
         int GetPartProductCountWRTCategory(string id);
         int GetPartsProductsCount(string SearchTerm);
         bool isExist(string GetVehicleVersion, string SelectedPartProduct);

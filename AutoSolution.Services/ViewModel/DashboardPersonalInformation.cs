@@ -10,6 +10,7 @@ namespace AutoSolution.Services.ViewModel
 {
      public class DashboardPersonalInformation
     {
+        public int UserId { get; set; }
         [Display(Name = "First Name")]
         [StringLength(50)]
         [Required(ErrorMessage = "*First name is required")]

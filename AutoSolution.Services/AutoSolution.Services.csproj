@@ -132,6 +132,7 @@
     <Compile Include="VehicleVersionRepository.cs" />
     <Compile Include="ViewModel\CartWrapper.cs" />
     <Compile Include="ViewModel\ChangePassword.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\CityAreaViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceCategoryViewModel.cs" />
     <Compile Include="ViewModel\CityProvinceViewModel.cs" />

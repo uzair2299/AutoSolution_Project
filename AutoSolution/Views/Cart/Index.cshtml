@@ -17,24 +17,3 @@
 </div>
 
 
-@*<script>
-    $(".RemoveFromCart").click(function () {
-        alert("hello");
-        debugger
-        $.ajax({
-            type: "GET",
-            datatype: "json",
-            url: '@Url.Action("RemoveFromCart", "Cart")',
-            data: {
-                id:$(this).attr("data-id")
-            }
-            })
-            .done(function (response) {
-                $('#ViewCart').html("");
-                $('#ViewCart').html(response);
-            })
-                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("FAIL");
-                });
- });
-</script>*@

@@ -7155,6 +7155,7 @@
     <Content Include="Views\PlaceOrder\Shipment.cshtml" />
     <Content Include="Views\PlaceOrder\Invoice.cshtml" />
     <Content Include="Views\UserDashboard\_ChangePassword.cshtml" />
+    <Content Include="Views\UserDashboard\_GetWishList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

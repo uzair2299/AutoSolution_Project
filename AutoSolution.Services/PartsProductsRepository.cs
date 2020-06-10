@@ -223,6 +223,27 @@ namespace AutoSolution.Services
             return PartsProductsViewModel;
         }
 
+        public List<PartsProductsViewModel> GetWishlist(int id)
+        {
+            var itemlist = (from WishList in AutoSolutionContext.WishLists
+                           join parts in AutoSolutionContext.PartsProducts
+                           on WishList.PartsProductId equals parts.PartsProductId
+                           where WishList.UserId == id
+                           select new PartsProductsViewModel
+                           {
+                               PartsProductId = parts.PartsProductId,
+                               PartsProductName = parts.PartsProductName,
+                               startYear=parts.startYear,
+                               EndYear=parts.EndYear,
+                               UnitPrice=parts.UnitPrice,
+                               VehicleManufacturerName=parts.VehicleManufacturer.VehicleManufacturerName,
+                               VehicleModelName=parts.VehicleModel.VehicleModelName,
+                               PartsProductCategoryName=parts.PartsProductsSubCategory.PartsProductsCategory.PartsProductsCategoryName,
+                               PartsProductSubCategoryName=parts.PartsProductsSubCategory.PartsProductsSubCategoryName
+                           }).ToList();
+            return itemlist;
+        }
+
         public AutoSolutionContext AutoSolutionContext
         {
             get { return Context as AutoSolutionContext; }

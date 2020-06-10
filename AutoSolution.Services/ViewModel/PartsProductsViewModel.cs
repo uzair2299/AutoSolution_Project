@@ -63,13 +63,7 @@ namespace AutoSolution.Services.ViewModel
         public IEnumerable<SelectListItem> VehicleModelList { get; set; }
 
 
-        //[Display(Name = "Select Engine Type")]
-        //public string SelectedEngineType { get; set; }
-        //public IEnumerable<SelectListItem> EngineTypeList { get; set; }
-
-        //[Display(Name = "Select Transmission Type")]
-        //public string SelectedTransmissionType { get; set; }
-        //public IEnumerable<SelectListItem> TransmissionTypeList { get; set; }
+       
 
 
 
