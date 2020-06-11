@@ -63,5 +63,33 @@ namespace AutoSolution.Controllers
         }
 
 
+        public ActionResult RemoveFromWishList(int id)
+        {
+            if(id>0 && Session["UserId"] != null)
+            {
+                int userid = Convert.ToInt32(Session["UserId"]);
+                _unitOfWork.PartsProducts.RemoveFromWishList(userid, id);
+                _unitOfWork.Complete();
+                _unitOfWork.Dispose();
+              return RedirectToAction("GetWishList", new { id= userid });
+            }
+                return Json(false, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult RemoveAllFromWishList()
+        {
+            if (Session["UserId"] != null)
+            {
+                int userid = Convert.ToInt32(Session["UserId"]);
+                _unitOfWork.PartsProducts.RemoveAllFromWishList(userid);
+                _unitOfWork.Complete();
+                _unitOfWork.Dispose();
+                return RedirectToAction("GetWishList", new { id = userid });
+            }
+            return Json(false, JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

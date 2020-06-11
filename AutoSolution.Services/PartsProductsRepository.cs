@@ -244,6 +244,20 @@ namespace AutoSolution.Services
             return itemlist;
         }
 
+        public void RemoveFromWishList(int UserId,int PartProductId)
+        {
+           WishList item=  AutoSolutionContext.WishLists.Where(wl => wl.UserId == UserId && wl.PartsProductId == PartProductId).FirstOrDefault();
+           AutoSolutionContext.WishLists.Remove(item);
+        }
+
+
+        public void RemoveAllFromWishList(int UserId)
+        {
+            List<WishList> item = AutoSolutionContext.WishLists.Where(wl => wl.UserId == UserId).ToList();
+            AutoSolutionContext.WishLists.RemoveRange(item);
+          
+        }
+
         public AutoSolutionContext AutoSolutionContext
         {
             get { return Context as AutoSolutionContext; }

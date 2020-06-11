@@ -19,104 +19,60 @@
                                             <h3 class="kt-mycart__title">My Wishlist</h3>
                                         </div>
                                         <div class="kt-mycart__button">
-                                            <button type="button" class="btn btn-success btn-sm" style=" ">@Model.Count()</button>
+                                            <button type="button" class="btn btn-success btn-sm" style=" ">@Model.Count() Items</button>
                                         </div>
                                     </div>
                                     <div class="kt-mycart__body kt-scroll ps ps--active-y">
-                                        @foreach (var item in Model)
-                                        {
-                                            <div class="kt-mycart__item">
-                                                <div class="kt-mycart__container">
+                                        @{
+                                            if (Model.Count > 0)
+                                            {
+                                                foreach (var item in Model)
+                                                {
+                                                    <div class="kt-mycart__item">
+                                                        <div class="kt-mycart__container">
 
-                                                    <div class="kt-mycart__info">
-                                                        <a href="#" class="kt-mycart__title">
-                                                            @item.PartsProductName for @item.PartsProductManuName @item.VehicleModelName (@item.startYear to @item.EndYear)
-                                                        </a>
-                                                        <span class="kt-mycart__desc">
-                                                            @item.PartsProductSubCategoryName @item.PartsProductSubCategoryName
-                                                        </span>
-                                                        <div class="kt-mycart__action">
-                                                            <span class="kt-mycart__price">$ 450</span>
-                                                        </div>
-                                                        <div class="kt-mt-10">
-                                                            <button type="button" class="btn btn-outline-dark btn-sm btn-elevate btn-icon kt-mr-5"><i class="fa fa-eye"></i></button>
-                                                            <button type="button" class="btn btn-outline-dark btn-sm btn-elevate btn-icon kt-mr-5"><i class="fa fa-shopping-basket"></i></button>
-                                                            <button type="button" class="btn btn-outline-danger btn-sm btn-elevate btn-icon kt-mr-5"><i class="fa fa-trash-alt"></i></button>
+                                                            <div class="kt-mycart__info">
+                                                                <a href="#" class="kt-mycart__title">
+                                                                    @item.PartsProductName for @item.VehicleManufacturerName @item.VehicleModelName
+                                                                    @if (item.startYear != 0)
+                                                                    {
+                                                                        @item.startYear
+                                                                    }
+                                                                    @if (item.EndYear != 0)
+                                                                    {
+                                                                        @:to @item.EndYear
+                                                                    }
+                                                                </a>
+                                                                <span class="kt-mycart__desc">
+                                                                    @item.PartsProductCategoryName @item.PartsProductSubCategoryName
+                                                                </span>
+                                                                <div class="kt-mycart__action">
+                                                                    <span class="kt-mycart__price">$ 450</span>
+                                                                </div>
+                                                                <div class="kt-mt-10">
+                                                                    <a href="@Url.Action("PartProductDetail","GetPartProduct",new { id=item.PartsProductId})" target="_blank" class="btn btn-outline-dark btn-sm btn-elevate btn-icon kt-mr-5"><i class="fa fa-eye"></i></a>
+                                                                    <button type="button" class=" AddToCartFromWishList btn btn-outline-dark btn-sm btn-elevate btn-icon kt-mr-5" data-id="@item.PartsProductId"><i class="fa fa-shopping-basket"></i></button>
+                                                                    <button type="button" class=" RemoveFromWishList btn btn-outline-danger btn-sm btn-elevate btn-icon kt-mr-5" data-id="@item.PartsProductId"><i class="fa fa-trash-alt"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <a href="#" class="kt-mycart__pic">
+                                                                <img src="/assets/media/products/product9.jpg" title="">
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <a href="#" class="kt-mycart__pic">
-                                                        <img src="/assets/media/products/product9.jpg" title="">
-                                                    </a>
-                                                </div>
-                                            </div>
+                                                }
                                             }
-                                            @*<div class="kt-mycart__item">
-                                                <div class="kt-mycart__container">
-                                                    <div class="kt-mycart__info">
-                                                        <a href="#" class="kt-mycart__title">
-                                                            Panasonic
-                                                        </a>
-                                                        <span class="kt-mycart__desc">
-                                                            For PHoto &amp; Others
-                                                        </span>
-                                                        <div class="kt-mycart__action">
-                                                            <span class="kt-mycart__price">$ 329</span>
-                                                            <span class="kt-mycart__text">for</span>
-                                                            <span class="kt-mycart__quantity">1</span>
-                                                            <a href="#" class="btn btn-label-success btn-icon">−</a>
-                                                            <a href="#" class="btn btn-label-success btn-icon">+</a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="kt-mycart__pic">
-                                                        <img src="/assets/media/products/product13.jpg" title="">
-                                                    </a>
+                                            else
+                                            {
+
+                                                <div class="alert alert-dark kt-mt-20" role="alert">
+                                                    <div class="alert-icon"><i class="flaticon-light"></i></div>
+                                                    <div class="alert-text"><h5>There is no item in wishlist </h5></div>
                                                 </div>
-                                            </div>
-                                            <div class="kt-mycart__item">
-                                                <div class="kt-mycart__container">
-                                                    <div class="kt-mycart__info">
-                                                        <a href="#" class="kt-mycart__title">
-                                                            Fujifilm
-                                                        </a>
-                                                        <span class="kt-mycart__desc">
-                                                            Profile info, Timeline etc
-                                                        </span>
-                                                        <div class="kt-mycart__action">
-                                                            <span class="kt-mycart__price">$ 520</span>
-                                                            <span class="kt-mycart__text">for</span>
-                                                            <span class="kt-mycart__quantity">6</span>
-                                                            <a href="#" class="btn btn-label-success btn-icon">−</a>
-                                                            <a href="#" class="btn btn-label-success btn-icon">+</a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="kt-mycart__pic">
-                                                        <img src="/assets/media/products/product16.jpg" title="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="kt-mycart__item">
-                                                <div class="kt-mycart__container">
-                                                    <div class="kt-mycart__info">
-                                                        <a href="#" class="kt-mycart__title">
-                                                            Candy Machine
-                                                        </a>
-                                                        <span class="kt-mycart__desc">
-                                                            For PHoto &amp; Others
-                                                        </span>
-                                                        <div class="kt-mycart__action">
-                                                            <span class="kt-mycart__price">$ 784</span>
-                                                            <span class="kt-mycart__text">for</span>
-                                                            <span class="kt-mycart__quantity">4</span>
-                                                            <a href="#" class="btn btn-label-success btn-icon">−</a>
-                                                            <a href="#" class="btn btn-label-success btn-icon">+</a>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="kt-mycart__pic">
-                                                        <img src="/assets/media/products/product15.jpg" title="" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>*@
-                                        </div>
+                                            }
+                                        }
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +83,7 @@
                                 <div class="col-lg-3 col-xl-3">
                                 </div>
                                 <div class="col-lg-9 col-xl-9 kt-align-right">
-                                    <button type="reset" class="btn btn-dark">Clear Wishlist</button>&nbsp;
+                                    <button type="reset" class="btn btn-dark RemoveAllFromWishList">Clear Wishlist</button>&nbsp;
                                     <button type="reset" class="btn btn-secondary">Cancel</button>
                                 </div>
                             </div>
@@ -140,3 +96,73 @@
 </div>
 
 
+<script>
+
+    $(".RemoveFromWishList").click(function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("RemoveFromWishList", "UserDashboard")',
+            data: {
+                id: $(this).attr("data-id"),
+            }
+            })
+            .done(function (response) {
+                if (typeof response == 'object') {
+                    Swal.fire({
+                        text: 'Opps. . . Some Thing Went Wrong',
+                    })
+                } else {
+
+                    $('#content').html("");
+                    $('#content').html(response);
+                    Swal.fire({
+                        text: 'Remove Successfully',
+                    })
+                }
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
+
+    $(".RemoveAllFromWishList").click(function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Action("RemoveAllFromWishList", "UserDashboard")',
+            })
+            .done(function (response) {
+                if (typeof response == 'object') {
+                    Swal.fire({
+                        text: 'Opps. . . Some Thing Went Wrong',
+                    })
+                } else {
+
+                    $('#content').html("");
+                    $('#content').html(response);
+                    Swal.fire({
+                        text: 'Remove Successfully',
+                    })
+                }
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
+
+    $("#ManageWishlist").click(function () {
+        debugger
+        $.ajax({
+                url: '@Url.Action("GetWishList", "UserDashboard")',
+            type: 'GET',
+            data: { id: $(this).attr("data-id")}
+            })
+                .done(function (response) {
+
+                    $('#content').html("");
+                    $('#content').html(response);
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("FAIL");
+                });
+    });
+</script>

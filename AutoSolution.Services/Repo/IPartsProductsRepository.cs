@@ -18,6 +18,8 @@ namespace AutoSolution.Services.Repo
         PartsProductsDetailViewModel PartProductDetail(string id);
         PartsProductsViewModel PartProductDetail(int? id,int Quantity);
         List<PartsProductsViewModel> GetWishlist(int id);
+        void RemoveFromWishList(int UserId, int PartProductId);
+        void RemoveAllFromWishList(int UserId);
         int GetPartProductCountWRTCategory(string id);
         int GetPartsProductsCount(string SearchTerm);
         bool isExist(string GetVehicleVersion, string SelectedPartProduct);
